@@ -1,0 +1,1405 @@
+<{>
+Name: 			A Beacon of Hope<;>
+Quantity: 		3<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	Its presence inspired the best in them.<;>
+Rule Text A: 	<{>
+					Each natural 10 you roll during this battle deals 2 hits (instead of 1).<;>
+				<}>
+Play Text: 		At the start of a battle involving your Flagship.<;>
+Rule Text B: 	<{>
+					If not playing with the Flagships option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			A Mighty Empire<;>
+Quantity: 		2<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	We can afford the research.<;>
+Rule Text A: 	<{>
+					Reduce the cost of the Race-Specific Technology by 1 for each victory point you have.<;>
+				<}>
+Play Text: 		When purchasing 1 of your Race-Specific Technologies.<;>
+Rule Text B: 	<{>
+					If not playing with the Race-Specific Technologies option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Advanced Reinforcements<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	We will hold this planet, men, even if it costs us our lives!<;>
+Rule Text A: 	<{>
+					Place 2 Ground Forces or 1 Shock Troop on any one planet you control.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Alien Technology<;>
+Quantity: 		1<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	We don't know what happened to the crew of this floating derelict, but we're sure that the technology it contains is from another galaxy.<;>
+Rule Text A: 	<{>
+					You may immediately spend 4 resources to receive one Technology advance (for which you have the necessary prerequisites). This cost cannot be reduced.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Armistice<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Soldiers make poor diplomats. Let us speak of peace between our peoples!"<;>
+Rule Text A: 	<{>
+					Choose an opponent and a planet you control. The chosen opponent cannot invade the chosen planet this round.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Bribery<;>
+Quantity: 		1<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Money never influences the votes in the Galactic Council.<;>
+Rule Text A: 	<{>
+					You may add one additional vote to your total for each Trade Good you spend.<;>
+				<}>
+Play Text: 		Immediately after all players have voted on an Agenda.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Chemical Warfare<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your forces have secretly procured a few ancient canisters of Exterrix gas from a forgotten weapons cache.<;>
+Rule Text A: 	<{>
+					If you have a Dreadnought in a system containing an enemy-controlled planet, play this card to destroy half of the defending Ground Forces (round up). Chemical Warfare bypasses enemy PDS.<;>
+				<}>
+Play Text: 		Immediately before an Invasion Combat.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Civil Defense<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your population works overtime to defend their beloved planet.<;>
+Rule Text A: 	<{>
+					Place two free PDS units on any planet you control that does not already have a PDS unit.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Collect Bounty<;>
+Quantity: 		2<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"Our secret technology is now on the black market thanks to Barudin the defector! Bring us the fool's head and we'll drown you in riches."<;>
+Rule Text A: 	<{>
+					Gain 5 Trade Goods.<;>
+				<}>
+Play Text: 		After you destroy an enemy Mercenary in battle.<;>
+Rule Text B: 	<{>
+					If not playing with the Mercenaries option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Command Summit<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your High Command meets to coordinate strategy and reexamine crucial policies.<;>
+Rule Text A: 	<{>
+					Receive two Command Counters and put them in your Command Pool.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Communications Breakdown<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Gamma squadron, come in!<;>
+Rule Text A: 	<{>
+					No players may play Action Cards until the end of the battle (except the Sabotage Action Card).<;>
+				<}>
+Play Text: 		Immediately before a Space Battle in which you are participating.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Corporate Sponsorship<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	A mysterious benefactor has volunteered to finance certain aspects of your empire's research programs.<;>
+Rule Text A: 	<{>
+					You may purchase a Green Technology for 4 fewer resources.<;>
+				<}>
+Play Text: 		Immediately before purchasing a new Technology.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Council Disbanded<;>
+Quantity: 		1<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	There are rumors of a bomb in the Council Hall, and the councilors are running for their lives. Rumors: such a subtle weapon.<;>
+Rule Text A: 	<{>
+					Cancel the primary and secondary ability of the Political or Assembly Strategy Card.<;>
+				<}>
+Play Text: 		Immediately after a player executes the primary ability of the Political or Assembly Strategy Card.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Council Dissolved<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	There are rumors of a bomb in the Council Hall, and the senators are running for their lives. Rumors: such a subtle weapon...<;>
+Rule Text A: 	<{>
+					The player who chose the Political Strategy does not draw a Political Card.<;>
+				<}>
+Play Text: 		Immediately after a player executes the primary ability of the Political Strategy card.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Counter<;>
+Quantity: 		1<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	One whom enters my quarters with murder in mind, best have put his house in order.<;>
+Rule Text A: 	<{>
+					Kill the Spy who targeted your Bodyguard.<;>
+				<}>
+Play Text: 		After your Bodyguard is targeted by a Spy.<;>
+Rule Text B: 	<{>
+					If not playing with the Galactic Senate option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Courageous to the End<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	At the end of your life, will you cower and fade or will you stand for what you believe in?<;>
+Rule Text A: 	<{>
+					Roll 2 dice. For each roll equal to or greater than your ship's combat value, your opponent must immediately take one casualty. You may use this card even if your ship should not receive return fire.<;>
+				<}>
+Play Text: 		Immediately after one of your ships is destroyed.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Cultural Crisis<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We have lost our way! As a people, we no longer know who we are!"<;>
+Rule Text A: 	<{>
+					Choose a player (the chosen player may be yourself). That player loses all racial special abilities this round, both advantages and disadvantages.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Determine Policy<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	The other races reluctantly grant you the speaker's chair for an entire  session.<;>
+Rule Text A: 	<{>
+					Choose any agenda from the Political Deck, from the discarded Political Cards, or from the current laws in play. The Council must now vote on this agenda rather than draw a new political card.<;>
+					If you choose an agenda from the Political Deck, shuffle the deck.<;>
+				<}>
+Play Text: 		Immediately before a Political Card is drawn.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Diplomatic Immunity<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your diplomatic corps stalls your enemies, giving you precious time to prepare.<;>
+Rule Text A: 	<{>
+					Choose a system in which you have at least one spaceship. Only you may activate the chosen system this turn.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Direct Hit<;>
+Quantity: 		4<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Precision targeting on a structural weakness of the enemy's warship initiates a catastrophic chain reaction.<;>
+Rule Text A: 	<{>
+					Destroy an opponent's damaged ship.<;>
+				<}>
+Play Text: 		Immediately after the ship has been damaged in a Space Battle in which you are participating.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Disclosure<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	In a bold political move, you force your opponent to reveal his secrets.<;>
+Rule Text A: 	<{>
+					Look at all of an opponent's Action Cards. Then choose and discard one of them.<;>
+				<}>
+Play Text: 		At any time.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Discredit<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Sometimes mysterious funds are found in the accounts of senators. Mysterious indeed!<;>
+Rule Text A: 	<{>
+					Change another player's vote to "abstain," even if the Political Card is an "Elect" vote.<;>
+				<}>
+Play Text: 		Immediately after another player casts a vote during the resolution of a Political Card.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Dug In<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your Ground Forces have entrenched, fortified, and prepared for the worst.<;>
+Rule Text A: 	<{>
+					Choose a planet. Your Ground Forces on that planet are immune to planetary bombardment this round.<;>
+				<}>
+Play Text: 		Immediately before bombardment.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Emergency Repairs<;>
+Quantity: 		2<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your expert engineers conduct extensive field repairs on your damaged capital ships.<;>
+Rule Text A: 	<{>
+					Choose a system. Immediately repair all of your Dreadnoughts and War Suns in the chosen system.<;>
+				<}>
+Play Text: 		At any time.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Enhanced Armor<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Sensing the winds of war, you upgrade your ships with temporary armor plating.<;>
+Rule Text A: 	<{>
+					Until the end of the round, your Cruisers gain the "sustain damage" ability.<;>
+				<}>
+Play Text: 		As an Action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Equipment Sabotage<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	For the right price, mercenary agents will blow up just about anything.<;>
+Rule Text A: 	<{>
+					Destroy up to 2 PDS units on the planet of your choice.<;>
+				<}>
+Play Text: 		As an Action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Experimental Battlestation<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	You equip your space dock with revolutionary, if short-lived, defensive weapon systems.<;>
+Rule Text A: 	<{>
+					Choose one Space Dock. That Space Dock can immediately fire three times at an enemy fleet in range as if the Space Dock were one of your PDS units.<;>
+				<}>
+Play Text: 		After an opponent has activated a system and moved any ships into the system.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Experimental Weaponry<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	You charge your Mag Blast Cannon and pray for the best.<;>
+Rule Text A: 	<{>
+					Until the end of the combat round, all hits from your Dreadnoughts and War Suns may not be applied to Fighters (unless there are no other ships present).<;>
+				<}>
+Play Text: 		Immediately before any round of combat.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Fantastic Rhetoric<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	One of your diplomats delivers a strong, moving speech.<;>
+Rule Text A: 	<{>
+					You gain 10 additional influence for one vote.<;>
+				<}>
+Play Text: 		Immediately before you vote on the resolution of a Political Card.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Faulty Targeting Systems<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Even the best-laid plans can go awry.<;>
+Rule Text A: 	<{>
+					Cancel a Minelayers Action Card or discard 1 Space Mine in any system or force one opponent to reroll one of his PDS rolls.<;>
+				<}>
+Play Text: 		At any time.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Fighter Prototype<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Experimental weapon systems grant your fighters surprising, if temporary, firepower.<;>
+Rule Text A: 	<{>
+					Choose a system. All of your fighters in that system receive +2 on all combat rolls for one combat round.<;>
+				<}>
+Play Text: 		Immediately before a Space Battle.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			First Strike<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Seize your advantage and go for the throat. If that is not possible, then go for your adversary's equivalent body part.<;>
+Rule Text A: 	<{>
+					You may take your first action of the Action Phase before the player with the lowest initiative number. Then resume order of play as normal.<;>
+				<}>
+Play Text: 		Immediately after the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Flank Speed<;>
+Quantity: 		4<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	The admiral orders all available ships to a critical system.<;>
+Rule Text A: 	<{>
+					Choose a system you have just activated with a Command Counter. Increase the movement of all ships moving to that system by 1.<;>
+				<}>
+Play Text: 		Immediately after activating a system with a Command Counter.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Flanking Tactic<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	They came from behind...<;>
+Rule Text A: 	<{>
+					Your opponent may not retreat from the battle (regardless of Special Abilities or Action Cards that would allow a retreat).<;>
+				<}>
+Play Text: 		Immediately before a Space Battle in which you are participating.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Flawless Strategy<;>
+Quantity: 		1<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Make no mistake, to let no mistakes be made.<;>
+Rule Text A: 	<{>
+					You may execute the primary ability of any Strategy Card not chosen during this Strategy Phase. Each other player may then execute the card's secondary ability as usual.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+					In a 4- or 8-player game, discard this card and draw a new Action Card.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Focused Research<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	You insist that it can be done and allocate additional funds to the laboratories.<;>
+Rule Text A: 	<{>
+					Spend six resources to ignore one prerequisite Technology requirement in the tech tree.<;>
+				<}>
+Play Text: 		Immediately before purchasing a Technology that requires another single Technology that you do not possess.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Friendly Fire<;>
+Quantity: 		4<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	A fighter screen can sometimes soak up as much of your own fire as it does enemy fire.<;>
+Rule Text A: 	<{>
+					If your opponent has more Fighters than non-Fighter ships in this system, he must immediately lose half of his Fighters here (rounded down).<;>
+				<}>
+Play Text: 		Immediately before a Space Battle that you are participating in.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Geomagnetic Mines<;>
+Quantity: 		2<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	Our only chance is to cripple their firepower.<;>
+Rule Text A: 	<{>
+					Destroy 1 enemy Mechanized Unit.<;>
+				<}>
+Play Text: 		At the start of a battle involving an enemy Mechanized Unit.<;>
+Rule Text B: 	<{>
+					If not playing with the Mechanized Units option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Ghost Ship<;>
+Quantity: 		1<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"Commander, we've got an unidentified vessel in the sector. It looks like one of ours!"<;>
+Rule Text A: 	<{>
+					Place a free Destroyer in any non-Home system that contains a Wormhole and no enemy ships.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Good Year<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	The business climates of your most productive conglomerates have soared.<;>
+Rule Text A: 	<{>
+					Receive one Trade Good for each planet you control outside your Home System.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Grand Armada<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We shall amass the greatest fleet the galaxy has ever witnessed!"<;>
+Rule Text A: 	<{>
+					There is no Fleet Supply limit for your ships in your Home System this round. At the end of the Status Phase, you must remove any ships that exceed your normal Fleet Supply limit.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Hired Gun<;>
+Quantity: 		2<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	These outsiders to their own people will do practically anything, if the price is right.<;>
+Rule Text A: 	<{>
+					Recruit the top card of the Mercenary deck.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+					If not playing with the Mercenaries option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			In the Silence of Space<;>
+Quantity: 		3<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	A skilled admiral maneuvers one of your fleets undetected through enemy space.<;>
+Rule Text A: 	<{>
+					Choose one of your fleets. All ships in that fleet with a movement of 2 or more can pass through, but not stop in, a system occupied by enemy ships during this activation.<;>
+				<}>
+Play Text: 		Immediately after activating a system with a Command Counter.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Influence in the Merchants' Guild<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	A healthy bribe convinces the Merchants' Guild to boycott all trade with your enemies.<;>
+Rule Text A: 	<{>
+					Break one trade agreement in play.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Insubordination<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"No officer worth his stripes could follow orders such as these!"<;>
+Rule Text A: 	<{>
+					Remove one Command Counter from the Command Pool of one opponent.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Into the Breach<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	The great heroism and sacrifice of your flagship's crew inspires the rest of your fleet.<;>
+Rule Text A: 	<{>
+					Choose on Dreadnought. All ships in the fleet containing that Dreadnought receive +1 on all combat rolls for the remainder of the battle. The first two hits against your fleet must be applied to the chosen Dreadnought.<;>
+				<}>
+Play Text: 		Immediately before any Space Battle begins.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Local Unrest<;>
+Quantity: 		4<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your rival's policies have driven the local populace into rebellion!<;>
+Rule Text A: 	<{>
+					Choose a planet in a non-Home system. Exhaust that planet and destroy on Ground Force on it, if able. If there are no Ground Forces left on the planet, it reverts to neutral status.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Lucky Shot<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	A stray fighter manages to hit an enemy capital ship with its bridge shields down.<;>
+Rule Text A: 	<{>
+					Destroy one enemy Dreadnought, Cruiser, or Destroyer currently in a system containing a planet under your control.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Massive Transport<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Engineers mastermind the movement of an entire civilian community and production center.<;>
+Rule Text A: 	<{>
+					You may immediately move one of your existing Space Docks to another friendly planet. A route that does not contain enemy ships must exist between the two planets.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Master of Fate<;>
+Quantity: 		1<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	We know that they are only puppets, but we don't know who is pulling their strings.<;>
+Rule Text A: 	<{>
+					Draw a number of Action Cards equal to the number of players. You may look at them and distribute one of them to each player. Players will receive 1 fewer Action Card during this Status Phase.<;>
+				<}>
+Play Text: 		During the Status Phase, immediately before any players have drawn Action Cards.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Master of Trade<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	The Merchants' Guild endorses your political regime.<;>
+Rule Text A: 	<{>
+					Play only if you have two trade agreements. Choose and refresh up to two of your exhausted planets.<;>
+				<}>
+Play Text: 		At any time.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Military Foresight<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Eyeing your aging fleet, you think of the progress that's been made on your new, more powerful flagshp, and smile.<;>
+Rule Text A: 	<{>
+					Place the destroyed ship on this card. At the start of the next Status Phase, place this ship at any one of your Space Docks (for free) and discard this card. If you do not have any Space Docks on the board during the Status Phase, the ship is discarded.<;>
+				<}>
+Play Text: 		After one of your ships is lost in a Space Battle.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Minelayers<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Anticipating an invasion, you seed a crucial system with deep-space mines.<;>
+Rule Text A: 	<{>
+					Choose a system containing one of your fleets. Each of your Cruisers in the system inflicts one automatic hit before the first round of a Space Battle.<;>
+				<}>
+Play Text: 		Immediately after an enemy fleet enters the system.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Miraculous Recovery<;>
+Quantity: 		2<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	The reports of my death have been greatly exaggerated.<;>
+Rule Text A: 	<{>
+					Return 1 of your killed Representatives to your hand.<;>
+				<}>
+Play Text: 		As an action. If not playing with the Political Intrigue option, spend this card as if it were 1 Trade Good.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Moment of Triumph<;>
+Quantity: 		1<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	A horrible weapon of terror is now space dust. The galaxy cheers as news spreads of your victory.<;>
+Rule Text A: 	<{>
+					Gain 1 victory point.<;>
+				<}>
+Play Text: 		After you destroy an enemy Flagship or War Sun in battle.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Morale Boost<;>
+Quantity: 		5<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Before the battle, you make an impassioned speech to your brave soldiers from the safety of your palace.<;>
+Rule Text A: 	<{>
+					For one combat round (not an entire battle), all of your units receive +1 on all combat rolls.<;>
+				<}>
+Play Text: 		Immediately before any Space Battle or Invasion Combat round.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Moving Speech<;>
+Quantity: 		3<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	Members of the Council, I ask you to put aside your differences and vote for the good of the galaxy.<;>
+Rule Text A: 	<{>
+					Only Councilors may vote on this agenda.<;>
+				<}>
+Play Text: 		After all Representatives have been revealed.<;>
+Rule Text B: 	<{>
+					If not playing with the Political Intrigue option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Multiculturalism<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We have much to learn from our neighbors in the galaxy. A diverse empire is a strong empire!"<;>
+Rule Text A: 	<{>
+					Choose one racial special ability possessed by one of your opponents. You gain that special ability this round.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Opening the Black Box<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your military scientists have reverse-engineered a piece of Lazax weaponry, and the results are astounding!<;>
+Rule Text A: 	<{>
+					All your red planets grant a tech credit of 2 (rather than 1) when you purchase a red Technology.<;>
+				<}>
+Play Text: 		Immediately before purchasing a Technology.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Overrun<;>
+Quantity: 		3<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	Show them no mercy!<;>
+Rule Text A: 	<{>
+					Destroy 1 enemy Ground Force.<;>
+				<}>
+Play Text: 		At the start of a battle involving 1 of your Mechanized Units.<;>
+Rule Text B: 	<{>
+					If not playing with the Mechanized Units option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Paralyzing Serum<;>
+Quantity: 		3<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	A few drops, applied to a glove, can make a handshake quite terminal...<;>
+Rule Text A: 	<{>
+					Assassinate 1 enemy Representative participating in this Council.<;>
+				<}>
+Play Text: 		After you reveal a Spy Representative Card.<;>
+Rule Text B: 	<{>
+					If not playing with the Political Intrigue option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Patrol<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Increased activity on your borders necessitates increased deep-space security.<;>
+Rule Text A: 	<{>
+					Move up to two Cruisers or Destroyers in an activated system to an empty, adjacent system or systems. Then place Command Counters from your reinforcements in those systems.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Plague<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	A terrible illness spreads through your opponent's troops.<;>
+Rule Text A: 	<{>
+					Choose a planet your opponent controls. Roll a die for each Ground Force unit on that planet. If the number rolled is even, that unit is destroyed. Your opponent retains control of the planet even if all of his Ground Forces are destroyed.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Policy Paralysis<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your rival's council is deadlocked and the policy-making machinery of his government grinds to a halt.<;>
+Rule Text A: 	<{>
+					Choose an opponent. That opponent may not participate in the secondary ability of the currently active Strategy Card.<;>
+				<}>
+Play Text: 		Immediately after the primary ability of a Strategy Card is resolved.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Political Stability<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Stay the course!<;>
+Rule Text A: 	<{>
+					Keep your current Strategy Card instead of relinquishing it at the end of the game round. You do not select a new Strategy Card during the Strategy Phase of the upcoming round.<;>
+					You cannot play this card if you chose the Imperial or the Initiative Strategy card this round.<;>
+				<}>
+Play Text: 		During the Status Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Press Charges<;>
+Quantity: 		2<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	It's quite clear this act was made with complete disrespect to the signed accords.<;>
+Rule Text A: 	<{>
+					Each player who chose a Spy may not vote on this agenda.<;>
+				<}>
+Play Text: 		After your Representative is targeted by a Spy.<;>
+Rule Text B: 	<{>
+					If not playing with the Political Intrigue option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Privateers<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Ruthless pirates prey upon your rival's vulnerable merchant fleets.<;>
+Rule Text A: 	<{>
+					Choose an opponent. Take all Trade Goods from that opponent's Trade Goods area. Place half of them (round down) in your Trade Goods area and discard the rest.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Productivity Spike<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	You pour resources and your brightest minds into the industrial output of one planet.<;>
+Rule Text A: 	<{>
+					Choose one of your Space Docks. The production capacity of that Space Dock increases by a number equal to its planet's influence this round.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Public Disgrace<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your covert smear campaign forces a prominent leader to resign amid rumors of scandal and corruption.<;>
+Rule Text A: 	<{>
+					After a player has chosen a Strategy Card, play this card to force the player to return that Strategy Card and choose a different one.<;>
+				<}>
+Play Text: 		Immediately after a player has chosen a Strategy Card.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Rally of the People<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your people rally against the threat that your enemies pose. Your shipyards are working overtime.<;>
+Rule Text A: 	<{>
+					Receive one Dreadnought in your Home System.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Rare Mineral<;>
+Quantity: 		3<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Upon taking another minor system under your protection, your scientists find rich deposits of a rare and precious mineral.<;>
+Rule Text A: 	<{>
+					Receive three Trade Goods.<;>
+				<}>
+Play Text: 		Immediately after successfully invading a neutral planet.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Recheck<;>
+Quantity: 		4<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Information received is suspicious, confirmation required.<;>
+Rule Text A: 	<{>
+					Force any one combat die to be re-rolled.<;>
+				<}>
+Play Text: 		Immediately after you or an opponent has rolled a die during a Space Battle or Invasion Combat in which you are participating.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Reparations<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Political pressure in the Council allows you to exact financial revenge for your enemy's aggression.<;>
+Rule Text A: 	<{>
+					Choose and exhaust a planet controlled by an opponent who has just taken control of a planet from you. Then choose and refresh one of your planets with an equal or lesser resource value.<;>
+				<}>
+Play Text: 		Immediately after you lose control of a planet to an opponent.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Rise of a Messiah<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	A local religious leader supports your growing empire.<;>
+Rule Text A: 	<{>
+					Receive one Ground Force unit on each planet that you control.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Ruinous Tariffs<;>
+Quantity: 		1<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	These imports are destroying our native industries!<;>
+Rule Text A: 	<{>
+					Choose a player with whom you have a trade agreement. That player must give you half of the Trade Goods in his Trade Goods area (round up).<;>
+				<}>
+Play Text: 		Immediately after the chosen player receives Trade Goods from his active trade agreements.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Rule by Terror<;>
+Quantity: 		1<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	You are outmanned and outgunned. If you surrender, we will spare your lives.<;>
+Rule Text A: 	<{>
+					If you have a War Sun or 2 Dreadnoughts present, then your opponent must either immediately retreat (if able) or immediately take 2 casualties.<;>
+				<}>
+Play Text: 		Immediately before a Space Battle in which you are participating.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Sabotage<;>
+Quantity: 		5<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your opponent was so sure of his final success, but you and your infiltrators knew better!<;>
+Rule Text A: 	<{>
+					Play this card to cancel the effect of any Action Card just played, then discard both cards. This card cannot cancel the effects of another Sabotage card.<;>
+				<}>
+Play Text: 		Immediately after another player plays an Action Card.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Scientist Assassination<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your secret service successfully assassinates an enemy scientist.<;>
+Rule Text A: 	<{>
+					Choose a player. That player cannot acquire or purchase Technology this turn.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Secret Industrial Agent<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Sympathetic saboteurs place a bomb in the graviton generator of your enemy's spacedock.<;>
+Rule Text A: 	<{>
+					Destroy any one Space Dock that is not in a Home System.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Send Proxy<;>
+Quantity: 		3<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	Yes, his death was sad indeed. The paperwork? Oh yes, here is where he declares me his legal proxy.<;>
+Rule Text A: 	<{>
+					You may vote in this Council even though your Representative was killed.<;>
+				<}>
+Play Text: 		After 1 of your Representatives is killed.<;>
+Rule Text B: 	<{>
+					If not playing with the Political Intrigue option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Shields Holding<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We cant take another hit like that, Captain!"<;>
+Rule Text A: 	<{>
+					Cancel up to two hits during one round of a Space Battle in which you participate.<;>
+				<}>
+Play Text: 		Immediately after your opponent has rolled all combat dice and before you have removed casualties.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Signal Jamming<;>
+Quantity: 		4<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	One of your hidden spy ships manages to place a vicious virus in an enemy communications transfer relay.<;>
+Rule Text A: 	<{>
+					Choose a non-Home system. Take a Command Counter from any other player's reinforcements and place it on the chosen system.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Skilled Retreat<;>
+Quantity: 		4<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	A skilled admiral navigates your defending fleet out of danger.<;>
+Rule Text A: 	<{>
+					Choose one of your fleets that is participating in a Space Battle. Place a Command Counter from your reinforcements in a friendly or empty unactivated system adjacent to that fleet. Move the chosen fleet into that system.<;>
+				<}>
+Play Text: 		Before any round of a Space Battle.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Spacedock Accident<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	A "terrible accident" befalls your opponent.<;>
+Rule Text A: 	<{>
+					Choose a Space Dock in a non-Home system. The owner of the Space Dock may not build units at the chosen Space Dock this round.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Star of Death<;>
+Quantity: 		1<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	Your War Sun's primary weapon scours all life from an enemy planet.<;>
+Rule Text A: 	<{>
+					Choose a planet in a system containing 1 of your War Suns. Destroy every Ground Force, PDS, Space Dock, Mechanized Unit, Leader, and Mercenary on the planet. Then place a radiation Domain Counter on the planet and revert the planet to neutral status.<;>
+				<}>
+Play Text: 		Immediately before the Planetary Landing segment of the Tactical Action sequence.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Stellar Criminals<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Smuggler lords of the galactic underworld manipulate your enemy's taxation computers.<;>
+Rule Text A: 	<{>
+					Choose an opponent. That opponent must choose and exhaust half of his unexhausted planets (round down).<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Strategic Bombardment<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We have the planet on scope, sir. Powering up the main energy array!"<;>
+Rule Text A: 	<{>
+					Play only if you have a War Sun in a system containing one or more planets controlled by an opponent. Exhaust those planets. Then roll a die. On a result of 1-5, discard this card as normal. On a result of 6+,  return this card to your hand.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Strategic Flexibility<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	It is not too late to turn aside from this disastrous course!<;>
+Rule Text A: 	<{>
+					Play this card to return the Strategy Card you have chosen and replace it with one of the remaining Strategy Cards.<;>
+				<}>
+Play Text: 		During the Strategy Phase after all players have chosen their Strategy Cards, but before Bonus Counters have been placed on the unchosen Strategy Cards.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Strategic Planning<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Courage, strategy, and ruthlessness are the cornerstones of this galaxy.<;>
+Rule Text A: 	<{>
+					You do not have to pay Command Counters from your Strategy Allocation area in order to execute the secondary ability of Strategy Cards for the remainder of the game round.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Strategic Shift<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Changing circumstances dictate different strategies.<;>
+Rule Text A: 	<{>
+					Choose one Strategy Card. No player may choose that Strategy Card this round.<;>
+				<}>
+Play Text: 		During the Strategy Phase, before the first player chooses a Strategy Card.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Successful Spy<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	One of your agents successfully steals state secrets from one of your odorous opponents.<;>
+Rule Text A: 	<{>
+					Take two random Action Cards from one opponent.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Surprise Assault<;>
+Quantity: 		1<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Unknown to their occupiers, the captives were secretly building a war fleet to once again claim their independence.<;>
+Rule Text A: 	<{>
+					Immediately after (optionally) moving ships into the system, you may build at your blockaded Space Dock(s). A Space Battle is then initiated.<;>
+				<}>
+Play Text: 		After activating a system containing one of your blockaded Space Docks.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Synchronicity<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Fortune and providence have given you the perfect opportunity!<;>
+Rule Text A: 	<{>
+					Search the Action Card deck, choose on Action Card, and put it into your hand. Then shuffle the deck.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Target Their Flagship!<;>
+Quantity: 		2<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	At least we can take a few of them down with us!<;>
+Rule Text A: 	<{>
+					Choose one of your ships and target one opposing ship. Roll 1 die. If the roll is equal to or greater than your ship's combat value, the target ship is immediately hit (and does not receive return fire). Your ship does not roll during the first round of combat.<;>
+				<}>
+Play Text: 		Immediately before a Space Battle.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Tech Bubble<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	One technological advance drives another.<;>
+Rule Text A: 	<{>
+					Play only if you chose the Technology Strategy this round. After executing the primary ability of the Technology Strategy, you may spend one Command Counter from your Strategy Allocation to also execute the secondary ability this round. You must pay the normal cost for the Technology you purchase using this card.<;>
+				<}>
+Play Text: 		Immediately after executing the primary ability of the Technology Strategy.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Temporary Stability<;>
+Quantity: 		1<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	Let order tie the hands of chaos.<;>
+Rule Text A: 	<{>
+					Players may not play any Action Cards until the next Status Phase (except the Sabotage Action Card). Any player may discard 3 Action Cards from his hand at any time to cancel this card.<;>
+				<}>
+Play Text: 		During the Strategy Phase, before any players have chosen their Strategy Cards.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			The Hand that Takes<;>
+Quantity: 		2<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	Those who don't pay are often not heard from again.<;>
+Rule Text A: 	<{>
+					Destroy any 1 unit in a Mercenary's system.<;>
+				<}>
+Play Text: 		After a player fails to pay a Trade Good for the Mercenary.<;>
+Rule Text B: 	<{>
+					If not playing with the Mercenaries option, spend this card as if it were 1 Trade Good.<;>
+				<}>
+<}>
+
+<{>
+Name: 			Thugs<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	You are able to convince an enemy senator to be somewhere else during this vote.<;>
+Rule Text A: 	<{>
+					Choose a player. That player may not participate in the vote on a Political Card for the remainder of this round.<;>
+				<}>
+Play Text: 		Immediately after the text of a Political Card has been read and before the first vote is cast.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Touch of Genius<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	You wake one morning with an idea that is simply... brilliant!<;>
+Rule Text A: 	<{>
+					Spend three influence to duplicate the effects of any other Action Card in the discard pile.<;>
+				<}>
+Play Text: 		At the time specified by the card being duplicated.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Trade Stop<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	You use your connections to create chaos in the Merchants' Guild.<;>
+Rule Text A: 	<{>
+					Break all trade agreements in play, including your own.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Transport<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	New resources allow you to quickly reallocate a vital planetary garrison.<;>
+Rule Text A: 	<{>
+					Choose a planet you control. You may move up to three Ground Forces from the chosen planet to another planet you control. A route that does not contain enemy ships must exist between these two planets.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Unexpected Action<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"This is a bold plan. Our enemies will never see it coming!"<;>
+Rule Text A: 	<{>
+					Remove one of your Command Counters from the board and place it with your reinforcements.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Uprising<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your agents succeed in stirring up insurrection in your enemy's territory.<;>
+Rule Text A: 	<{>
+					Choose one non-Home system. Exhaust each planet in that system, if able.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Usurper<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"So long as this council convenes on my planet, it will hear my words!"<;>
+Rule Text A: 	<{>
+					Play only if you control Mecatol Rex. Place this card on the Mecatol Rex system. While this card is in play, you gain votes equal to twice the influence value of Mecatol Rex (instead of its normal influence value) even if it is exhausted. Discard this card from play if you lose control of Mecatol Rex.<;>
+				<}>
+Play Text: 		During the Strategy Phase.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Veto<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	The agenda before you is utterly unacceptable to your people. You manage to find an obscure loophole and have the agenda dismissed.<;>
+Rule Text A: 	<{>
+					Discard the current agenda. The active player must draw another Political Card.<;>
+				<}>
+Play Text: 		After a Political Card is read and before any player has voted on its resolution.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			Voluntary Annexation<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	Your immediate neighbors are enthralled by your impressive governmental system.<;>
+Rule Text A: 	<{>
+					Choose any neutral planet in a system adjacent to a system containing a planet you control. Place three free Ground Forces there. You now control this planet.<;>
+				<}>
+Play Text: 		As an action.<;>
+Rule Text B: 	<{>
+				<}>
+<}>
+
+<{>
+Name: 			War Footing<;>
+Quantity: 		1<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"The time for diplomacy is over! Now is the time for war!"<;>
+Rule Text A: 	<{>
+					Choose one system. Your Fleet Supply limit in that system is increased by two for the rest of this game round. At the end of the Status Phase, you must remove any ships that exceed your normal Fleet Supply limit. Play: As an action.<;>
+				<}>
+Play Text: 		<;>
+Rule Text B: 	<{>
+				<}>
+<}>

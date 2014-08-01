@@ -1,0 +1,142 @@
+<{>
+Full Name: 			The Naalu Collective<;>
+Short Name: 		Naalu<;>
+Species Name: 		Naalu<;>
+Expansion: 			Vanilla<;>
+History:			<{>
+					It was not until the middle of the Twilight Wars that the Naalu civilization made itself known to the rest of the galaxy. Their system, dominated by the white start Mallac, had remained suspiciously undetected by the empire, despite being surrounded by wealthy systems whose recorded history predates even the Lazax. After a period of sheer astonishment, stellar cartographers and historians began suspecting manipulation by the Naalu themselves. After researching old records, investigators found a remarkably high number of missing ship incidents in that sector and an even more incriminating number of ships found stranded in space, their crews suffering from deep-space memory loss. Some scientists (the most vociferous of whom has died amidst questionable circumstances) have indicated that records exist indicating a great number of Yssaril ships passing into Mallac's area of space, but no records of any derelict or amnesic Yssaril crews have ever been recorded. The Naalu, it was later discovered to the horror of their neighbors, are highly telepathic and armed with technology and weapons that redirect, manipulate, or damage the neuron impulses guiding the brains of all major known races.<;>
+					A secret prior relationship between the Yssaril Guild of Spies and the mind-bending Naalu goes a long way in explaining how the Naalu, a seemingly isolated civilization claiming no prior contact with the rest of the galaxy, developed premium civilian and military technology similar, and in some cases superior, to the rest of the galaxy.<;>
+					Soon after the appearance of the Naalu, several of the great races, seeing the potential of a powerful new ally in the empire's midst, sought to win their allegiance. After learning of the Naalu's telepathic power, however, and after witnessing the strange arrogance of the beautiful Naalu, many quickly retrieved their envoys and diplomats in a healthy fear of the mind-reading serpentine race.<;>
+					Despite originating on the dank and nondescript planet Maaluk, the Naalu have taken the breathtakingly beautiful Druaa as their home world. Most Naalu will scoff at any mention of their Maaluk heritage, and recent Naalu generations often seek to contest even hard scientific evidence which indicate that their proud, stoic race originated from any planet other than the scenic Druaa - especially the stinking bogs and mist-plans of Maaluk.<;>
+					The Druaa seldom communicate with each other by speaking. Their telepathic communication is more effective, facilitates emotional as well as intelligent understanding, and has allowed the collective to prevent larger internal wars, which in turn has spurred their rapid advance in culture, technology (assisted by the Yssaril), and the creation of the Naalu fleet and military might. Unless speaking to off-worlders, the Naalu use their voices only for their music - hauntingly alluring arias of melodic hissing.<;>
+					The Naalu have kept the pristine beauty of their crystal cities and Druaa's environment intact by locating most of their heavy industries on Maaluk. These industries are manned by the Miashan, a low-sentient marshland race enslaved by the Naalu to work in the great iron-extraction plants, underground gas mines, and on the thousands of rodent farms. Raw materials are promptly shipped to Druaa, stored in massive underground warehouses, and distributed to the Druaa cities by airborne gliders.<;>
+					The leader of the Naalu collective is always female, as most Naalu leaders and off-world representatives are female. For the last decade, the tall red-scaled Q'uesh Sish has ruled the collective from her palace in the shining crystal city of Eershin. The beautiful, sleek spaceships of the Naalu patrol Mallac's outer borders, while Naalu troops train and muster on Druaa's two moons. With her Nefishh, a rare crystal radium device, Q'uesh sees the minds of the other races. She smiles at the knowledge, and with her, the collective Naalu leaders smile, sensing the knowledge n her mind and relishing the sweet poison of her thoughts. The great plan of the collective is about to take its final shape. Long have the Naalu observed the chaos and ugliness of the other races from a distance. The time nears that the beauty of Druaa will grow beyond the borders of Mallac. The time now nears when the rest of the galaxy will know the tranquility, order, and the true beauty of the Naalu. The rest of the galaxy will submit to that beauty... or be destroyed.<;>
+					<}>
+Special Abilities:	<{>
+					The initiative number on your chosen Strategy Card is always "0" (replacing the normal initiative number of the Strategy Card). This means that you are always first in the order of play.<;>
+					If attacked, a Naalu fleet may retreat before the beginning of the Space Battle step of the Tactical Action sequence (following the normal retreat rules and restrictions).<;>
+					All Naalu Fighters receive +1 on combat rolls during Space Battles.<;>
+					<}>
+Trade Contracts:	<{>
+					1<;>
+					2<;>
+					<}>
+Home Systems:		<{>
+							<{>
+							Name:		The Naalu Collective Home System<;>
+							Type:		Standard<;>
+							Planets:	<{>
+													<{>
+													Name:		Druaa<;>
+													Text:		Despite its oversized poles, one of the most beautiful planets. Its flowered steppes, violet mountains, and glowing forests are famous across the galaxy.<;>
+													Resources:	3<;>
+													Influence:	1<;>
+													<}>
+													<{>
+													Name:		Maaluuk<;>
+													Text:		Mostly pungent marshland and mudplains. Original world of the Naalu race, which now enslaves the winged Miashan to work its great iron-extraction plants.<;>
+													Resources:	0<;>
+													Influence:	2<;>
+													<}>
+										<}>
+							<}>
+					<}>
+Starting Units:		<{>
+							<{>
+										Unit:		Destroyer<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Cruiser<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		PDS<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Space Dock<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Fighters<;>
+										Quantity:	4<;>
+							<}>
+							<{>
+										Unit:		Carrier<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Ground Forces<;>
+										Quantity:	4<;>
+							<}>
+					<}>
+Starting Techs:		<{>
+							Antimass Deflectors<;>
+							Enviro Compensator<;>
+					<}>
+Leaders:			<{>
+							<{>
+										Name:		M'aban<;>
+										Type		Admiral<;>
+							<}>
+							<{>
+										Name:		T'elsa<;>
+										Type		Agent<;>
+							<}>
+							<{>
+										Name:		Z'eu<;>
+										Type		Diplomat<;>
+							<}>
+					<}>
+Racial Techs:		<{>
+							<{>
+										Name:		Hybrid Crystal Drives<;>
+										Expansion:	Shards of the Throne<;>
+										Cost:		3<;>
+										Text:		Your Carriers and unsupported Advanced Fighters each only count as 1/2 a ship (rounded up) towards the Fleet Supply.<;>
+							<}>
+							<{>
+										Name:		Telepathic Mind Weapon<;>
+										Expansion:	Shattered Empire<;>
+										Cost:		5<;>
+										Text:		When your opponent activates a system that you control, he immediately loses 1 Command Counter from the Fleet Supply area of his race sheet.<;>
+							<}>
+					<}>
+Flagship:			<{>
+							Name:					Matriarch<;>
+							Abilities:	<{>
+													Sustain Damage<;>
+										<}>
+							Text:		Your Fleet Supply limit in this system is increased by 3.<;>
+							Cost:		9<;>
+							Battle:		8<;>
+							Multiplier:	2<;>
+					<}>
+Representatives:	<{>
+							<{>
+										Name:		S'srool D'amil<;>
+										Votes:		0<;>
+										Types:		<{>
+																Bodyguard<;>
+													<}>
+										Text:		If a Spy attempts to assassinate this Representative, instead assassinate the Spy.<;>
+							<}>
+							<{>
+										Name:		S'sruuk G'ella<;>
+										Votes:		4<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		Gain +2 votes if you are voting "For."<;>
+							<}>
+							<{>
+										Name:		S'sruuk H'eyra<;>
+										Votes:		2<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		If you vote the same as the current player, he must give you a Promissory Note (if he has not already this round).<;>
+							<}>
+					<}>
+<}>

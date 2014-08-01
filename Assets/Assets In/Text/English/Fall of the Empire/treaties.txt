@@ -1,0 +1,23 @@
+Common Foe
+I tell you true, they are developing horrible weapons that will lead us to the destruction of us all!
+You also win the game if the <%race%> player fulfills his objective.
+Attack the player to the left of the <%race%>
+2
+
+Freedom Fighters
+For far too long has the power of the corrupt empire grown unchecked. United against them, we can create a better galaxy.
+You also win the game if the <%race%> player fulfills his objective
+Attack the Lazax
+4
+
+Partners in War
+Their race is weak and needs our strong leadership values to flourish to its full potential.
+You also win the game if the <%race%> player fulfills his objective.
+Attack the player to the right of the <%race%>
+3
+
+Peace Treaty
+In order for both of our civilizations to flourish, we must be sure to not fight amongst ourselves.
+You also win the game if the <%race%> player fulfills his objective.
+Don't attack the <%race%>
+1

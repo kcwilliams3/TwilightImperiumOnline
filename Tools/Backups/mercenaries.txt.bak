@@ -1,0 +1,78 @@
+52N6
+Sustain Damage
+At the start of a battle, you may choose 1 Technology. The enemy cannot use that Technology during this battle.
+7,7,2
+
+Barudin
+Evasion (6)
+Your cost to purchase Technology is reduced by 1.
+6,8,3
+
+Blake Stryker
+Evasion (5)
+When you win a Space Battle in which this Mercenary participated, gain 1 Trade Good.
+5,7,2
+
+Daffren
+Evasion (7)
+At the end of the Strategy Phase, you may give this Mercenary to another player to trade Strategy Cards with that player. Limit once per round.
+9x2,8,2
+
+Felrey
+Evasion (7)
+At the start of a battle, draw 1 Action Card.
+5,6,3
+
+Hep'kuk
+Evasion (7)
+When this Mercenary would be destroyed, you may instead destroy a friendly Fighter in this system.
+6,7,3
+
+Kav'lik
+Evasion (8)
+At the start of a battle, destroy 1 enemy Fighter or Ground Force.
+5,5,2
+
+Krevvil
+Evasion (6)
+At the start of a battle, you may deal 1 hit to a particpating enemy Mercenary or ship of your choice.
+6,6,2
+
+Murrag
+Evasion (6)
+When this Mercenary is destroyed, you may assign 1 hit to any 1 unit participating in this battle.
+6,5,2
+
+Nolad
+Evasion (7), Capacity (1)
+6x2,6,2
+
+R'una
+Evasion (4)
+During each round of a Space Battle, reduce the number of hits scored by your opponent by 1 (to a minimum of 1).
+5,9,2
+
+Rhelat
+Evasion (6)
+This Mercenary can be used as a PDS unit when on a planet.
+8,7,3
+
+Sara Crane
+Evasion (7)
+Your cost to purchase Command Counters from Strategy Cards is reduced by 1.
+6,6,3
+
+Saygra
+Evasion (5)
+At the start of a battle, you may spend 1 Trade Good to build a Ground Force or Fighter in this system. It will participate in this battle.
+7,7,2
+
+T'ugar
+Evasion (6)
+At the start of a battle, you may look at your opponent's hand of Action Cards and choose 1 to discard.
+6,7,2
+
+Urrsik
+Evasion (6)
+This Mercenary may move through systems containing enemy ships.
+5,7,3

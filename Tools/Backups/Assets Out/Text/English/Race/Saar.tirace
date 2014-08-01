@@ -1,0 +1,141 @@
+<{>
+Full Name: 			The Clan of Saar<;>
+Short Name: 		Saar<;>
+Species Name: 		Saar<;>
+Expansion: 			Shattered Empire<;>
+History:			<{>
+					Few historians dispute that the Saar were the first of the known races to venture into space, but it remains unknown whether it was need or curiosity that drove the otherwise primitive people into such exploration. Their peaceful ways and dispersed civilization never promulgated them to official Lazax recognition. Some scholars have thus called them "the forgotten race."<;>
+					The tale of the Saar is a tragic one. Historical records are awash with accounts of deliberate planetary expulsions, even massacres, of Saar settlements found on planets colonized by the other races.<;>
+					The musical Saar often chant the "Lay of Lisis" in memory of the largest known Saar colony prior to Ragh's call. After the planet of Lisis was annexed by the Sardakk N'orr, no word came from the great Saar settlement there again. They simply disappeared. In their memory, most Saar females wear a carefully carved silver pendant called the Y'ouf Lisis, or the "Tear of Lisis." During the Houw Shanan, the Saar Holy Day, such pendants are given to young Saar women, while Saar cubs throw beetles and insects into a raging fire and the elder howl at the stars with a longing rage.<;>
+					Before the Call began, the Saar were scattered across the galaxy, existing at the mercy of other races. On dozens of worlds, Saar could be found living in slums and sublevel cities, working in the most noxious and despicable industries, and making slim sustenance from the scraps of other civilizations. Considered unclean and barely sentient by other races, Saar life was cheap and subject to little justice. With hard work, polluted environments, and no access to proper medical care, the bitter lives of the Saar were often short.<;>
+					It was in the hopeless middle period of the Dark Years that a single Saar, Ragh Gavar, would forever change the destiny of his people.<;>
+					Ragh made his living as the captain of an old scrap metal freighter that flew between Xxehan and Sol, a route that had been in his family for centuries. Despite being a capable trader, Ragh's passion lay in poetry and the imagination of the pen, in the creation of succinct writings of hope, scrawled on paper scraps during long trade hauls. At his ports of call, other Saar would often congregate before his loading doors so that they might hear his latest verses and tales. Many of his listeners began to call him the "Captain of Hope."<;>
+					Yet one year, Ragh did not arrive at his destination. His rusty navigation system had finally failed, and Ragh's ship was lost among the stars. Floating in unknown space, as his ancestors had once done so bravely before him, Ragh prayed that the One Between the Stars would see him and his small crew home.<;>
+					The Call began a few years after Ragh Gavar's disappearance. Throughout the great expanses of the galaxy, every Saar began to feel within himself an unyielding longing for the stars, and especially for a certain distant place beyond known space.<;>
+					Early followers of the Call found its origin in the great asteroid field of Jorun, and here found a small but blossoming Saar colony on the two gigantic asteroids of Ragh and Lisis II. As the Call continued, Saar brethren from across the galaxy continued to arrive at Jorun, together building the infrastructure of civilization and hope for a lost race.<;>
+					Years before, Ragh's ship had crashed in the Jorun. Miraculously, he and his crew had survived, and with great wonder they soon discovered the mineral richness, frozen water, atmospheric caverns, and strange fauna that lay hidden within the endless ocean of rock.<;>
+					Yet Ragh was restless in his new home. It is told that the Captain awoke one night from a dream and then bade his crewmates farewell, disappearing into the great network of caverns that lies within the asteroid named after him. Ragh Gavar was never found or heard from again. But less than a month after his disappearance, the Call began.<;>
+					Saar mystics believe that the Captain of Hope has joined the One Between the Stars, and that he at last won forgiveness for the Saar, and has called them to relieve their suffering. They believe that Ragh's Call has brought them home, that the life-giving rocks surrounding them are the remnants of the ancient Saar planet of origin, and that even in death it is giving its people a second life.<;>
+					For centuries the unified and passionate Saar people have built a formidable home and civilization in the Jorun asteroid field. The Saar have finally found home, and they have found that they are strong.<;>
+					<}>
+Special Abilities:	<{>
+					Gain 1 Trade Good every time you acquire a new planet.<;>
+					Your Space Docks have a movement of 1, but may not build during the same activation in which they move. Your Space Docks are never placed on planets and have a production capacity of 4. Your Space Docks are destroyed if ever present with an opponent's ship without any of your ships present.<;>
+					You may fulfill Objectives even if you don't control your Home System.<;>
+					<}>
+Trade Contracts:	<{>
+					1<;>
+					2<;>
+					<}>
+Home Systems:		<{>
+							<{>
+							Name:		The Clan of Saar Home System<;>
+							Type:		Standard<;>
+							Planets:	<{>
+													<{>
+													Name:		Lisis II<;>
+													Text:		The crystal caverns of Lisis II are the source of most of the Jorun colonists' water and foodstuffs. Notable for the great crescent-shaped valley of Gavar.<;>
+													Resources:	1<;>
+													Influence:	0<;>
+													<}>
+													<{>
+													Name:		Ragh<;>
+													Text:		The capital colony of the Saar, and the epicenter of the Saar religion. Also called "Ragh's Call" by the Saar.<;>
+													Resources:	2<;>
+													Influence:	1<;>
+													<}>
+										<}>
+							<}>
+					<}>
+Starting Units:		<{>
+							<{>
+										Unit:		Space Dock<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Fighters<;>
+										Quantity:	2<;>
+							<}>
+							<{>
+										Unit:		Cruiser<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Ground Forces<;>
+										Quantity:	4<;>
+							<}>
+							<{>
+										Unit:		Carriers<;>
+										Quantity:	2<;>
+							<}>
+					<}>
+Starting Techs:		<{>
+							Antimass Deflectors<;>
+							XRD Transporter<;>
+					<}>
+Leaders:			<{>
+							<{>
+										Name:		Mauob<;>
+										Type		General<;>
+							<}>
+							<{>
+										Name:		Mendosa<;>
+										Type		Admiral<;>
+							<}>
+							<{>
+										Name:		Rowl<;>
+										Type		Agent<;>
+							<}>
+					<}>
+Racial Techs:		<{>
+							<{>
+										Name:		Chaos-Mapping<;>
+										Expansion:	Shards of the Throne<;>
+										Cost:		2<;>
+										Text:		You may activate Asteroid Field systems. Your Fleet Supply limit in Asteroid Field systems is 3 (which cannot be modified).<;>
+							<}>
+							<{>
+										Name:		Floating Factory<;>
+										Expansion:	Shattered Empire<;>
+										Cost:		3<;>
+										Text:		Your Space Docks have a production capacity of 5, a fighter capacity of 5, and receive +1 movement.<;>
+							<}>
+					<}>
+Flagship:			<{>
+							Name:					Son of Ragh<;>
+							Abilities:	<{>
+													Sustain Damage<;>
+										<}>
+							Text:		This ship rolls 4 dice for your anti-Fighter barrage.<;>
+							Cost:		10<;>
+							Battle:		6<;>
+							Multiplier:	3<;>
+					<}>
+Representatives:	<{>
+							<{>
+										Name:		Elder Gurno<;>
+										Votes:		0<;>
+										Types:		<{>
+																Spy<;>
+																 Bodyguard<;>
+													<}>
+										Text:		Choose an unrevealed Representative. He may not choose your Representative with any of his abilities.<;>
+							<}>
+							<{>
+										Name:		Elder Sarrig<;>
+										Votes:		4<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		Gain +3 votes if you are the Speaker.<;>
+							<}>
+							<{>
+										Name:		Melkov<;>
+										Votes:		2<;>
+										Types:		<{>
+																Spy<;>
+													<}>
+										Text:		Choose an outcome. Gain 1 Trade Good (from the supply) for each player who votes this way.<;>
+							<}>
+					<}>
+<}>

@@ -1,0 +1,84 @@
+The L1z1x Mindnet
+2RAM, Diplomat 
+A6, Agent
+I48S, Scientist
+
+The Nekro Virus
+Acidos, General
+Flayesh, Agent
+Malleon, Admiral
+
+The Emirates of Hacan
+Carth, Scientist
+Gila, Diplomat
+Harrugh, General
+
+The Barony of Letnev
+Ciel, Diplomat
+Farran, General
+Unlenn, Admiral
+
+Federation of Sol
+Connor, Agent
+DeLouis, Admiral
+Rev, Diplomat
+
+The Yin Brotherhood
+Dahla, Diplomat
+Milor, Agent
+Omar, General
+
+The Embers of Muaat
+Emnor, Scientist
+Magmus, Diplomat
+Umbat, General
+
+The Mentak Coalition
+Havvat, Admiral
+Kilik, Agent
+Suffi, Diplomat
+
+The Xxcha Kingdom
+Junn, Diplomat
+Neekuaq, Admiral
+Qanoj, Diplomat
+
+The Winnu
+Kelsa, Scientist
+Rickar, Admiral
+Sela, Agent
+
+The Naalu Collective
+M'aban, Admiral
+T'elsa, Agent
+Z'eu, Diplomat
+
+The Clan of Saar
+Mauob, General
+Mendosa, Admiral
+Rowl, Agent
+
+The Ghosts of Creuss
+Meian, Scientist
+Nerio, Admiral
+Taivra, Diplomat
+
+The Arborec
+Ospha, General
+Phama, Admiral
+Rophal, Diplomat
+
+Universities of Jol Nar
+Rin, Scientist
+Rin, Admiral
+Sucaban, Scientist
+
+Sardakk N'orr
+Sek'kus, General
+Sh'val, General
+T'ro, Admiral
+
+The Yssaril Tribes
+Sskril, Admiral
+Ssruu, Agent
+Thilinn, Agent

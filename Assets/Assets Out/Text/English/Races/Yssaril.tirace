@@ -1,0 +1,138 @@
+<{>
+Full Name: 			The Yssaril Tribes<;>
+Short Name: 		Yssaril<;>
+Species Name: 		Yssaril<;>
+Expansion: 			Vanilla<;>
+History:			<{>
+					Near the Mahact Plateau, diagonally opposite the Passage of Tears, but located in a far richer area of the region, shines the Myock star and its two habitable planets, Shalloq and Retillion. As recorded in even the earliest annals, Retillion has been known for the edible delicious menn root. Throughout the Lazax Imperium, many farming colonies existed on Retillion, harvesting the roots along the musky and odorous shores of the Fianni swamps. In the years of Lazax emperor Munhan Las Idu, the colonization efforts were dramatically expanded. Not long after the start of the farming expansion, however, things started to go terribly wrong on Retillion: farm machines were sabotaged, isolated farms destroyed, inhabitants murdered by an unseen foe that would strike when the bog mists rolled over the lands.<;>
+					The empire sent reinforcements, and the colonists son realized that they were under systematic attack by a small native chameleon race with natural greenish skin and large yellow lamp-like eyes. These aborigines had the ability to "fade," making them virtually invisible to the naked eye and a great threat to the farming boom towns springing up along the edges of the measureless swamps. It was clear that the natives were a primitive race, but fierce, intelligent, and relentless in their intent to stop the invasive farming of their native swamplands. From the few early prisoners, it was learned that they called themselves the "Yssaril" and that a vast network of villages and tribes was to be found in the continent-sized Fianni swamp.<;>
+					Eager to renew the supplies of their beloved menn root, the Lazax sent their 21st expeditionary division to suppress the Yssaril uprising, allowing for the resumption of the increased farming mandate. During these bloody years, thousands of Yssaril were captured and shipped to governments and buyers across the galaxy for study or hunting sports. Although farming did resume, the Lazax military division never completely suppressed the Yssaril natives. As the small green Yssaril adapted to the Lazax style of warfare, as they stole and learned to use Lazax weapons, the Fianni swamp soon became an embarrassing killing field for Lazax conscripts.<;>
+					It was during the Age of Dusk that the great races learned to utilize the potential of the intelligent Yssaril as spies and assassins for their covert operations. For a hundred years, the Yssaril learned the skills of stealth, the usages of technologies, and the power of information. Combined with their own natural ability to become nearly invisible, they soon came to realize their own potential and established the powerful and feared Guild of Spies. By the proceeds derived from Guild business, the Yssaril added a formidable income source to their civilization and to the development of Retillion. With this power and influence, they were able to convince the Lazax to leave the planet (while still supplying menn root). Over a few generations, the Yssaril became industrial, educated, and ambitious.<;>
+					Although still powerful in covert circles, the Guild now functions as the prime governing body of the united Yssaril tribes. The guild elects its leader from its faction of master assassins. This prime leader, the Cqaark, leads a powerful civilization of an intelligent, determined, and ambitious people: a people whose history has left them with little love for the other great races.<;>
+					Since the Lazax left, no off-worlders have been allowed on Retillion. The Yssaril capital Wuecca lies somewhere deep in the Fianni swamps, its actual location unknown to all but the Yssaril. The official business, trade, and covert business is conducted from the planet Shalloq, which the Yssaril colonized not long after gaining independence from the Lazax. The only actual Yssaril city known to off-worlders is the city of Mojeb on Shalloq. From here, or from Shalloq's great orbital trade station Haarsuh, the Yssaril receive foreign emissaries, merchants, and visitors.<;>
+					blaThe proud fierce Yssaril are slowly starting to look beyond their borders and beyond the income of the Guild. Hidden in the planetary shadow of Shalloq, and kept secret from the rest of the galaxy by the covert means at which the Yssaril excel, a great invasion fleet is being built. Although the rest of the galaxy may shudder at the Yssaril's unseen eyes and ears, it would be terrified if it knew the ruthless imperial ambitions of the small green people.<;>
+					<}>
+Special Abilities:	<{>
+					You are allowed to skip your action turn during the Action Phase. You may not skip two such action turns in a row.<;>
+					You draw one additional Action Card during every Status Phase. You are never limited to a hand-size of Action Cards, regardless of the game rules and any active political cards.<;>
+					Once during every Strategy Phase, you may look at one other player's hand of Action Cards.<;>
+					<}>
+Trade Contracts:	<{>
+					1<;>
+					2<;>
+					<}>
+Home Systems:		<{>
+							<{>
+							Name:		The Yssaril Tribes Home System<;>
+							Type:		Standard<;>
+							Planets:	<{>
+													<{>
+													Name:		Retillion<;>
+													Text:		A mix of tundra, swamps, rivers, and dense forests. Home to the mysterious chameleonic Yssaril, whose capital Wueca has eluded all attempts at cartography.<;>
+													Resources:	2<;>
+													Influence:	3<;>
+													<}>
+													<{>
+													Name:		Shalloq<;>
+													Text:		Covered with tundra, wetlands, and rainforest, much like its sister-planet Retillion. Home to Mojeb, the only major Yssaril city catalogued by off-worlders.<;>
+													Resources:	1<;>
+													Influence:	2<;>
+													<}>
+										<}>
+							<}>
+					<}>
+Starting Units:		<{>
+							<{>
+										Unit:		Cruiser<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Carriers<;>
+										Quantity:	2<;>
+							<}>
+							<{>
+										Unit:		PDS<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Space Dock<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Fighters<;>
+										Quantity:	2<;>
+							<}>
+							<{>
+										Unit:		Ground Forces<;>
+										Quantity:	5<;>
+							<}>
+					<}>
+Starting Techs:		<{>
+							Antimass Deflectors<;>
+							XRD Transporter<;>
+					<}>
+Leaders:			<{>
+							<{>
+										Name:		Sskril<;>
+										Type		Admiral<;>
+							<}>
+							<{>
+										Name:		Ssruu<;>
+										Type		Agent<;>
+							<}>
+							<{>
+										Name:		Thilinn<;>
+										Type		Agent<;>
+							<}>
+					<}>
+Racial Techs:		<{>
+							<{>
+										Name:		Mageon Implants<;>
+										Expansion:	Shards of the Throne<;>
+										Cost:		4<;>
+										Text:		When looking at your opponent's hand of Action Cards using your racial ability, you may steal 1 card of your choice and add it to your hand.<;>
+							<}>
+							<{>
+										Name:		Shuttle Logistics<;>
+										Expansion:	Shattered Empire<;>
+										Cost:		3<;>
+										Text:		At the start of the Status Phase, you may choose a system that does not contain any enemy ships. Your Ground Forces in the chosen system may move to any friendly planet in the same or an adjacent system (that does not contain any enemy ships).<;>
+							<}>
+					<}>
+Flagship:			<{>
+							Name:					Y'sia Y'ssrila<;>
+							Abilities:	<{>
+													Sustain Damage<;>
+										<}>
+							Text:		This ship may move through systems containing enemy ships.<;>
+							Cost:		9<;>
+							Battle:		7<;>
+							Multiplier:	2<;>
+					<}>
+Representatives:	<{>
+							<{>
+										Name:		Ne Ruk<;>
+										Votes:		0<;>
+										Types:		<{>
+																Spy<;>
+													<}>
+										Text:		Assassinate a Representative and then return this Spy to your hand. You must abstain from this vote.<;>
+							<}>
+							<{>
+										Name:		So Ata<;>
+										Votes:		1<;>
+										Types:		<{>
+																Spy<;>
+													<}>
+										Text:		Choose a player. His total votes are reduced by half rounded up (after adding any bonuses).<;>
+							<}>
+							<{>
+										Name:		Zo Cou<;>
+										Votes:		3<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		When voting, you may discard any number of Action Cards from your hand to gain an equal number of votes.<;>
+							<}>
+					<}>
+<}>

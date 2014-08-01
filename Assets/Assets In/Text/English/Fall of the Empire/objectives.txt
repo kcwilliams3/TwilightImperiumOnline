@@ -1,0 +1,32 @@
+Anarchist
+"The time of not only the Lazax, but also of the council, must come to an end.
+You win the game if you control your Home System and the Lazax player has not fulfilled his objective at the end of round 8.
+
+Loyalist
+"We know where our loyalties lie."
+You also win the game if the Lazax player wins.
+
+Opportunist
+The discovery of the Quann Wormhole ultimately changed everything. Some saw it as a doorway to unlimited trade, others as a portal of expansion.
+You win the game if you control the Quann system.
+Immediate Victory
+
+Powerhungry
+"The only way to win this war is to plunge the knife in the heart!"
+You win the game if you control the Mecatol Rex system.
+Immediate Victory
+
+Support of the People
+"We must rally support."
+When you give away your fourth Treaty Card, reveal this objective. If at least 3 other players have your Treaty Card in hand at this time, you win.
+Immediate Victory
+
+Traitor
+"The Lazax are not the only threat we face in this war."
+You win the game if you control an enemy Home System (excluding Mecatol Rex).
+Immediate Victory
+
+Unstoppable Army
+"We need superior numbers if we hope to win this war."
+You win the game if you have 60 plastic figures on the game board.
+Immediate Victory

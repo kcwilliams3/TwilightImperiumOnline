@@ -1,0 +1,237 @@
+The L1z1x Mindnet
+44G5I-O
++1
+Bodyguard
+If this card is targeted by a Spy, the player controlling the Spy must abstain from this vote.
+A6AH3
++0
+Spy
+Choose an outcome. If the result of this vote does not match your choice, kill any 1 Councilor that did not vote the outcome you chose.
+R7-82
++4
+Councilor
+If you abstain from this vote, gain 1 free Cruiser in your Home System.
+
+The Emirates of Hacan
+Alrung
++0
+Spy, Bodyguard
+Assassinate a Representative.
+Garrus
++4
+Councilor
+If any player gives you Trade Goods during the Bargaining step, gain 1 additional Trade Good from the supply (once per round).
+Huldran
++2
+Councilor
+When voting, each player who did not receive a Promissory Note must give you 1 Trade Good or abstain from voting.
+
+Sardakk N'orr
+An'grag
++4
+Councilor
+If this Councilor is killed, your opponent must place 1 Command Counter from his supply into the system of your choice.
+Qui'rek
++2
+Bodyguard
+If this card is targeted by a Spy, the Spy is killed.
+Redband R't'an
++0
+Spy
+Choose a Representative and an outcome. If the chosen Representative does not vote this way, he is killed after voting.
+
+The Nekro Virus
+Asmodai
++0
+Spy
+Choose a player and an outcome. If he votes this way, copy one of his technology cards.
+Beelzebul
++0
+Councilor
+After the Resolve Spies step, all Councilors are killed (including this one). Then discard the Political Card.
+Wendigo
++0
+Bodyguard
+In order for a player to vote "For," he must give you 1 Trade Good or 1 random Action Card from his hand.
+
+The Winnu
+Berekar Berekon
++3
+Councilor
+If the Political Card does not resolve the way you voted, you may place a Cruiser in a system you control.
+Menda Mendala
++0
+Spy
+Assassinate a Representative. Your Spy may not be killed by enemy spies.
+Perdin Perdona
++2
+Councilor
+If you vote "Against," gain +3 votes.
+
+The Xxcha Kingdom
+Brothers Qquiar
++2
+Bodyguard
+If this card is not targeted by a Spy, gain +3 votes.
+Ggrucoto Rinn
++3
+Councilor
+Players who accept Trade Goods from you during the Bargaining step may not receive any Promissory Notes. You vote for them during the Voting step.
+Xxekir Grom
++2
+Councilor
+During the Bargaining step, you gain +3 Bonus Votes if the current player does not offer you a Promissory Note.
+
+The Mentak Coalition
+Cador Gim
++0
+Spy
+Assassinate a Representative. If your Spy is killed by an enemy Spy, the enemy Spy is also killed.
+Orid Gim
++2
+Bodyguard
+If this card is targeted by a Spy, the player controlling the Spy must give you 3 Trade Goods or kill his spy.
+S'ula Mentarion
++4
+Councilor
+After voting, look at the top card of the Political deck and place it on the top or the bottom of the deck.
+
+The Barony of Letnev
+Captain Lassir
++2
+Bodyguard
+If you do not like the result of this vote, place 1 free Dreadnought in a friendly or empty system but you must abstain from all future votes (regardless of Representative).
+Darktalon Treilla
++0
+Spy
+Assassinate a Representative. If he is killed, you gain votes equal to his Bonus Votes.
+Legate Erran
++4
+Councilor
+You cast your votes after all other players have voted.
+
+Federation of Sol
+Claire Gibson
++4
+Councilor
+If the Political Card does not resolve the way you voted, you may retrieve one of your Promissory Notes from a player who voted against you.
+Rev. Hendrickson
++0
+Spy, Bodyguard
+Assassinate a Representative. If the Representative is a Bodyguard, he is not considered targeted.
+Ronald Wiley
++3
+Councilor
+If you abstain from this vote, gain 2 free Ground Forces on a planet you control.
+
+Universities of Jol Nar
+Deluin Fillac
++3
+Spy, Councilor
+Look at an unrevealed Representative. You may force the player to return the card to his hand and choose a different Representative (if able).
+Ta Zern
++2
+Councilor
+Gain +1 vote for each Technology Card you have researched.
+Yaluga Huin
++1
+Bodyguard, Councilor
+This Representative cannot be killed.
+
+The Arborec
+Dirzuga Mantasa
++4
+Councilor
+Other Councilors do not receive bonus votes during this voting.
+Dirzuga Ohao
++3
+Councilor
+If killed, this Representative returns to your hand after voting is resolved.
+Letani Miasmiala
++0
+Spy
+Choose another player. If he chose a Councilor, you may kill this Spy to control his Councilor during voting.
+
+The Clan of Saar
+Elder Gurno
++0
+Spy, Bodyguard
+Choose an unrevealed Representative. He may not choose your Representative with any of his abilities.
+Elder Sarrig
++4
+Councilor
+Gain +3 votes if you are the Speaker.
+Melkov
++2
+Spy
+Choose an outcome. Gain 1 Trade Good (from the supply) for each player who votes this way.
+
+The Embers of Muaat
+Flaim Haash
++1
+Bodyguard
+If this card is targeted by a Spy, the player controlling the Spy receives -5 votes (to a minimum of 0).
+Hosh Gahloki
++0
+Spy
+Assassinate a Representative. If he is killed, draw 1 Action Card.
+Moltosh Flae
++3
+Councilor
+If you have a War Sun in, or adjacent to, the Mecatol Rex system, gain +4 Bonus Votes.
+
+The Yin Brotherhood
+Imar Yissadar
++0
+Spy
+Assassinate a Representative. If he is a Bodyguard, then both he and this Spy are killed.
+Rhal Darish
++3
+Councilor
+If you give any players a Promissory Note this round, you receive 3 Trade Goods from the supply.
+Talla Darator
++4
+Councilor
+If this Councilor is assassinated by a Spy, the Spy's owner must abstain during this vote.
+
+The Yssaril Tribes
+Ne Ruk
++0
+Spy
+Assassinate a Representative and then return this Spy to your hand. You must abstain from this vote.
+So Ata
++1
+Spy
+Choose a player. His total votes are reduced by half rounded up (after adding any bonuses).
+Zo Cou
++3
+Councilor
+When voting, you may discard any number of Action Cards from your hand to gain an equal number of votes.
+
+The Ghosts of Creuss
+Sai Seravus
++2
+Councilor
+Gain +1 vote for each system you control containing a Wormhole.
+San Omairo
++1
+Bodyguard
+If this card is targeted by a Spy, you may look at the player's hand of Action Cards and take 1 card of your choice.
+Soo Leirah
++1
+Spy
+Choose a player. He may not use his Representative's special ability (unless it has already been resolved).
+
+The Naalu Collective
+S'srool D'amil
++0
+Bodyguard
+If a Spy attempts to assassinate this Representative, instead assassinate the Spy.
+S'sruuk G'ella
++4
+Councilor
+Gain +2 votes if you are voting "For."
+S'sruuk H'eyra
++2
+Councilor
+If you vote the same as the current player, he must give you a Promissory Note (if he has not already this round).

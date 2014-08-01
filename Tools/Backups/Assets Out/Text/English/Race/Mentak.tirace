@@ -1,0 +1,126 @@
+<{>
+Full Name: 			The Mentak Coalition<;>
+Short Name: 		Mentak<;>
+Species Name: 		Mentak<;>
+Expansion: 			Vanilla<;>
+History:			<{>
+					Beyond the Mahact Plateau, part of the borderlands and the old star route known as the Passage of Tears, lies distant Moll Primus with its three tiny moons. The young planet is predominantly covered by extensive plains of the orange meet grass and sprinkled with a million lakes. Sharp youthful mountains pierce the heart of many of its continents, their icy mountain streams giving life to steep lush mountain valleys, where green fruitful trees and flowers grow in colorful contrast to the orange plains.<;>
+					Although rich for exploitation, the remoteness of Moll Primus allowed the planet to go without organized colonization by the Lazax for thousands of years after its discovery. After the failed Gandar rebellion, however, the Lazax started to use the planet as a penal colony, a distant prison, for the worst offending political dissidents and other criminals from all races. Exile to Moll Primus meant a long journey in the bowels of a prison freighter along the Passage of Tears, a winding dark journey around the treacherous gravity wells of the Mahact Plateau. Only the remote planet Hope's End lies farther than Moll Primus on the Passage of Tears. Once on Moll Primus, prisoners were assigned to manual labor under the supervision of one of the regional planetary Governors. The Governors of Moll Primus mostly consisted of Lazax politicians or servicemen fallen into disgrace. An assignment to Moll Primus was as much a sentence to a Lazax public career as it was a prison for its population. Thus, the Governors were often incompetent, cruel, and bitter individuals. Although the planet itself was quite pleasant, even considered beautiful, its prisoner population was tortured, malnourished, and forced to battle small-scale wars against the population of neighboring Governors.<;>
+					Then, after more than 800 years, the Twilight Wars began. As the empire crumbled, as the supply ships and supervision from Mecatol Rex became infrequent and finally failed, the Governors panicked. Some fled the planet overnight with their entire households. Others perished in the inevitable prisoner revolts that followed. Before the Twilight Wars had subsided, Moll Primus was free. Some of its most recent prisoners soon left, but for most of its mixed-race population, Moll Primus was home. After the united rebellion against the Governor wardens, a brief period of infighting among the different regions followed. A single human, Erwan Mentak, soon brought the regions together in a final peace, and before he died, prosperity.<;>
+					Today, Moll Primus is governed by the Table of Captains, elected leaders from each region. Among them a single leader is chosen every ten cycles and granted the honorary title Erwan's Hand, or "the Hand" in short. Helped by their Hylar brothers, the coalition has made great progress in advancing their technological status. Metals mined from Moll Primus's moons, various products made from the rich meet grass, income from "special" fleet excursions, and the hard work of its population has slowly formed the strong economic backbone of a proud civilization.<;>
+					Although publicly denied by Mentak ambassadors, the Mentak employ a vast pirating fleet which wreaks havoc among merchant shipping lanes and smaller military convoys. Although now an educated culture and civilization in their own right, the Mentak people have never forgotten their roots as rogues and usurpers. Every Mentak feels an historical need for revenge: revenge against a galaxy that shipped their ancestors to torture and rot on Moll Primus centuries ago. The Table of Captains has given their Hand a clear mandate: to scheme, pillage, and conquer until the ruled are rulers and the enslaved are emperors.<;>
+					<}>
+Special Abilities:	<{>
+					You start the game with one additional Command Counter in your Fleet Supply area.<;>
+					Before a Space Battle begins (in which you are participating), you may fire with up to two Cruisers or Destroyers (or a mix thereof). Enemy casualties are taken immediately, with no return fire allowed.<;>
+					During the Strategy Phase, you may take one Trade Good token from up to two different players. Each such target player must have at least 3 Trade Goods on his Race Sheet.<;>
+					<}>
+Trade Contracts:	<{>
+					1<;>
+					1<;>
+					<}>
+Home Systems:		<{>
+							<{>
+							Name:		The Mentak Coalition Home System<;>
+							Type:		Standard<;>
+							Planets:	<{>
+													<{>
+													Name:		Moll Primus<;>
+													Text:		In places lush and rich, in others a barren wasteland. This old Lazax penal colony has prospered under the rule of the governing Mentak Coalition.<;>
+													Resources:	4<;>
+													Influence:	1<;>
+													<}>
+										<}>
+							<}>
+					<}>
+Starting Units:		<{>
+							<{>
+										Unit:		Cruisers<;>
+										Quantity:	3<;>
+							<}>
+							<{>
+										Unit:		Carrier<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		PDS<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Space Dock<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Ground Forces<;>
+										Quantity:	4<;>
+							<}>
+					<}>
+Starting Techs:		<{>
+							Hylar V Assault Laser<;>
+							Enviro Compensator<;>
+					<}>
+Leaders:			<{>
+							<{>
+										Name:		Havvat<;>
+										Type		Admiral<;>
+							<}>
+							<{>
+										Name:		Kilik<;>
+										Type		Agent<;>
+							<}>
+							<{>
+										Name:		Suffi<;>
+										Type		Diplomat<;>
+							<}>
+					<}>
+Racial Techs:		<{>
+							<{>
+										Name:		Mirror Computing<;>
+										Expansion:	Shards of the Throne<;>
+										Cost:		4<;>
+										Text:		When you spend Trade Goods, each Trade Good counts as 2 resources or 2 influence (instead of 1).<;>
+							<}>
+							<{>
+										Name:		Salvage Operations<;>
+										Expansion:	Shattered Empire<;>
+										Cost:		4<;>
+										Text:		Gain 2 Trade Goods at the end of each Space Battle in which you participate. If you won the battle, you may build one ship in the system of a unit type that you destroyed during combat. You must pay the ship's resource cost.<;>
+							<}>
+					<}>
+Flagship:			<{>
+							Name:					Fourth Moon<;>
+							Abilities:	<{>
+													Sustain Damage<;>
+										<}>
+							Text:		Opposing ships may not use the sustain damage ability in this system.<;>
+							Cost:		8<;>
+							Battle:		5<;>
+							Multiplier:	2<;>
+					<}>
+Representatives:	<{>
+							<{>
+										Name:		Cador Gim<;>
+										Votes:		0<;>
+										Types:		<{>
+																Spy<;>
+													<}>
+										Text:		Assassinate a Representative. If your Spy is killed by an enemy Spy, the enemy Spy is also killed.<;>
+							<}>
+							<{>
+										Name:		Orid Gim<;>
+										Votes:		2<;>
+										Types:		<{>
+																Bodyguard<;>
+													<}>
+										Text:		If this card is targeted by a Spy, the player controlling the Spy must give you 3 Trade Goods or kill his spy.<;>
+							<}>
+							<{>
+										Name:		S'ula Mentarion<;>
+										Votes:		4<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		After voting, look at the top card of the Political deck and place it on the top or the bottom of the deck.<;>
+							<}>
+					<}>
+<}>

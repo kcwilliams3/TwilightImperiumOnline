@@ -1,0 +1,136 @@
+<{>
+Full Name: 			The Winnu<;>
+Short Name: 		Winnu<;>
+Species Name: 		Winnaran<;>
+Expansion: 			Shattered Empire<;>
+History:			<{>
+					The Winnu system was the first system to seek annexation into the Lazax Empire. Throughout their history, the Winnarans had suffered countless civil wars, a deteriorating climate, and debilitating disease. They were a race on the brink of extinction when they first came into contact with the Lazax, and only with generous Lazax support did the Winnaran race survive. The Lazax allowed the Winnarans into their empire, and over time healed the scars of Winnu. More importantly, the Winnarans came to embrace the Lazax code of strength and peace, the powerful doctrine which had allowed the first Lazax emperor to defeat the last of the mad Mahact kings and to emerge as a shining beacon of peace and stability in a dark galaxy.<;>
+					The Winnarans were eternally grateful to the Lazax, and swore an oath of servitude to the emperors. Disciplined and diligent, the Winnarans became indispensible to the Lazax as bureaucrats, councilors, and administrators. As their empire grew increasingly complex, it is likely that the Lazax would not have been able to hold their empire together without the work and attention to detail of the Winnarans. Then, as the Lazax decided to move their imperial seat to a planet more central to the galaxy, more than half of the population of Winnu joined the Lazax diaspora to this new home. That home was the planet of Mecatol, which would become the Rex, the splendid jewel in the imperial crown. As the ages came and went, most Winnarans began to think of Mecatol as their ancestral home, and the relevance and memory of Winnu and their brethren there diminished.<;>
+					Yet the Winnaran population on Winnu, now generally called the "Winnu," quietly built their own civilization following the doctrine of the emperors. Much Lazax lore, wisdom, and culture is intact on Winnu, even as all other Lazax imagery and culture was destroyed elsewhere in the galaxy during the great scourge.<;>
+					As the memory of the great scourge faded, and as the Dark Years seemed to stretch along endlessly, the Mecatol Winnarans and the Winnu grew estranged from one another. On Mecatol, the Winnarans were bound to rigid tradition and scholarship, while the Winnu culture had evolved and prospered. The Winnu became ashamed of their submissive cousins on Mecatol, whom they began to regard as a grey, backwards people, devoid of fashion, art, and culture.<;>
+					As a new age is dawning, the Winnu truly believe themselves to be the inheritors of the Lazax. Their philosophies, their artwork, and even the clothing fashion of the Winnu is rooted in that of the ancient Lazax. Some outside observers, however, will note that long with the Winnu preservation of Lazax imagery and culture, that time has brought the return of more traditional Winnaran traits in the Winnu - ambition, pride, and impatience.<;>
+					As they grew prosperous and powerful, the Winnu witnessed the reemergence of the other great races with annoyance and mistrust. Those were the races that had slaughtered their benefactors, and their return to power felt to the Winnu like sacrilege against the memory of the Lazax. Even more poisonous to the Winnu was the fact that their submissive cousins on Mecatol had invited these races to reestablish the galactic council there - even going as far as inviting the races that resigned from the Lazax council immediately before the Age of Twilight.<;>
+					With the pride of a new, powerful civilization and the sense of Lazax entitlement, the supreme Winnu leader Muab Di Faruuq traveled to Mecatol and demanded that the Winnarans return to the sovereignty of Winnu, and that the custodians grant the Imperial Throne to their own race as the rightful heirs of the Lazax.<;>
+					The Mecatol Winnarans, ever mindful of their responsibility to the entire galaxy, sorrowfully declined the demand of their brethren. As they did so, they feared that their short-tempered Winnu brothers and sisters would become angered, and that the resulting bitterness would forever break apart whatever kinship remained between them.<;>
+					The Winnarans' fear was well placed. Muad Di Faruuq was furious with their decision and rushed back to Winnu, but not before establishing a consulate and council presence for the Winnu on Mecatol. Upon his return to Winnu, he proclaimed the betrayal of the Winnarans, and swore that if Mecatol and the Imperial throne would not be ceded to the Winnu by peaceful means, then, in the memory of the Lazax, force would be the only answer.<;>
+					The Winnu population rushed to Faruuq's support, a sense of righteousness and superiority motivating them to an intense mobilization. Building massive fleets, eerily reminiscent of ancient Lazax designs, and training massive invasion forces, the Winnu are intent on returning true Lazax culture to the galaxy.<;>
+					<}>
+Special Abilities:	<{>
+					You may always add the Influence value of your Home System planet to your votes, even if it is exhausted.<;>
+					Your planets that contain at least 1 Ground Force are immune to the Local Unrest Action Card.<;>
+					You do not need to spend a Command Counter to execute the secondary ability of the Technology Strategy.<;>
+					<}>
+Trade Contracts:	<{>
+					1<;>
+					3<;>
+					<}>
+Home Systems:		<{>
+							<{>
+							Name:		The Winnu Home System<;>
+							Type:		Standard<;>
+							Planets:	<{>
+													<{>
+													Name:		Winnu<;>
+													Text:		The shining cities of the Winnu are the last places where authentic Lazax art and culture are still revered.<;>
+													Resources:	3<;>
+													Influence:	4<;>
+													<}>
+										<}>
+							<}>
+					<}>
+Starting Units:		<{>
+							<{>
+										Unit:		Cruiser<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		PDS<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Space Dock<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Fighters<;>
+										Quantity:	2<;>
+							<}>
+							<{>
+										Unit:		Carrier<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Ground Forces<;>
+										Quantity:	3<;>
+							<}>
+					<}>
+Starting Techs:		<{>
+							Antimass Deflectors<;>
+							Enviro Compensator<;>
+							Stasis Capsules<;>
+					<}>
+Leaders:			<{>
+							<{>
+										Name:		Kelsa<;>
+										Type		Scientist<;>
+							<}>
+							<{>
+										Name:		Rickar<;>
+										Type		Admiral<;>
+							<}>
+							<{>
+										Name:		Sela<;>
+										Type		Agent<;>
+							<}>
+					<}>
+Racial Techs:		<{>
+							<{>
+										Name:		Bioptic Recyclers<;>
+										Expansion:	Shattered Empire<;>
+										Cost:		3<;>
+										Text:		Once per game round, as an action, you may discard an Action Card from your hand to gain 2 Trade Goods or 1 Command Counter.<;>
+							<}>
+							<{>
+										Name:		Lazax Gate Folding<;>
+										Expansion:	Shards of the Throne<;>
+										Cost:		4<;>
+										Text:		At the start of each Status Phase, you may place 1 Ground Force on Mecatol Rex. You may only do this if the planet is uncontrolled or is under your control. (Discard any Domain Counters on the planet.)<;>
+							<}>
+					<}>
+Flagship:			<{>
+							Name:					Salai Sai Corian<;>
+							Abilities:	<{>
+													Sustain Damage<;>
+										<}>
+							Text:		? is equal to the number of opposing non-Fighter ships present this round during a Space Battle.<;>
+							Cost:		10<;>
+							Battle:		7<;>
+							Multiplier:	?<;>
+					<}>
+Representatives:	<{>
+							<{>
+										Name:		Berekar Berekon<;>
+										Votes:		3<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		If the Political Card does not resolve the way you voted, you may place a Cruiser in a system you control.<;>
+							<}>
+							<{>
+										Name:		Menda Mendala<;>
+										Votes:		0<;>
+										Types:		<{>
+																Spy<;>
+													<}>
+										Text:		Assassinate a Representative. Your Spy may not be killed by enemy spies.<;>
+							<}>
+							<{>
+										Name:		Perdin Perdona<;>
+										Votes:		2<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		If you vote "Against," gain +3 votes.<;>
+							<}>
+					<}>
+<}>

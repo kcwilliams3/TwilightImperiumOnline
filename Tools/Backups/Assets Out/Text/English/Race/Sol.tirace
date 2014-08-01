@@ -1,0 +1,122 @@
+<{>
+Full Name: 			The Federation of Sol<;>
+Short Name: 		Sol<;>
+Species Name: 		Humans<;>
+Expansion: 			Vanilla<;>
+History:			<{>
+					Nestled in the third orbit of the Sol system lies Jord, the ancestral home of the human race. Few planets can rival Jord's diversity of climates, seasons, and ecology. Much of this wealth is attributed to its enormous moon, which causes dramatic tidal motions in Jord's oceans, which is thought to be the impetus of its diverse life and weather patterns. Much of Jord's orbit, as well as its moon, is crowded with stellar traffic from the orbital and lunar space stations. Military ships of the line, bearing the distinctive Sol symbol, are often moored to the bulky military platforms in Jord's orbit, or to the fleet base Churchill Prima that orbits the reddish fourth planet of the system.<;>
+					The humans themselves represent the most numerous and most diverse species of the galaxy. Since the discovery of the mass-drive, humans have left Jord to explore, and they continue to explore, the distant corners of space. Humans can be found in all corners of the galaxy and seem to demonstrate the greatest variation in intellect and application of skills. Human colonies and settlements can be found everywhere, as can human servants, traders, cartographers, explorers, mercenaries, scholars, construction crews, smugglers, scientists, diplomats, etc. It is commonly recognized among galactic historians that it has been the diversified skills of the human race that has been the determining factor in it avoiding annihilation or extinction.<;>
+					Of the untold billions of humans that dwell across the galaxy, all of whose ancestors once migrated from the Sol system, most feel no allegiance or kinship to the Sol Federation or the humans of Jord. Some feel a traditional friendship, while a few remain loyal to Sol and its policies. Being the last civilization to be admitted into the imperial council, it is ironic that Sol was the first to openly declare war against the failing empire. It was a Sol fleet that fired the first shot at the Letnev blockade of the Quann wormhole, escalating the minor conflict into the full scale galactic war known as the Twilight Wars.<;>
+					The Sol Federation of Nations is governed by the bi-annually elected High Minister, who has the executive control of the economy, budget, and Sol military. The executive powers of the High Minister are held in check by three distinct governing houses: The House of Law, The House of the People, and The House of Industry. The four governing bodies of the Federation are all centrally located in the massive metropolis of New Moscow, a bustling center of politics, trade, and high culture.<;>
+					The current High Minister, Juan Salvador Tao, is preparing for a new age that he knows is rapidly evolving before him. He is eager to expand the official colonization of Sol once more, especially to the old colonies of Centauri, Gral, and Quann. He knows that the balance of power is shifting and that the universe will soon once again be governed under one empire. The High Minister will make sure that his Federation will prevail during the coming power struggle and inevitable war. Already the Sol fleet awaits his command to strike nearby systems. Soon the human destiny will be fulfilled, and the distant suns theirs to command.<;>
+					<}>
+Special Abilities:	<{>
+					As an Action, you may spend one Command Counter from your Strategy Allocation Box to place two free Ground Forces on any one Planet that you control.<;>
+					During the Status Phase, you receive one extra Command Counter.<;>
+					<}>
+Trade Contracts:	<{>
+					2<;>
+					2<;>
+					<}>
+Home Systems:		<{>
+							<{>
+							Name:		Federation of Sol Home System<;>
+							Type:		Standard<;>
+							Planets:	<{>
+													<{>
+													Name:		Jord<;>
+													Text:		Distinctly seasonal, with the greatest variety of climates and ecologies in the galaxy. The Federation of Sol rules the Jord humans from the great city of New Moscow.<;>
+													Resources:	4<;>
+													Influence:	2<;>
+													<}>
+										<}>
+							<}>
+					<}>
+Starting Units:		<{>
+							<{>
+										Unit:		Space Dock<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Destroyer<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Ground Forces<;>
+										Quantity:	5<;>
+							<}>
+							<{>
+										Unit:		Carriers<;>
+										Quantity:	2<;>
+							<}>
+					<}>
+Starting Techs:		<{>
+							Antimass Deflectors<;>
+							Cybernetics<;>
+					<}>
+Leaders:			<{>
+							<{>
+										Name:		Connor<;>
+										Type		Agent<;>
+							<}>
+							<{>
+										Name:		DeLouis<;>
+										Type		Admiral<;>
+							<}>
+							<{>
+										Name:		Rev<;>
+										Type		Diplomat<;>
+							<}>
+					<}>
+Racial Techs:		<{>
+							<{>
+										Name:		Mark II Advanced Carriers<;>
+										Expansion:	Shattered Empire<;>
+										Cost:		4<;>
+										Text:		Your Carriers now have a capacity of 8 and gain the "sustain damage" ability.<;>
+							<}>
+							<{>
+										Name:		Spec Ops Training<;>
+										Expansion:	Shards of the Throne<;>
+										Cost:		5<;>
+										Text:		Each time you roll a 1 during Invasion Combat, you may reroll the die. You must use the second result.<;>
+							<}>
+					<}>
+Flagship:			<{>
+							Name:					Genesis I<;>
+							Abilities:	<{>
+													Sustain Damage<;>
+										<}>
+							Text:		Ground Forces on this ship do not count towards its capacity.<;>
+							Cost:		10<;>
+							Battle:		5<;>
+							Multiplier:	3<;>
+					<}>
+Representatives:	<{>
+							<{>
+										Name:		Claire Gibson<;>
+										Votes:		4<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		If the Political Card does not resolve the way you voted, you may retrieve one of your Promissory Notes from a player who voted against you.<;>
+							<}>
+							<{>
+										Name:		Rev. Hendrickson<;>
+										Votes:		0<;>
+										Types:		<{>
+																Spy<;>
+																 Bodyguard<;>
+													<}>
+										Text:		Assassinate a Representative. If the Representative is a Bodyguard, he is not considered targeted.<;>
+							<}>
+							<{>
+										Name:		Ronald Wiley<;>
+										Votes:		3<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		If you abstain from this vote, gain 2 free Ground Forces on a planet you control.<;>
+							<}>
+					<}>
+<}>

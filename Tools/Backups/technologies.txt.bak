@@ -1,0 +1,168 @@
+--------------------------
+Blue Technologies
+
+Antimass Deflectors
+Vanilla
+Requires: None
+All of your ships may now move through Asteroid Fields but may never end their movement in an Asteroid Field.
+
+Gravity Drive
+Shattered Empire
+Requires: Antimass Deflectors
+You do not need to roll for your ships when moving out of a Gravity Rift. If your ships begin their activation in a system adjacent to a Gravity Rift or Wormhole, you receive +1 movement.
+
+XRD Transporters
+Vanilla
+Requires: Antimass Deflectors
+All of your Carriers now receive +1 movement.
+
+Light/Wave Deflector
+Vanilla
+Requires: XRD Transporters AND Magen Defense Grid
+Your ships may now move through systems containing enemy ships and continue their movement to the activated system.
+
+Maneuvering Jets
+Shattered Empire
+Requires: XRD Transporters
+Your opponents receive -1 to all PDS rolls targeting your ships (or -2 if the PDS is firing from an adjacent system). In addition, you receive -1 to all your Space Mine rolls, and your ships do not have to stop when entering an Ion Storm.
+
+Type IV Drive
+Vanilla
+Requires: XRD Transporter AND Neural Motivator
+All of your Cruisers and Dreadnoughts now receive +1 movement.
+
+Advanced Fighters
+Shattered Empire
+Requires: Type IV Drive
+Your Fighters do not require the support of Carriers or Space Docks, may move independently with a movement rate of 2, and receive +1 on combat rolls. Enemy ships may not move through a system your Fighters occupy. Fighters in excess of a system's Fighter capacity count towards your Fleet Supply limit.
+
+Fleet Logistics
+Vanilla
+Requires: Graviton Negator
+When taking a Tactical Action, you may now take two Tactical Actions, one after the other, before your turn ends.
+--------------------------
+Green Technologies
+
+Stasis Capsules
+Vanilla
+Requires: Enviro Compensator
+Your Cruisers and Dreadnoughts may now carry one Ground Force unit.
+
+Cybernetics
+Vanilla
+Requires: Stasis Capsules OR Antimass Deflectors
+All of your Fighters now receive +1 on all combat rolls.
+
+Neural Motivator
+Vanilla
+Requires: Stasis Capsules OR Micro Technology
+You now draw one extra Action Card during each Status Phase.
+
+Dacxive Animators
+Vanilla
+Requires: Neural Motivator
+If you win an Invasion Combat, roll once for every Ground Force unit killed (yours and your opponent's). For every roll of 6+, place one Ground Force unit on the planet from your reinforcements.
+
+Gen Synthesis
+Vanilla
+Requires: Cybernetics
+All of your Ground Forces now receive +1 on all combat rolls during Invasion Combat. When one of your Ground Force units is destroyed, roll a die: On a result of 5+, the unit is instead returned to a planet in your Home System.
+
+Neural Computing
+Shards of the Throne
+Requires: Neural Motivator
+Your cost to purchase new Technologies is reduced by 2.
+
+Hyper Metabolism
+Shattered Empire
+Requires: Gen Synthesis
+During the Status Phase, you gain 1 additional Command Counter. In addition, before drawing Action Cards, you may discard 1 Action Card from your hand to draw 1 additional card.
+
+X-89 Bacterial Weapon
+Vanilla
+Requires: Transit Diodes OR Assault Cannon
+Your Dreadnought or War Sun units may now use this option before bombarding. Immediately destroy all enemy Ground Forces on the planet. Then discard all of your Action Cards.
+--------------------------
+Yellow Technologies
+
+Enviro Compensator
+Vanilla
+Requires: None
+The production capacity of your Space Docks is now increased by 1.
+
+Transfabrication
+Shards of the throne
+Requires: None
+You may scuttle units at the start of the Build Units step of your activation. For each non-Fighter and non-Ground force unit you scuttle in this way, gain 1 Trade Good.
+
+Sarween Tools
+Vanilla
+Requires: Enviro Compensator
+Whenever you produce units at any Space Dock, you now receive one additional resource with which to build units.
+
+Graviton Laser System
+Vanilla
+Requires: Deep Space Cannon
+When you make a combat roll with a PDS unit and miss, you may now make a single re-roll for each roll that missed.
+
+Micro Technology
+Shattered Empire
+Requires: Stasis Capsules OR Sarween Tools
+When you receive Trade Goods from your trade agreements, you now receive one additional Trade Good for each of your active trade agreements.
+
+Integrated Economy
+Vanilla
+Requires: Micro Technology AND Cybernetics
+When producing units at your Space Docks, you may now place the new units in any activated, adjacent system that is empty or friendly. You may place PDS and Ground Force units on any friendly planet within this range.
+
+Nano Technology
+Shattered Empire
+Requires: Micro Technology
+Your Dreadnoughts and War Suns may not be targeted by your opponents' Action Cards. In addition, when you claim a planet, you gain its planet card refreshed.
+
+Transit Diodes
+Vanilla
+Requires: Light/Wave Deflector OR Dacxive Animators
+As an action, you may spend one Command Counter from your Strategic Allocation to immediately move up to four of your Ground Forces from any one of your planets to any other planet you control.
+--------------------------
+Red Technologies
+
+Hylar V Assault Laser
+Vanilla
+Requires: None
+All of your Cruisers and Destroyers now receive +1 on all combat rolls.
+
+Automated Defense Turrets
+Shattered Empire
+Requires: Hylar V Assault Laser
+All of your Destroyers receive +2 and roll 1 additional die on all Anti-Fighter Barrage rolls.
+
+Deep Space Cannon
+Vanilla
+Requires: Hylar V Assault
+Enemy fleets in adjacent systems are now in range of your PDS units.
+
+Duranium Armor
+Shards of the Throne
+Requires: Deep Space Cannon
+At the end of each round of combat, you may repair 1 of your damaged units in the battle.
+
+Magen Defense Grid
+Vanilla
+Requires: Deep Space Cannon
+All of your PDS units now receive +1 on all combat rolls. In addition, all of your defending Ground Forces on a planet with a PDS receive +1 on all combat rolls during Invasion Combat.
+
+War Sun
+Vanilla
+Requires: Deep Space Cannon AND Sarween Tools
+You are now allowed to produce War Sun units.
+
+Assault Cannon
+Shattered Empire
+Requires: Cybernetics AND Automated Defense Turrets
+Before any Space Battle begins, your participating Dreadnoughts may each fire one shot. Any hits are applied immediately, and casualties do not receive return fire.
+
+Graviton Negator
+Vanilla
+Requires: Assault Cannon OR Dacxive Animators
+Your Dreadnoughts may now bombard planets that contain PDS units. Your Fighters may participate in Invasion Combat. Surviving Fighters are returned to space after the combat and can never establish control of a planet.

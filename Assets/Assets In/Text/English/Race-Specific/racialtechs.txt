@@ -1,0 +1,169 @@
+The Arborec
+Bioplasmosis
+Shattered Empire
+Cost: 3
+At the beginning of the Strategy Phase, you may move 1 Ground Force from a planet you control to a friendly or uncontrolled planet in an adjacent system. (Discard any Domain Counters on the planet).
+Spore Acceleration
+Shards of the Throne
+Cost: 5
+Increase the build capacity of your Ground Forces by 1.
+
+The Winnu
+Bioptic Recyclers
+Shattered Empire
+Cost: 3
+Once per game round, as an action, you may discard an Action Card from your hand to gain 2 Trade Goods or 1 Command Counter.
+Lazax Gate Folding
+Shards of the Throne
+Cost: 4
+At the start of each Status Phase, you may place 1 Ground Force on Mecatol Rex. You may only do this if the planet is uncontrolled or is under your control. (Discard any Domain Counters on the planet.)
+
+The Clan of Saar
+Chaos-Mapping
+Shards of the Throne
+Cost: 2
+You may activate Asteroid Field systems. Your Fleet Supply limit in Asteroid Field systems is 3 (which cannot be modified).
+Floating Factory
+Shattered Empire
+Cost: 3
+Your Space Docks have a production capacity of 5, a fighter capacity of 5, and receive +1 movement.
+
+The Ghosts of Creuss
+Dimensional Splicer
+Shattered Empire
+Cost: 3
+At the start of a battle in a system containing a Wormhole and at least 1 of your ships, you may assign 1 hit to 1 enemy ship of your choice.
+Slave Wormhole Generator
+Shards of the Throne
+Cost: 5
+At the start of each Status Phase, you may place (or move) your extra "A" or "B" Wormhole token into any empty or friendly non-Home System.
+
+The Xxcha Kingdom
+Diplomats
+Shattered Empire
+Cost: 5
+Once per turn, when an opponent activates a system you control, you may spend a Command Counter from your Strategy Allocation area to force him to instead place the Command Counter into his reinforcements and immediately end his action.
+Instinct Training
+Shards of the Throne
+Cost: 4
+Once per game turn, you may spend 1 Command Counter from your Strategy Allocation area to cancel an Action Card just played by an opponent.
+
+The L1z1x Mindnet
+Dreadnought Invasion Pod
+Shattered Empire
+Cost: 2
+Your Dreadnoughts may now carry 1 additional Ground Force unit.
+Inheritance Systems
+Shards of the Throne
+Cost: 5
+When researching Technology using the Technology Strategy Card, you may spend 2 additional resources to ignore the Technology's prerequisites.
+
+Universities of Jol Nar
+Electro-Resonance Turbines
+Shards of the Throne
+Cost: 2
+When an opponent activates a system you control, gain 3 Trade Goods from the Trade Supply.
+Spatial Conduit Network
+Shattered Empire
+Cost: 6
+Once per turn when moving, you may move ships from one system you control to any other system you control as if the systems were adjacent. Your ships using this movement must end their movement in a system you control.
+
+Sardakk N'orr
+Exotrireme
+Shards of the Throne
+Cost: 4
+At the end of a round of Space Battle, you may destroy 1 of your Dreadnoughts present to destroy 2 present enemy ships of your choice.
+Valkyrie Armor
+Shattered Empire
+Cost: 3
+At the end of a round of Invasion Combat, roll one die for each casualty you take. For each 10 you roll, your opponent must immediately take 1 additional casualty.
+
+The Yin Brotherhood
+Fanaticism
+Shattered Empire
+Cost: 4
+You may use your race's special ability twice at the start of each Invasion Combat.
+Yin Spinner
+Shards of the Throne
+Cost: 2
+Build 1 free Ground Force each time you build units at a Space Dock. This free Ground Force does not count towards any build limits.
+
+The Naalu Collective
+Hybrid Crystal Drives
+Shards of the Throne
+Cost: 3
+Your Carriers and unsupported Advanced Fighters each only count as 1/2 a ship (rounded up) towards the Fleet Supply.
+Telepathic Mind Weapon
+Shattered Empire
+Cost: 5
+When your opponent activates a system that you control, he immediately loses 1 Command Counter from the Fleet Supply area of his race sheet.
+
+The Barony of Letnev
+L4 Disruptors
+Shattered Empire
+Cost: 6
+You may use your race's special ability during Invasion Combat without paying any Trade Goods.
+Noneuclidean Shielding
+Shards of the Throne
+Cost: 4
+When you use the sustain damage ability of one of your units, it prevents 2 casualties (instead of just 1).
+
+The Yssaril Tribes
+Mageon Implants
+Shards of the Throne
+Cost: 4
+When looking at your opponent's hand of Action Cards using your racial ability, you may steal 1 card of your choice and add it to your hand.
+Shuttle Logistics
+Shattered Empire
+Cost: 3
+At the start of the Status Phase, you may choose a system that does not contain any enemy ships. Your Ground Forces in the chosen system may move to any friendly planet in the same or an adjacent system (that does not contain any enemy ships).
+
+The Embers of Muaat
+Magmus Reactor
+Shattered Empire
+Cost: 5
+Your War Suns now have +1 movement and a base cost of 10 resources.
+Nova Seed
+Shards of the Throne
+Cost: 3
+As an action, you may remove this card from the game to replace a system you control with a Supernova system tile. This may not be used on Mecatol Rex, a Home System, or adjacent to a red-bordered system.
+
+Federation of Sol
+Mark II Advanced Carriers
+Shattered Empire
+Cost: 4
+Your Carriers now have a capacity of 8 and gain the "sustain damage" ability.
+Spec Ops Training
+Shards of the Throne
+Cost: 5
+Each time you roll a 1 during Invasion Combat, you may reroll the die. You must use the second result.
+
+The Mentak Coalition
+Mirror Computing
+Shards of the Throne
+Cost: 4
+When you spend Trade Goods, each Trade Good counts as 2 resources or 2 influence (instead of 1).
+Salvage Operations
+Shattered Empire
+Cost: 4
+Gain 2 Trade Goods at the end of each Space Battle in which you participate. If you won the battle, you may build one ship in the system of a unit type that you destroyed during combat. You must pay the ship's resource cost.
+
+The Emirates of Hacan
+Production Centers
+Shattered Empire
+Cost: 3
+As an Action, you may spend one Command Counter from your Strategy Allocation area to gain 6 Trade Goods. You must then give 2 of your Trade Goods to one other player. You may only do this once per turn, and only if you have fewer than 6 Trade Goods.
+Quantum Datahub Node
+Shards of the Throne
+Cost: 5
+At the end of the Strategy Phase, you may trade one of your Strategy Cards with a Strategy Card belonging to one of your trade partners. The other player does not need to agree to this trade.
+
+The Nekro Virus
+Valefar Assimilator
+Shards of the Throne
+Cost: *
+Gain this technology by using your racial ability to copy a racial Technology an opponent has researched. You cannot copy a Technology that modifies his racial ability. Place the race's Control Marker on this card to remember which ability you have copied.
+Valefar Assimilator
+Shattered Empire
+Cost: *
+Gain this technology by using your racial ability to copy a racial Technology an opponent has researched. You cannot copy a Technology that modifies his racial ability. Place the race's Control Marker on this card to remember which ability you have copied.

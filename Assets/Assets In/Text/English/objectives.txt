@@ -1,0 +1,310 @@
+--------------------------
+Public Objectives, Stage I
+
+I control 5 planets outside my Home System.
+Vanilla
+1
+
+I took control of 3 planets this turn.
+Shattered Empire
+1
+
+I control Mecatol Rex.
+Shattered Empire
+1
+
+I have controlled Mecatol Rex the entire Strategy Phase and Action Phase of this round.
+Vanilla
+1
+
+I control the planets needed to have at least one of each of the 3 technology specialties.
+Vanilla
+1
+
+I control planets with a total influence greater than the player to my immediate right and greater than the player to my immediate left.
+Shattered Empire
+1
+
+I have 5 Technology Advances.
+Vanilla
+1
+
+I have 3 Technology Advances of the same color.
+Vanilla
+1
+
+I have Technology Advances in all 4 colors.
+Vanilla
+1
+
+I have more than one Technology Advance in 3 different colors.
+Shattered Empire
+1
+
+I now spend 6 Trade Goods.
+Vanilla
+1
+
+I now spend 4 Trade Goods, 3 resources, and 3 influence.
+Shattered Empire
+1
+
+I now spend 10 resources.
+Vanilla
+1
+
+I now spend 10 resources or 10 influence.
+Shattered Empire
+1
+
+I now spend 10 influence.
+Vanilla
+1
+
+I now spend 3 Command Counters from my Command and/or Strategy Allocation areas.
+Shattered Empire
+1
+
+I successfully invaded one planet containing at least 1 opposing Ground Force this turn.
+Shattered Empire
+1
+
+I won a Space Battle against at least 3 opposing ships in one system this turn.
+Shattered Empire
+1
+
+I am blockading an opponent's Space Dock.
+Shattered Empire
+1
+
+All three of my Space Docks are on the board.
+Vanilla
+1
+--------------------------
+Public Objectives, Stage II
+
+I control 10 planets outside my Home System.
+Vanilla
+2
+
+I control the Mecatol Rex system and at least 3 systems adjacent to it. (I control a system if I have at least one (non-Fighter) ship there, and I control every planet in the system).
+Shattered Empire
+2
+
+I have at least 9 Technology Advances.
+Vanilla
+2
+
+I have 5 Technology Advances of the same color.
+Shattered Empire
+2
+
+I now spend 12 Trade Goods.
+Vanilla
+2
+
+I now spend 20 resources.
+Vanilla
+2
+
+I now spend 20 resources or 20 influence.
+Shattered Empire
+2
+
+I now spend 20 influence.
+Vanilla
+2
+
+I now spend 6 Command Counters from my Command and/or Strategy Allocation areas.
+Shattered Empire
+2
+
+I successfully invaded two planets, each containing at least 1 opposing Ground Force, this turn.
+Shattered Empire
+2
+
+I won two Space Battles this turn, each in different systems and against at least 3 opposing ships.
+Shattered Empire
+2
+
+I destroyed an opponent's Space Dock at the end of combat this turn.
+Shattered Empire
+2
+
+I control 11 planets outside my Home System.
+Shattered Empire
+3
+
+I control the Mecatol Rex system and all systems adjacent to it. (I "control" a system if I have at least one (non-Fighter) ship there, and I control every planet in the system.)
+Vanilla
+3
+
+I control planets with a combined total influence greater than the combined total influence of all the planets controlled by my two neighbors (the player to my immediate right and my immediate left).
+Vanilla
+3
+
+I have at least 4 (non-Fighter) ships in two different opponent's Home Systems.
+Shattered Empire
+I WIN THE GAME
+
+Domination!
+I control all the planets in the Home Systems of two other players.
+Vanilla
+I WIN THE GAME
+
+Supremacy!
+I control 18 planets outside my Home System
+Vanilla
+I WIN THE GAME
+
+Imperium Rex
+As soon as this card is revealed, the game ends immediately. The player with the most victory points wins the game.
+Vanilla, Shattered Empire
+GAME OVER
+--------------------------
+Special Objectives
+
+Ancient Shipwreck
+I control the planet containing the Ancient Shipwreck.
+Shattered Empire
+1
+
+Imperial Datacache
+I control the planet containing the Imperial Datacache.
+Shattered Empire
+1
+
+Lazax Armory
+I control the planet containing the Lazax Armory.
+Shattered Empire
+1
+
+Precursor Fossil
+I control the planet containing the Precursor Fossil.
+Shattered Empire
+1
+
+Voice of the Council
+Before using the primary ability of the Political or Assembly Strategy, its owner may call for a vote to see who gains control of this Objective.
+Shattered Empire
+1
+--------------------------
+Preliminary Objectives
+
+Antagonist
+I control a planet in a system adjacent to an enemy player's Home System. After completing this Objective, draw a Secret Objective.
+Shards of the Throne
+1
+
+Commander
+I have all 5 of my Dreadnoughts on the game board. After completing this Objective, draw a Secret Objective.
+Shards of the Throne
+1
+
+Defender
+I have all 6 of my PDS units on the game board. After completing this Objective, draw a Secret Objective.
+Shards of the Throne
+1
+
+Enemy
+I have destroyed 2 enemy Cruisers this round. After completing this Objective, draw a Secret Objective.
+Shards of the Throne
+1
+
+Explorer
+I control 2 systems adjacent to Mecatol Rex. After completing this Objective, draw a Secret Objective.
+Shards of the Throne
+1
+
+Infiltrator
+I have destroyed at least 1 enemy ship in a system adjacent to its owner's Home System. After completing this Objective, draw a Secret Objective.
+Shards of the Throne
+1
+
+Invader
+I control a planet that was controlled by an enemy player this round. After completing this Objective, draw a Secret Objective.
+Shards of the Throne
+1
+
+Researcher
+I control at least 4 planets with a Technology specialty. After completing this Objective, draw a Secret Objective.
+Shards of the Throne
+1
+
+Scientist
+I have 3 yellow Technology advances. After completing this Objective, draw a Secret Objective.
+Shards of the Throne
+1
+
+Traitor
+I have attacked a player this round with whom I have a trade agreement. After completing this Objective, draw a Secret Objective.
+Shards of the Throne
+1
+--------------------------
+Secret Objectives
+
+Conqueror
+I control all the planets in another player's Home System.
+Vanilla
+2
+
+Diversified
+I control Mecatol Rex; I have a Space Dock here, and I have at least 2 Technology Advances in each of three different colors.
+Vanilla
+2
+
+Expansionist
+I control 8 systems outside of my Home System. (I "control" a system if I have at least one (non-Fighter) ship there, and I control every planet in the system.)
+Shattered Empire
+2
+
+Focused
+I control at least 4 planets with the same technology specialty.
+Vanilla
+2
+
+Forceful
+I control Mecatol Rex; I have a Space Dock here, and at least 4 Dreadnoughts in the Mecatol Rex system.
+Vanilla
+2
+
+Industrial
+I control Mecatol Rex, and I have all 3 of my Space Docks and all 5 of my Dreadnoughts on the board.
+Vanilla
+2
+
+Keeper of Gates
+I have at least 1 (non-Fighter) ship in every system containing a wormhole.
+Vanilla
+2
+
+Master of Ships
+I control Mecatol Rex, I have a Space Dock here, and at least 8 (non-Fighter) ships in the Mecatol Rex system.
+Vanilla
+2
+
+Merciless
+This turn, I successfully took control of my neighbor's planet that held his last Space Dock on the board. (My neighbor is another player directly to my right or left.)
+Vanilla
+2
+
+Regulator
+I destroyed Space Docks controlled by two different players this turn.
+Shattered Empire
+2
+
+Technocrat
+I control at least 6 planets with a technology specialty.
+Vanilla
+2
+
+Threatening
+I control systems adjacent to 2 different player's Home Systems. (I "control" a system if I have at least one (non-Fighter) ship there, and I control every planet in the system.)
+Shattered Empire
+2
+
+Usurper
+I control Mecatol Rex; I have a Space Dock and at least 6 Ground Forces here.
+Vanilla
+2
+--------------------------

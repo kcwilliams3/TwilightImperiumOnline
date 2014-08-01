@@ -1,0 +1,152 @@
+The L1z1x Mindnet
+0.0.1
+Sustain Damage
+When this ship is present, all hits from your Flagship and Dreadnoughts must be taken by opposing non-Fighter ships (if able).
+Cost: 11
+Battle: 5x3
+Move: 1
+Capacity: 2
+
+The Barony of Letnev
+Arc Secundus
+Sustain Damage, Bombard
+This ship may bombard planets that contain PDS units. At the start of each combat round, repair this ship.
+Cost: 10
+Battle: 5x2
+Move: 1
+Capacity: 2
+
+Sardakk N'orr
+C'morran Norr
+Sustain Damage
+You receive +1 to your space combat rolls in this system.
+Cost: 10
+Battle: 5x3
+Move: 1
+Capacity: 2
+
+The Arborec
+Duha Menaimon
+Sustain Damage, Build Capacity 5
+You may not build units with this ship if it has moved during this activation.
+Cost: 10
+Battle: 6x2
+Move: 1
+Capacity: 5
+
+The Mentak Coalition
+Fourth Moon
+Sustain Damage
+Opposing ships may not use the sustain damage ability in this system.
+Cost: 8
+Battle: 5x2
+Move: 2
+Capacity: 2
+
+Federation of Sol
+Genesis I
+Sustain Damage
+Ground Forces on this ship do not count towards its capacity.
+Cost: 10
+Battle: 5x3
+Move: 1
+Capacity: 3
+
+The Ghosts of Creuss
+Hil Colish
+Sustain Damage
+You may treat this ship's system as if it had a "D" Wormhole in it. When this ship is moving, treat its destination system as if it had the Wormhole.
+Cost: 10
+Battle: 4
+Move: 1
+Capacity: 3
+
+Universities of Jol Nar
+J.N.S. Hylarim
+Sustain Damage
+Each 10 rolled by this ship during a Space Battle counts as 3 hits (instead of 1 hit).
+Cost: 10
+Battle: 2x2
+Move: 2
+Capacity: 2
+
+The Xxcha Kingdom
+Loncara Ssodu
+Sustain Damage
+You may attack with this ship as if it were 2 PDS units with the Deep Space Cannon Technology advance.
+Cost: 9
+Battle: 6x2
+Move: 1
+Capacity: 4
+
+The Naalu Collective
+Matriarch
+Sustain Damage
+Your Fleet Supply limit in this system is increased by 3.
+Cost: 9
+Battle: 8x2
+Move: 2
+Capacity: 6
+
+The Winnu
+Salai Sai Corian
+Sustain Damage
+? is equal to the number of opposing non-Fighter ships present this round during a Space Battle.
+Cost: 10
+Battle: 7x?
+Move: 1
+Capacity: 3
+
+The Clan of Saar
+Son of Ragh
+Sustain Damage
+This ship rolls 4 dice for your anti-Fighter barrage.
+Cost: 10
+Battle: 6x3
+Move: 1
+Capacity: 4
+
+The Nekro Virus
+The Alastor
+Sustain Damage
+If this ship is destroyed, destroy all friendly and enemy ships in the system.
+Cost: 9
+Battle: 9x3
+Move: 1
+Capacity: 1
+
+The Embers of Muaat
+The Inferno
+Sustain Damage
+As an action, you may spend 1 Command Counter from Strategy Allocation area to produce 1 free Cruiser in this system.
+Cost: 10
+Battle: 5x3
+Move: 1
+Capacity: 4
+
+The Yin Brotherhood
+Van Hauge
+Sustain Damage
+Your Ground Force units in this system may participate in Space Battle as if they were Fighters.
+Cost: 10
+Battle: 5x2
+Move: 1
+Capacity: 4
+
+The Emirates of Hacan
+Wrath of Kenara
+Sustain Damage
+When this ship is present, up to two times each combat round, you may spend 1 Trade Good to reroll one of your dice.
+Cost: 10
+Battle: 7x3
+Move: 2
+Capacity: 4
+
+The Yssaril Tribes
+Y'sia Y'ssrila
+Sustain Damage
+This ship may move through systems containing enemy ships.
+Cost: 9
+Battle: 7x2
+Move: 2
+Capacity: 5

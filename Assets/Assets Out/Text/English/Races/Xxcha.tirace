@@ -1,0 +1,138 @@
+<{>
+Full Name: 			The Xxcha Kingdom<;>
+Short Name: 		Xxcha<;>
+Species Name: 		Xxcha<;>
+Expansion: 			Vanilla<;>
+History:			<{>
+					Even the oldest annals recognize the ancient kingdom of the reptilian Xxcha as the first of the great interstellar civilizations. Nestled in the middle of a wealthy section of space, the Xxcha twin planets of Archon Ren and Archon Tau lie bathed in the gentle light of the Xxlak star. While the Xxcha still call the two planets "twins," an outsider will instantly notice that the grayish and shadowy Archon Tau in no way resembles the brilliant, healthy green of Archon Ren.<;>
+					Throughout the tenure of the lost Lazax Imperium, the Xxcha were the most peaceful, docile, and content of the major civilizations. They did not, unlike the other races, scheme for power and territory during the Age of Dusk. Unlike the Lazax, the Xxcha elders did see the growing threat to the galaxy. They fruitlessly sought to warn the Lazax of their peril, and struggled to bring dialogue to the increasing racial factionalism. A powerful Lazax councilor by the name of Ibna Vel Syd listened to the Xxcha warning, but even he could not sway the false sense of safety felt by the emperor. Then, disaster struck. The Quann crisis erupted into sudden war, and the Letnev, led by the Baron Daz Arrokan I, moved towards the rich Xxcha system in conquest. The Xxcha, unprepared and weaponless, used their formidable powers of negotation and goodwill, to broker an agreement in which they ceded only Archon Tau to the invaders, while the kingdom retained a Letnev-supervised autonomy on Archon Ren. The Xxcha, never fools, were aware of the nature of Letnev promises and the futility of the arrangement. The agreement would only last as long as the Barony was occupied in war elsewhere. In time, the Xxcha knew, the Letnev would return to claim the rest of their prize and enslave them. It was then, for the first time in their history, that the Xxcha started to create their first weapons and train their first armies. In secret deep groves and in hidden vales, the Xxcha king sadly watched his people develop into warriors.<;>
+					Less than a decade after the occupation of Archon Tau, the Letnev fleet suffered a stunning defeat against Sol in the Gral system. Only a few cycles after that battle, the Sol Phoenix fleet entered the Xxlak system and engaged the heavily fortified Letnev positions on Archon Tau. The ensuing bombardments and battles lasted for almost two years. In the end, the Letnev occupiers were defeated, but with a terrible toll. The ecology of Archon Tau had been shattered beyond recall. What was once a true twin to the green and fruitful Archon Ren was now a noxious, blackened crater. Its forests had burned. Ashes and scattered dust starting a planet-wide winter that lasted for a hundred years, killing most plant and animal life.<;>
+					Now, recovered from the loss of Archon Tau, the Xxcha kingdom has prospered on the generous Archon Ren. Covered by mostly leafy forests, small inland oceans, and fruitful jungles, Archon Ren is rich in minerals, energy, foodstuffs, and water. The Xxcha civilization dwells in a myriad of arboreal villages and towns. The only true metropolis is the giant city of Kklaj, found on the planet's southern hemisphere. Kklaj functions as the seat of the Xxcha King, whose extensive palace, entirely sculpted of Q'waar wood, and flower gardens, stretch for miles at the center of the city.<;>
+					The Xxcha are an inherently peaceful, slow, and thoughtful people. They hold their nobles and town elders in deep respect. A common pastime of Xxcha males and females alike is to debate meaning and origin while smoking gerr root on long-stemmed pipes. The jungles and lakes of Archon Ren are surprisingly free from the invasive insects that so often make forest and jungle planets unbearable.<;>
+					Although the Xxcha still believe in the doctrine of peace and negotiation, they will never again bend to foreign invasion. Travelers of the Xxlak system will often notice impressive sentinel Xxcha superdreadnoughts and the distinctive Xxlun fighters in intense naval exercises. Although the typical Xxcha may seem slow and encumbered by a heavy reptilian body weight, when roused, the Xxcha are surprisingly strong and fast.<;>
+					The pale shadow of Archon Tau hangs like a scar in the Xxcha skies. The sight of it is the everlasting sorrow of the Xxcha, and the ever-present reminder of the cost of submission. The Xxcha will never allow such tragedy to befall them again. Ccrysus, the Xxcha King, knows that for the sake of a peaceful galaxy, the Xxcha must seek the Imperial Throne and be wise for all.<;>
+					<}>
+Special Abilities:	<{>
+					When executing the Secondary Ability of the Diplomacy Strategy, you may execute the primary ability instead.<;>
+					Immediately after a Political Card has been drawn and read aloud, you may spend one Command Counter from your Strategy Allocation to cancel the card, and force another Political card to be drawn.<;>
+					Your opponents receive -1 on all combat rolls against you during the first round of all Space Battles and Invasion Combat.<;>
+					<}>
+Trade Contracts:	<{>
+					2<;>
+					2<;>
+					<}>
+Home Systems:		<{>
+							<{>
+							Name:		The Xxcha Kingdom Home System<;>
+							Type:		Standard<;>
+							Planets:	<{>
+													<{>
+													Name:		Archon Ren<;>
+													Text:		Populated by small arboreal villages, this planet's only true urban center is the royal city of Kklaj. The Xxcha home world and home to the renowned library of Xuun.<;>
+													Resources:	2<;>
+													Influence:	3<;>
+													<}>
+													<{>
+													Name:		Archon Tau<;>
+													Text:		Ravaged by Sol and Letnev bombardments during the Twilight Wars. The Xxcha commit substantial resources to rebuilding its ecology and cleansing its toxic continents.<;>
+													Resources:	1<;>
+													Influence:	1<;>
+													<}>
+										<}>
+							<}>
+					<}>
+Starting Units:		<{>
+							<{>
+										Unit:		PDS<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Space Dock<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Fighters<;>
+										Quantity:	3<;>
+							<}>
+							<{>
+										Unit:		Carrier<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Cruisers<;>
+										Quantity:	2<;>
+							<}>
+							<{>
+										Unit:		Ground Forces<;>
+										Quantity:	2<;>
+							<}>
+					<}>
+Starting Techs:		<{>
+							Antimass Deflectors<;>
+							Enviro Compensator<;>
+					<}>
+Leaders:			<{>
+							<{>
+										Name:		Junn<;>
+										Type		Diplomat<;>
+							<}>
+							<{>
+										Name:		Neekuaq<;>
+										Type		Admiral<;>
+							<}>
+							<{>
+										Name:		Qanoj<;>
+										Type		Diplomat<;>
+							<}>
+					<}>
+Racial Techs:		<{>
+							<{>
+										Name:		Diplomats<;>
+										Expansion:	Shattered Empire<;>
+										Cost:		5<;>
+										Text:		Once per turn, when an opponent activates a system you control, you may spend a Command Counter from your Strategy Allocation area to force him to instead place the Command Counter into his reinforcements and immediately end his action.<;>
+							<}>
+							<{>
+										Name:		Instinct Training<;>
+										Expansion:	Shards of the Throne<;>
+										Cost:		4<;>
+										Text:		Once per game turn, you may spend 1 Command Counter from your Strategy Allocation area to cancel an Action Card just played by an opponent.<;>
+							<}>
+					<}>
+Flagship:			<{>
+							Name:					Loncara Ssodu<;>
+							Abilities:	<{>
+													Sustain Damage<;>
+										<}>
+							Text:		You may attack with this ship as if it were 2 PDS units with the Deep Space Cannon Technology advance.<;>
+							Cost:		9<;>
+							Battle:		6<;>
+							Multiplier:	2<;>
+					<}>
+Representatives:	<{>
+							<{>
+										Name:		Brothers Qquiar<;>
+										Votes:		2<;>
+										Types:		<{>
+																Bodyguard<;>
+													<}>
+										Text:		If this card is not targeted by a Spy, gain +3 votes.<;>
+							<}>
+							<{>
+										Name:		Ggrucoto Rinn<;>
+										Votes:		3<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		Players who accept Trade Goods from you during the Bargaining step may not receive any Promissory Notes. You vote for them during the Voting step.<;>
+							<}>
+							<{>
+										Name:		Xxekir Grom<;>
+										Votes:		2<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		During the Bargaining step, you gain +3 Bonus Votes if the current player does not offer you a Promissory Note.<;>
+							<}>
+					<}>
+<}>
