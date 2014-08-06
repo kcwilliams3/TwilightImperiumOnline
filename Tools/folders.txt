@@ -1,0 +1,2 @@
+../Assets/Text/Raw/
+../Assets/Text/Processed/

@@ -41,12 +41,19 @@ def checkUsage():
 #	File read section
 ################################################################
 
-def readAll():
+def readFolders():
+	#Reads in the locations of the In and Out folders
+
+	with open("folders.txt", 'r') as foldersFile:
+		lines = foldersFile.read().split("\n")
+		return lines[0].strip(),lines[1].strip()
+
+def readAll(inFolder):
 	#Reads in the data from the input file and returns a
 	# dictionary of Action objects
 	
 	#Set file name
-	path = r"../Assets In/Text/" + sys.argv[1].lower().capitalize() + '/'
+	path = inFolder + sys.argv[1].lower().capitalize() + '/'
 	fileName = path + "actioncards.txt"
 	
 	actionCards = {}
@@ -163,11 +170,11 @@ def writeOne(action, file):
 		file.write(blockEnd)
 	#No other formats currently implemented
 	
-def writeAll(actionCards):
+def writeAll(actionCards, outFolder):
 	#Takes in a dictionary of Action objects and writes them to file
 	
 	#Make sure directories exist
-	path = r"../Assets Out/Text/" + sys.argv[1].lower().capitalize() + '/'
+	path = outFolder + sys.argv[1].lower().capitalize() + '/'
 	if not os.path.exists(path):
 		os.makedirs(path)
 	
@@ -198,7 +205,8 @@ def writeAll(actionCards):
 
 def main():
 	checkUsage()
-	actionCards = readAll()
-	writeAll(actionCards)
+	inFolder, outFolder = readFolders()
+	actionCards = readAll(inFolder)
+	writeAll(actionCards, outFolder)
 	
 main()

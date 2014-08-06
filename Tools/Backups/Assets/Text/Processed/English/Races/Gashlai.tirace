@@ -1,0 +1,132 @@
+<{>
+Full Name: 			The Embers of Muaat<;>
+Short Name: 		Gashlai<;>
+Species Name: 		Gashlai<;>
+Expansion: 			Shattered Empire<;>
+History:			<{>
+					It was during the early years of the Age of Dusk that Jol Nar explorers came upon the volcanic planet of Muaat. Scouting for resources beyond the Mahact plateau, the explorers were amazed by the mineral wealth of their discovery, but they were truly awestruck by the extraordinary qualities of the planet's fiery inhabitants, the Gashlai.<;>
+					The Gashlai were unlike any race known to the Jol Nar: sentient beings with bodies slowly consumed by a fiery heat. After their conception, the Gashlai cocooning process somehow enables conversion of energy into mass - a process hinted at by scientific theory, but forever thought unattainable on a sub-cosmic scale.<;>
+					The Jol Nar benefited greatly from Muaat's resources, yet they were frustrated in their attempts to replicate the Gashlai cocooning process. instead, the Gashlai proved useful as slave labor, as the Headmasters transformed the orbit of Muaat into a massive shipyard for their navy. It was here, at the Muaat shipyards, that the construction of a secret Jol Nar superweapon began.<;>
+					The Gashlai suffered under their enslavement by the Jol Nar, but events of the early Twilight Wars would dramatically change their fortune.<;>
+					Just after the Twilight Wars erupted, a Jol Nar expedition party searching for mineral deposits on Muaat became infected by an organism in the Doolak mountains. The infection developed into a disease later known as the Doolak plague. The covert, yet frequent, traffic between Muaat and the Garian star system allowed for the spread of the virus to the Jol Nar home worlds.<;>
+					The plague became one of the greatest disasters in Jol Nar history, and only the early research of Gashlai biology allowed the Headmasters to devise a vaccine before the entire Jol Nar population was destroyed. Before the Jol Nar could recover from this disaster, their military offensive collapsed, and soon the Headmasters would face the ruthless advance of the Sardakk N'orr.<;>
+					As the Jol Nar navy retreated, the Headmasters were forced to call forth their secret weapon at Muaat. This weapon - an enormous battle vessel called the "War Sun" - was not yet entirely complete, but with their fates clinging to the defenses of the Saudor system, the Headmasters had no choice but bring it to bear against the enemy.<;>
+					As the War Sun left its Muaat moorings, and as the majority of the remaining Jol Nar personnel left with it, the Gashlai finally carved their own destiny. Having long schemed against their enslavers, they incinerated the remaining Jol Nar in the system, capturing the shipyards and every available scientific document left behind by their hated oppressors.<;>
+					Not long after their costly victory at Saudor, the Jol Nar sought to return to their colony at Muaat, but found that all communications with the system had been severed. Exploratory ships sent to Muaat would not return. Though the Headmasters suspected what might have taken place on their old colony, they were unable to return there in force again.<;>
+					Throughout the long Dark Years, the Gashlai prospered.<;>
+					Clad in Ember suits, special body armor shielding the Gashlai from cold and others from their lethal heat, a large assembly of Gashlai envoys have recently arrived at Mecatol Rex, demanding recognition and representation. The High Fire Warden Sushon Azh has simultaneously sent forth Gashlai ambassadors to all the great races in the distinctive gold-bronze frigates of the Gashlai.<;>
+					Yet one such ambassador did not arrive in a frigate.<;>
+					As the Gashlai ambassador assigned to the Jol Nar sailed past the Garian star and began his approach to Jol, the Headmasters paled in fear; for this representative arrived in a War Sun, a copy of their own ancient designs. The message was not wasted on the Headmasters. Their former slaves had become formidable, and they had not forgotten, or forgiven, the past.<;>
+					Led by the Fire Wardens, the Gashlai are resolved to never be enslaved again. Inside their golden Ember suits they burn with ambition. The Jol Nar fear what the rest of the galaxy is about to learn: that the Embers of Muaat intend to bring their fire to the furthest reaches of space, burning the unwilling into submission.<;>
+					<}>
+Special Abilities:	<{>
+					Your War Suns have a base movement of 1; this improves to 2 when you acquire the Deep Space Cannon technology.<;>
+					As an Action, you may spend one Command Counter from your Strategy Allocation Area to place 2 free Fighters or 1 free Destroyer in any one System containing one of your War Suns or Space Docks.<;>
+					Your ships may move through, but may not end their movement in, Supernova systems.<;>
+					<}>
+Trade Contracts:	<{>
+					2<;>
+					2<;>
+					<}>
+Home Systems:		<{>
+							<{>
+							Name:		The Embers of Muaat Home System<;>
+							Type:		Standard<;>
+							Planets:	<{>
+													<{>
+													Name:		Muaat<;>
+													Text:		The fiery surface of Muaat is uninhabitable to most races. It is home to the Gashlai, and only here can they live outside of their cumbersome ember suits.<;>
+													Resources:	4<;>
+													Influence:	1<;>
+													<}>
+										<}>
+							<}>
+					<}>
+Starting Units:		<{>
+							<{>
+										Unit:		Fighters<;>
+										Quantity:	2<;>
+							<}>
+							<{>
+										Unit:		Space Dock<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Ground Forces<;>
+										Quantity:	4<;>
+							<}>
+							<{>
+										Unit:		War Sun<;>
+										Quantity:	1<;>
+							<}>
+					<}>
+Starting Techs:		<{>
+							Enviro Compensator<;>
+							Sarween Tools<;>
+							War Sun<;>
+					<}>
+Leaders:			<{>
+							<{>
+										Name:		Emnor<;>
+										Type		Scientist<;>
+							<}>
+							<{>
+										Name:		Magmus<;>
+										Type		Diplomat<;>
+							<}>
+							<{>
+										Name:		Umbat<;>
+										Type		General<;>
+							<}>
+					<}>
+Racial Techs:		<{>
+							<{>
+										Name:		Magmus Reactor<;>
+										Expansion:	Shattered Empire<;>
+										Cost:		5<;>
+										Text:		Your War Suns now have +1 movement and a base cost of 10 resources.<;>
+							<}>
+							<{>
+										Name:		Nova Seed<;>
+										Expansion:	Shards of the Throne<;>
+										Cost:		3<;>
+										Text:		As an action, you may remove this card from the game to replace a system you control with a Supernova system tile. This may not be used on Mecatol Rex, a Home System, or adjacent to a red-bordered system.<;>
+							<}>
+					<}>
+Flagship:			<{>
+							Name:					The Inferno<;>
+							Abilities:	<{>
+													Sustain Damage<;>
+										<}>
+							Text:		As an action, you may spend 1 Command Counter from Strategy Allocation area to produce 1 free Cruiser in this system.<;>
+							Cost:		10<;>
+							Battle:		5<;>
+							Multiplier:	3<;>
+					<}>
+Representatives:	<{>
+							<{>
+										Name:		Flaim Haash<;>
+										Votes:		1<;>
+										Types:		<{>
+																Bodyguard<;>
+													<}>
+										Text:		If this card is targeted by a Spy, the player controlling the Spy receives -5 votes (to a minimum of 0).<;>
+							<}>
+							<{>
+										Name:		Hosh Gahloki<;>
+										Votes:		0<;>
+										Types:		<{>
+																Spy<;>
+													<}>
+										Text:		Assassinate a Representative. If he is killed, draw 1 Action Card.<;>
+							<}>
+							<{>
+										Name:		Moltosh Flae<;>
+										Votes:		3<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		If you have a War Sun in, or adjacent to, the Mecatol Rex system, gain +4 Bonus Votes.<;>
+							<}>
+					<}>
+<}>

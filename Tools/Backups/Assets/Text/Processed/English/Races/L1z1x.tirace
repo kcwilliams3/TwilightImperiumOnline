@@ -1,0 +1,137 @@
+<{>
+Full Name: 			The L1z1x Mindnet<;>
+Short Name: 		L1z1x<;>
+Species Name: 		L1z1x<;>
+Expansion: 			Vanilla<;>
+History:			<{>
+					It has been 13 years since the Hacan trader Zollar was lost. A year later, its final desperate broadcast was intercepted by a Yssaril outpost near the Mahact asteroid fields.<;>
+					The last transmission of the Zollar told a grim story. After leaving Moll Primus in the Mahact region, its navigation equipment failed, and its crew found themselves lost far beyond the remote borderlands. After nearly two weeks adrift in deep space, they were suddenly hailed by a great warship of unknown origin. The crew's joy soon turned to terror. The warship closed, bringing its broadside cannons to bear on the helpless freighter. The Hacan captain was able to send a final emergency broadcast before his ship was destroyed.<;>
+					Not long after the disappearance of the Zollar, a mighty alien fleet appears on the outskirts of Yssaril space. From that fleet, a small delegation of representatives travels to Mecatol, submitting an ancestral claim to the imperial throne. They claim to be the true remnants of the ancient Lazax, now calling themselves the L1z1x ("Elwonzewonex"). Grisly to behold, they resemble the Lazax, but utterly changed, their bodies almost entirely overtaken by invasive cybernetic implants.<;>
+					The Winnaran custodians are deeply divided over the issue. Some claim that the L1z1x are not the ruling race, but a new and potentially dangerous hybrid. Other Winnarans argue that the Lazax have returned, in unexpected form, but returned nonetheless, and that their custodianship is over.<;>
+					A Winnaran observer has been allowed to visit the L1z1x home world, called "0.0.0" by its inhabitants, or "Null" by most others. The observer has not yet returned, and the L1z1x remain a largely unknown entity. What little is known of them has been provided by the L1z1x themselves, or obtained from a few old records provided by the Jol Nar Regents.<;>
+					From the Hylar records and from the L1z1x claim, it has been inferred that the L1z1x history started during the final days of the Lazax. It was less than a year before the great bombing of Mecatol that a councilor to the Emperor by the name of Ibna Vel Syd saw the impending doom. The emperor and his other councilors refused to listen to Ibna's dire warnings. Soon Ibna grew frustrated with their myopia. Although the Lazax navy was clearly failing, although trade had entirely failed, and food supplies on Mecatol were running out, the emperor and his cabinet simply could not comprehend that their birthright, their empire, could possibly fall.<;>
+					Refusing to share the fate of his liege, Ibna Vel Syd began secretly planning a furtive diaspora for his own family and the few thousand Lazax who shared his fears. With him, Ibna sought to bring the pillars of Lazax culture, technology, and knowledge. He even managed to persuade a small group of Hylar scientists to join him, recognizing that the Hylar's skill was instrumental to the underlying technology of the empire.<;>
+					Then, on a fateful night during the seventy-second year of the Twilight Wars, two freighters, the Manda and the Hurwana, and Ibna's own cruiser, Syd, left the great spaceport of Mecatol City. Below them, the great Hall of Cartography burned. So fearful had Ibna been of discovery and persecution by the Lazax's enemies that he had engineered the destruction of any record that could possibly identify his secret destination: a cold but adequate planet orbiting the small star Hazz, far beyond the borderlands.<;>
+					It is guessed that the colony, struggling to survive, started to rely almost exclusively on technology to assist them in their hardships. Presumably helped by the small contingent of Hylar, technology crept into their lives and bodies, until they became almost indistinguishable from it.<;>
+					It is rumored that Ibna Vel Syd still leads his people, encased in eldritch technology that keeps his ancient body alive. Whether the L1z1x are guided by the wisdom that saved them or by the insanity that destroyed the famed Hall of Cartography, it is not known. Behind their vacant red eyes lie both a tragic history and a terrible malevolence. It seems certain that the return of the Lazax will wash across the galaxy like a tide of prophecy and steel.<;>
+					<}>
+Special Abilities:	<{>
+					The base cost of your Dreadnought units starts at 4.<;>
+					Your Dreadnought units receive +1 during Space Battles, and your Ground Force units receive +1 when attacking during Invasion Combat.<;>
+					You start with one extra Command Counter in your Strategy Allocation area.<;>
+					<}>
+Trade Contracts:	<{>
+					1<;>
+					1<;>
+					<}>
+Home Systems:		<{>
+							<{>
+							Name:		The L1z1x Mindnet Home System<;>
+							Type:		Standard<;>
+							Planets:	<{>
+													<{>
+													Name:		[0.0.0]<;>
+													Text:		This elusive energy-rich planet was the desperate destination of the secret Lazax Diaspora. Now, it is a technological nightmare.<;>
+													Resources:	5<;>
+													Influence:	0<;>
+													<}>
+										<}>
+							<}>
+					<}>
+Starting Units:		<{>
+							<{>
+										Unit:		PDS<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Space Dock<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Fighters<;>
+										Quantity:	3<;>
+							<}>
+							<{>
+										Unit:		Carrier<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Dreadnought<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Ground Forces<;>
+										Quantity:	5<;>
+							<}>
+					<}>
+Starting Techs:		<{>
+							Enviro Compensator<;>
+							Stasis Capsules<;>
+							Cybernetics<;>
+							Hylar V Assault Laser<;>
+					<}>
+Leaders:			<{>
+							<{>
+										Name:		2RAM<;>
+										Type		Diplomat <;>
+							<}>
+							<{>
+										Name:		A6<;>
+										Type		Agent<;>
+							<}>
+							<{>
+										Name:		I48S<;>
+										Type		Scientist<;>
+							<}>
+					<}>
+Racial Techs:		<{>
+							<{>
+										Name:		Dreadnought Invasion Pod<;>
+										Expansion:	Shattered Empire<;>
+										Cost:		2<;>
+										Text:		Your Dreadnoughts may now carry 1 additional Ground Force unit.<;>
+							<}>
+							<{>
+										Name:		Inheritance Systems<;>
+										Expansion:	Shards of the Throne<;>
+										Cost:		5<;>
+										Text:		When researching Technology using the Technology Strategy Card, you may spend 2 additional resources to ignore the Technology's prerequisites.<;>
+							<}>
+					<}>
+Flagship:			<{>
+							Name:					0.0.1<;>
+							Abilities:	<{>
+													Sustain Damage<;>
+										<}>
+							Text:		When this ship is present, all hits from your Flagship and Dreadnoughts must be taken by opposing non-Fighter ships (if able).<;>
+							Cost:		11<;>
+							Battle:		5<;>
+							Multiplier:	3<;>
+					<}>
+Representatives:	<{>
+							<{>
+										Name:		44G5I-O<;>
+										Votes:		1<;>
+										Types:		<{>
+																Bodyguard<;>
+													<}>
+										Text:		If this card is targeted by a Spy, the player controlling the Spy must abstain from this vote.<;>
+							<}>
+							<{>
+										Name:		A6AH3<;>
+										Votes:		0<;>
+										Types:		<{>
+																Spy<;>
+													<}>
+										Text:		Choose an outcome. If the result of this vote does not match your choice, kill any 1 Councilor that did not vote the outcome you chose.<;>
+							<}>
+							<{>
+										Name:		R7-82<;>
+										Votes:		4<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		If you abstain from this vote, gain 1 free Cruiser in your Home System.<;>
+							<}>
+					<}>
+<}>

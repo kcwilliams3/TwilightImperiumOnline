@@ -1,0 +1,134 @@
+<{>
+Full Name: 			The Yin Brotherhood<;>
+Short Name: 		Yin<;>
+Species Name: 		brother<;>
+Expansion: 			Shattered Empire<;>
+History:			<{>
+					Lazax law strictly forbade the practice of cloning, the dangerous science that led to the madness, disease, and ultimate downfall of the Mahact kings. The emperors severely punished any regime or independent scientist dabbling in this dangerous field.<;>
+					Darien Van Hauge, a prominent Sol scientist, had lost both his children to the terrible wasting disease Greyfire. After their loss, he was intent on finding a cure for this horrible affliction, and refused to let any law stay his hand. In silent revenge against the destiny of his children, he left his employment with the prestigious Hospitaler Clinic in New Moscow and traveled to the third moon of Emelpar, where he secretly sought and finally acquired ancient Mahact bio studies.<;>
+					The brilliant Darien made great advances in the following years. His wife Moyin contributed the embryos he needed for his forbidden experiments. With his successes, however, word of his work began to leak, and a congregation of the hopeful began to surround him, bringing their sick and dying to his care, clinging to a last hope that his discoveries could cure them.<;>
+					Darien's secret ended the day a sick child died in his care. The anguished, remorseful parents blamed Darien for the death and contacted the Sol authorities. That night, Darien fled Jord with his wife and a few of his most devout followers.<;>
+					Now a known fugitive, Darien narrowly escaped capture again and again. To finally escape the Lazax authorities, his small group joined religious colonists migrating to a new home on the remote planet of Lael, a place of harsh oceans and stormy climates. Their fugitive years brought healing and perspective on the death of their children, and Darien and Moyin found happiness again on the windy plains of Lael.<;>
+					But a few years later, Moyin developed Greyfire.<;>
+					Desperate to save his wife, Darien employed all his skills and forbidden knowledge, but still he failed. Before her death, he extracted a single egg from her womb - preserving the genetic blueprint of her unborn children.<;>
+					He burned her body on the summit of the Hills of Grace, which they had named after their lost daughter. As Moyin's ashes drifted upwards into the strong winds, Darien dug a stone out of the hillside with his bare hands and placed it near the fire. That stone was to become part of the foundation for the great monastery of Lucas, named after Darien and Moyin's lost son.<;>
+					In the following decades, Darien was able to produce a child from a clone of Moyin's egg and his own seed. It was a boy. Cloning Moyin's egg by the thousands, producing child after child with increasing success, Darien became a master of the forbidden craft. Yet, inexplicably to him, all the children were boys, and he was never able to eradicate the vulnerability to Greyfire from his creations. Though he was able to eliminate the lethal outcome of the disease in his "sons," as he called them, the Greyfire would attack their skins and topical tissues, hideously deforming most of the children.<;>
+					After Darien's death, his sons diligently continued his work. They continued cloning Moyin's egg, which they called the "Yin," and they continued the production of new "brothers" from their own seed. Over the centuries, the monastery of Lucas became a vast facility, completely covering the Hills of Grace and the surrounding plains.<;>
+					The Brotherhood, blessed with the brilliant minds of both Darien and Moyin, grew to vast proportions and renamed their planet "Darien." As the Age of Dusk neared its end, the Brotherhood ventured into space, establishing monasteries on Darien's moons and its surrounding systems.<;>
+					The Brotherhood long ago abandoned any hope of a female creation, and instead worship the Yin as the mother and the feminine in their lives. Despite centuries of continued work, they have never been able to completely eradicate the signs of Greyfire. instead, the brothers that are completely ravaged and deformed by the disease are revered as "The Blessed," and the brothers left untouched by the disease are called "The Untouched." The Blessed form the inner elders and councilors of the Yin society. The Untouched are trained as ambassadors to the other races and as elite soldiers of the Brotherhood.<;>
+					In their flesh, the brothers carry the secret inner fire and rebellious ambition of Darien. The oldest of the Blessed, the Elder Brother, intimately understands the emotions and aspirations of all his brothers. Intent and unified, the Brotherhood now builds a vast fleet with which to bring Darien's legacy and the light of Yin to the imperial throne itself.<;>
+					<}>
+Special Abilities:	<{>
+					Before an Invasion Combat in which you are the attacker begins, you may roll 1 die. On a 5+ your opponent loses 1 Ground Force and you gain 1 Ground Force.<;>
+					Immediately before the second round of a Space Battle, you may discard one of your participating Destroyers or Cruisers to choose one opposing ship present and immediately inflict one hit on it.<;>
+					Once per turn, as an Action, you may place your control marker on an unexhausted Planet Card you control. Until the end of the round, its Influence and Resource values are reversed.<;>
+					<}>
+Trade Contracts:	<{>
+					1<;>
+					1<;>
+					<}>
+Home Systems:		<{>
+							<{>
+							Name:		The Yin Brotherhood Home System<;>
+							Type:		Standard<;>
+							Planets:	<{>
+													<{>
+													Name:		Darien<;>
+													Text:		Darien is the heart of the Brotherhood's realm. Here, within the great Monastery of Lucas, rests the Yin, the holy egg from which all the Brotherhood were made.<;>
+													Resources:	2<;>
+													Influence:	4<;>
+													<}>
+										<}>
+							<}>
+					<}>
+Starting Units:		<{>
+							<{>
+										Unit:		Space Dock<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Fighters<;>
+										Quantity:	4<;>
+							<}>
+							<{>
+										Unit:		Destroyer<;>
+										Quantity:	1<;>
+							<}>
+							<{>
+										Unit:		Ground Forces<;>
+										Quantity:	4<;>
+							<}>
+							<{>
+										Unit:		Carriers<;>
+										Quantity:	2<;>
+							<}>
+					<}>
+Starting Techs:		<{>
+							Hylar V Assault Laser<;>
+							Automated Defense Turrets<;>
+					<}>
+Leaders:			<{>
+							<{>
+										Name:		Dahla<;>
+										Type		Diplomat<;>
+							<}>
+							<{>
+										Name:		Milor<;>
+										Type		Agent<;>
+							<}>
+							<{>
+										Name:		Omar<;>
+										Type		General<;>
+							<}>
+					<}>
+Racial Techs:		<{>
+							<{>
+										Name:		Fanaticism<;>
+										Expansion:	Shattered Empire<;>
+										Cost:		4<;>
+										Text:		You may use your race's special ability twice at the start of each Invasion Combat.<;>
+							<}>
+							<{>
+										Name:		Yin Spinner<;>
+										Expansion:	Shards of the Throne<;>
+										Cost:		2<;>
+										Text:		Build 1 free Ground Force each time you build units at a Space Dock. This free Ground Force does not count towards any build limits.<;>
+							<}>
+					<}>
+Flagship:			<{>
+							Name:					Van Hauge<;>
+							Abilities:	<{>
+													Sustain Damage<;>
+										<}>
+							Text:		Your Ground Force units in this system may participate in Space Battle as if they were Fighters.<;>
+							Cost:		10<;>
+							Battle:		5<;>
+							Multiplier:	2<;>
+					<}>
+Representatives:	<{>
+							<{>
+										Name:		Imar Yissadar<;>
+										Votes:		0<;>
+										Types:		<{>
+																Spy<;>
+													<}>
+										Text:		Assassinate a Representative. If he is a Bodyguard, then both he and this Spy are killed.<;>
+							<}>
+							<{>
+										Name:		Rhal Darish<;>
+										Votes:		3<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		If you give any players a Promissory Note this round, you receive 3 Trade Goods from the supply.<;>
+							<}>
+							<{>
+										Name:		Talla Darator<;>
+										Votes:		4<;>
+										Types:		<{>
+																Councilor<;>
+													<}>
+										Text:		If this Councilor is assassinated by a Spy, the Spy's owner must abstain during this vote.<;>
+							<}>
+					<}>
+<}>

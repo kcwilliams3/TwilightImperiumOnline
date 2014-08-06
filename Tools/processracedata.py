@@ -44,7 +44,14 @@ def checkUsage():
 ################################################################
 #	File read section
 ################################################################
-		
+
+def readFolders():
+	#Reads in the locations of the In and Out folders
+
+	with open("folders.txt", 'r') as foldersFile:
+		lines = foldersFile.read().split("\n")
+		return lines[0].strip(),lines[1].strip()
+
 def readRaceNames(fileName, races):
 	with open(fileName, 'r') as namesFile:
 		lineNumber = 1
@@ -414,12 +421,12 @@ def readLeaders(fileName, races):
 				lineNumber += 1
 			lineNumber += 1
 				
-def readAll():
+def readAll(inFolder):
 	#Reads in the data from the input files and returns a
 	# dict of Race objects
 	
 	#Set file names
-	path = r"../Assets In/Text/" + sys.argv[1].lower().capitalize() + "/Race-Specific/"
+	path = inFolder + sys.argv[1].lower().capitalize() + "/Race-Specific/"
 	namesFileName = path + "racenames.txt"
 	raceSheetsFileName = path + "racesheets.txt"
 	homeSystemsFileName = path + "homesystems.txt"
@@ -697,11 +704,11 @@ def writeOne(race,file):
 		file.write(blockEnd)
 	#No other formats currently implemented
 
-def writeAll(races):
+def writeAll(races, outFolder):
 	#Takes in a dict of Race objects and writes them to file(s)
 	
 	#Make sure directories exist
-	outPath = path = r"../Assets Out/Text/" + sys.argv[1].lower().capitalize() + "/Races/"
+	outPath = path = outFolder + sys.argv[1].lower().capitalize() + "/Races/"
 	if not os.path.exists(path):
 		os.makedirs(path)
 
@@ -740,7 +747,8 @@ def writeAll(races):
 			
 def main():
 	checkUsage()
-	races = readAll()
-	writeAll(races)
+	inFolder, outFolder = readFolders()
+	races = readAll(inFolder)
+	writeAll(races, outFolder)
 
 main()
