@@ -1,16 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Representative.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUI\BasicGUI.cs">
     <Files>
-      <File FileName="Assets\Scripts\Leader.cs" Line="13" Column="92" />
-      <File FileName="Assets\Scripts\Representative.cs" Line="16" Column="22" />
-      <File FileName="Assets\Scripts\RaceFlagship.cs" Line="11" Column="38" />
-      <File FileName="c:\Users\Kaleb\Documents\GitHub\TwilightImperiumOnline\Assets\Scripts\Managers\FileManager.cs" Line="33" Column="1" />
-      <File FileName="c:\Users\Kaleb\Documents\GitHub\TwilightImperiumOnline\Assets\Scripts\Planet.cs" Line="16" Column="13" />
-      <File FileName="c:\Users\Kaleb\Documents\GitHub\TwilightImperiumOnline\Assets\Scripts\PlanetSystem.cs" Line="14" Column="27" />
-      <File FileName="c:\Users\Kaleb\Documents\GitHub\TwilightImperiumOnline\Assets\Scripts\Race.cs" Line="38" Column="169" />
-      <File FileName="c:\Users\Kaleb\Documents\GitHub\TwilightImperiumOnline\Assets\Scripts\Tech.cs" Line="16" Column="21" />
-      <File FileName="c:\Users\Kaleb\Documents\GitHub\TwilightImperiumOnline\Assets\Scripts\Unit.cs" Line="16" Column="20" />
+      <File FileName="Assets\Scripts\GUI\BasicGUI.cs" Line="76" Column="166" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
