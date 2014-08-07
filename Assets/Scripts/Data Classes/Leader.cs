@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class Leader {
 	
 	// Variables for logical use
@@ -7,8 +8,10 @@ public class Leader {
 	private bool[] isLocked;
 	
 	// TI Game Data
+	[SerializeField]
 	private string name;
 	public string Name { get { return name; } set { if (!isLocked[0]) { name = value; isLocked[0] = true; } else { Debug.Log("Leader: Attempted to set locked property Name."); } } }
+	[SerializeField]
 	private string leaderType;
 	public string LeaderType { get { return leaderType; } set { if (!isLocked[1]) { leaderType = value; isLocked[1] = true; } else { Debug.Log("Leader: Attempted to set locked property LeaderType."); } } }
 	

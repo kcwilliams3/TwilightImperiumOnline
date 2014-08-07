@@ -6,24 +6,24 @@ using System.IO;
 public class FileManager : TIOMonoBehaviour {
 
 	public Race testRace;
-	public string fullName;
-	public string shortName;
-	public string speciesName;
-	public string expansion;
-	public string[] history;
-	public string[] specialAbilities;
-	public int[] tradeContracts;
+//	public string fullName;
+//	public string shortName;
+//	public string speciesName;
+//	public string expansion;
+//	public string[] history;
+//	public string[] specialAbilities;
+//	public int[] tradeContracts;
 
 	// Use this for initialization
 	void Start () {
 		testRace = readRaceFile ("Assets/Text/Processed/English/Races/Arborec.tirace");
-		fullName = testRace.FullName;
-		shortName = testRace.ShortName;
-		speciesName = testRace.SpeciesName;
-		expansion = testRace.Expansion;
-		history = testRace.History;
-		specialAbilities = testRace.SpecialAbilities;
-		tradeContracts = testRace.TradeContracts;
+//		fullName = testRace.FullName;
+//		shortName = testRace.ShortName;
+//		speciesName = testRace.SpeciesName;
+//		expansion = testRace.Expansion;
+//		history = testRace.History;
+//		specialAbilities = testRace.SpecialAbilities;
+//		tradeContracts = testRace.TradeContracts;
 	}
 	
 	// Update is called once per frame
