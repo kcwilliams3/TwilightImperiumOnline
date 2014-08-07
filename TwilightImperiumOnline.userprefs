@@ -1,8 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUI\BasicGUI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\FileManager.cs">
     <Files>
+      <File FileName="Assets\Scripts\Managers\FileManager.cs" Line="190" Column="2" />
       <File FileName="Assets\Scripts\GUI\BasicGUI.cs" Line="76" Column="166" />
+      <File FileName="Assets\Scripts\Data Classes\Race.cs" Line="34" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

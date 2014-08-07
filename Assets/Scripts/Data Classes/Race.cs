@@ -21,15 +21,15 @@ public class Race {
 	private string[] specialAbilities;
 	public string[] SpecialAbilities { get { return specialAbilities; } set { if (!isLocked[5]) { specialAbilities = value; isLocked[5] = true; } else { Debug.Log("Race: Attempted to set locked property SpecialAbilities."); } } }
 	private int[] tradeContracts;
-	public int[] TradeContracts { get { return TradeContracts; } set { if (!isLocked[6]) { tradeContracts = value; isLocked[6] = true; } else { Debug.Log("Race: Attempted to set locked property TradeContracts."); } } }
+	public int[] TradeContracts { get { return tradeContracts; } set { if (!isLocked[6]) { tradeContracts = value; isLocked[6] = true; } else { Debug.Log("Race: Attempted to set locked property TradeContracts."); } } }
 	private PlanetSystem[] homeSystems;
-	public PlanetSystem[] HomeSystems { get { return HomeSystems; } set { if (!isLocked[7]) { homeSystems = value; isLocked[7] = true; } else { Debug.Log("Race: Attempted to set locked property HomeSystems."); } } }
+	public PlanetSystem[] HomeSystems { get { return homeSystems; } set { if (!isLocked[7]) { homeSystems = value; isLocked[7] = true; } else { Debug.Log("Race: Attempted to set locked property HomeSystems."); } } }
 	private Dictionary<Unit, int> startingUnits;
-	public Dictionary<Unit, int> StartingUnits { get { return StartingUnits; } set { if (!isLocked[8]) { startingUnits = value; isLocked[8] = true; } else { Debug.Log("Race: Attempted to set locked property StartingUnits."); } } } //key temporarily a string. Should change to Unit once units have been implemented
+	public Dictionary<Unit, int> StartingUnits { get { return startingUnits; } set { if (!isLocked[8]) { startingUnits = value; isLocked[8] = true; } else { Debug.Log("Race: Attempted to set locked property StartingUnits."); } } } //key temporarily a string. Should change to Unit once units have been implemented
 	private string[] startingTechs;
-	public string[] StartingTechs { get { return StartingTechs; } set { if (!isLocked[9]) { startingTechs = value; isLocked[9] = true; } else { Debug.Log("Race: Attempted to set locked property StartingTechs."); } } } //temporarily a string. Should change to Tech once tech reading has been implemented
+	public string[] StartingTechs { get { return startingTechs; } set { if (!isLocked[9]) { startingTechs = value; isLocked[9] = true; } else { Debug.Log("Race: Attempted to set locked property StartingTechs."); } } } //temporarily a string. Should change to Tech once tech reading has been implemented
 	private Leader[] leaders;
-	public Leader[] Leaders { get { return Leaders; } set { if (!isLocked[10]) { leaders = value; isLocked[10] = true; } else { Debug.Log("Race: Attempted to set locked property Leaders."); } } }
+	public Leader[] Leaders { get { return leaders; } set { if (!isLocked[10]) { leaders = value; isLocked[10] = true; } else { Debug.Log("Race: Attempted to set locked property Leaders."); } } }
 	private Tech[] racialTechs;
 	public Tech[] RacialTechs { get { return racialTechs; } set { if (!isLocked[11]) { racialTechs = value; isLocked[11] = true; } else { Debug.Log("Race: Attempted to set locked property RacialTechs."); } } }
 	private Unit flagship;
