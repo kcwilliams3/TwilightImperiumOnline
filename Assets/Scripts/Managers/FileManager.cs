@@ -6,29 +6,33 @@ using System.IO;
 public class FileManager : TIOMonoBehaviour {
 
 	public Race testRace;
-//	public string fullName;
-//	public string shortName;
-//	public string speciesName;
-//	public string expansion;
-//	public string[] history;
-//	public string[] specialAbilities;
-//	public int[] tradeContracts;
+
+	public string language = "English";
+	private string rawTextDir;
+	private string procTextDir;
 
 	// Use this for initialization
 	void Start () {
-		testRace = readRaceFile ("Assets/Text/Processed/English/Races/Arborec.tirace");
-//		fullName = testRace.FullName;
-//		shortName = testRace.ShortName;
-//		speciesName = testRace.SpeciesName;
-//		expansion = testRace.Expansion;
-//		history = testRace.History;
-//		specialAbilities = testRace.SpecialAbilities;
-//		tradeContracts = testRace.TradeContracts;
+		checkDirectories ("Tools/folders.txt");
+		testRace = readRaceFile (procTextDir + language + "/Races/Arborec.tirace");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	private bool checkDirectories(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			string[] lines = reader.ReadToEnd().Trim ().Split('\n');
+			rawTextDir = lines[0].TrimStart ("./".ToCharArray());
+			procTextDir = lines[1].TrimStart ("./".ToCharArray());
+			return true;
+		} catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n", e.Message));
+			return false;
+		}
 	}
 
 	public bool ReadFile(string fileName) {
@@ -43,6 +47,11 @@ public class FileManager : TIOMonoBehaviour {
 		return false;
 	}
 
+
+	/*
+	 * Specific File Readers
+	 */
+
 	private Race readRaceFile(string fileName) {
 		try {
 			string line;
@@ -51,54 +60,43 @@ public class FileManager : TIOMonoBehaviour {
 			using (reader) {
 				Race race = new Race();
 
-				//do {
+				line = reader.ReadLine().Trim ();
+				if (line == "<{>") {
+					// Start of an outermost block
 					line = reader.ReadLine().Trim ();
-					//Debug.Log (line);
-					if (line == "<{>") {
-						// Start of an outermost block
+					do {
+						Debug.Log (line);
+						string[] lineParts;
+						//Split category name from data
+						lineParts = line.Split(":".ToCharArray(), 2);
+
+						//Remove any extra whitespace from parts & set descriptive variables
+						string dataType = lineParts[0] = lineParts[0].Trim ();
+						string dataText = lineParts[1] = lineParts[1].Trim ();
+
+
+						if (dataType == "Full Name") {
+							race.FullName = readTextLine(dataType, dataText, fileName);
+						} else if (dataType == "Short Name") {
+							race.ShortName = readTextLine(dataType, dataText, fileName);
+						} else if (dataType == "Species Name") {
+							race.SpeciesName = readTextLine(dataType, dataText, fileName);
+						} else if (dataType == "Expansion") {
+							race.Expansion = readTextLine(dataType, dataText, fileName);
+						} else if (dataType == "History") {
+							race.History = readTextBlock (dataType, dataText, fileName, reader);
+						} else if (dataType == "Special Abilities") {
+							race.SpecialAbilities = readTextBlock (dataType, dataText, fileName, reader);
+						} else if (dataType == "Trade Contracts") {
+							race.TradeContracts = readIntBlock (dataType, dataText, fileName, reader);
+						} else if (dataType == "Home Systems") {
+							race.HomeSystems = readSystemsBlock (dataType, dataText, fileName, reader);
+						}
 						line = reader.ReadLine().Trim ();
-						do {
-							//Debug.Log (line);
-							string[] lineParts;
-							//Split category name from data
-							lineParts = line.Split(":".ToCharArray(), 2);
 
-							//Remove any extra whitespace from parts & set descriptive variables
-							string dataType = lineParts[0] = lineParts[0].Trim ();
-							string dataText = lineParts[1] = lineParts[1].Trim ();
-
-
-							if (dataType == "Full Name") {
-								race.FullName = readTextLine(dataType, dataText, fileName);
-								//Debug.Log (race.FullName);
-							} else if (dataType == "Short Name") {
-								race.ShortName = readTextLine(dataType, dataText, fileName);
-								//Debug.Log (race.ShortName);
-							} else if (dataType == "Species Name") {
-								race.SpeciesName = readTextLine(dataType, dataText, fileName);
-								//Debug.Log (race.SpeciesName);
-							} else if (dataType == "Expansion") {
-								race.Expansion = readTextLine(dataType, dataText, fileName);
-								//Debug.Log (race.Expansion);
-							} else if (dataType == "History") {
-								race.History = readTextBlock (dataType, dataText, fileName, reader);
-								//Debug.Log (race.History[0]);
-							} else if (dataType == "Special Abilities") {
-								race.SpecialAbilities = readTextBlock (dataType, dataText, fileName, reader);
-								//Debug.Log (race.SpecialAbilities[0]);
-							} else if (dataType == "Trade Contracts") {
-								race.TradeContracts = readIntBlock (dataType, dataText, fileName, reader);
-								//Debug.Log (race.TradeContracts[0]);
-							} else {
-								//Debug.Log ("NONE!");
-							}
-							line = reader.ReadLine().Trim ();
-							//Debug.Log(line == "<{>");
-
-						} while (line != "<{>"); //should probably be "<}>" once race file reader is finished
-						// End of outermost block
-					}
-				//} while (line != null); 
+					} while (line != "<{>"); //should probably be "<}>" once race file reader is finished
+					// End of outermost block
+				}
 
 				// Reading successfully finished
 				reader.Close ();
@@ -111,54 +109,123 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+
 	/*
 	 * Complex Section Readers
 	 */
 
-//	private void readHomeSystems(string dataText, string fileName, Race race, StreamReader reader) {
-//		if (dataText.EndsWith ("<{>")) {
-//			ArrayList systems = new ArrayList();
-//			// Start of inner block
-//			string line = reader.ReadLine().Trim ();
-//			do {
-//				systems.Add (readSystem(line, fileName, reader));
-//				line = reader.ReadLine().Trim ();
-//			} while (line != "<}>");
-//			// End of inner block
-//			race.HomeSystems = systems.ToArray ();
-//		} else {
-//			throw new System.Exception(string.Format("Error reading file {0}:: \"Home Systems: {1}\" should end with <{>", fileName, dataText));
-//		}
-//	}
-//	
-//	private PlanetSystem readSystem(string dataText, string fileName, StreamReader reader) {
-//		if (dataText.EndsWith ("<{>")) {
-//			// Start of inner block
-//			PlanetSystem system = new PlanetSystem();
-//			system.Name = reader.ReadLine().Trim().TrimEnd('>').TrimEnd(';').TrimEnd('<');
-//			system.SysType = reader.ReadLine().Trim().TrimEnd('>').TrimEnd(';').TrimEnd('<');
-//			
-//			ArrayList planets = new ArrayList();
-//			string line = reader.ReadLine ().Trim ();
-//			do {
-//				readPlanet(line, fileName, reader);
-//				line = reader.ReadLine ().Trim ();
-//			} while (line != "<}>");
-//			// End of inner block
-//			system.Planets = planets.ToArray ();
-//		} else {
-//			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
-//		}
-//	}
-//	private Planet readPlanet(string data
+	private PlanetSystem[] readSystemsBlock(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText.EndsWith ("<{>")) {
+			ArrayList systems = new ArrayList();
+			// Start of inner block
+			string line = reader.ReadLine().Trim ();
+			do {
+				systems.Add (readSystem(line, fileName, reader));
+				line = reader.ReadLine().Trim ();
+			} while (line != "<}>");
+			// End of inner block
+			Debug.Log ("System block finished");
+			return (PlanetSystem[])systems.ToArray (typeof(PlanetSystem));
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <{>", fileName, dataType, dataText));
+		}
+	}
+	
+	private PlanetSystem readSystem(string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			// Start of block
+			PlanetSystem system = new PlanetSystem();
+
+			string line = reader.ReadLine().Trim ();
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0] = lineParts[0].Trim ();
+				string newDataText = lineParts[1] = lineParts[1].Trim ();
+				
+				
+				if (newDataType == "Name") {
+					system.Name = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Type") {
+					system.SysType = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Planets") {
+					system.Planets = readPlanetsBlock(newDataType, newDataText, fileName, reader);
+				}
+				line = reader.ReadLine().Trim ();
+				
+			} while (line != "<}>");
+			// End of block
+			Debug.Log (system.Name);
+			return system;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private Planet[] readPlanetsBlock(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText.EndsWith ("<{>")) {
+			ArrayList planets = new ArrayList();
+			// Start of inner block
+			string line = reader.ReadLine().Trim ();
+			do {
+				planets.Add (readPlanet(line, fileName, reader));
+				line = reader.ReadLine().Trim ();
+			} while (line != "<}>");
+			// End of inner block
+			Debug.Log ("Before Planet[] cast");
+			return (Planet[])planets.ToArray (typeof(Planet));
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <{>", fileName, dataType, dataText));
+		}
+	}
+
+	private Planet readPlanet(string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			// Start of block
+			Planet planet = new Planet();
+			
+			string line = reader.ReadLine().Trim ();
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0] = lineParts[0].Trim ();
+				string newDataText = lineParts[1] = lineParts[1].Trim ();
+				
+				
+				if (newDataType == "Name") {
+					planet.Name = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Text") {
+					planet.Text = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Resources") {
+					planet.Resources = readIntLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Influence") {
+					planet.Influence = readIntLine (newDataType, newDataText, fileName);
+				}
+				line = reader.ReadLine().Trim ();
+				
+			} while (line != "<}>");
+			// End of block
+			Debug.Log (planet.Name);
+			return planet;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
 
 	/* 
 	 * Basic Section Readers 
 	 */
-
+	
 	private string readTextLine(string dataType, string dataText, string fileName) {
 		if (dataText.EndsWith ("<;>")) {
-			return dataText.TrimEnd ('>').TrimEnd (';').TrimEnd('<');
+			return dataText.Trim().TrimEnd ('>').TrimEnd (';').TrimEnd('<');
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <;>", fileName, dataType, dataText));
 		}
@@ -175,17 +242,15 @@ public class FileManager : TIOMonoBehaviour {
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of inner block
-//			Debug.Log (lines);
-//			Debug.Log (lines.TrimEnd('\n'));
-//			Debug.Log (lines.TrimEnd ('\n').TrimEnd ('>'));
-//			Debug.Log (lines.TrimEnd ('\n').TrimEnd ('>').TrimEnd (';'));
-//			Debug.Log (lines.TrimEnd ('\n').TrimEnd ('>').TrimEnd (';').TrimEnd('<'));
 			string[] textSeparators = new string[] {"<;>"};
-//			Debug.Log (lines.TrimEnd ('\n').TrimEnd ('>').TrimEnd (';').TrimEnd('<').Split(textSeparators, System.StringSplitOptions.RemoveEmptyEntries)[1]);
 			return lines.TrimEnd ('\n').TrimEnd ('>').TrimEnd (';').TrimEnd('<').Split(textSeparators, System.StringSplitOptions.RemoveEmptyEntries);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <{>", fileName, dataType, dataText));
 		}
+	}
+
+	private int readIntLine(string dataType, string dataText, string fileName) {
+		return System.Convert.ToInt32(readTextLine (dataType, dataText, fileName));
 	}
 
 	private int[] readIntBlock(string dataType, string dataText, string fileName, StreamReader reader) {
@@ -200,12 +265,9 @@ public class FileManager : TIOMonoBehaviour {
 			} while (line != "<}>");
 			// End of inner block
 			string[] numberStrings = lines.TrimEnd ('\n').TrimEnd ('>').TrimEnd (';').TrimEnd('<').Split("<;>\n".ToCharArray(), System.StringSplitOptions.RemoveEmptyEntries);
-//			Debug.Log (numberStrings[0] + numberStrings[1]);
-//			Debug.Log (numberStrings.GetLength (0));
 			int[] numbers = new int[numberStrings.GetLength(0)];
 			for (int i=0; i < numberStrings.GetLength(0); i++) {
 				numbers[i] = System.Convert.ToInt32(numberStrings[i]);
-//				Debug.Log(numbers[i]);
 			}
 			return numbers;
 		} else {
