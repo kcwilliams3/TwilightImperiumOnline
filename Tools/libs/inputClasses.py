@@ -169,8 +169,9 @@ class Planet:
 		return str(self._influence)
 	
 class Technology:
-	def __init__(self, name, expansion, requirementsOrCost, text, isRacial=False):
+	def __init__(self, name, color, expansion, requirementsOrCost, text, isRacial=False):
 		self._name = name
+		self._color = color
 		self._expansion = expansion
 		self._text = text
 		if isRacial:
@@ -185,6 +186,9 @@ class Technology:
 	
 	def getName(self):
 		return self._name
+		
+	def getColor(self):
+		return self._color
 		
 	def getExpansion(self):
 		return self._expansion

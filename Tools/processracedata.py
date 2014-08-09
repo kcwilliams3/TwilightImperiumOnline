@@ -5,7 +5,7 @@
 #
 # Current output format options: .tirace (basically just a .txt file with a specific format)
 #
-# Written by Kaleb Williams as part of Twilight Imperium project
+# Written by Kaleb Williams as part of Twilight Imperium Online project
 #
 # Usage: processracedata.py <language=english || ...>
 

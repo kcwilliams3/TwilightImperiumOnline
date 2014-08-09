@@ -5,7 +5,7 @@
 #
 # Current output format options: .tiacts (basically just a .txt file with a specific format)
 #
-# Written by Kaleb Williams as part of Twilight Imperium project
+# Written by Kaleb Williams as part of Twilight Imperium Online project
 #
 # Usage: processactioncards.py <language=english || ...>
 

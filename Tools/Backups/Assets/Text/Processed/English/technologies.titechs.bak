@@ -1,0 +1,337 @@
+<{>
+Name: 			Advanced Fighters<;>
+Color: 			Blue<;>
+Expansion: 		Shattered Empire<;>
+Requires: 		<{>
+					Type IV Drive<;>
+				<}>
+Text: 			Your Fighters do not require the support of Carriers or Space Docks, may move independently with a movement rate of 2, and receive +1 on combat rolls. Enemy ships may not move through a system your Fighters occupy. Fighters in excess of a system's Fighter capacity count towards your Fleet Supply limit.<;>
+<}>
+
+<{>
+Name: 			Antimass Deflectors<;>
+Color: 			Blue<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+				<}>
+Text: 			All of your ships may now move through Asteroid Fields but may never end their movement in an Asteroid Field.<;>
+<}>
+
+<{>
+Name: 			Assault Cannon<;>
+Color: 			Red<;>
+Expansion: 		Shattered Empire<;>
+Requires: 		<{>
+					Cybernetics<;>
+					Automated Defense Turrets<;>
+					AND<;>
+				<}>
+Text: 			Before any Space Battle begins, your participating Dreadnoughts may each fire one shot. Any hits are applied immediately, and casualties do not receive return fire.<;>
+<}>
+
+<{>
+Name: 			Automated Defense Turrets<;>
+Color: 			Red<;>
+Expansion: 		Shattered Empire<;>
+Requires: 		<{>
+					Hylar V Assault Laser<;>
+				<}>
+Text: 			All of your Destroyers receive +2 and roll 1 additional die on all Anti-Fighter Barrage rolls.<;>
+<}>
+
+<{>
+Name: 			Cybernetics<;>
+Color: 			Green<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Stasis Capsules<;>
+					Antimass Deflectors<;>
+					OR<;>
+				<}>
+Text: 			All of your Fighters now receive +1 on all combat rolls.<;>
+<}>
+
+<{>
+Name: 			Dacxive Animators<;>
+Color: 			Green<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Neural Motivator<;>
+				<}>
+Text: 			If you win an Invasion Combat, roll once for every Ground Force unit killed (yours and your opponent's). For every roll of 6+, place one Ground Force unit on the planet from your reinforcements.<;>
+<}>
+
+<{>
+Name: 			Deep Space Cannon<;>
+Color: 			Red<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Hylar V Assault<;>
+				<}>
+Text: 			Enemy fleets in adjacent systems are now in range of your PDS units.<;>
+<}>
+
+<{>
+Name: 			Duranium Armor<;>
+Color: 			Red<;>
+Expansion: 		Shards of the Throne<;>
+Requires: 		<{>
+					Deep Space Cannon<;>
+				<}>
+Text: 			At the end of each round of combat, you may repair 1 of your damaged units in the battle.<;>
+<}>
+
+<{>
+Name: 			Enviro Compensator<;>
+Color: 			Yellow<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+				<}>
+Text: 			The production capacity of your Space Docks is now increased by 1.<;>
+<}>
+
+<{>
+Name: 			Fleet Logistics<;>
+Color: 			Blue<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Graviton Negator<;>
+				<}>
+Text: 			When taking a Tactical Action, you may now take two Tactical Actions, one after the other, before your turn ends.<;>
+<}>
+
+<{>
+Name: 			Gen Synthesis<;>
+Color: 			Green<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Cybernetics<;>
+				<}>
+Text: 			All of your Ground Forces now receive +1 on all combat rolls during Invasion Combat. When one of your Ground Force units is destroyed, roll a die: On a result of 5+, the unit is instead returned to a planet in your Home System.<;>
+<}>
+
+<{>
+Name: 			Graviton Laser System<;>
+Color: 			Yellow<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Deep Space Cannon<;>
+				<}>
+Text: 			When you make a combat roll with a PDS unit and miss, you may now make a single re-roll for each roll that missed.<;>
+<}>
+
+<{>
+Name: 			Graviton Negator<;>
+Color: 			Red<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Assault Cannon<;>
+					Dacxive Animators<;>
+					OR<;>
+				<}>
+Text: 			Your Dreadnoughts may now bombard planets that contain PDS units. Your Fighters may participate in Invasion Combat. Surviving Fighters are returned to space after the combat and can never establish control of a planet.<;>
+<}>
+
+<{>
+Name: 			Gravity Drive<;>
+Color: 			Blue<;>
+Expansion: 		Shattered Empire<;>
+Requires: 		<{>
+					Antimass Deflectors<;>
+				<}>
+Text: 			You do not need to roll for your ships when moving out of a Gravity Rift. If your ships begin their activation in a system adjacent to a Gravity Rift or Wormhole, you receive +1 movement.<;>
+<}>
+
+<{>
+Name: 			Hylar V Assault Laser<;>
+Color: 			Red<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+				<}>
+Text: 			All of your Cruisers and Destroyers now receive +1 on all combat rolls.<;>
+<}>
+
+<{>
+Name: 			Hyper Metabolism<;>
+Color: 			Green<;>
+Expansion: 		Shattered Empire<;>
+Requires: 		<{>
+					Gen Synthesis<;>
+				<}>
+Text: 			During the Status Phase, you gain 1 additional Command Counter. In addition, before drawing Action Cards, you may discard 1 Action Card from your hand to draw 1 additional card.<;>
+<}>
+
+<{>
+Name: 			Integrated Economy<;>
+Color: 			Yellow<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Micro Technology<;>
+					Cybernetics<;>
+					AND<;>
+				<}>
+Text: 			When producing units at your Space Docks, you may now place the new units in any activated, adjacent system that is empty or friendly. You may place PDS and Ground Force units on any friendly planet within this range.<;>
+<}>
+
+<{>
+Name: 			Light/Wave Deflector<;>
+Color: 			Blue<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					XRD Transporters<;>
+					Magen Defense Grid<;>
+					AND<;>
+				<}>
+Text: 			Your ships may now move through systems containing enemy ships and continue their movement to the activated system.<;>
+<}>
+
+<{>
+Name: 			Magen Defense Grid<;>
+Color: 			Red<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Deep Space Cannon<;>
+				<}>
+Text: 			All of your PDS units now receive +1 on all combat rolls. In addition, all of your defending Ground Forces on a planet with a PDS receive +1 on all combat rolls during Invasion Combat.<;>
+<}>
+
+<{>
+Name: 			Maneuvering Jets<;>
+Color: 			Blue<;>
+Expansion: 		Shattered Empire<;>
+Requires: 		<{>
+					XRD Transporters<;>
+				<}>
+Text: 			Your opponents receive -1 to all PDS rolls targeting your ships (or -2 if the PDS is firing from an adjacent system). In addition, you receive -1 to all your Space Mine rolls, and your ships do not have to stop when entering an Ion Storm.<;>
+<}>
+
+<{>
+Name: 			Micro Technology<;>
+Color: 			Yellow<;>
+Expansion: 		Shattered Empire<;>
+Requires: 		<{>
+					Stasis Capsules<;>
+					Sarween Tools<;>
+					OR<;>
+				<}>
+Text: 			When you receive Trade Goods from your trade agreements, you now receive one additional Trade Good for each of your active trade agreements.<;>
+<}>
+
+<{>
+Name: 			Nano Technology<;>
+Color: 			Yellow<;>
+Expansion: 		Shattered Empire<;>
+Requires: 		<{>
+					Micro Technology<;>
+				<}>
+Text: 			Your Dreadnoughts and War Suns may not be targeted by your opponents' Action Cards. In addition, when you claim a planet, you gain its planet card refreshed.<;>
+<}>
+
+<{>
+Name: 			Neural Computing<;>
+Color: 			Green<;>
+Expansion: 		Shards of the Throne<;>
+Requires: 		<{>
+					Neural Motivator<;>
+				<}>
+Text: 			Your cost to purchase new Technologies is reduced by 2.<;>
+<}>
+
+<{>
+Name: 			Neural Motivator<;>
+Color: 			Green<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Stasis Capsules<;>
+					Micro Technology<;>
+					OR<;>
+				<}>
+Text: 			You now draw one extra Action Card during each Status Phase.<;>
+<}>
+
+<{>
+Name: 			Sarween Tools<;>
+Color: 			Yellow<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Enviro Compensator<;>
+				<}>
+Text: 			Whenever you produce units at any Space Dock, you now receive one additional resource with which to build units.<;>
+<}>
+
+<{>
+Name: 			Stasis Capsules<;>
+Color: 			Green<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Enviro Compensator<;>
+				<}>
+Text: 			Your Cruisers and Dreadnoughts may now carry one Ground Force unit.<;>
+<}>
+
+<{>
+Name: 			Transfabrication<;>
+Color: 			Yellow<;>
+Expansion: 		Shards of the throne<;>
+Requires: 		<{>
+				<}>
+Text: 			You may scuttle units at the start of the Build Units step of your activation. For each non-Fighter and non-Ground force unit you scuttle in this way, gain 1 Trade Good.<;>
+<}>
+
+<{>
+Name: 			Transit Diodes<;>
+Color: 			Yellow<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Light/Wave Deflector<;>
+					Dacxive Animators<;>
+					OR<;>
+				<}>
+Text: 			As an action, you may spend one Command Counter from your Strategic Allocation to immediately move up to four of your Ground Forces from any one of your planets to any other planet you control.<;>
+<}>
+
+<{>
+Name: 			Type IV Drive<;>
+Color: 			Blue<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					XRD Transporter<;>
+					Neural Motivator<;>
+					AND<;>
+				<}>
+Text: 			All of your Cruisers and Dreadnoughts now receive +1 movement.<;>
+<}>
+
+<{>
+Name: 			War Sun<;>
+Color: 			Red<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Deep Space Cannon<;>
+					Sarween Tools<;>
+					AND<;>
+				<}>
+Text: 			You are now allowed to produce War Sun units.<;>
+<}>
+
+<{>
+Name: 			X-89 Bacterial Weapon<;>
+Color: 			Green<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Transit Diodes<;>
+					Assault Cannon<;>
+					OR<;>
+				<}>
+Text: 			Your Dreadnought or War Sun units may now use this option before bombarding. Immediately destroy all enemy Ground Forces on the planet. Then discard all of your Action Cards.<;>
+<}>
+
+<{>
+Name: 			XRD Transporters<;>
+Color: 			Blue<;>
+Expansion: 		Vanilla<;>
+Requires: 		<{>
+					Antimass Deflectors<;>
+				<}>
+Text: 			All of your Carriers now receive +1 movement.<;>
+<}>
