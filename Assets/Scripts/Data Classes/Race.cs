@@ -52,12 +52,6 @@ public class Race {
 	private Representative[] representatives;
 	public Representative[] Representatives { get { return representatives; } set { if (!isLocked[13]) { representatives = value; isLocked[13] = true; } else { Debug.Log("Race: Attempted to set locked property Representatives."); } } }
 
-	//Fields for showing Starting Units dict in inspector
-	[SerializeField]
-	public Unit[] StartUnits;
-	[SerializeField]
-	public int[] StartQuantities;
-
 	public Race() {
 		isLocked = new bool[TIGameProperties];
 		for (int i=0; i<TIGameProperties; i++) {

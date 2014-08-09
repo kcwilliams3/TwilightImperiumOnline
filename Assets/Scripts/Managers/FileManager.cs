@@ -19,7 +19,7 @@ public class FileManager : TIOMonoBehaviour {
 		unitManager = GetComponent<UnitManager>();
 
 		checkDirectories ("Tools/folders.txt");
-		testRace = readRaceFile (procTextDir + language + "/Races/Arborec.tirace");
+		testRace = ReadRaceFile ("Arborec");
 	}
 	
 	// Update is called once per frame
@@ -40,16 +40,15 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
-	public bool ReadFile(string fileName) {
-		Debug.Log(string.Format("Reading {0}... ", fileName));
-		string extension = fileName.Split ('.') [1];
-		if (extension == ".tirace") {
-			readRaceFile(fileName);
-			Debug.Log("Succeeded!\n");
-			return true;
-		}
-		Debug.Log("Failed!\n");
-		return false;
+	public Race ReadRaceFile(string raceName) {
+		string fullPath = procTextDir + language + "/Races/" + raceName + ".tirace";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readRaceFile(fullPath);
+	}
+
+	public Tech[] ReadTechFile() {
+		string fullPath = procTextDir + language + "/technologies.titechs";
+		return readTechFile (fullPath);
 	}
 
 
@@ -70,7 +69,6 @@ public class FileManager : TIOMonoBehaviour {
 					// Start of an outermost block
 					line = reader.ReadLine().Trim ();
 					do {
-						Debug.Log (line);
 						string[] lineParts;
 						//Split category name from data
 						lineParts = line.Split(":".ToCharArray(), 2);
@@ -98,7 +96,9 @@ public class FileManager : TIOMonoBehaviour {
 							race.HomeSystems = readSystemsBlock (dataType, dataText, fileName, reader);
 						} else if (dataType == "Starting Units") {
 							race.StartingUnits = readUnitsBlock (dataType, dataText, fileName, reader);
-						} 
+						} //else if (dataType == "Starting Techs") {
+						//	race.StartingTechs = readTechsBlock(dataType, dataText, fileName, reader);
+						//}
 						line = reader.ReadLine().Trim ();
 						//TODO: Next 3 lines are temporary, remove when finished
 						if (line.Split(":".ToCharArray(), 2).GetLength(0) < 2) {
@@ -120,6 +120,71 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+	private Tech[] readTechFile(string fileName) {
+		try {
+			string line;
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				ArrayList techs = new ArrayList();
+				
+//				line = reader.ReadLine().Trim ();
+//				if (line == "<{>") {
+//					// Start of an outermost block
+//					line = reader.ReadLine().Trim ();
+//					do {
+//						string[] lineParts;
+//						//Split category name from data
+//						lineParts = line.Split(":".ToCharArray(), 2);
+//						
+//						//Remove any extra whitespace from parts & set descriptive variables
+//						string dataType = lineParts[0] = lineParts[0].Trim ();
+//						string dataText = lineParts[1] = lineParts[1].Trim ();
+//						
+//						
+//						if (dataType == "Full Name") {
+//							race.FullName = readTextLine(dataType, dataText, fileName);
+//						} else if (dataType == "Short Name") {
+//							race.ShortName = readTextLine(dataType, dataText, fileName);
+//						} else if (dataType == "Species Name") {
+//							race.SpeciesName = readTextLine(dataType, dataText, fileName);
+//						} else if (dataType == "Expansion") {
+//							race.Expansion = readTextLine(dataType, dataText, fileName);
+//						} else if (dataType == "History") {
+//							race.History = readTextBlock (dataType, dataText, fileName, reader);
+//						} else if (dataType == "Special Abilities") {
+//							race.SpecialAbilities = readTextBlock (dataType, dataText, fileName, reader);
+//						} else if (dataType == "Trade Contracts") {
+//							race.TradeContracts = readIntBlock (dataType, dataText, fileName, reader);
+//						} else if (dataType == "Home Systems") {
+//							race.HomeSystems = readSystemsBlock (dataType, dataText, fileName, reader);
+//						} else if (dataType == "Starting Units") {
+//							race.StartingUnits = readUnitsBlock (dataType, dataText, fileName, reader);
+//						} //else if (dataType == "Starting Techs") {
+//						//	race.StartingTechs = readTechsBlock(dataType, dataText, fileName, reader);
+//						//}
+//						line = reader.ReadLine().Trim ();
+//						//TODO: Next 3 lines are temporary, remove when finished
+//						if (line.Split(":".ToCharArray(), 2).GetLength(0) < 2) {
+//							line = "<{>";
+//						}
+//						
+//					} while (line != "<{>");
+//					// End of outermost block
+//				}
+//				
+//				// Reading successfully finished
+//				reader.Close ();
+//				return race;
+
+				return (Tech[])techs.ToArray (typeof(Tech));
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
 
 	/*
 	 * Complex Section Readers
