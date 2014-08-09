@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Text;
 using System.IO;
+using System.Collections.Generic;
 
 public class FileManager : TIOMonoBehaviour {
 
@@ -11,8 +12,12 @@ public class FileManager : TIOMonoBehaviour {
 	private string rawTextDir;
 	private string procTextDir;
 
+	public UnitManager unitManager;
+
 	// Use this for initialization
 	void Start () {
+		unitManager = GetComponent<UnitManager>();
+
 		checkDirectories ("Tools/folders.txt");
 		testRace = readRaceFile (procTextDir + language + "/Races/Arborec.tirace");
 	}
@@ -91,10 +96,24 @@ public class FileManager : TIOMonoBehaviour {
 							race.TradeContracts = readIntBlock (dataType, dataText, fileName, reader);
 						} else if (dataType == "Home Systems") {
 							race.HomeSystems = readSystemsBlock (dataType, dataText, fileName, reader);
-						}
+						} else if (dataType == "Starting Units") {
+							race.StartingUnits = readUnitsBlock (dataType, dataText, fileName, reader);
+							int i=0;
+							race.StartUnits = new Unit[race.StartingUnits.Count];
+							race.StartQuantities = new int[race.StartingUnits.Count];
+							foreach(KeyValuePair<Unit, int> entry in race.StartingUnits) {
+								race.StartUnits[i] = entry.Key;
+								race.StartQuantities[i] = entry.Value;
+								i += 1;
+							}
+						} 
 						line = reader.ReadLine().Trim ();
+						//TODO: Next 3 lines are temporary, remove when finished
+						if (line.Split(":".ToCharArray(), 2).GetLength(0) < 2) {
+							line = "<{>";
+						}
 
-					} while (line != "<{>"); //should probably be "<}>" once race file reader is finished
+					} while (line != "<{>");
 					// End of outermost block
 				}
 
@@ -104,7 +123,7 @@ public class FileManager : TIOMonoBehaviour {
 			}
 		}
 		catch (System.Exception e) {
-			Debug.Log(string.Format("{0}\n", e.Message));
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
 			return null;
 		}
 	}
@@ -124,7 +143,6 @@ public class FileManager : TIOMonoBehaviour {
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of inner block
-			Debug.Log ("System block finished");
 			return (PlanetSystem[])systems.ToArray (typeof(PlanetSystem));
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <{>", fileName, dataType, dataText));
@@ -175,7 +193,6 @@ public class FileManager : TIOMonoBehaviour {
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of inner block
-			Debug.Log ("Before Planet[] cast");
 			return (Planet[])planets.ToArray (typeof(Planet));
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <{>", fileName, dataType, dataText));
@@ -213,6 +230,57 @@ public class FileManager : TIOMonoBehaviour {
 			// End of block
 			Debug.Log (planet.Name);
 			return planet;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private Dictionary<Unit, int> readUnitsBlock(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText.EndsWith ("<{>")) {
+			Dictionary<Unit, int> units = new Dictionary<Unit, int>();
+			// Start of inner block
+			string line = reader.ReadLine().Trim ();
+			do {
+				Tuple<Unit, int> unit = readUnit(dataText, fileName, reader);
+				line = reader.ReadLine().Trim ();
+				units.Add (unit.Item1, unit.Item2);
+				Debug.Log (unit.Item1.UnitType);
+			} while (line != "<}>");
+			// End of inner block
+			return units;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <{>", fileName, dataType, dataText));
+		}
+	}
+
+	private Tuple<Unit, int> readUnit(string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			// Start of block
+			Unit unit = new Unit(UType.SpaceDock); //Need a temporary unit here for compiler
+			int quantity = 0; //Need a temporary quantity here for compiler
+
+			string line = reader.ReadLine().Trim ();
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0] = lineParts[0].Trim ();
+				string newDataText = lineParts[1] = lineParts[1].Trim ();
+				
+				
+				if (newDataType == "Unit") {
+					unit = unitManager.getUnit(stringToUType(readTextLine (newDataType, newDataText, fileName)));
+				} else if (newDataType == "Quantity") {
+					quantity = readIntLine (newDataType, newDataText, fileName);
+				} 
+				line = reader.ReadLine().Trim ();
+				
+			} while (line != "<}>");
+			// End of block
+
+			return new Tuple<Unit, int>(unit, quantity);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}
@@ -272,6 +340,38 @@ public class FileManager : TIOMonoBehaviour {
 			return numbers;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <{>", fileName, dataType, dataText));
+		}
+	}
+
+
+	/*
+	 * Conversions
+	 */
+
+	private UType stringToUType(string unitName) {
+		if (unitName != "PDS") {
+			unitName = unitName.TrimEnd ('s');
+		}
+		if (unitName == "Ground Force") {
+			return UType.GroundForce;
+		} else if (unitName == "Space Dock") {
+			return UType.SpaceDock;
+		} else if (unitName == "Carrier") {
+			return UType.Carrier;
+		} else if (unitName == "PDS") {
+			return UType.PDS;
+		} else if (unitName == "Fighter") {
+			return UType.Fighter;
+		} else if (unitName == "Cruiser") {
+			return UType.Cruiser;
+		} else if (unitName == "Destroyer") {
+			return UType.Destroyer;
+		} else if (unitName == "Dreadnought") {
+			return UType.Dreadnought;
+		} else if (unitName == "War Sun") {
+			return UType.WarSun;
+		} else {
+			return UType.MechanizedUnit;
 		}
 	}
 }

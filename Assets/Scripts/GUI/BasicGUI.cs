@@ -69,13 +69,13 @@ public class BasicGUI : TIOMonoBehaviour {
 		int buttonHeight = 100;
 		int space = 10;
 		
-		if (!networkManager.connected) {
-			GUI_Disconnected();
-		} else if (GUI.Button (new Rect ((Screen.width-buttonWidth)/2, ((Screen.height-buttonHeight)/2)-((buttonHeight+space)/2), 250, 100), "Quick Test (Not Implemented)")) {
-			StartQuickTest ();
-		} else if (GUI.Button (new Rect ((Screen.width-buttonWidth)/2, ((Screen.height-buttonHeight)/2)+((buttonHeight+space)/2), 250, 100), "Multiplayer (Not Implemented)")) {
-			guiStage = GuiStage.multiMenu;
-		}
+//		if (!networkManager.connected) {
+//			GUI_Disconnected();
+//		} else if (GUI.Button (new Rect ((Screen.width-buttonWidth)/2, ((Screen.height-buttonHeight)/2)-((buttonHeight+space)/2), 250, 100), "Quick Test (Not Implemented)")) {
+//			StartQuickTest ();
+//		} else if (GUI.Button (new Rect ((Screen.width-buttonWidth)/2, ((Screen.height-buttonHeight)/2)+((buttonHeight+space)/2), 250, 100), "Multiplayer (Not Implemented)")) {
+//			guiStage = GuiStage.multiMenu;
+//		}
 	}
 	
 	private void GUI_MultiMenu() {
