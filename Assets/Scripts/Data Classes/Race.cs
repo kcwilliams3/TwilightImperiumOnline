@@ -34,8 +34,8 @@ public class Race {
 	private PlanetSystem[] homeSystems;
 	public PlanetSystem[] HomeSystems { get { return homeSystems; } set { if (!isLocked[7]) { homeSystems = value; isLocked[7] = true; } else { Debug.Log("Race: Attempted to set locked property HomeSystems."); } } }
 	[SerializeField]
-	private Dictionary<Unit, int> startingUnits;
-	public Dictionary<Unit, int> StartingUnits { get { return startingUnits; } set { if (!isLocked[8]) { startingUnits = value; isLocked[8] = true; } else { Debug.Log("Race: Attempted to set locked property StartingUnits."); } } } //key temporarily a string. Should change to Unit once units have been implemented
+	private UnitQuantity[] startingUnits;
+	public UnitQuantity[] StartingUnits { get { return startingUnits; } set { if (!isLocked[8]) { startingUnits = value; isLocked[8] = true; } else { Debug.Log("Race: Attempted to set locked property StartingUnits."); } } } //key temporarily a string. Should change to Unit once units have been implemented
 	[SerializeField]
 	private string[] startingTechs;
 	public string[] StartingTechs { get { return startingTechs; } set { if (!isLocked[9]) { startingTechs = value; isLocked[9] = true; } else { Debug.Log("Race: Attempted to set locked property StartingTechs."); } } } //temporarily a string. Should change to Tech once tech reading has been implemented
@@ -52,6 +52,7 @@ public class Race {
 	private Representative[] representatives;
 	public Representative[] Representatives { get { return representatives; } set { if (!isLocked[13]) { representatives = value; isLocked[13] = true; } else { Debug.Log("Race: Attempted to set locked property Representatives."); } } }
 
+	//Fields for showing Starting Units dict in inspector
 	[SerializeField]
 	public Unit[] StartUnits;
 	[SerializeField]

@@ -98,14 +98,6 @@ public class FileManager : TIOMonoBehaviour {
 							race.HomeSystems = readSystemsBlock (dataType, dataText, fileName, reader);
 						} else if (dataType == "Starting Units") {
 							race.StartingUnits = readUnitsBlock (dataType, dataText, fileName, reader);
-							int i=0;
-							race.StartUnits = new Unit[race.StartingUnits.Count];
-							race.StartQuantities = new int[race.StartingUnits.Count];
-							foreach(KeyValuePair<Unit, int> entry in race.StartingUnits) {
-								race.StartUnits[i] = entry.Key;
-								race.StartQuantities[i] = entry.Value;
-								i += 1;
-							}
 						} 
 						line = reader.ReadLine().Trim ();
 						//TODO: Next 3 lines are temporary, remove when finished
@@ -235,25 +227,25 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
-	private Dictionary<Unit, int> readUnitsBlock(string dataType, string dataText, string fileName, StreamReader reader) {
+	private UnitQuantity[] readUnitsBlock(string dataType, string dataText, string fileName, StreamReader reader) {
 		if (dataText.EndsWith ("<{>")) {
-			Dictionary<Unit, int> units = new Dictionary<Unit, int>();
+			ArrayList units = new ArrayList();
 			// Start of inner block
 			string line = reader.ReadLine().Trim ();
 			do {
-				Tuple<Unit, int> unit = readUnit(dataText, fileName, reader);
+				UnitQuantity unit = readUnit(dataText, fileName, reader);
+				units.Add (unit);
+
 				line = reader.ReadLine().Trim ();
-				units.Add (unit.Item1, unit.Item2);
-				Debug.Log (unit.Item1.UnitType);
 			} while (line != "<}>");
 			// End of inner block
-			return units;
+			return (UnitQuantity[])units.ToArray (typeof(UnitQuantity));
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <{>", fileName, dataType, dataText));
 		}
 	}
 
-	private Tuple<Unit, int> readUnit(string dataText, string fileName, StreamReader reader) {
+	private UnitQuantity readUnit(string dataText, string fileName, StreamReader reader) {
 		if (dataText == "<{>") {
 			// Start of block
 			Unit unit = new Unit(UType.SpaceDock); //Need a temporary unit here for compiler
@@ -280,7 +272,7 @@ public class FileManager : TIOMonoBehaviour {
 			} while (line != "<}>");
 			// End of block
 
-			return new Tuple<Unit, int>(unit, quantity);
+			return new UnitQuantity(unit, quantity);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}
