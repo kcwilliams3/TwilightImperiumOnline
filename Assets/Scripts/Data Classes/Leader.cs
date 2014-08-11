@@ -1,5 +1,7 @@
 using UnityEngine;
 
+public enum LType {Admiral, General, Scientist, Diplomat, Agent};
+
 [System.Serializable]
 public class Leader {
 	
@@ -12,8 +14,8 @@ public class Leader {
 	private string name;
 	public string Name { get { return name; } set { if (!isLocked[0]) { name = value; isLocked[0] = true; } else { Debug.Log("Leader: Attempted to set locked property Name."); } } }
 	[SerializeField]
-	private string leaderType;
-	public string LeaderType { get { return leaderType; } set { if (!isLocked[1]) { leaderType = value; isLocked[1] = true; } else { Debug.Log("Leader: Attempted to set locked property LeaderType."); } } }
+	private LType leaderType;
+	public LType LeaderType { get { return leaderType; } set { if (!isLocked[1]) { leaderType = value; isLocked[1] = true; } else { Debug.Log("Leader: Attempted to set locked property LeaderType."); } } }
 	
 	public Leader() {
 		isLocked = new bool[TIGameProperties];

@@ -18,7 +18,6 @@ public class BasicGUI : TIOMonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("SimpleGUI.cs start");
 		GameObject manager = GameObject.Find ("Manager");
 		Object.DontDestroyOnLoad (manager);
 		

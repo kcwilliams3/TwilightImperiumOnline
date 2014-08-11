@@ -117,7 +117,7 @@ def readAll(inFolder):
 						assertNotSeparator(text, fileName, lineNumber)	
 					lineNumber += 1
 				lineNumber += 1
-				techCard = Technology(techName, color, expansion, prerequisites, text, False)
+				techCard = Technology(techName, color, expansion, prerequisites, text)
 				techCards[techCard.getName()] = techCard
 			lineNumber += 1
 	return techCards
@@ -189,10 +189,6 @@ def writeAll(techCards, outFolder):
 	first = True
 	with open(tempFileName, fileMode) as outFile:
 		for techName in sorted(techCards):
-			if not first:
-				outFile.write("\n")
-			else:
-				first = False
 			tech = techCards[techName]
 			writeOne(tech, outFile)
 	if not os.path.exists("./Backups/"+path[3:]):

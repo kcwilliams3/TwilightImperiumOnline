@@ -37,8 +37,8 @@ public class Race {
 	private UnitQuantity[] startingUnits;
 	public UnitQuantity[] StartingUnits { get { return startingUnits; } set { if (!isLocked[8]) { startingUnits = value; isLocked[8] = true; } else { Debug.Log("Race: Attempted to set locked property StartingUnits."); } } } //key temporarily a string. Should change to Unit once units have been implemented
 	[SerializeField]
-	private string[] startingTechs;
-	public string[] StartingTechs { get { return startingTechs; } set { if (!isLocked[9]) { startingTechs = value; isLocked[9] = true; } else { Debug.Log("Race: Attempted to set locked property StartingTechs."); } } } //temporarily a string. Should change to Tech once tech reading has been implemented
+	private Tech[] startingTechs;
+	public Tech[] StartingTechs { get { return startingTechs; } set { if (!isLocked[9]) { startingTechs = value; isLocked[9] = true; } else { Debug.Log("Race: Attempted to set locked property StartingTechs."); } } } //temporarily a string. Should change to Tech once tech reading has been implemented
 	[SerializeField]
 	private Leader[] leaders;
 	public Leader[] Leaders { get { return leaders; } set { if (!isLocked[10]) { leaders = value; isLocked[10] = true; } else { Debug.Log("Race: Attempted to set locked property Leaders."); } } }

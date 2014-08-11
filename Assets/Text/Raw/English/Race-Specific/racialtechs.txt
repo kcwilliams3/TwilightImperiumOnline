@@ -161,9 +161,9 @@ At the end of the Strategy Phase, you may trade one of your Strategy Cards with 
 The Nekro Virus
 Valefar Assimilator
 Shards of the Throne
-Cost: *
+Cost: 0
 Gain this technology by using your racial ability to copy a racial Technology an opponent has researched. You cannot copy a Technology that modifies his racial ability. Place the race's Control Marker on this card to remember which ability you have copied.
 Valefar Assimilator
 Shattered Empire
-Cost: *
+Cost: 0
 Gain this technology by using your racial ability to copy a racial Technology an opponent has researched. You cannot copy a Technology that modifies his racial ability. Place the race's Control Marker on this card to remember which ability you have copied.

@@ -169,12 +169,12 @@ class Planet:
 		return str(self._influence)
 	
 class Technology:
-	def __init__(self, name, color, expansion, requirementsOrCost, text, isRacial=False):
+	def __init__(self, name, color, expansion, requirementsOrCost, text):
 		self._name = name
 		self._color = color
 		self._expansion = expansion
 		self._text = text
-		if isRacial:
+		if color == "Racial":
 			self._requirements = []
 			self._cost = requirementsOrCost
 		else:

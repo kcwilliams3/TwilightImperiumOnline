@@ -76,15 +76,15 @@ Starting Techs:		<{>
 Leaders:			<{>
 							<{>
 										Name:		Carth<;>
-										Type		Scientist<;>
+										Type:		Scientist<;>
 							<}>
 							<{>
 										Name:		Gila<;>
-										Type		Diplomat<;>
+										Type:		Diplomat<;>
 							<}>
 							<{>
 										Name:		Harrugh<;>
-										Type		General<;>
+										Type:		General<;>
 							<}>
 					<}>
 Racial Techs:		<{>

@@ -86,15 +86,15 @@ Starting Techs:		<{>
 Leaders:			<{>
 							<{>
 										Name:		Meian<;>
-										Type		Scientist<;>
+										Type:		Scientist<;>
 							<}>
 							<{>
 										Name:		Nerio<;>
-										Type		Admiral<;>
+										Type:		Admiral<;>
 							<}>
 							<{>
 										Name:		Taivra<;>
-										Type		Diplomat<;>
+										Type:		Diplomat<;>
 							<}>
 					<}>
 Racial Techs:		<{>

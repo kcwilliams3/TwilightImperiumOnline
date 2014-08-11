@@ -289,7 +289,7 @@ def readRacialTechs(fileName, races):
 					assertNotEmpty(line, fileName, lineNumber)
 					assertNotSeparator(line, fileName, lineNumber)
 					text = line.strip()
-					race.addRacialTech(Technology(techName, expansion, cost, text, True))
+					race.addRacialTech(Technology(techName, "Racial", expansion, cost, text))
 				lineNumber += 1
 			lineNumber += 1
 
@@ -449,51 +449,7 @@ def readAll(inFolder):
 	readFlagships(flagshipsFileName, races)
 	readRepresentatives(repsFileName, races)
 	readLeaders(leadersFileName, races)
-	# DEBUG:
-	# for key in races.keys():
-		# if key == "The Universities of Jol Nar":
-			# print("Full Name:",races[key].getNameFull())
-			# print("Short Name:",races[key].getNameShort())
-			# print("Species Name:",races[key].getNameSpecies())
-			# print("Expansion:",races[key].getExpansion())
-			# print("Starting Units:",races[key].getStartingUnits())
-			# print("Starting Techs:",races[key].getStartingTechs())
-			# print("Special Abilities:",races[key].getSpecialAbilities())
-			# print("History:",races[key].getHistory())
-			# for system in races[key].getHomeSystems():
-				# print(system)
-				# for planet in system.getPlanets():
-					# print("\tName:",planet.getName())
-					# print("\tFlavor Text:",planet.getFlavorText())
-					# print("\tResources:",planet.getResources())
-					# print("\tInfluence:",planet.getInfluence())
-			# print("Trade Contracts:",races[key].getTradeContracts())
-			# print("Racial Techs:")
-			# for tech in races[key].getRacialTechs():
-				# print("\tName:",tech.getName())
-				# print("\tExpansion:",tech.getExpansion())
-				# print("\tCost:",tech.getCost())
-				# print("\tText:",tech.getText())
-			# print("Flagship:")
-			# flagship = races[key].getFlagship()
-			# print("\tName:",flagship.getName())
-			# print("\tAbilities:",flagship.getAbilities())
-			# print("\tText:",flagship.getText())
-			# print("\tCost:",flagship.getCost())
-			# print("\tBattle:",flagship.getBattle())
-			# print("\tMultiplier:",flagship.getMultiplier())
-			# print("\tMove:",flagship.getMove())
-			# print("\tCapacity:",flagship.getCapacity())
-			# print("Representatives:")
-			# for rep in races[key].getRepresentatives():
-				# print("\tName:",rep.getName())
-				# print("\tVotes:",rep.getVotes())
-				# print("\tTypes:",rep.getTypes())
-				# print("\tText:",rep.getText())
-			# print("Leaders:")
-			# for leader in races[key].getLeaders():
-				# print("\tName:",leader.getName())
-				# print("\tType:",leader.getType())
+	
 	return races
 
 ################################################################
@@ -609,7 +565,7 @@ def writeLeaders(race,file):
 		tag = getStringAtCol("Name:", thirdValueCol, "", race, file)
 		file.write(getStringAtCol(leader.getName()+lineEnd, fourthValueCol, tag, race, file))
 		#Type
-		tag = getStringAtCol("Type", thirdValueCol, "", race, file)
+		tag = getStringAtCol("Type:", thirdValueCol, "", race, file)
 		file.write(getStringAtCol(leader.getType()+lineEnd, fourthValueCol, tag, race, file))
 		file.write(getStringAtCol(blockEnd, secondValueCol, "", race, file))
 	file.write(getStringAtCol(blockEnd, firstValueCol, "", race, file))	

@@ -6,9 +6,13 @@ public class UnitManager : MonoBehaviour {
 
 	private Dictionary<UType, Unit> baseStats;
 
+	// Unit manager needs to be ready before file manager
+	void Awake() {
+		setBaseStats ();
+	}
+
 	// Use this for initialization
 	void Start () {
-		setBaseStats ();
 	}
 	
 	// Update is called once per frame

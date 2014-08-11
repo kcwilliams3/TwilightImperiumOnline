@@ -23,8 +23,8 @@ Color: 			Red<;>
 Expansion: 		Shattered Empire<;>
 Requires: 		<{>
 					Cybernetics<;>
-					Automated Defense Turrets<;>
 					AND<;>
+					Automated Defense Turrets<;>
 				<}>
 Text: 			Before any Space Battle begins, your participating Dreadnoughts may each fire one shot. Any hits are applied immediately, and casualties do not receive return fire.<;>
 <}>
@@ -45,8 +45,8 @@ Color: 			Green<;>
 Expansion: 		Vanilla<;>
 Requires: 		<{>
 					Stasis Capsules<;>
-					Antimass Deflectors<;>
 					OR<;>
+					Antimass Deflectors<;>
 				<}>
 Text: 			All of your Fighters now receive +1 on all combat rolls.<;>
 <}>
@@ -126,8 +126,8 @@ Color: 			Red<;>
 Expansion: 		Vanilla<;>
 Requires: 		<{>
 					Assault Cannon<;>
-					Dacxive Animators<;>
 					OR<;>
+					Dacxive Animators<;>
 				<}>
 Text: 			Your Dreadnoughts may now bombard planets that contain PDS units. Your Fighters may participate in Invasion Combat. Surviving Fighters are returned to space after the combat and can never establish control of a planet.<;>
 <}>
@@ -167,8 +167,8 @@ Color: 			Yellow<;>
 Expansion: 		Vanilla<;>
 Requires: 		<{>
 					Micro Technology<;>
-					Cybernetics<;>
 					AND<;>
+					Cybernetics<;>
 				<}>
 Text: 			When producing units at your Space Docks, you may now place the new units in any activated, adjacent system that is empty or friendly. You may place PDS and Ground Force units on any friendly planet within this range.<;>
 <}>
@@ -179,8 +179,8 @@ Color: 			Blue<;>
 Expansion: 		Vanilla<;>
 Requires: 		<{>
 					XRD Transporters<;>
-					Magen Defense Grid<;>
 					AND<;>
+					Magen Defense Grid<;>
 				<}>
 Text: 			Your ships may now move through systems containing enemy ships and continue their movement to the activated system.<;>
 <}>
@@ -211,8 +211,8 @@ Color: 			Yellow<;>
 Expansion: 		Shattered Empire<;>
 Requires: 		<{>
 					Stasis Capsules<;>
-					Sarween Tools<;>
 					OR<;>
+					Sarween Tools<;>
 				<}>
 Text: 			When you receive Trade Goods from your trade agreements, you now receive one additional Trade Good for each of your active trade agreements.<;>
 <}>
@@ -243,8 +243,8 @@ Color: 			Green<;>
 Expansion: 		Vanilla<;>
 Requires: 		<{>
 					Stasis Capsules<;>
-					Micro Technology<;>
 					OR<;>
+					Micro Technology<;>
 				<}>
 Text: 			You now draw one extra Action Card during each Status Phase.<;>
 <}>
@@ -284,8 +284,8 @@ Color: 			Yellow<;>
 Expansion: 		Vanilla<;>
 Requires: 		<{>
 					Light/Wave Deflector<;>
-					Dacxive Animators<;>
 					OR<;>
+					Dacxive Animators<;>
 				<}>
 Text: 			As an action, you may spend one Command Counter from your Strategic Allocation to immediately move up to four of your Ground Forces from any one of your planets to any other planet you control.<;>
 <}>
@@ -296,8 +296,8 @@ Color: 			Blue<;>
 Expansion: 		Vanilla<;>
 Requires: 		<{>
 					XRD Transporter<;>
-					Neural Motivator<;>
 					AND<;>
+					Neural Motivator<;>
 				<}>
 Text: 			All of your Cruisers and Dreadnoughts now receive +1 movement.<;>
 <}>
@@ -308,8 +308,8 @@ Color: 			Red<;>
 Expansion: 		Vanilla<;>
 Requires: 		<{>
 					Deep Space Cannon<;>
-					Sarween Tools<;>
 					AND<;>
+					Sarween Tools<;>
 				<}>
 Text: 			You are now allowed to produce War Sun units.<;>
 <}>
@@ -320,8 +320,8 @@ Color: 			Green<;>
 Expansion: 		Vanilla<;>
 Requires: 		<{>
 					Transit Diodes<;>
-					Assault Cannon<;>
 					OR<;>
+					Assault Cannon<;>
 				<}>
 Text: 			Your Dreadnought or War Sun units may now use this option before bombarding. Immediately destroy all enemy Ground Forces on the planet. Then discard all of your Action Cards.<;>
 <}>

@@ -4,12 +4,14 @@ using System.Collections.Generic;
 
 public class TechManager : MonoBehaviour {
 
-	private Dictionary<TType, Tech> techs;
+	private Dictionary<string, Tech> techs;
 	private FileManager fileManager;
 
 	// Use this for initialization
 	void Start () {
 		fileManager = GetComponent<FileManager>();
+
+		readTechs ();
 	}
 	
 	// Update is called once per frame
@@ -17,11 +19,23 @@ public class TechManager : MonoBehaviour {
 	
 	}
 
-	public Tech getTech(TType techType) {
-		return techs [techType];
+	public Tech getTech(string techName) {
+		return techs [techName];
 	}
 
 	private void readTechs() {
-		foreach (Tech tech in fileManager.ReadTechFile ());
+		techs = new Dictionary<string, Tech>();
+		foreach (Tech tech in fileManager.ReadTechFile ()) {
+			techs[tech.Name] = tech;
+		};
+	}
+
+	public void addTech(Tech tech) {
+		int i = 0;
+		string name = tech.Name + System.Convert.ToInt32(i);
+		while (techs.ContainsKey(name)) {
+			i++;
+			name = tech.Name + System.Convert.ToInt32 (i);
+		}
 	}
 }

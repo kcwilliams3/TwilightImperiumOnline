@@ -78,28 +78,28 @@ Starting Techs:		<{>
 Leaders:			<{>
 							<{>
 										Name:		Acidos<;>
-										Type		General<;>
+										Type:		General<;>
 							<}>
 							<{>
 										Name:		Flayesh<;>
-										Type		Agent<;>
+										Type:		Agent<;>
 							<}>
 							<{>
 										Name:		Malleon<;>
-										Type		Admiral<;>
+										Type:		Admiral<;>
 							<}>
 					<}>
 Racial Techs:		<{>
 							<{>
 										Name:		Valefar Assimilator<;>
 										Expansion:	Shards of the Throne<;>
-										Cost:		*<;>
+										Cost:		0<;>
 										Text:		Gain this technology by using your racial ability to copy a racial Technology an opponent has researched. You cannot copy a Technology that modifies his racial ability. Place the race's Control Marker on this card to remember which ability you have copied.<;>
 							<}>
 							<{>
 										Name:		Valefar Assimilator<;>
 										Expansion:	Shattered Empire<;>
-										Cost:		*<;>
+										Cost:		0<;>
 										Text:		Gain this technology by using your racial ability to copy a racial Technology an opponent has researched. You cannot copy a Technology that modifies his racial ability. Place the race's Control Marker on this card to remember which ability you have copied.<;>
 							<}>
 					<}>

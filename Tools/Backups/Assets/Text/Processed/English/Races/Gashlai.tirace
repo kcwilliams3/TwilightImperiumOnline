@@ -68,15 +68,15 @@ Starting Techs:		<{>
 Leaders:			<{>
 							<{>
 										Name:		Emnor<;>
-										Type		Scientist<;>
+										Type:		Scientist<;>
 							<}>
 							<{>
 										Name:		Magmus<;>
-										Type		Diplomat<;>
+										Type:		Diplomat<;>
 							<}>
 							<{>
 										Name:		Umbat<;>
-										Type		General<;>
+										Type:		General<;>
 							<}>
 					<}>
 Racial Techs:		<{>
