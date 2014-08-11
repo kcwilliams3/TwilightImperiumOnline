@@ -102,6 +102,8 @@ Flagship:			<{>
 							Cost:		10<;>
 							Battle:		5<;>
 							Multiplier:	3<;>
+							Move:		1<;>
+							Capacity:	4<;>
 					<}>
 Representatives:	<{>
 							<{>

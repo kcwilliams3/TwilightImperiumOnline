@@ -11,7 +11,19 @@ public class Flagship : Unit {
 	private string text;
 	public string Text { get { return text; } }
 	
-	public Flagship(string pName, string pText) : base(UType.Flagship) {
+	public Flagship(string pName, UAbility[] pAbilities, string pText, int pCost, int pBattle, int pMultiplier, int pMove, int pCapacity) : base(UType.Flagship) {
+		name = pName;
+		abilities = pAbilities;
+		text = pText;
+		cost = pCost;
+		battle = pBattle;
+		shots = pMultiplier;
+		move = pMove;
+		capacity = pCapacity;
+		carries = UCarry.Anything;
+		buys = 1;
+		fleetSupply = UFSupply.Always;
+		ship = true;
 	}
 }
 

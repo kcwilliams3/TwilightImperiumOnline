@@ -116,7 +116,9 @@ public class FileManager : TIOMonoBehaviour {
 								tech.Race = race;
 							}
 						} else if (dataType == "Flagship") {
-							break;
+							race.Flagship = readFlagship(dataType, dataText, fileName, reader);
+						} else if (dataType == "Representatives") {
+							race.Representatives = readRepsBlock(dataType, dataText, fileName, reader);
 						}
 						line = reader.ReadLine().Trim ();
 					} while (line != "<}>");
@@ -454,6 +456,150 @@ public class FileManager : TIOMonoBehaviour {
 		return techsArray;
 	}
 
+	private Flagship readFlagship(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			// Start of block
+			string name = "";
+			string text = "";
+			UAbility[] abilities = {};
+			int cost = 0;
+			int battle = 0;
+			int multiplier = 0;
+			int move = 0;
+			int capacity = 0;;
+
+			string line = reader.ReadLine().Trim ();
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0] = lineParts[0].Trim ();
+				string newDataText = lineParts[1] = lineParts[1].Trim ();
+				
+				if (newDataType == "Name") {
+					name = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Abilities") {
+					abilities = readUAbilitiesBlock (newDataType, newDataText, fileName, reader);
+				} else if (newDataType == "Text") {
+					text = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Cost") {
+					cost = readIntLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Battle") {
+					battle = readIntLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Multiplier") {
+					multiplier = readIntLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Move") {
+					move = readIntLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Capacity") {
+					capacity = readIntLine(newDataType, newDataText, fileName);
+				}
+				line = reader.ReadLine().Trim ();
+				
+			} while (line != "<}>");
+			// End of block
+			
+			return new Flagship(name, abilities, text, cost, battle, multiplier, move, capacity);
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private Representative[] readRepsBlock(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			// Start of block
+			ArrayList reps = new ArrayList();
+			
+			string line = reader.ReadLine().Trim ();
+			do {
+				reps.Add (readRep("", line, fileName, reader));
+				line = reader.ReadLine().Trim ();
+			} while (line != "<}>");
+			// End of block
+			
+			return (Representative[])reps.ToArray(typeof(Representative));
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private Representative readRep(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			// Start of block
+			Representative rep = new Representative();
+			
+			string line = reader.ReadLine().Trim ();
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0] = lineParts[0].Trim ();
+				string newDataText = lineParts[1] = lineParts[1].Trim ();
+				
+				
+				if (newDataType == "Name") {
+					rep.Name = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Votes") {
+					rep.Votes = readIntLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Types") {
+					rep.RepTypes = readRTypesBlock (newDataType, newDataText, fileName, reader);
+				} else if (newDataType == "Text") {
+					rep.Text = readTextLine (newDataType, newDataText, fileName);
+				} 
+				line = reader.ReadLine().Trim ();
+				
+			} while (line != "<}>");
+			// End of block
+			
+			return rep;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private RType[] readRTypesBlock(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			// Start of block
+			ArrayList repTypes = new ArrayList();
+			
+			string line = reader.ReadLine().Trim ();
+			do {
+				repTypes.Add (stringToRType(readTextLine("", line, fileName)));
+
+				line = reader.ReadLine ().Trim ();
+				
+			} while (line != "<}>");
+			// End of block
+			
+			return (RType[])repTypes.ToArray(typeof(RType));
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private UAbility[] readUAbilitiesBlock(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			// Start of block
+			ArrayList uAbilities = new ArrayList();
+			
+			string line = reader.ReadLine().Trim ();
+
+			do {
+				uAbilities.Add (stringToUAbility(readTextLine("", line, fileName)));
+				line = reader.ReadLine().Trim ();
+			} while (line != "<}>");
+			// End of block
+			
+			return (UAbility[])uAbilities.ToArray(typeof(UAbility));
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+
 
 	/* 
 	 * Basic Section Readers 
@@ -568,6 +714,30 @@ public class FileManager : TIOMonoBehaviour {
 			return LType.General;
 		} else {
 			return LType.Scientist;
+		}
+	}
+
+	private RType stringToRType(string repType) {
+		if (repType == "Spy") {
+			return RType.Spy;
+		} else if (repType == "Councilor") {
+			return RType.Councilor;
+		} else {
+			return RType.Bodyguard;
+		}
+	}
+
+	private UAbility stringToUAbility(string unitAbility) {
+		if (unitAbility == "Sustain Damage") {
+			return UAbility.SustainDamage;
+		} else if (unitAbility == "Anti-Fighter Barrage") {
+			return UAbility.AntiFighterBarrage;
+		} else if (unitAbility == "Bombardment") {
+			return UAbility.Bombardment;
+		} else if (unitAbility == "Planetary Shield") {
+			return UAbility.PlanetaryShield;
+		} else {
+			return UAbility.Production;
 		}
 	}
 }

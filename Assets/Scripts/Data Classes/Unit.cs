@@ -10,41 +10,41 @@ public class Unit {
 
 	// TI Game Data
 	[SerializeField]
-	private UType unitType;
+	protected UType unitType;
 	public UType UnitType { get { return unitType; } }
 	[SerializeField]
-	private UAbility[] abilities;
+	protected UAbility[] abilities;
 	public UAbility[] Abilities { get { return abilities; } }
 	[SerializeField]
-	private int cost;
+	protected int cost;
 	public int Cost { get { return cost; } }
 	[SerializeField]
-	private int buys;
+	protected int buys;
 	public int Buys { get { return buys; } }
 	[SerializeField]
-	private int battle;
+	protected int battle;
 	public int Battle { get { return battle; } }
 	[SerializeField]
-	private int shots;
+	protected int shots;
 	public int Shots { get { return shots; } }
 	[SerializeField]
-	private int capacity;
+	protected int capacity;
 	public int Capacity { get { return capacity; } }
 	[SerializeField]
-	private UCarry carries;
+	protected UCarry carries;
 	public UCarry Carries { get { return carries; } }
 	[SerializeField]
-	private UFSupply fleetSupply;
+	protected UFSupply fleetSupply;
 	public UFSupply FleetSupply { get { return fleetSupply; } }
 	[SerializeField]
-	private bool ship;
+	protected bool ship;
 	public bool Ship { get { return ship; } }
 	[SerializeField]
-	private int move;
+	protected int move;
 	public int Move { get { return move; } }
 	[SerializeField]
-	private Tech prereq;
-	public Tech Prereq { get { return prereq; } }
+	protected Tech[] prereqs;
+	public Tech[] Prereqs { get { return prereqs; } }
 	
 	public Unit(UType pUnitType) {
 		unitType = pUnitType;

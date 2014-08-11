@@ -1,5 +1,7 @@
 using UnityEngine;
 
+public enum RType {Spy, Councilor, Bodyguard};
+
 [System.Serializable]
 public class Representative {
 	
@@ -15,8 +17,8 @@ public class Representative {
 	private int votes;
 	public int Votes { get { return votes; } set { if (!isLocked[1]) { votes = value; isLocked[1] = true; } else { Debug.Log("Representative: Attempted to set locked property Votes."); } } }
 	[SerializeField]
-	private string[] types;
-	public string[] Types { get { return types; } set { if (!isLocked[2]) { types = value; isLocked[2] = true; } else { Debug.Log("Representative: Attempted to set locked property Types."); } } }
+	private RType[] repTypes;
+	public RType[] RepTypes { get { return repTypes; } set { if (!isLocked[2]) { repTypes = value; isLocked[2] = true; } else { Debug.Log("Representative: Attempted to set locked property RepTypes."); } } }
 	[SerializeField]
 	private string text;
 	public string Text { get { return text; } set { if (!isLocked[3]) { text = value; isLocked[2] = true; } else { Debug.Log("Representative: Attempted to set locked property Text."); } } }

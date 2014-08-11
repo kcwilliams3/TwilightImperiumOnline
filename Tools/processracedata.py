@@ -614,6 +614,12 @@ def writeFlagship(race,file):
 	#Battle multiplier
 	tag = getStringAtCol("Multiplier:", secondValueCol, "", race, file)
 	file.write(getStringAtCol(flagship.getMultiplier()+lineEnd, thirdValueCol, tag, race, file))
+	#Move
+	tag = getStringAtCol("Move:", secondValueCol, "", race, file)
+	file.write(getStringAtCol(flagship.getMove()+lineEnd, thirdValueCol, tag, race, file))
+	#Capacity
+	tag = getStringAtCol("Capacity:", secondValueCol, "", race, file)
+	file.write(getStringAtCol(flagship.getCapacity()+lineEnd, thirdValueCol, tag, race, file))
 	file.write(getStringAtCol(blockEnd, firstValueCol, "", race, file))
 	
 def writeRepresentatives(race, file):
