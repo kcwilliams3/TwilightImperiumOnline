@@ -6,10 +6,12 @@ using System.Collections.Generic;
 public class CardManager : MonoBehaviour {
 
 	// Card directories
+	//TODO: May not need these dictionaries. Decide.
 	private Dictionary<string, ActionCard> actionCards = new Dictionary<string, ActionCard>();
 	private Dictionary<string, Merc> mercs = new Dictionary<string, Merc>();
 
 	// Decks
+	//TODO: After finished, get rid of debug arrays.
 	[SerializeField]
 	private ActionCard[] actionDeckDebug; 
 	private ArrayList actionDeck = new ArrayList();
@@ -18,6 +20,7 @@ public class CardManager : MonoBehaviour {
 	private ArrayList mercDeck = new ArrayList();
 
 	// Discard piles
+	//TODO: After finished, get rid of debug arrays.
 	[SerializeField]
 	private ActionCard[] actionDiscDebug; 
 	private ArrayList actionDisc = new ArrayList();
@@ -44,18 +47,18 @@ public class CardManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (updateCounter == 0) {
-			testcard = (ActionCard)actionDeck[0];
-			Debug.Log ("Searching for " + testcard.Name);
-		} else if (updateCounter % 100 == 0) {
-			ActionCard card = SearchForAction (testcard);
-			if (card != default(ActionCard)) {
-				Debug.Log (card.Name);
-			}
-			else {
-				Debug.Log ("Not found!");
-			}
-		} 
+//		if (updateCounter == 0) {
+//			testcard = (ActionCard)actionDeck[0];
+//			Debug.Log ("Searching for " + testcard.Name);
+//		} else if (updateCounter % 100 == 0) {
+//			ActionCard card = SearchForAction (testcard);
+//			if (card != default(ActionCard)) {
+//				Debug.Log (card.Name);
+//			}
+//			else {
+//				Debug.Log ("Not found!");
+//			}
+//		} 
 		updateCounter ++;
 
 		actionDeckDebug = (ActionCard[])actionDeck.ToArray (typeof(ActionCard));

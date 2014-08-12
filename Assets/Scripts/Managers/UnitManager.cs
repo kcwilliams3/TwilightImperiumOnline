@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class UnitManager : MonoBehaviour {
 
+	//TODO: May not need these dictionaries. Decide.
 	private Dictionary<UType, Unit> baseStats = new Dictionary<UType, Unit>();
 
 	private bool firstUpdate = true;
