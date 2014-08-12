@@ -160,7 +160,7 @@ public class FileManager : TIOMonoBehaviour {
 				} else if (dataType == "Species Name") {
 					race.SpeciesName = readTextLine(dataType, dataText, fileName);
 				} else if (dataType == "Expansion") {
-					race.Expansion = stringToExpansion(readTextLine(dataType, dataText, fileName));
+					race.Expansion = readTextLine(dataType, dataText, fileName);
 				} else if (dataType == "History") {
 					race.History = readTextBlock (dataType, dataText, fileName, reader);
 				} else if (dataType == "Special Abilities") {
@@ -439,7 +439,7 @@ public class FileManager : TIOMonoBehaviour {
 					} else if (dataType == "Color") {
 						tech.TechType = stringToTType(readTextLine(dataType, dataText, fileName));
 					} else if (dataType == "Expansion") {
-						tech.Expansion = stringToExpansion(readTextLine(dataType, dataText, fileName));
+						tech.Expansion = readTextLine(dataType, dataText, fileName);
 					} else if (dataType == "Requires") {
 						// The prereq techs may not actually exist yet, so just save the name for now
 						prereqs[tech] = readTextBlock (dataType, dataText, fileName, reader);
@@ -673,7 +673,7 @@ public class FileManager : TIOMonoBehaviour {
 				} else if (newDataType == "Quantity") {
 					action.Quantity = readIntLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Expansion") {
-					action.Expansion = stringToExpansion(readTextLine(newDataType, newDataText, fileName));
+					action.Expansion = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Flavor Text") {
 					action.FlavorText = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Rule Text A") {
@@ -831,16 +831,6 @@ public class FileManager : TIOMonoBehaviour {
 			return UAbility.PlanetaryShield;
 		} else {
 			return UAbility.Production;
-		}
-	}
-
-	private Expansion stringToExpansion(string expansionName) {
-		if (expansionName == "Shattered Empire") {
-			return Expansion.ShatteredEmpire;
-		} else if (expansionName == "Shards of the Throne") {
-			return Expansion.ShardsOfTheThrone;
-		} else {
-			return Expansion.Vanilla;
 		}
 	}
 }

@@ -15,8 +15,8 @@ public class ActionCard {
 	private int quantity;
 	public int Quantity { get { return quantity; } set { if (!isLocked[1]) { quantity = value; isLocked[1] = true; } else { Debug.Log("ActionCard: Attempted to set locked property Quantity."); } } }
 	[SerializeField]
-	private Expansion expansion;
-	public Expansion Expansion { get { return expansion; } set { if (!isLocked[2]) { expansion = value; isLocked[2] = true; } else { Debug.Log("ActionCard: Attempted to set locked property Expansion."); } } }
+	private string expansion;
+	public string Expansion { get { return expansion; } set { if (!isLocked[2]) { expansion = value; isLocked[2] = true; } else { Debug.Log("ActionCard: Attempted to set locked property Expansion."); } } }
 	[SerializeField]
 	private string flavorText;
 	public string FlavorText { get { return flavorText; } set { if (!isLocked[3]) { flavorText = value; isLocked[3] = true; } else { Debug.Log("ActionCard: Attempted to set locked property FlavorText."); } } }
