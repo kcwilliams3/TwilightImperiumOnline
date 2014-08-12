@@ -46,6 +46,9 @@ public class Unit {
 	[SerializeField]
 	protected Tech[] prereqs;
 	public Tech[] Prereqs { get { return prereqs; } set { prereqs = value; } }
+	[SerializeField]
+	protected int maxQuantity;
+	public int MaxQuantity { get { return maxQuantity; } } 
 
 	protected UnitManager unitManager;
 	

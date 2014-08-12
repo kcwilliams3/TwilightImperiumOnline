@@ -24,6 +24,7 @@ public class Flagship : Unit {
 		buys = 1;
 		fleetSupply = UFSupply.Always;
 		ship = true;
+		maxQuantity = 1;
 	}
 }
 
