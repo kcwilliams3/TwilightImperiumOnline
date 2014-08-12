@@ -19,8 +19,8 @@ public class Race {
 	private string speciesName;
 	public string SpeciesName { get { return speciesName; } set { if (!isLocked[2]) { speciesName = value; isLocked[2] = true; } else { Debug.Log("Race: Attempted to set locked property SpeciesName."); } } }
 	[SerializeField]
-	private string expansion;
-	public string Expansion { get { return expansion; } set { if (!isLocked[3]) { expansion = value; isLocked[3] = true; } else { Debug.Log("Race: Attempted to set locked property Expansion."); } } }
+	private Expansion expansion;
+	public Expansion Expansion { get { return expansion; } set { if (!isLocked[3]) { expansion = value; isLocked[3] = true; } else { Debug.Log("Race: Attempted to set locked property Expansion."); } } }
 	[SerializeField]
 	private string[] history;
 	public string[] History { get { return history; } set { if (!isLocked[4]) { history = value; isLocked[4] = true; } else { Debug.Log("Race: Attempted to set locked property History."); } } }

@@ -18,8 +18,8 @@ public class Tech {
 	private TType techType;
 	public TType TechType { get { return techType; } set { if (!isLocked[1]) { techType = value; isLocked[1] = true; } else { Debug.Log("Tech: Attempted to set locked property TechType."); } } }
 	[SerializeField]
-	private string expansion;
-	public string Expansion { get { return expansion; } set { if (!isLocked[2]) { expansion = value; isLocked[2] = true; } else { Debug.Log("Tech: Attempted to set locked property Expansion."); } } }
+	private Expansion expansion;
+	public Expansion Expansion { get { return expansion; } set { if (!isLocked[2]) { expansion = value; isLocked[2] = true; } else { Debug.Log("Tech: Attempted to set locked property Expansion."); } } }
 	[SerializeField]
 	private Tech[] prereqs;
 	public Tech[] Prereqs { get { return prereqs; } set { if (!isLocked[3]) { prereqs = value; isLocked[3] = true; } else { Debug.Log("Tech: Attempted to set locked property Prereqs."); } } }
