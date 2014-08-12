@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TechManager : MonoBehaviour {
 
-	private Dictionary<string, Tech> techs;
+	private Dictionary<string, Tech> techs = new Dictionary<string, Tech>();
 	private FileManager fileManager;
 
 	// Use this for initialization
@@ -24,7 +24,6 @@ public class TechManager : MonoBehaviour {
 	}
 
 	private void readTechs() {
-		techs = new Dictionary<string, Tech>();
 		foreach (Tech tech in fileManager.ReadTechFile ()) {
 			techs[tech.Name] = tech;
 		};

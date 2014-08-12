@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class CardManager : MonoBehaviour {
 
-	private Dictionary<string, ActionCard> actionCards;
+	private Dictionary<string, ActionCard> actionCards = new Dictionary<string, ActionCard>();
 	private FileManager fileManager;
 
 	// Use this for initialization
@@ -24,7 +24,6 @@ public class CardManager : MonoBehaviour {
 	}
 	
 	private void readActionCards() {
-		actionCards = new Dictionary<string, ActionCard>();
 		foreach (ActionCard actionCard in fileManager.ReadActionFile ()) {
 			actionCards[actionCard.Name] = actionCard;
 		};

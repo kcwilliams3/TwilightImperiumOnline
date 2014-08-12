@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class UnitManager : MonoBehaviour {
 
-	private Dictionary<UType, Unit> baseStats;
+	private Dictionary<UType, Unit> baseStats = new Dictionary<UType, Unit>();
 
 	private bool firstUpdate = true;
 
@@ -25,7 +25,6 @@ public class UnitManager : MonoBehaviour {
 	}
 
 	private void setBaseStats(){
-		baseStats = new Dictionary<UType, Unit>();
 		baseStats.Add(UType.GroundForce, new Unit(UType.GroundForce, this));
 		baseStats.Add(UType.SpaceDock, new Unit(UType.SpaceDock, this)); 
 		baseStats.Add(UType.Carrier, new Unit(UType.Carrier, this));

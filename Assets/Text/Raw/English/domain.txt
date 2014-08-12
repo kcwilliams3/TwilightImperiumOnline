@@ -1,4 +1,4 @@
-Peaceful Annexation : 12
+Peaceful Annexation :: 12
 Distant Suns
 The landing proceeds without incident. Discard this counter.
 
@@ -6,27 +6,27 @@ Natural Wealth :: 2:5, 4:4
 Distant Suns
 This planet has resources available for immediate exploitation. Receive the number of Trade Goods indicated, if able. Then discard this counter.
 
-Technological Society : 2
+Technological Society :: 2
 Distant Suns
 The player to your left must search through your Technology deck and give you a free technology advance for which you have the necessary prerequisites. Then discard this counter.
 
-Industrial Society : 2
+Industrial Society :: 2
 Distant Suns
 An industrious and friendly populace welcomes you. You may immediately place a free Space Dock here. The Planet card for this planet is not exhausted when you receive it. Discard this counter.
 
-Native Intelligence : 4
+Native Intelligence :: 4
 Distant Suns, Shattered Empire
 The native race here offers their espionage services. Secretly look at any facedown Domain Counter on any planet of your choice. Then discard this counter.
 
-Hidden Factory : 3
+Hidden Factory :: 3
 Distant Suns, Shattered Empire
 You unearth an ancient, abandoned starship factory. Immediately receive any number of ships (for free) worth up to 2 resources. Place them in this system, then discard this counter.
 
-Biohazard : 4
+Biohazard :: 4
 Distant Suns
 The hostile environment of this planet requires terraforming. The first Ground Force unit to land here is always eliminated while this token remains. Discard this counter after a player successfully invades this planet.
 
-Radiation : 4
+Radiation :: 4
 Distant Suns
 The planet contains unexpected high levels of radiation. Kill all the Ground Forces of the initial landing (the planet remains uncontrolled), then remove the counter.
 
@@ -34,23 +34,27 @@ Hostile Locals :: 1:5, 2:2, 3:1
 Distant Suns
 The local population will not be subdued. The indicated number of local Ground Forces will fight any invader (allow another player to roll their combat dice). If an invasion attempt fails, the locals return to their full indicated strength. May not be bombarded. Discard after a successful invasion.
 
-Lazax Survivors : 2
+Lazax Survivors :: 2
 Distant Suns
 A discovery of ancient prophecy. You may take this counter to receive 3 additional votes towards all future political agendas.
 
-Settlers : 2
+Settlers :: 2
 Distant Suns
 Return all of your Ground Forces to their Carrier/War Sun. Roll a die. On a result of 6+, place two free Ground Forces on the planet from your reinforcements. On a roll of 1-5, determine a random opponent. That opponent places two free Ground Forces from his reinforcements on the planet. Then discard this counter.
 
-Wormhole Discovery :: Alpha:1, Beta:1
+Alpha Wormhole Discovery :: 1
 Distant Suns
-A new wormhole has been discovered in the system near this planet. Place this counter in the middle of the system to indicate the presence of the wormhole. This wormhole will connect to other wormholes of the same letter (Alpha or Beta) following the normal rules for wormholes.
+A new wormhole has been discovered in the system near this planet. Place this counter in the middle of the system to indicate the presence of the wormhole. This wormhole will connect to other Alpha wormholes following the normal rules for wormholes.
 
-Hostage Situation : 4
+Beta Wormhole Discovery :: 1
+Distant Suns
+A new wormhole has been discovered in the system near this planet. Place this counter in the middle of the system to indicate the presence of the wormhole. This wormhole will connect to other Beta wormholes following the normal rules for wormholes.
+
+Hostage Situation :: 4
 Distant Suns, Shattered Empire
 Your landing party is taken hostage by the local inhabitants. Pay Trade Goods equal to the number of Ground Forces landing or lose all Ground Forces in the initial landing (the planet remains uncontrolled). Then discard this counter.
 
-Automated Defense System : 3
+Automated Defense System :: 3
 Distant Suns, Shattered Empire
 Roll 2 dice. For each 6+ lose 1 ship in this system and one landing Ground Force. If no Ground FOrces remain on this planet, it remains uncontrolled. The first player to successfully invade this planet removes this counter and may place one free PDS unit on the planet.
 
@@ -58,46 +62,46 @@ Fighter Ambush :: 1:2, 2:2, 3:1
 Distant Suns, Shattered Empire
 After landing, a Space Battle immediately starts in the system against the indicated number of local Fighters (allow another player to roll their combat dice). Players may not use Anti-FIghter Barrage in this Space Battle. If the Space Battle fails, then the planet remains uncontrolled, all landing Ground Forces are discarded, and the fighters return to full indicated strength. Discard this counter after a successful Space Battle.
 
-Abandoned Transport : 1
-The Final Frontier
+Abandoned Transport :: 1
+The Final Frontier, Shards of the Throne
 An abandoned transport ship loaded with undelivered goods. The player who reveals this counter receives 2 Trade Goods.
 
-Alien Technology : 1
-The Final Frontier
+Alien Technology :: 1
+The Final Frontier, Shards of the Throne
 An ancient alien artifact found floating in space. After careful research, the artifact reveals unexpected technological secrets. The player who reveals this counter may research any one Technology that he has the prerequisites for at no cost.
 
-Derelict Ship : 2
-The Final Frontier
+Derelict Ship :: 2
+The Final Frontier, Shards of the Throne
 A ship in need of repairs, left abandoned in space. The player who reveals this counter may gain 1 Cruiser for free in this system.
 
-Discovery : 1
-The Final Frontier
+Discovery :: 1
+The Final Frontier, Shards of the Throne
 Exploration of uncharted space is bound to result in interesting and advantageous discoveries. The player who reveals this counter may draw 1 Action Card.
 
-Precursor Space Station : 1
-The Final Frontier
+Precursor Space Station :: 1
+The Final Frontier, Shards of the Throne
 A long-forgotten space station offering strategic advantages. After this counter is revealed, this counter stays in play. While a player controls this system, he needs 1 less victory point to win.
 
-Empty Space : 3
-The Final Frontier
+Empty Space :: 3
+The Final Frontier, Shards of the Throne
 There is nothing of interest here. This token has no effect.
 
-Gravity Rift : 1
-The Final Frontier
+Gravity Rift :: 1
+The Final Frontier, Shards of the Throne
 A rift in space opens up out of nowhere! When this counter is revealed, it stays in play. This system is now treated as a Gravity Rift system.
 
-Space Pirates : 2
-The Final Frontier
+Space Pirates :: 2
+The Final Frontier, Shards of the Throne
 Vagabonds that wander the galaxy are known to prey on the wealthy. The player who reveals this counter must lose all his Trade Goods or be attacked by a Dreadnought (allow another player to roll their combat dice). If the player has no Trade Goods, he is attacked. After battle, or if he paid the Trade Goods, discard this counter.
 
-Supernova : 1
-The Final Frontier
+Supernova :: 1
+The Final Frontier, Shards of the Throne
 A star explodes right before your eyes! When this counter is revealed, it stays in play. All ships in this system are destroyed and this system is now treated as a Supernova system.
 
-Alpha Wormhole Discovery : 1
-The Final Frontier
+Alpha Wormhole Discovery :: 1
+The Final Frontier, Shards of the Throne
 An undocumented Wormhole found in the most unlikely of systems. When this counter is revealed, it stays in play. This system now has an Alpha Wormhole.
 
-Beta Wormhole Discovery : 1
-The Final Frontier
+Beta Wormhole Discovery :: 1
+The Final Frontier, Shards of the Throne
 An undocumented Wormhole found in the most unlikely of systems. When this counter is revealed, it stays in play. This system now has a Beta Wormhole.

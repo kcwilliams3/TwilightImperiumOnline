@@ -1,0 +1,256 @@
+<{>
+Name: 				Abandoned Transport <;>
+Qualifier: 			<;>
+Quantity: 			1<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				An abandoned transport ship loaded with undelivered goods. The player who reveals this counter receives 2 Trade Goods.<;>
+<}>
+<{>
+Name: 				Alien Technology <;>
+Qualifier: 			<;>
+Quantity: 			1<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				An ancient alien artifact found floating in space. After careful research, the artifact reveals unexpected technological secrets. The player who reveals this counter may research any one Technology that he has the prerequisites for at no cost.<;>
+<}>
+<{>
+Name: 				Alpha Wormhole Discovery <;>
+Qualifier: 			<;>
+Quantity: 			1<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				A new wormhole has been discovered in the system near this planet. Place this counter in the middle of the system to indicate the presence of the wormhole. This wormhole will connect to other Alpha wormholes following the normal rules for wormholes.<;>
+<}>
+<{>
+Name: 				Alpha Wormhole Discovery <;>
+Qualifier: 			<;>
+Quantity: 			1<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				An undocumented Wormhole found in the most unlikely of systems. When this counter is revealed, it stays in play. This system now has an Alpha Wormhole.<;>
+<}>
+<{>
+Name: 				Automated Defense System <;>
+Qualifier: 			<;>
+Quantity: 			3<;>
+Expansion: 			Shattered Empire<;>
+Option: 			Distant Suns<;>
+Text: 				Roll 2 dice. For each 6+ lose 1 ship in this system and one landing Ground Force. If no Ground FOrces remain on this planet, it remains uncontrolled. The first player to successfully invade this planet removes this counter and may place one free PDS unit on the planet.<;>
+<}>
+<{>
+Name: 				Beta Wormhole Discovery <;>
+Qualifier: 			<;>
+Quantity: 			1<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				A new wormhole has been discovered in the system near this planet. Place this counter in the middle of the system to indicate the presence of the wormhole. This wormhole will connect to other Beta wormholes following the normal rules for wormholes.<;>
+<}>
+<{>
+Name: 				Beta Wormhole Discovery <;>
+Qualifier: 			<;>
+Quantity: 			1<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				An undocumented Wormhole found in the most unlikely of systems. When this counter is revealed, it stays in play. This system now has a Beta Wormhole.<;>
+<}>
+<{>
+Name: 				Biohazard <;>
+Qualifier: 			<;>
+Quantity: 			4<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				The hostile environment of this planet requires terraforming. The first Ground Force unit to land here is always eliminated while this token remains. Discard this counter after a player successfully invades this planet.<;>
+<}>
+<{>
+Name: 				Derelict Ship <;>
+Qualifier: 			<;>
+Quantity: 			2<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				A ship in need of repairs, left abandoned in space. The player who reveals this counter may gain 1 Cruiser for free in this system.<;>
+<}>
+<{>
+Name: 				Discovery <;>
+Qualifier: 			<;>
+Quantity: 			1<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				Exploration of uncharted space is bound to result in interesting and advantageous discoveries. The player who reveals this counter may draw 1 Action Card.<;>
+<}>
+<{>
+Name: 				Empty Space <;>
+Qualifier: 			<;>
+Quantity: 			3<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				There is nothing of interest here. This token has no effect.<;>
+<}>
+<{>
+Name: 				Fighter Ambush <;>
+Qualifier: 			1<;>
+Quantity: 			2<;>
+Expansion: 			Shattered Empire<;>
+Option: 			Distant Suns<;>
+Text: 				After landing, a Space Battle immediately starts in the system against the indicated number of local Fighters (allow another player to roll their combat dice). Players may not use Anti-FIghter Barrage in this Space Battle. If the Space Battle fails, then the planet remains uncontrolled, all landing Ground Forces are discarded, and the fighters return to full indicated strength. Discard this counter after a successful Space Battle.<;>
+<}>
+<{>
+Name: 				Fighter Ambush <;>
+Qualifier: 			2<;>
+Quantity: 			2<;>
+Expansion: 			Shattered Empire<;>
+Option: 			Distant Suns<;>
+Text: 				After landing, a Space Battle immediately starts in the system against the indicated number of local Fighters (allow another player to roll their combat dice). Players may not use Anti-FIghter Barrage in this Space Battle. If the Space Battle fails, then the planet remains uncontrolled, all landing Ground Forces are discarded, and the fighters return to full indicated strength. Discard this counter after a successful Space Battle.<;>
+<}>
+<{>
+Name: 				Fighter Ambush <;>
+Qualifier: 			3<;>
+Quantity: 			1<;>
+Expansion: 			Shattered Empire<;>
+Option: 			Distant Suns<;>
+Text: 				After landing, a Space Battle immediately starts in the system against the indicated number of local Fighters (allow another player to roll their combat dice). Players may not use Anti-FIghter Barrage in this Space Battle. If the Space Battle fails, then the planet remains uncontrolled, all landing Ground Forces are discarded, and the fighters return to full indicated strength. Discard this counter after a successful Space Battle.<;>
+<}>
+<{>
+Name: 				Gravity Rift <;>
+Qualifier: 			<;>
+Quantity: 			1<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				A rift in space opens up out of nowhere! When this counter is revealed, it stays in play. This system is now treated as a Gravity Rift system.<;>
+<}>
+<{>
+Name: 				Hidden Factory <;>
+Qualifier: 			<;>
+Quantity: 			3<;>
+Expansion: 			Shattered Empire<;>
+Option: 			Distant Suns<;>
+Text: 				You unearth an ancient, abandoned starship factory. Immediately receive any number of ships (for free) worth up to 2 resources. Place them in this system, then discard this counter.<;>
+<}>
+<{>
+Name: 				Hostage Situation <;>
+Qualifier: 			<;>
+Quantity: 			4<;>
+Expansion: 			Shattered Empire<;>
+Option: 			Distant Suns<;>
+Text: 				Your landing party is taken hostage by the local inhabitants. Pay Trade Goods equal to the number of Ground Forces landing or lose all Ground Forces in the initial landing (the planet remains uncontrolled). Then discard this counter.<;>
+<}>
+<{>
+Name: 				Hostile Locals <;>
+Qualifier: 			1<;>
+Quantity: 			5<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				The local population will not be subdued. The indicated number of local Ground Forces will fight any invader (allow another player to roll their combat dice). If an invasion attempt fails, the locals return to their full indicated strength. May not be bombarded. Discard after a successful invasion.<;>
+<}>
+<{>
+Name: 				Hostile Locals <;>
+Qualifier: 			2<;>
+Quantity: 			2<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				The local population will not be subdued. The indicated number of local Ground Forces will fight any invader (allow another player to roll their combat dice). If an invasion attempt fails, the locals return to their full indicated strength. May not be bombarded. Discard after a successful invasion.<;>
+<}>
+<{>
+Name: 				Hostile Locals <;>
+Qualifier: 			3<;>
+Quantity: 			1<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				The local population will not be subdued. The indicated number of local Ground Forces will fight any invader (allow another player to roll their combat dice). If an invasion attempt fails, the locals return to their full indicated strength. May not be bombarded. Discard after a successful invasion.<;>
+<}>
+<{>
+Name: 				Industrial Society <;>
+Qualifier: 			<;>
+Quantity: 			2<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				An industrious and friendly populace welcomes you. You may immediately place a free Space Dock here. The Planet card for this planet is not exhausted when you receive it. Discard this counter.<;>
+<}>
+<{>
+Name: 				Lazax Survivors <;>
+Qualifier: 			<;>
+Quantity: 			2<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				A discovery of ancient prophecy. You may take this counter to receive 3 additional votes towards all future political agendas.<;>
+<}>
+<{>
+Name: 				Native Intelligence <;>
+Qualifier: 			<;>
+Quantity: 			4<;>
+Expansion: 			Shattered Empire<;>
+Option: 			Distant Suns<;>
+Text: 				The native race here offers their espionage services. Secretly look at any facedown Domain Counter on any planet of your choice. Then discard this counter.<;>
+<}>
+<{>
+Name: 				Natural Wealth <;>
+Qualifier: 			2<;>
+Quantity: 			5<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				This planet has resources available for immediate exploitation. Receive the number of Trade Goods indicated, if able. Then discard this counter.<;>
+<}>
+<{>
+Name: 				Natural Wealth <;>
+Qualifier: 			4<;>
+Quantity: 			4<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				This planet has resources available for immediate exploitation. Receive the number of Trade Goods indicated, if able. Then discard this counter.<;>
+<}>
+<{>
+Name: 				Peaceful Annexation <;>
+Qualifier: 			<;>
+Quantity: 			12<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				The landing proceeds without incident. Discard this counter.<;>
+<}>
+<{>
+Name: 				Precursor Space Station <;>
+Qualifier: 			<;>
+Quantity: 			1<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				A long-forgotten space station offering strategic advantages. After this counter is revealed, this counter stays in play. While a player controls this system, he needs 1 less victory point to win.<;>
+<}>
+<{>
+Name: 				Radiation <;>
+Qualifier: 			<;>
+Quantity: 			4<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				The planet contains unexpected high levels of radiation. Kill all the Ground Forces of the initial landing (the planet remains uncontrolled), then remove the counter.<;>
+<}>
+<{>
+Name: 				Settlers <;>
+Qualifier: 			<;>
+Quantity: 			2<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				Return all of your Ground Forces to their Carrier/War Sun. Roll a die. On a result of 6+, place two free Ground Forces on the planet from your reinforcements. On a roll of 1-5, determine a random opponent. That opponent places two free Ground Forces from his reinforcements on the planet. Then discard this counter.<;>
+<}>
+<{>
+Name: 				Space Pirates <;>
+Qualifier: 			<;>
+Quantity: 			2<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				Vagabonds that wander the galaxy are known to prey on the wealthy. The player who reveals this counter must lose all his Trade Goods or be attacked by a Dreadnought (allow another player to roll their combat dice). If the player has no Trade Goods, he is attacked. After battle, or if he paid the Trade Goods, discard this counter.<;>
+<}>
+<{>
+Name: 				Supernova <;>
+Qualifier: 			<;>
+Quantity: 			1<;>
+Expansion: 			Shards of the Throne<;>
+Option: 			The Final Frontier<;>
+Text: 				A star explodes right before your eyes! When this counter is revealed, it stays in play. All ships in this system are destroyed and this system is now treated as a Supernova system.<;>
+<}>
+<{>
+Name: 				Technological Society <;>
+Qualifier: 			<;>
+Quantity: 			2<;>
+Expansion: 			<;>
+Option: 			Distant Suns<;>
+Text: 				The player to your left must search through your Technology deck and give you a free technology advance for which you have the necessary prerequisites. Then discard this counter.<;>
+<}>

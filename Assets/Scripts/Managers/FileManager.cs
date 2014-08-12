@@ -71,6 +71,12 @@ public class FileManager : TIOMonoBehaviour {
 		return readActionFile (fullPath);
 	}
 
+	public DomainCounter[] ReadDomainFile() {
+		string fullPath = procTextDir + gameManager.Language + "/domainCounters.tidomain";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readDomainFile (fullPath);
+	}
+
 
 	/*
 	 * Specific File Readers
@@ -123,6 +129,25 @@ public class FileManager : TIOMonoBehaviour {
 				// Reading successfully finished
 				reader.Close ();
 
+				return actions;
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
+
+	private DomainCounter[] readDomainFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				DomainCounter[] actions = readDomainsBlock(fileName, reader);
+				
+				// Reading successfully finished
+				reader.Close ();
+				
 				return actions;
 			}
 		}
@@ -693,7 +718,66 @@ public class FileManager : TIOMonoBehaviour {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}
 	}
-	
+
+	private DomainCounter[] readDomainsBlock(string fileName, StreamReader reader) {
+		
+		ArrayList domains = new ArrayList ();
+		
+		string line = reader.ReadLine().Trim ();
+		
+		do {
+			if (line == "<{>") {
+				// Start of an outermost block
+				domains.Add(readDomain("", line, fileName, reader));
+				
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				} 
+			}
+		} while (line == "<{>" && !reader.EndOfStream);
+		
+		return (DomainCounter[])domains.ToArray(typeof(DomainCounter));
+	}
+
+	private DomainCounter readDomain(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			DomainCounter domain = new DomainCounter();
+			string line = reader.ReadLine().Trim ();
+			
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0].Trim ();
+				string newDataText = lineParts[1].Trim ();
+				
+				
+				if (newDataType == "Name") {
+					domain.Name = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Quantity") {
+					domain.Quantity = readIntLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Expansion") {
+					domain.Expansion = stringToExpansion(readTextLine(newDataType, newDataText, fileName));
+				} else if (newDataType == "Qualifier") {
+					domain.Qualifier = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Option") {
+					domain.Option = stringToOption(readTextLine(newDataType, newDataText, fileName));
+				} else if (newDataType == "Text") {
+					domain.Text = readTextLine(newDataType, newDataText, fileName);
+				} 
+				line = reader.ReadLine().Trim ();	
+			} while (line != "<}>");
+			// End of outermost block
+			
+			return domain;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+
 	
 	/* 
 	 * Basic Section Readers 
@@ -842,6 +926,14 @@ public class FileManager : TIOMonoBehaviour {
 			return Expansion.ShardsOfTheThrone;
 		} else {
 			return Expansion.Vanilla;
+		}
+	}
+
+	private Option stringToOption(string optionName) {
+		if (optionName == "Distant Suns") {
+			return Option.DistantSuns;
+		} else {
+			return Option.TheFinalFrontier;
 		}
 	}
 }

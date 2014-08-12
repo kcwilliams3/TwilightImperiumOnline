@@ -311,3 +311,33 @@ class Component:
 		self._SECount = shatteredEmpireCount
 		self._SotTCount = shardsOfTheTrhoneCount
 		self._qualifier = qualifier
+		
+class Domain:
+	def __init__(self, name, qualifier, quantity, expansion, option, text):
+		self._name = name
+		self._qualifier = qualifier
+		self._quantity = quantity
+		self._expansion = expansion
+		self._option = option
+		self._text = text
+	
+	def __repr__(self):
+		return "Domain {0}".format(self._name)
+	
+	def getName(self):
+		return self._name
+	
+	def getQualifier(self):
+		return self._qualifier
+	
+	def getQuantity(self):
+		return self._quantity
+	
+	def getExpansion(self):
+		return self._expansion
+		
+	def getOption(self):
+		return self._option
+		
+	def getText(self):
+		return self._text

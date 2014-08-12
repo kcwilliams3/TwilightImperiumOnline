@@ -13,9 +13,9 @@ public class ComponentManager : MonoBehaviour {
 	private int maxRefineries = 8;
 	private int maxShockTroops = 12;
 	private int maxSpaceMines = 12;
+	private Dictionary<DomainCounter, int> maxDomainCounters = new Dictionary<DomainCounter, int>();
 
 	//Available Component Counts
-
 	[SerializeField]
 	private int commandCounters;
 	public int CommandCounters { get { return commandCounters; } }
@@ -41,14 +41,23 @@ public class ComponentManager : MonoBehaviour {
 	private int spaceMines;
 	public int SpaceMines { get { return spaceMines; } }
 
+	private FileManager fileManager;
+	private GameManager gameManager;
+
+	private bool firstUpdate = true;
+
 	// Use this for initialization
 	void Start () {
-		setInitialCounts ();
+		gameManager = GetComponent<GameManager> ();
+		fileManager = GetComponent<FileManager> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (firstUpdate) {
+			setInitialCounts ();
+			firstUpdate = false;
+		}
 	}
 	
 	private void setInitialCounts(){
@@ -56,9 +65,26 @@ public class ComponentManager : MonoBehaviour {
 		controlMarkers = maxControlMarkers;
 		bonusCounters = maxBonusCounters;
 		tradeGoods = maxTradeGoods;
-		colonies = maxColonies;
-		refineries = maxRefineries;
-		shockTroops = maxShockTroops;
-		spaceMines = maxSpaceMines;
+		if (gameManager.Active (Option.Facilities)) {
+			colonies = maxColonies;
+			refineries = maxRefineries;
+		}
+		if (gameManager.Active (Option.ShockTroops)) {
+			shockTroops = maxShockTroops;
+		}
+		if (gameManager.Active (Option.SpaceMines)) {
+			spaceMines = maxSpaceMines;
+		}
+		if (gameManager.Active (Option.DistantSuns) || gameManager.Active (Option.TheFinalFrontier)) {
+			readDomains ();
+		}
+	}
+
+	public void readDomains() {
+		foreach (DomainCounter domain in fileManager.ReadDomainFile ()) {
+			if (gameManager.Active (domain.Option)) {
+				maxDomainCounters[domain] = domain.Quantity;
+			}
+		};
 	}
 }
