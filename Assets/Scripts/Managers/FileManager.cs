@@ -8,6 +8,7 @@ public class FileManager : TIOMonoBehaviour {
 
 	public Race testRace;
 	public ActionCard testActionCard;
+	public Merc testMerc;
 	public bool read;
 
 	// Directory-related Variables
@@ -36,6 +37,7 @@ public class FileManager : TIOMonoBehaviour {
 		if (!read) {
 			testRace = ReadRaceFile ("Gashlai");
 			testActionCard = GetComponent<CardManager>().getActionCard("The Hand That Takes");
+			testMerc = GetComponent<CardManager>().getMerc ("52N6");
 			read = true;
 		}
 	}
@@ -75,6 +77,12 @@ public class FileManager : TIOMonoBehaviour {
 		string fullPath = procTextDir + gameManager.Language + "/domainCounters.tidomain";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readDomainFile (fullPath);
+	}
+
+	public Merc[] ReadMercFile() {
+		string fullPath = procTextDir + gameManager.Language + "/mercenaries.timercs";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readMercFile (fullPath);
 	}
 
 
@@ -149,6 +157,25 @@ public class FileManager : TIOMonoBehaviour {
 				reader.Close ();
 				
 				return actions;
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
+
+	private Merc[] readMercFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				Merc[] mercs = readMercsBlock(fileName, reader);
+				
+				// Reading successfully finished
+				reader.Close ();
+				
+				return mercs;
 			}
 		}
 		catch (System.Exception e) {
@@ -772,6 +799,99 @@ public class FileManager : TIOMonoBehaviour {
 			// End of outermost block
 			
 			return domain;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private Merc[] readMercsBlock(string fileName, StreamReader reader) {
+		
+		ArrayList mercs = new ArrayList ();
+		
+		string line = reader.ReadLine().Trim ();
+		
+		do {
+			if (line == "<{>") {
+				// Start of an outermost block
+				mercs.Add(readMerc("", line, fileName, reader));
+				
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				} 
+			}
+		} while (line == "<{>" && !reader.EndOfStream);
+		
+		return (Merc[])mercs.ToArray(typeof(Merc));
+	}
+
+	private Merc readMerc(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			Merc merc = new Merc();
+			string line = reader.ReadLine().Trim ();
+
+			bool sustain = false;
+			bool evasion = false;
+			bool capacity = false;
+			bool groundShots = false;
+			bool spaceShots = false;
+			
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0].Trim ();
+				string newDataText = lineParts[1].Trim ();
+				
+				
+				if (newDataType == "Name") {
+					merc.Name = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Sustain Damage") {
+					sustain = merc.SustainDamage = true;
+				} else if (newDataType == "Evasion") {
+					merc.Evasion = readIntLine(newDataType, newDataText, fileName);
+					evasion = true;
+				} else if (newDataType == "Capacity") {
+					merc.Capacity = readIntLine(newDataType, newDataText, fileName);
+					capacity = true;
+				} else if (newDataType == "Text") {
+					merc.Text = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Space Battle") {
+					merc.SpaceBattle = readIntLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Space Shots") {
+					merc.SpaceShots = readIntLine(newDataType, newDataText, fileName);
+					spaceShots = true;
+				} else if (newDataType == "Ground Battle") {
+					merc.GroundBattle = readIntLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Ground Shots") {
+					merc.GroundShots = readIntLine(newDataType, newDataText, fileName);
+					groundShots = true;
+				} else if (newDataType == "Movement") {
+					merc.Movement = readIntLine(newDataType, newDataText, fileName);
+				}
+
+				line = reader.ReadLine().Trim ();	
+			} while (line != "<}>");
+			// End of outermost block
+
+			if (!sustain) {
+				merc.SustainDamage = false;
+			}
+			if (!evasion) {
+				merc.Evasion = 0;
+			}
+			if (!capacity) {
+				merc.Capacity = 0;
+			}
+			if (!groundShots) {
+				merc.GroundShots = 1;
+			}
+			if (!spaceShots) {
+				merc.SpaceShots = 1;
+			}
+			
+			return merc;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}

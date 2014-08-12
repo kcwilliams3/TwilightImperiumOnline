@@ -341,3 +341,33 @@ class Domain:
 		
 	def getText(self):
 		return self._text
+		
+class Merc:
+	def __init__(self, name, abilities, text, spaceBattle, groundBattle, movement):
+		self._name = name
+		self._abilities = abilities
+		self._text = text
+		self._spaceBattle = spaceBattle
+		self._groundBattle = groundBattle
+		self._movement = movement
+		
+	def __repr__(self):
+		return "Mercenary {0}".format(self._name)
+		
+	def getName(self):
+		return self._name
+	
+	def getAbilities(self):
+		return self._abilities
+		
+	def getText(self):
+		return self._text
+		
+	def getSpaceBattle(self):
+		return self._spaceBattle
+		
+	def getGroundBattle(self):
+		return self._groundBattle
+		
+	def getMovement(self):
+		return self._movement

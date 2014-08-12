@@ -1,0 +1,139 @@
+<{>
+Name: 			52N6<;>
+Sustain Damage: true<;>
+Text: 			At the start of a battle, you may choose 1 Technology. The enemy cannot use that Technology during this battle.<;>
+Space Battle: 	7<;>
+Ground Battle: 	7<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			6x2,6,2<;>
+Evasion: 		7<;>
+Capacity: 		1<;>
+Text: 			When this Mercenary is destroyed, you may assign 1 hit to any 1 unit participating in this battle.<;>
+Space Battle: 	6<;>
+Ground Battle: 	5<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			Barudin<;>
+Evasion: 		6<;>
+Text: 			Your cost to purchase Technology is reduced by 1.<;>
+Space Battle: 	6<;>
+Ground Battle: 	8<;>
+Movement: 		3<;>
+<}>
+<{>
+Name: 			Blake Stryker<;>
+Evasion: 		5<;>
+Text: 			When you win a Space Battle in which this Mercenary participated, gain 1 Trade Good.<;>
+Space Battle: 	5<;>
+Ground Battle: 	7<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			Daffren<;>
+Evasion: 		7<;>
+Text: 			At the end of the Strategy Phase, you may give this Mercenary to another player to trade Strategy Cards with that player. Limit once per round.<;>
+Space Battle: 	9<;>
+Space Shots: 	2<;>
+Ground Battle: 	8<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			Felrey<;>
+Evasion: 		7<;>
+Text: 			At the start of a battle, draw 1 Action Card.<;>
+Space Battle: 	5<;>
+Ground Battle: 	6<;>
+Movement: 		3<;>
+<}>
+<{>
+Name: 			Hep'kuk<;>
+Evasion: 		7<;>
+Text: 			When this Mercenary would be destroyed, you may instead destroy a friendly Fighter in this system.<;>
+Space Battle: 	6<;>
+Ground Battle: 	7<;>
+Movement: 		3<;>
+<}>
+<{>
+Name: 			Kav'lik<;>
+Evasion: 		8<;>
+Text: 			At the start of a battle, destroy 1 enemy Fighter or Ground Force.<;>
+Space Battle: 	5<;>
+Ground Battle: 	5<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			Krevvil<;>
+Evasion: 		6<;>
+Text: 			At the start of a battle, you may deal 1 hit to a particpating enemy Mercenary or ship of your choice.<;>
+Space Battle: 	6<;>
+Ground Battle: 	6<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			Murrag<;>
+Evasion: 		6<;>
+Text: 			When this Mercenary is destroyed, you may assign 1 hit to any 1 unit participating in this battle.<;>
+Space Battle: 	6<;>
+Ground Battle: 	5<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			Nolad<;>
+Evasion: 		7<;>
+Capacity: 		1<;>
+Text: 			When this Mercenary is destroyed, you may assign 1 hit to any 1 unit participating in this battle.<;>
+Space Battle: 	6<;>
+Ground Battle: 	5<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			R'una<;>
+Evasion: 		4<;>
+Text: 			During each round of a Space Battle, reduce the number of hits scored by your opponent by 1 (to a minimum of 1).<;>
+Space Battle: 	5<;>
+Ground Battle: 	9<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			Rhelat<;>
+Evasion: 		6<;>
+Text: 			This Mercenary can be used as a PDS unit when on a planet.<;>
+Space Battle: 	8<;>
+Ground Battle: 	7<;>
+Movement: 		3<;>
+<}>
+<{>
+Name: 			Sara Crane<;>
+Evasion: 		7<;>
+Text: 			Your cost to purchase Command Counters from Strategy Cards is reduced by 1.<;>
+Space Battle: 	6<;>
+Ground Battle: 	6<;>
+Movement: 		3<;>
+<}>
+<{>
+Name: 			Saygra<;>
+Evasion: 		5<;>
+Text: 			At the start of a battle, you may spend 1 Trade Good to build a Ground Force or Fighter in this system. It will participate in this battle.<;>
+Space Battle: 	7<;>
+Ground Battle: 	7<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			T'ugar<;>
+Evasion: 		6<;>
+Text: 			At the start of a battle, you may look at your opponent's hand of Action Cards and choose 1 to discard.<;>
+Space Battle: 	6<;>
+Ground Battle: 	7<;>
+Movement: 		2<;>
+<}>
+<{>
+Name: 			Urrsik<;>
+Evasion: 		6<;>
+Text: 			This Mercenary may move through systems containing enemy ships.<;>
+Space Battle: 	5<;>
+Ground Battle: 	7<;>
+Movement: 		3<;>
+<}>
