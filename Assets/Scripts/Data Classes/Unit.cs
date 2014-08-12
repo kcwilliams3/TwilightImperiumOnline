@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public enum UType {GroundForce, SpaceDock, Carrier, PDS, Fighter, Cruiser, Destroyer, Dreadnought, WarSun, MechanizedUnit, Flagship};
 public enum UFSupply {Never, Always, WhenExcess};
@@ -44,9 +45,13 @@ public class Unit {
 	public int Move { get { return move; } }
 	[SerializeField]
 	protected Tech[] prereqs;
-	public Tech[] Prereqs { get { return prereqs; } }
+	public Tech[] Prereqs { get { return prereqs; } set { prereqs = value; } }
+
+	protected UnitManager unitManager;
 	
-	public Unit(UType pUnitType) {
+	public Unit(UType pUnitType, UnitManager pUnitManager) {
+		unitManager = pUnitManager;
+
 		unitType = pUnitType;
 		switch (unitType) {
 			case UType.GroundForce:
@@ -128,7 +133,7 @@ public class Unit {
 				carries = UCarry.Leaders;
 				abilities = new UAbility[2]{UAbility.SustainDamage, UAbility.Bombardment};
 				break;
-			case UType.WarSun:
+		case UType.WarSun:
 				cost = 12;
 				buys = 1;
 				move = 2;
@@ -137,8 +142,6 @@ public class Unit {
 				fleetSupply = UFSupply.Always;
 				ship = true;
 				carries = UCarry.Anything;
-				abilities = new UAbility[2]{UAbility.SustainDamage, UAbility.Bombardment};
-				//TODO: prereq = war sun tech
 				break;
 			case UType.MechanizedUnit:
 				cost = 2;
@@ -160,6 +163,13 @@ public class Unit {
 			battle = adjustment;
 		}
 		return battle;
+	}
+
+	public void setPrereqs() {
+		if (unitType == UType.WarSun) {
+			prereqs = new Tech[1];
+			prereqs[0] = unitManager.GetComponent<TechManager>().GetTech ("War Sun");
+		}
 	}
 }
 

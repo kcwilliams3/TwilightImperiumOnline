@@ -19,7 +19,7 @@ public class TechManager : MonoBehaviour {
 	
 	}
 
-	public Tech getTech(string techName) {
+	public Tech GetTech(string techName) {
 		return techs [techName];
 	}
 
@@ -30,7 +30,7 @@ public class TechManager : MonoBehaviour {
 		};
 	}
 
-	public void addTech(Tech tech) {
+	public void AddTech(Tech tech) {
 		int i = 0;
 		string name = tech.Name + System.Convert.ToInt32(i);
 		while (techs.ContainsKey(name)) {

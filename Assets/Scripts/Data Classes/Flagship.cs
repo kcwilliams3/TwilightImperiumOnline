@@ -11,7 +11,7 @@ public class Flagship : Unit {
 	private string text;
 	public string Text { get { return text; } }
 	
-	public Flagship(string pName, UAbility[] pAbilities, string pText, int pCost, int pBattle, int pMultiplier, int pMove, int pCapacity) : base(UType.Flagship) {
+	public Flagship(string pName, UAbility[] pAbilities, string pText, int pCost, int pBattle, int pMultiplier, int pMove, int pCapacity, UnitManager pUnitManager) : base(UType.Flagship, pUnitManager) {
 		name = pName;
 		abilities = pAbilities;
 		text = pText;

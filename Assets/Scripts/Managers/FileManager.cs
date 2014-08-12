@@ -33,7 +33,7 @@ public class FileManager : TIOMonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!read) {
-			testRace = ReadRaceFile ("Nekro");
+			testRace = ReadRaceFile ("Gashlai");
 			testActionCard = GetComponent<CardManager>().getActionCard("The Hand That Takes");
 			read = true;
 		}
@@ -314,7 +314,7 @@ public class FileManager : TIOMonoBehaviour {
 	private UnitQuantity readUnit(string dataText, string fileName, StreamReader reader) {
 		if (dataText == "<{>") {
 			// Start of block
-			Unit unit = new Unit(UType.SpaceDock); //Need a temporary unit here for compiler
+			Unit unit = new Unit(UType.SpaceDock, unitManager); //Need a temporary unit here for compiler
 			int quantity = 0; //Need a temporary quantity here for compiler
 
 			string line = reader.ReadLine().Trim ();
@@ -329,7 +329,7 @@ public class FileManager : TIOMonoBehaviour {
 				
 				
 				if (newDataType == "Unit") {
-					unit = unitManager.getUnit(stringToUType(readTextLine (newDataType, newDataText, fileName)));
+					unit = unitManager.GetUnit(stringToUType(readTextLine (newDataType, newDataText, fileName)));
 				} else if (newDataType == "Quantity") {
 					quantity = readIntLine (newDataType, newDataText, fileName);
 				} 
@@ -350,7 +350,7 @@ public class FileManager : TIOMonoBehaviour {
 			// Start of inner block
 			string line = reader.ReadLine().Trim ();
 			while (line != "<}>") {
-				Tech tech = techManager.getTech(readTextLine ("", line, fileName));
+				Tech tech = techManager.GetTech(readTextLine ("", line, fileName));
 				techs.Add (tech);
 				
 				line = reader.ReadLine().Trim ();
@@ -534,7 +534,7 @@ public class FileManager : TIOMonoBehaviour {
 			} while (line != "<}>");
 			// End of block
 			
-			return new Flagship(name, abilities, text, cost, battle, multiplier, move, capacity);
+			return new Flagship(name, abilities, text, cost, battle, multiplier, move, capacity, unitManager);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}
