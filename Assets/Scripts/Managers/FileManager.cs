@@ -11,11 +11,11 @@ public class FileManager : TIOMonoBehaviour {
 	public bool read;
 
 	// Directory-related Variables
-	public string language = "English";
 	private string rawTextDir;
 	private string procTextDir;
 
 	// Managers
+	private GameManager gameManager;
 	private UnitManager unitManager;
 	private TechManager techManager;
 
@@ -26,6 +26,7 @@ public class FileManager : TIOMonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		gameManager = GetComponent<GameManager>();
 		unitManager = GetComponent<UnitManager>();
 		techManager = GetComponent<TechManager>();
 	}
@@ -53,19 +54,19 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	public Race ReadRaceFile(string raceName) {
-		string fullPath = procTextDir + language + "/Races/" + raceName + ".tirace";
+		string fullPath = procTextDir + gameManager.Language + "/Races/" + raceName + ".tirace";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readRaceFile(fullPath);
 	}
 
 	public Tech[] ReadTechFile() {
-		string fullPath = procTextDir + language + "/technologies.titechs";
+		string fullPath = procTextDir + gameManager.Language + "/technologies.titechs";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readTechFile (fullPath);
 	}
 
 	public ActionCard[] ReadActionFile() {
-		string fullPath = procTextDir + language + "/actions.tiacts";
+		string fullPath = procTextDir + gameManager.Language + "/actions.tiacts";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readActionFile (fullPath);
 	}
