@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class FileManager : TIOMonoBehaviour {
 
 	public Race testRace;
+	public ActionCard testActionCard;
 	public bool read;
 
 	// Directory-related Variables
@@ -33,6 +34,7 @@ public class FileManager : TIOMonoBehaviour {
 	void Update () {
 		if (!read) {
 			testRace = ReadRaceFile ("Nekro");
+			testActionCard = GetComponent<CardManager>().getActionCard("The Hand That Takes");
 			read = true;
 		}
 	}
@@ -62,6 +64,12 @@ public class FileManager : TIOMonoBehaviour {
 		return readTechFile (fullPath);
 	}
 
+	public ActionCard[] ReadActionFile() {
+		string fullPath = procTextDir + language + "/actions.tiacts";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readActionFile (fullPath);
+	}
+
 
 	/*
 	 * Specific File Readers
@@ -69,61 +77,10 @@ public class FileManager : TIOMonoBehaviour {
 
 	private Race readRaceFile(string fileName) {
 		try {
-			string line;
 			StreamReader reader = new StreamReader(fileName, Encoding.Default);
 
 			using (reader) {
-				Race race = new Race();
-
-				line = reader.ReadLine().Trim ();
-				if (line == "<{>") {
-					// Start of an outermost block
-					line = reader.ReadLine().Trim ();
-					do {
-						string[] lineParts;
-						//Split category name from data
-						lineParts = line.Split(":".ToCharArray(), 2);
-
-						//Remove any extra whitespace from parts & set descriptive variables
-						string dataType = lineParts[0].Trim ();
-						string dataText = lineParts[1].Trim ();
-
-						if (dataType == "Full Name") {
-							race.FullName = readTextLine(dataType, dataText, fileName);
-						} else if (dataType == "Short Name") {
-							race.ShortName = readTextLine(dataType, dataText, fileName);
-						} else if (dataType == "Species Name") {
-							race.SpeciesName = readTextLine(dataType, dataText, fileName);
-						} else if (dataType == "Expansion") {
-							race.Expansion = readTextLine(dataType, dataText, fileName);
-						} else if (dataType == "History") {
-							race.History = readTextBlock (dataType, dataText, fileName, reader);
-						} else if (dataType == "Special Abilities") {
-							race.SpecialAbilities = readTextBlock (dataType, dataText, fileName, reader);
-						} else if (dataType == "Trade Contracts") {
-							race.TradeContracts = readIntBlock (dataType, dataText, fileName, reader);
-						} else if (dataType == "Home Systems") {
-							race.HomeSystems = readSystemsBlock (dataType, dataText, fileName, reader);
-						} else if (dataType == "Starting Units") {
-							race.StartingUnits = readUnitsBlock (dataType, dataText, fileName, reader);
-						} else if (dataType == "Starting Techs") {
-							race.StartingTechs = readTechsBlock(dataType, dataText, fileName, reader);
-						} else if (dataType == "Leaders") {
-							race.Leaders = readLeadersBlock(dataType, dataText, fileName, reader);
-						} else if (dataType == "Racial Techs") {
-							race.RacialTechs = readFullTechsBlock (fileName, reader);
-							foreach(Tech tech in race.RacialTechs) {
-								tech.Race = race;
-							}
-						} else if (dataType == "Flagship") {
-							race.Flagship = readFlagship(dataType, dataText, fileName, reader);
-						} else if (dataType == "Representatives") {
-							race.Representatives = readRepsBlock(dataType, dataText, fileName, reader);
-						}
-						line = reader.ReadLine().Trim ();
-					} while (line != "<}>");
-					// End of outermost block
-				}
+				Race race = readRace(fileName, reader);
 
 				// Reading successfully finished
 				reader.Close ();
@@ -155,9 +112,86 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+	private ActionCard[] readActionFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				ActionCard[] actions = readActionsBlock(fileName, reader);
+				
+				// Reading successfully finished
+				reader.Close ();
+
+				return actions;
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
+
+
 	/*
 	 * Complex Section Readers
 	 */
+
+	private Race readRace(string fileName, StreamReader reader) {
+
+		Race race = new Race ();
+
+		string line = reader.ReadLine().Trim ();
+		if (line == "<{>") {
+			// Start of an outermost block
+			line = reader.ReadLine().Trim ();
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string dataType = lineParts[0].Trim ();
+				string dataText = lineParts[1].Trim ();
+				
+				if (dataType == "Full Name") {
+					race.FullName = readTextLine(dataType, dataText, fileName);
+				} else if (dataType == "Short Name") {
+					race.ShortName = readTextLine(dataType, dataText, fileName);
+				} else if (dataType == "Species Name") {
+					race.SpeciesName = readTextLine(dataType, dataText, fileName);
+				} else if (dataType == "Expansion") {
+					race.Expansion = readTextLine(dataType, dataText, fileName);
+				} else if (dataType == "History") {
+					race.History = readTextBlock (dataType, dataText, fileName, reader);
+				} else if (dataType == "Special Abilities") {
+					race.SpecialAbilities = readTextBlock (dataType, dataText, fileName, reader);
+				} else if (dataType == "Trade Contracts") {
+					race.TradeContracts = readIntBlock (dataType, dataText, fileName, reader);
+				} else if (dataType == "Home Systems") {
+					race.HomeSystems = readSystemsBlock (dataType, dataText, fileName, reader);
+				} else if (dataType == "Starting Units") {
+					race.StartingUnits = readUnitsBlock (dataType, dataText, fileName, reader);
+				} else if (dataType == "Starting Techs") {
+					race.StartingTechs = readTechsBlock(dataType, dataText, fileName, reader);
+				} else if (dataType == "Leaders") {
+					race.Leaders = readLeadersBlock(dataType, dataText, fileName, reader);
+				} else if (dataType == "Racial Techs") {
+					race.RacialTechs = readFullTechsBlock (fileName, reader);
+					foreach(Tech tech in race.RacialTechs) {
+						tech.Race = race;
+					}
+				} else if (dataType == "Flagship") {
+					race.Flagship = readFlagship(dataType, dataText, fileName, reader);
+				} else if (dataType == "Representatives") {
+					race.Representatives = readRepsBlock(dataType, dataText, fileName, reader);
+				}
+				line = reader.ReadLine().Trim ();
+			} while (line != "<}>");
+			// End of outermost block
+		}
+
+		return race;
+	}
 
 	private PlanetSystem[] readSystemsBlock(string dataType, string dataText, string fileName, StreamReader reader) {
 		if (dataText.EndsWith ("<{>")) {
@@ -599,8 +633,67 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+	private ActionCard[] readActionsBlock(string fileName, StreamReader reader) {
 
+		ArrayList actions = new ArrayList ();
 
+		string line = reader.ReadLine().Trim ();
+		
+		do {
+			if (line == "<{>") {
+				// Start of an outermost block
+				actions.Add(readAction("", line, fileName, reader));
+
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				} 
+			}
+		} while (line == "<{>" && !reader.EndOfStream);
+		
+		return (ActionCard[])actions.ToArray(typeof(ActionCard));
+	}
+
+	private ActionCard readAction(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			ActionCard action = new ActionCard();
+			string line = reader.ReadLine().Trim ();
+			
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0].Trim ();
+				string newDataText = lineParts[1].Trim ();
+				
+				
+				if (newDataType == "Name") {
+					action.Name = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Quantity") {
+					action.Quantity = readIntLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Expansion") {
+					action.Expansion = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Flavor Text") {
+					action.FlavorText = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Rule Text A") {
+					action.RulesText = readTextBlock(newDataType, newDataText, fileName, reader);
+				} else if (newDataType == "Play Text") {
+					action.PlayText = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Rule Text B") {
+					action.DiscardText = readTextBlock(newDataType, newDataText, fileName, reader);
+				}
+				line = reader.ReadLine().Trim ();	
+			} while (line != "<}>");
+			// End of outermost block
+
+			return action;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+	
+	
 	/* 
 	 * Basic Section Readers 
 	 */

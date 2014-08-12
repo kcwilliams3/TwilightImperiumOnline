@@ -588,7 +588,7 @@ Let order tie the hands of chaos.
 Players may not play any Action Cards until the next Status Phase (except the Sabotage Action Card). Any player may discard 3 Action Cards from his hand at any time to cancel this card.
 Play: During the Strategy Phase, before any players have chosen their Strategy Cards.
 
-The Hand that Takes : 2
+The Hand That Takes : 2
 Shards of the Throne
 Those who don't pay are often not heard from again.
 Destroy any 1 unit in a Mercenary's system.
@@ -653,3 +653,4 @@ War Footing : 1
 Vanilla
 "The time for diplomacy is over! Now is the time for war!"
 Choose one system. Your Fleet Supply limit in that system is increased by two for the rest of this game round. At the end of the Status Phase, you must remove any ships that exceed your normal Fleet Supply limit. Play: As an action.
+Play: As an action.

@@ -185,10 +185,6 @@ def writeAll(actionCards, outFolder):
 	first = True
 	with open(tempFileName, fileMode) as outFile:
 		for actionName in sorted(actionCards):
-			if not first:
-				outFile.write("\n")
-			else:
-				first = False
 			action = actionCards[actionName]
 			writeOne(action, outFile)
 	if not os.path.exists("./Backups/"+path[3:]):
