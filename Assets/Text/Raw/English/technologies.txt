@@ -139,7 +139,7 @@ All of your Destroyers receive +2 and roll 1 additional die on all Anti-Fighter 
 
 Deep Space Cannon
 Vanilla
-Requires: Hylar V Assault
+Requires: Hylar V Assault Laser
 Enemy fleets in adjacent systems are now in range of your PDS units.
 
 Duranium Armor
