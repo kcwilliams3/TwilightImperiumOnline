@@ -31,16 +31,22 @@ Home Systems:		<{>
 							Type:		Unattached<;>
 							Planets:	<{>
 													<{>
-													Name:		Delta Wormhole<;>
-													Text:		<;>
-													Resources:	0<;>
-													Influence:	0<;>
+													Name:					Delta Wormhole<;>
+													Text:					<;>
+													Resources:				0<;>
+													Influence:				0<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 													<{>
-													Name:		Creuss<;>
-													Text:		Trapped between matter and void lies the realm of Creuss. Made of trapped light and radioactive gas, this realm hosts the most peculiar forms of life.<;>
-													Resources:	4<;>
-													Influence:	2<;>
+													Name:					Creuss<;>
+													Text:					Trapped between matter and void lies the realm of Creuss. Made of trapped light and radioactive gas, this realm hosts the most peculiar forms of life.<;>
+													Resources:				4<;>
+													Influence:				2<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -49,10 +55,13 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Delta Wormhole<;>
-													Text:		<;>
-													Resources:	0<;>
-													Influence:	0<;>
+													Name:					Delta Wormhole<;>
+													Text:					<;>
+													Resources:				0<;>
+													Influence:				0<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -120,9 +129,7 @@ Flagship:			<{>
 							Cost:		10<;>
 							Battle:		4<;>
 							Multiplier:	1<;>
-					<}>
 							Move:		1<;>
-					<}>
 							Capacity:	3<;>
 					<}>
 Representatives:	<{>
@@ -130,7 +137,7 @@ Representatives:	<{>
 										Name:		Sai Seravus<;>
 										Votes:		2<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		Gain +1 vote for each system you control containing a Wormhole.<;>
 							<}>
@@ -138,7 +145,7 @@ Representatives:	<{>
 										Name:		San Omairo<;>
 										Votes:		1<;>
 										Types:		<{>
-																Bodyguard<;>
+																			Bodyguard<;>
 													<}>
 										Text:		If this card is targeted by a Spy, you may look at the player's hand of Action Cards and take 1 card of your choice.<;>
 							<}>
@@ -146,7 +153,7 @@ Representatives:	<{>
 										Name:		Soo Leirah<;>
 										Votes:		1<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Choose a player. He may not use his Representative's special ability (unless it has already been resolved).<;>
 							<}>

@@ -30,10 +30,14 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Winnu<;>
-													Text:		The shining cities of the Winnu are the last places where authentic Lazax art and culture are still revered.<;>
-													Resources:	3<;>
-													Influence:	4<;>
+													Name:					Winnu<;>
+													Text:					The shining cities of the Winnu are the last places where authentic Lazax art and culture are still revered.<;>
+													Resources:				3<;>
+													Influence:				4<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																				Yellow<;>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -114,7 +118,7 @@ Representatives:	<{>
 										Name:		Berekar Berekon<;>
 										Votes:		3<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If the Political Card does not resolve the way you voted, you may place a Cruiser in a system you control.<;>
 							<}>
@@ -122,7 +126,7 @@ Representatives:	<{>
 										Name:		Menda Mendala<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Assassinate a Representative. Your Spy may not be killed by enemy spies.<;>
 							<}>
@@ -130,7 +134,7 @@ Representatives:	<{>
 										Name:		Perdin Perdona<;>
 										Votes:		2<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If you vote "Against," gain +3 votes.<;>
 							<}>

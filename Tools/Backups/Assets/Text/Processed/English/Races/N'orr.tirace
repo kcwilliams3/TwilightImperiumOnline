@@ -23,16 +23,22 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Quinarra<;>
-													Text:		Enormous and oceanless. Not only the largest planet supporting sentient life, but also the one with the least moisture. Home to the Sardakk N'orr hive-cities.<;>
-													Resources:	3<;>
-													Influence:	1<;>
+													Name:					Quinarra<;>
+													Text:					Enormous and oceanless. Not only the largest planet supporting sentient life, but also the one with the least moisture. Home to the Sardakk N'orr hive-cities.<;>
+													Resources:				3<;>
+													Influence:				1<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 													<{>
-													Name:		Tren'lak<;>
-													Text:		Icy and desolate. Other than the ferocious snow dracs and the rare icemoon flowers, life is restricted to the N'orr boomtowns and ice mines.<;>
-													Resources:	1<;>
-													Influence:	0<;>
+													Name:					Tren'lak<;>
+													Text:					Icy and desolate. Other than the ferocious snow dracs and the rare icemoon flowers, life is restricted to the N'orr boomtowns and ice mines.<;>
+													Resources:				1<;>
+													Influence:				0<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -100,9 +106,7 @@ Flagship:			<{>
 							Cost:		10<;>
 							Battle:		5<;>
 							Multiplier:	3<;>
-					<}>
 							Move:		1<;>
-					<}>
 							Capacity:	2<;>
 					<}>
 Representatives:	<{>
@@ -110,7 +114,7 @@ Representatives:	<{>
 										Name:		An'grag<;>
 										Votes:		4<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If this Councilor is killed, your opponent must place 1 Command Counter from his supply into the system of your choice.<;>
 							<}>
@@ -118,7 +122,7 @@ Representatives:	<{>
 										Name:		Qui'rek<;>
 										Votes:		2<;>
 										Types:		<{>
-																Bodyguard<;>
+																			Bodyguard<;>
 													<}>
 										Text:		If this card is targeted by a Spy, the Spy is killed.<;>
 							<}>
@@ -126,7 +130,7 @@ Representatives:	<{>
 										Name:		Redband R't'an<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Choose a Representative and an outcome. If the chosen Representative does not vote this way, he is killed after voting.<;>
 							<}>

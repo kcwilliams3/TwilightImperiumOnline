@@ -27,22 +27,31 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Arretze<;>
-													Text:		Also called the "Moving Sand." The desert home of the Hacan Mowshir trade families and the great orbital trading ports of Haal, Shimax, and Dry Wind.<;>
-													Resources:	2<;>
-													Influence:	0<;>
+													Name:					Arretze<;>
+													Text:					Also called the "Moving Sand." The desert home of the Hacan Mowshir trade families and the great orbital trading ports of Haal, Shimax, and Dry Wind.<;>
+													Resources:				2<;>
+													Influence:				0<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 													<{>
-													Name:		Hercant<;>
-													Text:		Also called the "Fire Sand." Seat of the Quieron, the Hacan council, and the Sword Fleet. Harbors the greatest of the famous Hacan moving cities.<;>
-													Resources:	1<;>
-													Influence:	1<;>
+													Name:					Hercant<;>
+													Text:					Also called the "Fire Sand." Seat of the Quieron, the Hacan council, and the Sword Fleet. Harbors the greatest of the famous Hacan moving cities.<;>
+													Resources:				1<;>
+													Influence:				1<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 													<{>
-													Name:		Kamdorn<;>
-													Text:		Also called the "Dream Sand." The least populated of the Hacan planets, but the center of Hacan mythology and religion. The only known source of starflowers.<;>
-													Resources:	0<;>
-													Influence:	1<;>
+													Name:					Kamdorn<;>
+													Text:					Also called the "Dream Sand." The least populated of the Hacan planets, but the center of Hacan mythology and religion. The only known source of starflowers.<;>
+													Resources:				0<;>
+													Influence:				1<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -118,8 +127,8 @@ Representatives:	<{>
 										Name:		Alrung<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
-																 Bodyguard<;>
+																			Spy<;>
+																			 Bodyguard<;>
 													<}>
 										Text:		Assassinate a Representative.<;>
 							<}>
@@ -127,7 +136,7 @@ Representatives:	<{>
 										Name:		Garrus<;>
 										Votes:		4<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If any player gives you Trade Goods during the Bargaining step, gain 1 additional Trade Good from the supply (once per round).<;>
 							<}>
@@ -135,7 +144,7 @@ Representatives:	<{>
 										Name:		Huldran<;>
 										Votes:		2<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		When voting, each player who did not receive a Promissory Note must give you 1 Trade Good or abstain from voting.<;>
 							<}>

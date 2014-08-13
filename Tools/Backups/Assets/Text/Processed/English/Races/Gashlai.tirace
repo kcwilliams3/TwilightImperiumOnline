@@ -34,10 +34,13 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Muaat<;>
-													Text:		The fiery surface of Muaat is uninhabitable to most races. It is home to the Gashlai, and only here can they live outside of their cumbersome ember suits.<;>
-													Resources:	4<;>
-													Influence:	1<;>
+													Name:					Muaat<;>
+													Text:					The fiery surface of Muaat is uninhabitable to most races. It is home to the Gashlai, and only here can they live outside of their cumbersome ember suits.<;>
+													Resources:				4<;>
+													Influence:				1<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -102,9 +105,7 @@ Flagship:			<{>
 							Cost:		10<;>
 							Battle:		5<;>
 							Multiplier:	3<;>
-					<}>
 							Move:		1<;>
-					<}>
 							Capacity:	4<;>
 					<}>
 Representatives:	<{>
@@ -112,7 +113,7 @@ Representatives:	<{>
 										Name:		Flaim Haash<;>
 										Votes:		1<;>
 										Types:		<{>
-																Bodyguard<;>
+																			Bodyguard<;>
 													<}>
 										Text:		If this card is targeted by a Spy, the player controlling the Spy receives -5 votes (to a minimum of 0).<;>
 							<}>
@@ -120,7 +121,7 @@ Representatives:	<{>
 										Name:		Hosh Gahloki<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Assassinate a Representative. If he is killed, draw 1 Action Card.<;>
 							<}>
@@ -128,7 +129,7 @@ Representatives:	<{>
 										Name:		Moltosh Flae<;>
 										Votes:		3<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If you have a War Sun in, or adjacent to, the Mecatol Rex system, gain +4 Bonus Votes.<;>
 							<}>

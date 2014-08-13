@@ -1,7 +1,7 @@
 <{>
 Full Name: 			The Yin Brotherhood<;>
 Short Name: 		Yin<;>
-Species Name: 		brother<;>
+Species Name: 		Brother<;>
 Expansion: 			Shattered Empire<;>
 History:			<{>
 					Lazax law strictly forbade the practice of cloning, the dangerous science that led to the madness, disease, and ultimate downfall of the Mahact kings. The emperors severely punished any regime or independent scientist dabbling in this dangerous field.<;>
@@ -33,10 +33,13 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Darien<;>
-													Text:		Darien is the heart of the Brotherhood's realm. Here, within the great Monastery of Lucas, rests the Yin, the holy egg from which all the Brotherhood were made.<;>
-													Resources:	2<;>
-													Influence:	4<;>
+													Name:					Darien<;>
+													Text:					Darien is the heart of the Brotherhood's realm. Here, within the great Monastery of Lucas, rests the Yin, the holy egg from which all the Brotherhood were made.<;>
+													Resources:				2<;>
+													Influence:				4<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -112,7 +115,7 @@ Representatives:	<{>
 										Name:		Imar Yissadar<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Assassinate a Representative. If he is a Bodyguard, then both he and this Spy are killed.<;>
 							<}>
@@ -120,7 +123,7 @@ Representatives:	<{>
 										Name:		Rhal Darish<;>
 										Votes:		3<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If you give any players a Promissory Note this round, you receive 3 Trade Goods from the supply.<;>
 							<}>
@@ -128,7 +131,7 @@ Representatives:	<{>
 										Name:		Talla Darator<;>
 										Votes:		4<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If this Councilor is assassinated by a Spy, the Spy's owner must abstain during this vote.<;>
 							<}>

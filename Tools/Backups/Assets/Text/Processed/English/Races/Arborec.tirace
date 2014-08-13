@@ -36,10 +36,14 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Nestphar<;>
-													Text:		The fungal world of Nestphar is home to the symbiotic Arborec. Nestphar's orbit is filled with Flaah spores that extend its Symphony.<;>
-													Resources:	3<;>
-													Influence:	2<;>
+													Name:					Nestphar<;>
+													Text:					The fungal world of Nestphar is home to the symbiotic Arborec. Nestphar's orbit is filled with Flaah spores that extend its Symphony.<;>
+													Resources:				3<;>
+													Influence:				2<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																				Green<;>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -112,9 +116,7 @@ Flagship:			<{>
 							Cost:		10<;>
 							Battle:		6<;>
 							Multiplier:	2<;>
-					<}>
 							Move:		1<;>
-					<}>
 							Capacity:	5<;>
 					<}>
 Representatives:	<{>
@@ -122,7 +124,7 @@ Representatives:	<{>
 										Name:		Dirzuga Mantasa<;>
 										Votes:		4<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		Other Councilors do not receive bonus votes during this voting.<;>
 							<}>
@@ -130,7 +132,7 @@ Representatives:	<{>
 										Name:		Dirzuga Ohao<;>
 										Votes:		3<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If killed, this Representative returns to your hand after voting is resolved.<;>
 							<}>
@@ -138,7 +140,7 @@ Representatives:	<{>
 										Name:		Letani Miasmiala<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Choose another player. If he chose a Councilor, you may kill this Spy to control his Councilor during voting.<;>
 							<}>

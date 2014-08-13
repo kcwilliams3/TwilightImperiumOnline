@@ -27,16 +27,22 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Druaa<;>
-													Text:		Despite its oversized poles, one of the most beautiful planets. Its flowered steppes, violet mountains, and glowing forests are famous across the galaxy.<;>
-													Resources:	3<;>
-													Influence:	1<;>
+													Name:					Druaa<;>
+													Text:					Despite its oversized poles, one of the most beautiful planets. Its flowered steppes, violet mountains, and glowing forests are famous across the galaxy.<;>
+													Resources:				3<;>
+													Influence:				1<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 													<{>
-													Name:		Maaluuk<;>
-													Text:		Mostly pungent marshland and mudplains. Original world of the Naalu race, which now enslaves the winged Miashan to work its great iron-extraction plants.<;>
-													Resources:	0<;>
-													Influence:	2<;>
+													Name:					Maaluuk<;>
+													Text:					Mostly pungent marshland and mudplains. Original world of the Naalu race, which now enslaves the winged Miashan to work its great iron-extraction plants.<;>
+													Resources:				0<;>
+													Influence:				2<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -112,9 +118,7 @@ Flagship:			<{>
 							Cost:		9<;>
 							Battle:		8<;>
 							Multiplier:	2<;>
-					<}>
 							Move:		2<;>
-					<}>
 							Capacity:	6<;>
 					<}>
 Representatives:	<{>
@@ -122,7 +126,7 @@ Representatives:	<{>
 										Name:		S'srool D'amil<;>
 										Votes:		0<;>
 										Types:		<{>
-																Bodyguard<;>
+																			Bodyguard<;>
 													<}>
 										Text:		If a Spy attempts to assassinate this Representative, instead assassinate the Spy.<;>
 							<}>
@@ -130,7 +134,7 @@ Representatives:	<{>
 										Name:		S'sruuk G'ella<;>
 										Votes:		4<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		Gain +2 votes if you are voting "For."<;>
 							<}>
@@ -138,7 +142,7 @@ Representatives:	<{>
 										Name:		S'sruuk H'eyra<;>
 										Votes:		2<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If you vote the same as the current player, he must give you a Promissory Note (if he has not already this round).<;>
 							<}>

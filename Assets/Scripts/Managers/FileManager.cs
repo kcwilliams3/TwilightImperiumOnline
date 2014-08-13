@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class FileManager : TIOMonoBehaviour {
 
 	//TODO: After project is finished, get rid of these test/debug variables.
-	public Race testRace;
+	public Race[] testRaces;
 	public ActionCard testActionCard;
 	public Merc testMerc;
 	public bool read;
@@ -36,7 +36,24 @@ public class FileManager : TIOMonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!read) {
-			testRace = ReadRaceFile ("Gashlai");
+			testRaces = new Race[17];
+			testRaces[0] = ReadRaceFile ("Arborec");
+			testRaces[1] = ReadRaceFile ("Gashlai");
+			testRaces[2] = ReadRaceFile ("Ghosts");
+			testRaces[3] = ReadRaceFile ("Hacan");
+			testRaces[4] = ReadRaceFile ("Jol Nar");
+			testRaces[5] = ReadRaceFile ("L1z1x");
+			testRaces[6] = ReadRaceFile ("Letnev");
+			testRaces[7] = ReadRaceFile ("Mentak");
+			testRaces[8] = ReadRaceFile ("Naalu");
+			testRaces[9] = ReadRaceFile ("Nekro");
+			testRaces[10] = ReadRaceFile ("N'orr");
+			testRaces[11] = ReadRaceFile ("Saar");
+			testRaces[12] = ReadRaceFile ("Sol");
+			testRaces[13] = ReadRaceFile ("Winnu");
+			testRaces[14] = ReadRaceFile ("Xxcha");
+			testRaces[15] = ReadRaceFile ("Yin");
+			testRaces[16] = ReadRaceFile ("Yssaril");
 			testActionCard = GetComponent<CardManager>().getActionCard("The Hand That Takes");
 			testMerc = GetComponent<CardManager>().getMerc ("52N6");
 			read = true;
@@ -231,7 +248,7 @@ public class FileManager : TIOMonoBehaviour {
 				//Remove any extra whitespace from parts & set descriptive variables
 				string dataType = lineParts[0].Trim ();
 				string dataText = lineParts[1].Trim ();
-				
+
 				if (dataType == "Full Name") {
 					race.FullName = readTextLine(dataType, dataText, fileName);
 				} else if (dataType == "Short Name") {
@@ -352,7 +369,6 @@ public class FileManager : TIOMonoBehaviour {
 				string newDataType = lineParts[0] = lineParts[0].Trim ();
 				string newDataText = lineParts[1] = lineParts[1].Trim ();
 				
-				
 				if (newDataType == "Name") {
 					planet.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Text") {
@@ -361,12 +377,36 @@ public class FileManager : TIOMonoBehaviour {
 					planet.Resources = readIntLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Influence") {
 					planet.Influence = readIntLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Refresh Ability") {
+					planet.Refresh = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Tech Specialties") {
+					planet.TechSpecialties = readTechSpecsBlock( newDataType, newDataText, fileName, reader);
 				}
 				line = reader.ReadLine().Trim ();
 				
 			} while (line != "<}>");
 			// End of block
 			return planet;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private TType[] readTechSpecsBlock(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			// Start of block
+			ArrayList techSpecs = new ArrayList();
+			
+			string line = reader.ReadLine().Trim ();
+			while (line != "<}>") {
+				techSpecs.Add (stringToTType(readTextLine("", line, fileName)));
+				
+				line = reader.ReadLine ().Trim ();
+				
+			}
+			// End of block
+			
+			return (TType[])techSpecs.ToArray(typeof(TType));
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}
@@ -590,7 +630,7 @@ public class FileManager : TIOMonoBehaviour {
 				//Remove any extra whitespace from parts & set descriptive variables
 				string newDataType = lineParts[0] = lineParts[0].Trim ();
 				string newDataText = lineParts[1] = lineParts[1].Trim ();
-				
+
 				if (newDataType == "Name") {
 					name = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Abilities") {
@@ -602,7 +642,12 @@ public class FileManager : TIOMonoBehaviour {
 				} else if (newDataType == "Battle") {
 					battle = readIntLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Multiplier") {
-					multiplier = readIntLine (newDataType, newDataText, fileName);
+					string multiString = readTextLine (newDataType, newDataText, fileName);
+					if (multiString == "?") {
+						multiplier = -1; //represents a special case
+					} else {
+						multiplier = System.Convert.ToInt32(multiString);
+					}
 				} else if (newDataType == "Move") {
 					move = readIntLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Capacity") {
@@ -1189,5 +1234,5 @@ public class FileManager : TIOMonoBehaviour {
 		} else {
 			return OType.Special;
 		}
-	}
+	}	
 }

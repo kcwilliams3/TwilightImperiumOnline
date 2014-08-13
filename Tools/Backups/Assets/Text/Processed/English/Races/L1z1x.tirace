@@ -30,10 +30,13 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		[0.0.0]<;>
-													Text:		This elusive energy-rich planet was the desperate destination of the secret Lazax Diaspora. Now, it is a technological nightmare.<;>
-													Resources:	5<;>
-													Influence:	0<;>
+													Name:					[0.0.0]<;>
+													Text:					This elusive energy-rich planet was the desperate destination of the secret Lazax Diaspora. Now, it is a technological nightmare.<;>
+													Resources:				5<;>
+													Influence:				0<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -107,9 +110,7 @@ Flagship:			<{>
 							Cost:		11<;>
 							Battle:		5<;>
 							Multiplier:	3<;>
-					<}>
 							Move:		1<;>
-					<}>
 							Capacity:	2<;>
 					<}>
 Representatives:	<{>
@@ -117,7 +118,7 @@ Representatives:	<{>
 										Name:		44G5I-O<;>
 										Votes:		1<;>
 										Types:		<{>
-																Bodyguard<;>
+																			Bodyguard<;>
 													<}>
 										Text:		If this card is targeted by a Spy, the player controlling the Spy must abstain from this vote.<;>
 							<}>
@@ -125,7 +126,7 @@ Representatives:	<{>
 										Name:		A6AH3<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Choose an outcome. If the result of this vote does not match your choice, kill any 1 Councilor that did not vote the outcome you chose.<;>
 							<}>
@@ -133,7 +134,7 @@ Representatives:	<{>
 										Name:		R7-82<;>
 										Votes:		4<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If you abstain from this vote, gain 1 free Cruiser in your Home System.<;>
 							<}>

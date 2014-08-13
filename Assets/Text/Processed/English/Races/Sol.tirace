@@ -24,10 +24,13 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Jord<;>
-													Text:		Distinctly seasonal, with the greatest variety of climates and ecologies in the galaxy. The Federation of Sol rules the Jord humans from the great city of New Moscow.<;>
-													Resources:	4<;>
-													Influence:	2<;>
+													Name:					Jord<;>
+													Text:					Distinctly seasonal, with the greatest variety of climates and ecologies in the galaxy. The Federation of Sol rules the Jord humans from the great city of New Moscow.<;>
+													Resources:				4<;>
+													Influence:				2<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -99,7 +102,7 @@ Representatives:	<{>
 										Name:		Claire Gibson<;>
 										Votes:		4<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If the Political Card does not resolve the way you voted, you may retrieve one of your Promissory Notes from a player who voted against you.<;>
 							<}>
@@ -107,8 +110,8 @@ Representatives:	<{>
 										Name:		Rev. Hendrickson<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
-																 Bodyguard<;>
+																			Spy<;>
+																			 Bodyguard<;>
 													<}>
 										Text:		Assassinate a Representative. If the Representative is a Bodyguard, he is not considered targeted.<;>
 							<}>
@@ -116,7 +119,7 @@ Representatives:	<{>
 										Name:		Ronald Wiley<;>
 										Votes:		3<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		If you abstain from this vote, gain 2 free Ground Forces on a planet you control.<;>
 							<}>

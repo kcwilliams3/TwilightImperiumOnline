@@ -33,16 +33,22 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Lisis II<;>
-													Text:		The crystal caverns of Lisis II are the source of most of the Jorun colonists' water and foodstuffs. Notable for the great crescent-shaped valley of Gavar.<;>
-													Resources:	1<;>
-													Influence:	0<;>
+													Name:					Lisis II<;>
+													Text:					The crystal caverns of Lisis II are the source of most of the Jorun colonists' water and foodstuffs. Notable for the great crescent-shaped valley of Gavar.<;>
+													Resources:				1<;>
+													Influence:				0<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 													<{>
-													Name:		Ragh<;>
-													Text:		The capital colony of the Saar, and the epicenter of the Saar religion. Also called "Ragh's Call" by the Saar.<;>
-													Resources:	2<;>
-													Influence:	1<;>
+													Name:					Ragh<;>
+													Text:					The capital colony of the Saar, and the epicenter of the Saar religion. Also called "Ragh's Call" by the Saar.<;>
+													Resources:				2<;>
+													Influence:				1<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -71,7 +77,7 @@ Starting Units:		<{>
 					<}>
 Starting Techs:		<{>
 							Antimass Deflectors<;>
-							XRD Transporter<;>
+							XRD Transporters<;>
 					<}>
 Leaders:			<{>
 							<{>
@@ -118,8 +124,8 @@ Representatives:	<{>
 										Name:		Elder Gurno<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
-																 Bodyguard<;>
+																			Spy<;>
+																			 Bodyguard<;>
 													<}>
 										Text:		Choose an unrevealed Representative. He may not choose your Representative with any of his abilities.<;>
 							<}>
@@ -127,7 +133,7 @@ Representatives:	<{>
 										Name:		Elder Sarrig<;>
 										Votes:		4<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		Gain +3 votes if you are the Speaker.<;>
 							<}>
@@ -135,7 +141,7 @@ Representatives:	<{>
 										Name:		Melkov<;>
 										Votes:		2<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Choose an outcome. Gain 1 Trade Good (from the supply) for each player who votes this way.<;>
 							<}>

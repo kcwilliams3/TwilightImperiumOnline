@@ -26,16 +26,22 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Jol<;>
-													Text:		Covered by cold oceans and a few inhospitable islands. The seat of the Head Master, the Hylar ruler, who dwells in the deep underwater city of Wun-Escha.<;>
-													Resources:	1<;>
-													Influence:	2<;>
+													Name:					Jol<;>
+													Text:					Covered by cold oceans and a few inhospitable islands. The seat of the Head Master, the Hylar ruler, who dwells in the deep underwater city of Wun-Escha.<;>
+													Resources:				1<;>
+													Influence:				2<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 													<{>
-													Name:		Nar<;>
-													Text:		Covered by mild oceans and a small archipelago called The Reef by off-worlders. The Circle of Regents makes its home in the underwater city-school of Nuun-Dascha.<;>
-													Resources:	2<;>
-													Influence:	3<;>
+													Name:					Nar<;>
+													Text:					Covered by mild oceans and a small archipelago called The Reef by off-worlders. The Circle of Regents makes its home in the underwater city-school of Nuun-Dascha.<;>
+													Resources:				2<;>
+													Influence:				3<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -117,8 +123,8 @@ Representatives:	<{>
 										Name:		Deluin Fillac<;>
 										Votes:		3<;>
 										Types:		<{>
-																Spy<;>
-																 Councilor<;>
+																			Spy<;>
+																			 Councilor<;>
 													<}>
 										Text:		Look at an unrevealed Representative. You may force the player to return the card to his hand and choose a different Representative (if able).<;>
 							<}>
@@ -126,7 +132,7 @@ Representatives:	<{>
 										Name:		Ta Zern<;>
 										Votes:		2<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		Gain +1 vote for each Technology Card you have researched.<;>
 							<}>
@@ -134,8 +140,8 @@ Representatives:	<{>
 										Name:		Yaluga Huin<;>
 										Votes:		1<;>
 										Types:		<{>
-																Bodyguard<;>
-																 Councilor<;>
+																			Bodyguard<;>
+																			 Councilor<;>
 													<}>
 										Text:		This Representative cannot be killed.<;>
 							<}>

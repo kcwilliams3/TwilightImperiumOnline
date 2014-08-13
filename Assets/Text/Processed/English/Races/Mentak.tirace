@@ -25,10 +25,13 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Moll Primus<;>
-													Text:		In places lush and rich, in others a barren wasteland. This old Lazax penal colony has prospered under the rule of the governing Mentak Coalition.<;>
-													Resources:	4<;>
-													Influence:	1<;>
+													Name:					Moll Primus<;>
+													Text:					In places lush and rich, in others a barren wasteland. This old Lazax penal colony has prospered under the rule of the governing Mentak Coalition.<;>
+													Resources:				4<;>
+													Influence:				1<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -104,7 +107,7 @@ Representatives:	<{>
 										Name:		Cador Gim<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Assassinate a Representative. If your Spy is killed by an enemy Spy, the enemy Spy is also killed.<;>
 							<}>
@@ -112,7 +115,7 @@ Representatives:	<{>
 										Name:		Orid Gim<;>
 										Votes:		2<;>
 										Types:		<{>
-																Bodyguard<;>
+																			Bodyguard<;>
 													<}>
 										Text:		If this card is targeted by a Spy, the player controlling the Spy must give you 3 Trade Goods or kill his spy.<;>
 							<}>
@@ -120,7 +123,7 @@ Representatives:	<{>
 										Name:		S'ula Mentarion<;>
 										Votes:		4<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		After voting, look at the top card of the Political deck and place it on the top or the bottom of the deck.<;>
 							<}>

@@ -26,7 +26,8 @@ firstValueCol = 4
 secondValueCol = firstValueCol + 2
 thirdValueCol = secondValueCol + 3
 fourthValueCol = thirdValueCol + 3
-fifthValueCol = fourthValueCol + 3
+fifthValueCol = fourthValueCol + 6
+sixthValueCol = fifthValueCol + 1
 lineEnd = "<;>\n"
 blockStart = "<{>\n"
 blockEnd = "<}>\n"
@@ -201,6 +202,7 @@ def readHomePlanets(fileName, races):
 			lines = block.split("\n")
 			for i in range(0,len(lines)):
 				line = lines[i]
+				part1 = line.split(' ')[0]
 				if i==0:
 					#Race name
 					assertNotEmpty(line, fileName, lineNumber)
@@ -214,6 +216,13 @@ def readHomePlanets(fileName, races):
 					for system in race.getHomeSystems():
 						if system.getName()[-11:] == "Home System":
 							homeSystem = system
+				elif part1 == "Green" or part1 == "Red" or part1 == "Yellow" or part1 == "Blue" or part1 == "Refresh":
+					#Extras (refresh abilities, tech specialties, etc.)
+					extras = line.strip().split(", ")
+					for extra in extras:
+						assertNotEmpty(extra, fileName, lineNumber)
+						assertNotSeparator(extra, fileName, lineNumber)
+					homeSystem.addPlanetDetails(planetName, flavorText, resources, influence, extras)
 				elif i%3==1:
 					#Planet name
 					assertNotEmpty(line, fileName, lineNumber)
@@ -229,7 +238,13 @@ def readHomePlanets(fileName, races):
 					resources, influence = line.split(',')
 					assertNumber(resources, fileName, lineNumber)
 					assertNumber(influence, fileName, lineNumber)
-					homeSystem.addPlanetDetails(planetName, flavorText, resources, influence)
+					if (i < len(lines)-1):
+						part1OfNext = lines[i+1].split(' ')[0]
+						if not (part1OfNext == "Green" or part1OfNext == "Red" or part1OfNext == "Yellow" or part1OfNext == "Blue" or part1OfNext == "Refresh"):
+							homeSystem.addPlanetDetails(planetName, flavorText, resources, influence)
+					else:
+						homeSystem.addPlanetDetails(planetName, flavorText, resources, influence)
+					
 				lineNumber+=1
 			lineNumber+=1
 
@@ -532,7 +547,25 @@ def writeHomeSystems(race,file):
 			#Influence
 			tag = getStringAtCol("Influence:", fourthValueCol, "", race, file)
 			file.write(getStringAtCol(planet.getInfluence()+lineEnd, fifthValueCol, tag, race, file))
+			#Extras
+			refresh = ''
+			techSpecialties = []
+			for extra in planet.getExtras():
+				extraParts = extra.split(' ')
+				if extraParts[0] == "Refresh":
+					refresh = extra.split(": ")[1]
+				elif extraParts[2] == "Specialty":
+					techSpecialties.append(extraParts[0])
+			tag = getStringAtCol("Refresh Ability:", fourthValueCol, "", race, file)
+			file.write(getStringAtCol(refresh+lineEnd, fifthValueCol, tag, race, file))
+			tag = getStringAtCol("Tech Specialties:", fourthValueCol, "", race, file)
+			file.write(getStringAtCol(blockStart, fifthValueCol, tag, race, file))
+			for spec in techSpecialties:
+				file.write(getStringAtCol(spec+lineEnd, sixthValueCol, "", race, file))
+			file.write(getStringAtCol(blockEnd, fifthValueCol, "", race, file))
 			file.write(getStringAtCol(blockEnd, fourthValueCol, "", race, file))
+				
+					
 		file.write(getStringAtCol(blockEnd, thirdValueCol, "", race, file))
 		file.write(getStringAtCol(blockEnd, secondValueCol, "", race, file))
 	file.write(getStringAtCol(blockEnd, firstValueCol, "", race, file))

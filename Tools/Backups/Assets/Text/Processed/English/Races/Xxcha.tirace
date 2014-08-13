@@ -27,16 +27,22 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Archon Ren<;>
-													Text:		Populated by small arboreal villages, this planet's only true urban center is the royal city of Kklaj. The Xxcha home world and home to the renowned library of Xuun.<;>
-													Resources:	2<;>
-													Influence:	3<;>
+													Name:					Archon Ren<;>
+													Text:					Populated by small arboreal villages, this planet's only true urban center is the royal city of Kklaj. The Xxcha home world and home to the renowned library of Xuun.<;>
+													Resources:				2<;>
+													Influence:				3<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 													<{>
-													Name:		Archon Tau<;>
-													Text:		Ravaged by Sol and Letnev bombardments during the Twilight Wars. The Xxcha commit substantial resources to rebuilding its ecology and cleansing its toxic continents.<;>
-													Resources:	1<;>
-													Influence:	1<;>
+													Name:					Archon Tau<;>
+													Text:					Ravaged by Sol and Letnev bombardments during the Twilight Wars. The Xxcha commit substantial resources to rebuilding its ecology and cleansing its toxic continents.<;>
+													Resources:				1<;>
+													Influence:				1<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -108,9 +114,7 @@ Flagship:			<{>
 							Cost:		9<;>
 							Battle:		6<;>
 							Multiplier:	2<;>
-					<}>
 							Move:		1<;>
-					<}>
 							Capacity:	4<;>
 					<}>
 Representatives:	<{>
@@ -118,7 +122,7 @@ Representatives:	<{>
 										Name:		Brothers Qquiar<;>
 										Votes:		2<;>
 										Types:		<{>
-																Bodyguard<;>
+																			Bodyguard<;>
 													<}>
 										Text:		If this card is not targeted by a Spy, gain +3 votes.<;>
 							<}>
@@ -126,7 +130,7 @@ Representatives:	<{>
 										Name:		Ggrucoto Rinn<;>
 										Votes:		3<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		Players who accept Trade Goods from you during the Bargaining step may not receive any Promissory Notes. You vote for them during the Voting step.<;>
 							<}>
@@ -134,7 +138,7 @@ Representatives:	<{>
 										Name:		Xxekir Grom<;>
 										Votes:		2<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		During the Bargaining step, you gain +3 Bonus Votes if the current player does not offer you a Promissory Note.<;>
 							<}>

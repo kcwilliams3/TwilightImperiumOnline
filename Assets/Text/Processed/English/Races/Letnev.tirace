@@ -27,16 +27,22 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Arc Prime<;>
-													Text:		Below the thin surface atmosphere lie the continent-size caverns of the Letnev. Rich in metals and energy, its vast fungus fields struggle to feed its population.<;>
-													Resources:	4<;>
-													Influence:	0<;>
+													Name:					Arc Prime<;>
+													Text:					Below the thin surface atmosphere lie the continent-size caverns of the Letnev. Rich in metals and energy, its vast fungus fields struggle to feed its population.<;>
+													Resources:				4<;>
+													Influence:				0<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 													<{>
-													Name:		Wren Terra<;>
-													Text:		Arid, windy, and populated primarily by predatory Daartar hounds. The Barony utilizes large swaths of its northern steppes for low-yield agriculture.<;>
-													Resources:	2<;>
-													Influence:	1<;>
+													Name:					Wren Terra<;>
+													Text:					Arid, windy, and populated primarily by predatory Daartar hounds. The Barony utilizes large swaths of its northern steppes for low-yield agriculture.<;>
+													Resources:				2<;>
+													Influence:				1<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -113,7 +119,7 @@ Representatives:	<{>
 										Name:		Captain Lassir<;>
 										Votes:		2<;>
 										Types:		<{>
-																Bodyguard<;>
+																			Bodyguard<;>
 													<}>
 										Text:		If you do not like the result of this vote, place 1 free Dreadnought in a friendly or empty system but you must abstain from all future votes (regardless of Representative).<;>
 							<}>
@@ -121,7 +127,7 @@ Representatives:	<{>
 										Name:		Darktalon Treilla<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Assassinate a Representative. If he is killed, you gain votes equal to his Bonus Votes.<;>
 							<}>
@@ -129,7 +135,7 @@ Representatives:	<{>
 										Name:		Legate Erran<;>
 										Votes:		4<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		You cast your votes after all other players have voted.<;>
 							<}>

@@ -326,7 +326,7 @@ Starting Units
 
 Starting Technology
 Antimass Deflectors
-XRD Transporter
+XRD Transporters
 
 Special Abilities
 You are allowed to skip your action turn during the Action Phase. You may not skip two such action turns in a row.
@@ -442,7 +442,7 @@ Starting Units
 
 Starting Technology
 Antimass Deflectors
-XRD Transporter
+XRD Transporters
 
 Special Abilities
 Gain 1 Trade Good every time you acquire a new planet.

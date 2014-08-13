@@ -40,10 +40,13 @@ Home Systems:		<{>
 							Type:		Standard<;>
 							Planets:	<{>
 													<{>
-													Name:		Mordai II<;>
-													Text:		Mined to its bones by the virulent Nekro, Mordai II is reinforced by graviton energy-beams that barely keep the world from collapsing in on itself.<;>
-													Resources:	4<;>
-													Influence:	0<;>
+													Name:					Mordai II<;>
+													Text:					Mined to its bones by the virulent Nekro, Mordai II is reinforced by graviton energy-beams that barely keep the world from collapsing in on itself.<;>
+													Resources:				4<;>
+													Influence:				0<;>
+													Refresh Ability:		<;>
+													Tech Specialties:		<{>
+																			<}>
 													<}>
 										<}>
 							<}>
@@ -112,9 +115,7 @@ Flagship:			<{>
 							Cost:		9<;>
 							Battle:		9<;>
 							Multiplier:	3<;>
-					<}>
 							Move:		1<;>
-					<}>
 							Capacity:	1<;>
 					<}>
 Representatives:	<{>
@@ -122,7 +123,7 @@ Representatives:	<{>
 										Name:		Asmodai<;>
 										Votes:		0<;>
 										Types:		<{>
-																Spy<;>
+																			Spy<;>
 													<}>
 										Text:		Choose a player and an outcome. If he votes this way, copy one of his technology cards.<;>
 							<}>
@@ -130,7 +131,7 @@ Representatives:	<{>
 										Name:		Beelzebul<;>
 										Votes:		0<;>
 										Types:		<{>
-																Councilor<;>
+																			Councilor<;>
 													<}>
 										Text:		After the Resolve Spies step, all Councilors are killed (including this one). Then discard the Political Card.<;>
 							<}>
@@ -138,7 +139,7 @@ Representatives:	<{>
 										Name:		Wendigo<;>
 										Votes:		0<;>
 										Types:		<{>
-																Bodyguard<;>
+																			Bodyguard<;>
 													<}>
 										Text:		In order for a player to vote "For," he must give you 1 Trade Good or 1 random Action Card from his hand.<;>
 							<}>

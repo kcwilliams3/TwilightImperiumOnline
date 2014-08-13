@@ -131,11 +131,11 @@ class System:
 	def getPlanets(self):
 		return tuple(self._planets)
 		
-	def addPlanetDetails(self, name, flavor, resources, influence):
+	def addPlanetDetails(self, name, flavor, resources, influence, extras = []):
 		for planet in self._planets:
 			if planet == name:
 				self._planets.remove(planet)
-				self._planets.append(Planet(name, flavor, resources, influence))
+				self._planets.append(Planet(name, flavor, resources, influence, extras))
 				
 	def addWormholeDetails(self):
 		for planet in self._planets:
@@ -147,11 +147,12 @@ class System:
 		return self._type
 		
 class Planet:
-	def __init__(self, name, flavor, resources, influence):
+	def __init__(self, name, flavor, resources, influence, extras=[]):
 		self._name = name
 		self._flavorText = flavor
 		self._resources = resources
 		self._influence = influence
+		self._extras = extras
 	
 	def __repr__(self):
 		return "Planet Object: {0}".format(self._name)
@@ -167,6 +168,9 @@ class Planet:
 		
 	def getInfluence(self):
 		return str(self._influence)
+		
+	def getExtras(self):
+		return self._extras
 	
 class Technology:
 	def __init__(self, name, color, expansion, requirementsOrCost, text):

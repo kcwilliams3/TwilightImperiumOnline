@@ -13,7 +13,7 @@
 import sys
 import shutil
 import os
-from libs/exceptions import UsageError
+from libs.exceptions import UsageError
 
 #check for proper usage
 try:
