@@ -7,7 +7,7 @@ Mallice
 Alpha Wormhole
 Beta Wormhole
 --------------------
-Fixed-Point Systems
+Fixed Systems
 
 Vanilla
 Mecatol Rex
@@ -156,41 +156,36 @@ Wellon
 --------------------
 Special Systems
 
-Shards of the Throne : 1
+Gravity Rift:
+Shards of the Throne
 Cormund
-Gravity Rift
 
-Shards of the Throne : 1
+Nebula:
+Shards of the Throne
 Everra
-Nebula
 
-Vanilla : 3
-Shattered Empire : 1
-Asteroid Field
+Asteroid Field:
+Vanilla
 
-Shards of the Throne : 1
-Gravity Rift
+Gravity Rift:
+Shards of the Throne
 
-Shattered Empire : 2
-Ion Storm
+Ion Storm:
+Shattered Empire
 
-Vanilla : 1
-Shattered Empire : 1
-Nebula
+Nebula:
+Vanilla
 
-Vanilla : 1
-Shattered Empire : 1
-Muaat : 1
-Supernova
+Supernova:
+Vanilla
 --------------------
 Empty Systems
 
-Vanilla : 1
-Wormhole A
+Vanilla
+Alpha Wormhole
 
-Vanilla : 1
-Wormhole B
+Vanilla
+Beta Wormhole
 
-Vanilla : 8
-Shattered Empire : 4
+Vanilla
 (None)

@@ -1,0 +1,970 @@
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Abaddon<;>
+				Text:				Known as the birthplace of fission cell disruptors, Abaddon is home to many brilliant, yet violently disturbed, scientists.<;>
+				Resources:			1<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Red<;>
+									<}>
+				<}>
+				<{>
+				Name:				Ashtroth<;>
+				Text:				The poisonous atmosphere of Ashtroth makes its surface completely uninhabitable, but enviro-insulated refining stations make a solid profit.<;>
+				Resources:			2<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Loki<;>
+				Text:				A paradise oasis for many travelers, Loki would be a top vacation resort if not for its frequent, violent floods.<;>
+				Resources:			1<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Abyz<;>
+				Text:				Its thick, complex atmosphere is inhospitable to most races, but Abyz is known for its seemingly endless natural reserves of rare minerals and precious metals.<;>
+				Resources:			3<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Fria<;>
+				Text:				Brutally cold ice world populated only by a few scattered mining camps. Despite brutal climate, highly prized for its deposits of rare ores used in starship drives.<;>
+				Resources:			2<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Blue<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Empty<;>
+Planets: 	<{>
+				<{>
+				Name:				Alpha Wormhole<;>
+				Text:				<;>
+				Resources:			0<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Arcturus<;>
+				Text:				Arcturus is a frostbitten world known mostly for its hostile climate. Equally hostile are the smugglers that operate a number of secret bases on the surface.<;>
+				Resources:			1<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Sumerian<;>
+				Text:				The most profitable trade station in the Galaxy, run by renowned trader Huro M'es.<;>
+				Resources:			2<;>
+				Influence:			2<;>
+				Refresh Ability:	Gain 2 Trade Goods<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Arinam<;>
+				Text:				Isolated planet poor in resources but rich in natural beauty. Boasts many exotic resorts frequented by the rich and famous of the galaxy.<;>
+				Resources:			1<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Blue<;>
+									<}>
+				<}>
+				<{>
+				Name:				Meer<;>
+				Text:				Hellish world immolated in the inferno of its nearby sun. Famed for the fiery majesty of its surface when viewed from the safety of its many orbital stations.<;>
+				Resources:			0<;>
+				Influence:			4<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Arnor<;>
+				Text:				Lush, green world that is renowned for some of the most fertile soil in the galaxy.  Dominated by endless fields and the processing facilities of large agricultural firms.<;>
+				Resources:			2<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Lor<;>
+				Text:				Wreathed in vast seas of methane ice. Seafloor drilling platforms harvest rare crystals used in advanced computers and energy weapons.<;>
+				Resources:			1<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Red<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Bellatrix<;>
+				Text:				It is said that the terrifying Dreadnought was invented on the world of Bellatrix. Though no documents remain, its ancient weapons factories still flourish.<;>
+				Resources:			0<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Red<;>
+									<}>
+				<}>
+				<{>
+				Name:				Tsion<;>
+				Text:				After the fall of the Lazax, Tsion became a new home for millions of refugees.<;>
+				Resources:			2<;>
+				Influence:			2<;>
+				Refresh Ability:	Gain 2 Trade Goods<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Bereg<;>
+				Text:				A frozen world that is inhospitable to most races. Indentured laborers risk attacks from arctic sharaks in the infamous lodinium mines.<;>
+				Resources:			3<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Red<;>
+									<}>
+				<}>
+				<{>
+				Name:				Lirta IV<;>
+				Text:				Covered in vast swamps and fetid bogs. Home to rare biochemical compounds unique to its marshlands, used in everything from exotic foods to biogenic drugs.<;>
+				Resources:			2<;>
+				Influence:			3<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Green<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Empty<;>
+Planets: 	<{>
+				<{>
+				Name:				Beta Wormhole<;>
+				Text:				<;>
+				Resources:			0<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Capha<;>
+				Text:				While its surface is a wasteland due to centuries of invasions and war, Capha's core still contains many of the riches that led to its ruin.<;>
+				Resources:			3<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Centauri<;>
+				Text:				Venerable world with few resources but a rich history. Site of important treaties between several races during the Twilight Wars.<;>
+				Resources:			1<;>
+				Influence:			3<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Gral<;>
+				Text:				Backwater planet with modest resources and an unassuming populace. Most noted for the reliable and affordable vehicles produced in its factories.<;>
+				Resources:			1<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Blue<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Coorneeq<;>
+				Text:				Former garden world that has subsequently enjoyed increased industrialization. Home to the esteemed Free Worlds Academy of Military Science and Research.<;>
+				Resources:			1<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Red<;>
+									<}>
+				<}>
+				<{>
+				Name:				Resculon<;>
+				Text:				Poor in natural resources, but a nearby nexus of major trade routes has brought it increasing wealth as interstellar commerce has intensified.<;>
+				Resources:			2<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Dal Bootha<;>
+				Text:				A populous planet whose resources have been severely depleted. Well-educated citizenry and many universities, but dependent on foreign imports.<;>
+				Resources:			0<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Red<;>
+									<}>
+				<}>
+				<{>
+				Name:				Xxehan<;>
+				Text:				Known for genetically complex native lifeforms adapted to tainted atmosphere and toxic biochemistry.<;>
+				Resources:			1<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Green<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				El'Nath<;>
+				Text:				A magnetic phenomenon on El'Nath causes all metallic substances to float. Special technology was developed specifically to allow mining on the surface.<;>
+				Resources:			2<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Blue<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Faunus<;>
+				Text:				The famous laboratories on Faunus are run by the Maxis order. Although controversial, the order is the undisputed leader in the biogenetics field.<;>
+				Resources:			1<;>
+				Influence:			3<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Green<;>
+										Green<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Garbozia<;>
+				Text:				The world of Garbozia used to serve as the Imperial dumping grounds. After years of festering, the organic compounds have recently become quite priceless.<;>
+				Resources:			2<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Green<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Hercalor<;>
+				Text:				Once a farming world, Hercalor has long since burned through its nitrates. Now mostly depopulated, it has become a haven for free traders and rogues.<;>
+				Resources:			1<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Yellow<;>
+									<}>
+				<}>
+				<{>
+				Name:				Tiamat<;>
+				Text:				Tiamat is the largest population center in the Arill cluster. Its people are peaceful but surprisingly insular despite their planet's central location.<;>
+				Resources:			1<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Hope's End<;>
+				Text:				The famous training ground of elite Lazax troops. Only the strong survive here.<;>
+				Resources:			3<;>
+				Influence:			0<;>
+				Refresh Ability:	Gain 2 Shock Troops<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Industrex<;>
+				Text:				Industrex was once solely supported by the Lazax military complex. Devastated during the Twilight Years, it has since become self-sufficient.<;>
+				Resources:			2<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Red<;>
+										Red<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Lazar<;>
+				Text:				The only inhabited world in a forgettable system. Few native resources and only rudimentary, often underdeveloped, industries.<;>
+				Resources:			1<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Sakulag<;>
+				Text:				Jungle planet plagued by dangerous predators such as the arboreal razeden. Home to many exotic biochemicals and natural pharmaceuticals.<;>
+				Resources:			2<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Lesab<;>
+				Text:				Once devoid of life, 72.5 percent of Lesab's surface is now covered by a quasi-sentient fungus, the unexpected result of experiments in terraforming.<;>
+				Resources:			2<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Green<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Lisis<;>
+				Text:				Since the N'orr abandoned Lisis during the Twilight Wars, Lisis has remained neutral in all galactic affairs. A paradise of green growth and calm climates.<;>
+				Resources:			2<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Velnor<;>
+				Text:				Velnor's famous demonglow crystals are the purest and most efficient fuel for delta-grade laser cannons.<;>
+				Resources:			2<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Red<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Alpha Wormhole<;>
+				Text:				<;>
+				Resources:			0<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Lodor<;>
+				Text:				Wealthy planet rued by powerful biotech consortiums. Rumored to harbor hidden caches of outlawed bacterial weapons.<;>
+				Resources:			3<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Green<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Fixed<;>
+Planets: 	<{>
+				<{>
+				Name:				Mecatol Rex<;>
+				Text:				Once a splendid place, now a sad devastated wasteland. Only the radiation-shielded Mecatol City, the seat of the powerful Galactic Council, remains habitable.<;>
+				Resources:			1<;>
+				Influence:			6<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Mehar Xull<;>
+				Text:				Unstable radiation belts create hazardous living conditions but facilitate research in electro-quantum propulsion technologies.<;>
+				Resources:			1<;>
+				Influence:			3<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Blue<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Mellon<;>
+				Text:				Poor in natural resources but rich in exotic plant and animal life. Protected as a planetary xenological garden and lifeform preserve.<;>
+				Resources:			0<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Zohbat<;>
+				Text:				Known for its highly intoxicating Zohlian whiskey and the planetary beanstalk that links the surface with orbital stations and shipyards.<;>
+				Resources:			3<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Blue<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Mirage<;>
+				Text:				Famous for its cloaked cities, Mirage's shielded bases keep its skies tightly defended.<;>
+				Resources:			1<;>
+				Influence:			2<;>
+				Refresh Ability:	Gain 2 Fighters<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				New Albion<;>
+				Text:				Rare atmospheric composition and biochemistry support lifeforms unlike any others in the galaxy.<;>
+				Resources:			1<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Green<;>
+									<}>
+				<}>
+				<{>
+				Name:				Starpoint<;>
+				Text:				Large planet with eight small moons that supply a wide range of valuable resources. Acidic rains and toxic storms make it an unappealing destination for tourists.<;>
+				Resources:			3<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Perimeter<;>
+				Text:				Perimeter was the last planet to remain loyal to the Lazax. The respected and industrious factions on Perimeter still await the Lazax's return.<;>
+				Resources:			2<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Primor<;>
+				Text:				Primor is a harbor for many hardened mercenaries whose only loyalty is to mammon.<;>
+				Resources:			2<;>
+				Influence:			1<;>
+				Refresh Ability:	Gain 2 Ground Forces<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Beta Wormhole<;>
+				Text:				<;>
+				Resources:			0<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Quann<;>
+				Text:				Since the discovery of the Alpha Wormhole, this temperate planet with two continents and one large ocean has been a haven for traders and smugglers alike.<;>
+				Resources:			2<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Green<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Qucen'n<;>
+				Text:				After the Twilight Wars, existed for centuries as a near-utopia of scattered communal farms free from governmental interference.<;>
+				Resources:			1<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Rarron<;>
+				Text:				Large, populous world with three distinctive moons renowned for its biomodification clinics and cyber boutiques.<;>
+				Resources:			0<;>
+				Influence:			3<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Green<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Rigel I<;>
+				Text:				Researchers on the solid polar caps of this largely uninhabitable world investigate unique marine life that has remained undisturbed for a millennium.<;>
+				Resources:			0<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Green<;>
+									<}>
+				<}>
+				<{>
+				Name:				Rigel II<;>
+				Text:				The second planet in the Rigel system is the population center for the entire sector. In its winding underground caverns lie legendary cities of luxury.<;>
+				Resources:			1<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Rigel III<;>
+				Text:				Rigel III receives less sunlight than its two siblings. Its colonies are currently on the decline since the first discovery of syrophic gems a century ago.<;>
+				Resources:			1<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Blue<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Saudor<;>
+				Text:				Prosperous planet with large native population and substantial industry. Extreme axial tilt results in long day-night cycles that some races find uncomfortable.<;>
+				Resources:			2<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Sem-Lore<;>
+				Text:				Home to the minor race of the Semanora. Though lush and prosperous, Sem-Lore has never been held long by a major power, and therefore is rumored to be cursed.<;>
+				Resources:			3<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Yellow<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Tar'Mann<;>
+				Text:				Small, isolated planet with small population and modest resources. Most famous for its delicious avinberries.<;>
+				Resources:			1<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Tempesta<;>
+				Text:				Although virtually uninhabitable, new research indicates the frozen plasma above Tempesta's atmosphere contains the most potent fuel ever discovered.<;>
+				Resources:			1<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Blue<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Tequ'Ran<;>
+				Text:				Desolate planet transformed into weapons testing facility for large defense consortiums.<;>
+				Resources:			2<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Red<;>
+									<}>
+				<}>
+				<{>
+				Name:				Torkan<;>
+				Text:				Populous planet almost completely dependent on foreign imports to sustain the extravagant lifestyles of its citizens.<;>
+				Resources:			0<;>
+				Influence:			3<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Blue<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Thibah<;>
+				Text:				Burdened by overpopulation and low mineral content in the planetary crust. Historically used as a staging world for deep-space exploration and trade.<;>
+				Resources:			1<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Vefut II<;>
+				Text:				Massive, rocky world cursed with extreme gravity. Underground cities support advanced research in antigravity technologies.<;>
+				Resources:			2<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Red<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Vega Major<;>
+				Text:				The surface of Vega Major is sparsely populated due to its hostile climate shifts, but its rings are home to many harvest stations that process valuable floating ore.<;>
+				Resources:			2<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Vega Minor<;>
+				Text:				Home of the Vega Propulsion Corporation. Although most of VPC's technology is outdated, it's rumored that they are about to unveil a revolutionary new product.<;>
+				Resources:			1<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+										Blue<;>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Standard<;>
+Planets: 	<{>
+				<{>
+				Name:				Wellon<;>
+				Text:				Sky cities suspended in helium-rich atmosphere more noted for fantastic views than the small quantities of exotic elements harvested by their chemical mines.<;>
+				Resources:			1<;>
+				Influence:			2<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		Asteroid Field<;>
+Type: 		Special<;>
+Planets: 	<{>
+			<}>
+<}>
+<{>
+Name: 		Gravity Rift<;>
+Type: 		Special<;>
+Planets: 	<{>
+				<{>
+				Name:				Cormund<;>
+				Text:				Over 400 years ago, Cormund's sun blinked out, and its inhabitants were believed lost forever.<;>
+				Resources:			2<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		Gravity Rift<;>
+Type: 		Special<;>
+Planets: 	<{>
+			<}>
+<}>
+<{>
+Name: 		Ion Storm<;>
+Type: 		Special<;>
+Planets: 	<{>
+			<}>
+<}>
+<{>
+Name: 		Nebula<;>
+Type: 		Special<;>
+Planets: 	<{>
+				<{>
+				Name:				Everra<;>
+				Text:				Most believe the legendary planet of Everra to be nothing but myth. Stories tell of its nano-carbon cities made by the Ancients during the first years.<;>
+				Resources:			3<;>
+				Influence:			1<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>
+<{>
+Name: 		Nebula<;>
+Type: 		Special<;>
+Planets: 	<{>
+			<}>
+<}>
+<{>
+Name: 		Supernova<;>
+Type: 		Special<;>
+Planets: 	<{>
+			<}>
+<}>
+<{>
+Name: 		<;>
+Type: 		Empty<;>
+Planets: 	<{>
+			<}>
+<}>
+<{>
+Name: 		Wormhole Nexus<;>
+Type: 		Unattached<;>
+Planets: 	<{>
+				<{>
+				Name:				Alpha Wormhole<;>
+				Text:				<;>
+				Resources:			0<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Beta Wormhole<;>
+				Text:				<;>
+				Resources:			0<;>
+				Influence:			0<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+				<{>
+				Name:				Mallice<;>
+				Text:				There is no position for Mallice on any star chart, yet any traveller of wormholes will know how to reach the murky planet. A haven for idealists and rogues both.<;>
+				Resources:			0<;>
+				Influence:			3<;>
+				Refresh Ability:	<;>
+				Tech Specialties:	<{>
+									<}>
+				<}>
+			<}>
+<}>

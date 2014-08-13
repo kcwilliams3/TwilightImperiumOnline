@@ -11,6 +11,7 @@ public class FileManager : TIOMonoBehaviour {
 	public ActionCard testActionCard;
 	public Merc testMerc;
 	public bool read;
+	public PlanetSystem[] testSystems;
 
 	// Directory-related Variables
 	private string rawTextDir;
@@ -57,6 +58,7 @@ public class FileManager : TIOMonoBehaviour {
 			testActionCard = GetComponent<CardManager>().getActionCard("The Hand That Takes");
 			testMerc = GetComponent<CardManager>().getMerc ("52N6");
 			read = true;
+			testSystems = ReadSystemFile();
 		}
 	}
 
@@ -107,6 +109,12 @@ public class FileManager : TIOMonoBehaviour {
 		string fullPath = procTextDir + gameManager.Language + "/objectives.tiobjs";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readObjectiveFile (fullPath);
+	}
+
+	public PlanetSystem[] ReadSystemFile() {
+		string fullPath = procTextDir + gameManager.Language + "/systems.tisysts";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readSystemFile (fullPath);
 	}
 
 
@@ -227,6 +235,25 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+	private PlanetSystem[] readSystemFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				PlanetSystem[] systs = readSystemsBlock("", "", fileName, reader, false, true);
+				
+				// Reading successfully finished
+				reader.Close ();
+				
+				return systs;
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
+
 
 	/*
 	 * Complex Section Readers
@@ -264,7 +291,7 @@ public class FileManager : TIOMonoBehaviour {
 				} else if (dataType == "Trade Contracts") {
 					race.TradeContracts = readIntBlock (dataType, dataText, fileName, reader);
 				} else if (dataType == "Home Systems") {
-					race.HomeSystems = readSystemsBlock (dataType, dataText, fileName, reader);
+					race.HomeSystems = readSystemsBlock (dataType, dataText, fileName, reader, true, false);
 				} else if (dataType == "Starting Units") {
 					race.StartingUnits = readUnitsBlock (dataType, dataText, fileName, reader);
 				} else if (dataType == "Starting Techs") {
@@ -289,15 +316,17 @@ public class FileManager : TIOMonoBehaviour {
 		return race;
 	}
 
-	private PlanetSystem[] readSystemsBlock(string dataType, string dataText, string fileName, StreamReader reader) {
-		if (dataText.EndsWith ("<{>")) {
+	private PlanetSystem[] readSystemsBlock(string dataType, string dataText, string fileName, StreamReader reader, bool areHomeSystems, bool isFile) {
+		if (isFile || dataText.EndsWith ("<{>")) {
 			ArrayList systems = new ArrayList();
 			// Start of inner block
 			string line = reader.ReadLine().Trim ();
-			do {
-				systems.Add (readSystem(line, fileName, reader));
-				line = reader.ReadLine().Trim ();
-			} while (line != "<}>");
+			while (line != "<}>" && !reader.EndOfStream) {
+				systems.Add (readSystem(line, fileName, reader, areHomeSystems));
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				}
+			} 
 			// End of inner block
 			return (PlanetSystem[])systems.ToArray (typeof(PlanetSystem));
 		} else {
@@ -305,13 +334,14 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 	
-	private PlanetSystem readSystem(string dataText, string fileName, StreamReader reader) {
+	private PlanetSystem readSystem(string dataText, string fileName, StreamReader reader, bool isHomeSystem) {
 		if (dataText == "<{>") {
 			// Start of block
 			PlanetSystem system = new PlanetSystem();
+			string name = "";
 
 			string line = reader.ReadLine().Trim ();
-			do {
+			while (line != "<}>") {
 				string[] lineParts;
 				//Split category name from data
 				lineParts = line.Split(":".ToCharArray(), 2);
@@ -322,16 +352,67 @@ public class FileManager : TIOMonoBehaviour {
 				
 				
 				if (newDataType == "Name") {
-					system.Name = readTextLine(newDataType, newDataText, fileName);
+					name = readTextLine(newDataType, newDataText, fileName);
+					if (name != "") {
+						system.HasRealName = true;
+					} else {
+						system.HasRealName = false;
+					}
+				} else if (newDataType == "Expansion") {
+					system.Expansion = stringToExpansion(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Type") {
-					system.SysType = readTextLine (newDataType, newDataText, fileName);
+					string typeString = readTextLine (newDataType, newDataText, fileName);
+					if (typeString != "Standard" && typeString != "Empty") {
+						if (isHomeSystem) {
+							system.SysTypes = new SType[2]{stringToSType(typeString), SType.Home};
+						} else {
+							system.SysTypes = new SType[1]{stringToSType (typeString)};
+						}
+					} else if (isHomeSystem) {
+						system.SysTypes = new SType[1]{SType.Home};
+					}
 				} else if (newDataType == "Planets") {
-					system.Planets = readPlanetsBlock(newDataType, newDataText, fileName, reader);
+					Planet[] planets = readPlanetsBlock(newDataType, newDataText, fileName, reader);
+					ArrayList planetsForSystem = new ArrayList();
+					ArrayList wormholesForSystem = new ArrayList();
+					foreach(Planet planet in planets){
+						string[] parts = planet.Name.Split(' ');
+						if (parts.Length == 2 && parts[1] == "Wormhole") {
+							wormholesForSystem.Add (stringToWormhole(planet.Name));
+						} else {
+							planetsForSystem.Add (planet);
+						}
+					}
+					system.Planets = (Planet[])planetsForSystem.ToArray(typeof(Planet));
+					system.Wormholes = (Wormhole[])wormholesForSystem.ToArray(typeof(Wormhole));
 				}
 				line = reader.ReadLine().Trim ();
-				
-			} while (line != "<}>");
+			}
 			// End of block
+
+			if (system.HasRealName == false) {
+				foreach(Planet planet in system.Planets){
+					if (name != "") {
+						name += "/";
+					}
+					name += planet.Name;
+				}
+				foreach(Wormhole wormhole in system.Wormholes) {
+					if (name != "") {
+						name += "/";
+					}
+					name += wormhole + " Wormhole";
+				}
+				if (name == "") {
+					name = "Empty System";
+				}
+				system.Name = name;
+			} else if (system.Planets.Length == 1 && system.SysTypes.Length == 1 && system.SysTypes[0] == SType.Special){
+				system.Name = system.Planets[0].Name + " " + name;
+			} else {
+				system.Name = name;
+			}
+
 			return system;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
@@ -343,10 +424,10 @@ public class FileManager : TIOMonoBehaviour {
 			ArrayList planets = new ArrayList();
 			// Start of inner block
 			string line = reader.ReadLine().Trim ();
-			do {
+			while (line != "<}>") {
 				planets.Add (readPlanet(line, fileName, reader));
 				line = reader.ReadLine().Trim ();
-			} while (line != "<}>");
+			} 
 			// End of inner block
 			return (Planet[])planets.ToArray (typeof(Planet));
 		} else {
@@ -383,7 +464,6 @@ public class FileManager : TIOMonoBehaviour {
 					planet.TechSpecialties = readTechSpecsBlock( newDataType, newDataText, fileName, reader);
 				}
 				line = reader.ReadLine().Trim ();
-				
 			} while (line != "<}>");
 			// End of block
 			return planet;
@@ -1234,5 +1314,29 @@ public class FileManager : TIOMonoBehaviour {
 		} else {
 			return OType.Special;
 		}
-	}	
+	}
+
+	private SType stringToSType(string sysType) {
+		if (sysType == "Unattached") {
+			return SType.Unattached;
+		} else if (sysType == "Home") {
+			return SType.Home;
+		} else if (sysType == "Special") {
+			return SType.Special;
+		} else {
+			return SType.Fixed;
+		}
+	}
+
+	private Wormhole stringToWormhole(string wormhole) {
+		if (wormhole == "Alpha Wormhole") {
+			return Wormhole.Alpha;
+		} else if (wormhole == "Beta Wormhole") {
+			return Wormhole.Beta;
+		} else if (wormhole == "C Wormhole") {
+			return Wormhole.C;
+		} else {
+			return Wormhole.Delta;
+		}
+	}
 }

@@ -114,10 +114,11 @@ class Race:
 		return tuple(self._leaders)
 		
 class System:
-	def __init__(self, name, type):
+	def __init__(self, name, type, expansion = ''):
 		self._name = name
 		self._planets = []
 		self._type = type
+		self._expansion = expansion
 	
 	def __repr__(self):
 		return "System Object: {0}".format(self._name)
@@ -131,6 +132,9 @@ class System:
 	def getPlanets(self):
 		return tuple(self._planets)
 		
+	def getCount(self):
+		return self._count
+		
 	def addPlanetDetails(self, name, flavor, resources, influence, extras = []):
 		for planet in self._planets:
 			if planet == name:
@@ -138,13 +142,26 @@ class System:
 				self._planets.append(Planet(name, flavor, resources, influence, extras))
 				
 	def addWormholeDetails(self):
+		remove = []
+		add = []
 		for planet in self._planets:
-			if "Wormhole" in planet:
-				self._planets.remove(planet)
-				self._planets.append(Planet(planet, "", 0, 0))
+			if type(planet) is str:
+				if "Wormhole" in planet:
+					remove.append(planet)
+					add.append(Planet(planet, "", 0, 0))
+		for planet in remove:
+			self._planets.remove(planet)
+		for planet in add:
+			self._planets.append(planet)
 		
 	def getType(self):
 		return self._type
+		
+	def getExpansion(self):
+		return self._expansion
+		
+	def getOther(self):
+		return self._other
 		
 class Planet:
 	def __init__(self, name, flavor, resources, influence, extras=[]):
