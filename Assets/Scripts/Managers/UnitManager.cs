@@ -22,6 +22,7 @@ public class UnitManager : MonoBehaviour {
 	void Update () {
 		if (firstUpdate) {
 			setBasePrereqs();
+			firstUpdate = false;
 		}
 	}
 
