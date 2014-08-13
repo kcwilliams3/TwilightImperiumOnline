@@ -74,6 +74,7 @@ public class Unit {
 				carries = UCarry.Fighters;
 				capacity = 3;
 				abilities = new UAbility[1]{UAbility.Production};
+				maxQuantity = 3;
 				break;
 			case UType.Carrier:
 				cost = 3;
@@ -85,6 +86,7 @@ public class Unit {
 				ship = true;
 				carries = UCarry.Anything;
 				capacity = 6;
+				maxQuantity = 4;
 				break;
 			case UType.PDS:
 				cost = 2;
@@ -95,6 +97,7 @@ public class Unit {
 				ship = false;
 				carries = UCarry.Nothing;
 				abilities = new UAbility[1]{UAbility.PlanetaryShield};
+				maxQuantity = 6;
 				break;
 			case UType.Fighter:
 				cost = 1;
@@ -113,6 +116,7 @@ public class Unit {
 				fleetSupply = UFSupply.Always;
 				ship = true;
 				carries = UCarry.Leaders;
+				maxQuantity = 8;
 				break;
 			case UType.Destroyer:
 				cost = 1;
@@ -123,6 +127,7 @@ public class Unit {
 				fleetSupply = UFSupply.Always;
 				ship = true;
 				carries = UCarry.Leaders;
+				maxQuantity = 8;
 				abilities = new UAbility[1]{UAbility.AntiFighterBarrage};
 				break;
 			case UType.Dreadnought:
@@ -135,6 +140,7 @@ public class Unit {
 				ship = true;
 				carries = UCarry.Leaders;
 				abilities = new UAbility[2]{UAbility.SustainDamage, UAbility.Bombardment};
+				maxQuantity = 5;
 				break;
 		case UType.WarSun:
 				cost = 12;
@@ -145,6 +151,7 @@ public class Unit {
 				fleetSupply = UFSupply.Always;
 				ship = true;
 				carries = UCarry.Anything;
+				maxQuantity = 2;
 				break;
 			case UType.MechanizedUnit:
 				cost = 2;
@@ -155,6 +162,7 @@ public class Unit {
 				ship = false;
 				carries = UCarry.Nothing;
 				abilities = new UAbility[1]{UAbility.SustainDamage};
+				maxQuantity = 4;
 				break;
 		}
 	}

@@ -371,3 +371,29 @@ class Merc:
 		
 	def getMovement(self):
 		return self._movement
+		
+class Objective:
+	def __init__(self, name, expansions, type, text, reward):
+		self._name = name
+		self._expansions = expansions
+		self._type = type
+		self._text = text
+		self._reward = reward
+		
+	def __repr__(self):
+		return "Objective {0}".format(self._name)
+		
+	def getName(self):
+		return self._name
+		
+	def getExpansions(self):
+		return self._expansions
+		
+	def getType(self):
+		return self._type
+		
+	def getText(self):
+		return self._text
+		
+	def getReward(self):
+		return self._reward

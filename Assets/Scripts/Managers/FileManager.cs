@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Text;
 using System.IO;
@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class FileManager : TIOMonoBehaviour {
 
+	//TODO: After project is finished, get rid of these test/debug variables.
 	public Race testRace;
 	public ActionCard testActionCard;
 	public Merc testMerc;
@@ -83,6 +84,12 @@ public class FileManager : TIOMonoBehaviour {
 		string fullPath = procTextDir + gameManager.Language + "/mercenaries.timercs";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readMercFile (fullPath);
+	}
+
+	public Objective[] ReadObjectiveFile() {
+		string fullPath = procTextDir + gameManager.Language + "/objectives.tiobjs";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readObjectiveFile (fullPath);
 	}
 
 
@@ -176,6 +183,25 @@ public class FileManager : TIOMonoBehaviour {
 				reader.Close ();
 				
 				return mercs;
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
+
+	private Objective[] readObjectiveFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				Objective[] objs = readObjectivesBlock(fileName, reader);
+				
+				// Reading successfully finished
+				reader.Close ();
+				
+				return objs;
 			}
 		}
 		catch (System.Exception e) {
@@ -897,6 +923,100 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+	private Objective[] readObjectivesBlock(string fileName, StreamReader reader) {
+		
+		ArrayList objs = new ArrayList ();
+		
+		string line = reader.ReadLine().Trim ();
+		
+		do {
+			if (line == "<{>") {
+				// Start of an outermost block
+				objs.Add(readObjective("", line, fileName, reader));
+				
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				} 
+			}
+		} while (line == "<{>" && !reader.EndOfStream);
+		
+		return (Objective[])objs.ToArray(typeof(Objective));
+	}
+
+	private Objective readObjective(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			Objective obj = new Objective();
+			string line = reader.ReadLine().Trim ();
+			
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0].Trim ();
+				string newDataText = lineParts[1].Trim ();
+				
+				
+				if (newDataType == "Name") {
+					string nameString = readTextLine(newDataType, newDataText, fileName);
+					if (nameString != "") {
+						obj.Name = nameString;
+						obj.HasRealName = true;
+					}
+				} else if (newDataType == "Type") {
+					obj.Type = stringToOType(readTextLine (newDataType, newDataText, fileName));;
+				} else if (newDataType == "Expansions") {
+					obj.Expansions = readExpansionsBlock(newDataType, newDataText, fileName, reader);
+				} else if (newDataType == "Text") {
+					obj.Text = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Reward") {
+					string rewardText = readTextLine (newDataType, newDataText, fileName);
+					if (rewardText == "I WIN THE GAME") {
+						obj.RewardType = OReward.WIN;
+						obj.RewardQuantity = 0;
+					} else if (rewardText == "GAME OVER") {
+						obj.RewardType = OReward.GAMEOVER;
+						obj.RewardQuantity = 0;
+					} else {
+						obj.RewardType = OReward.VP;
+						obj.RewardQuantity = System.Convert.ToInt32(rewardText);
+					}
+				} 
+				
+				line = reader.ReadLine().Trim ();	
+			} while (line != "<}>");
+			// End of outermost block
+
+			if (obj.Name == default(string)) {
+				obj.Name = obj.Text;
+				obj.HasRealName = false;
+			}
+			
+			return obj;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private Expansion[] readExpansionsBlock(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			ArrayList expansions = new ArrayList ();
+			string line = reader.ReadLine().Trim ();
+
+			do {
+				// Start of an outermost block
+				expansions.Add(stringToExpansion(readTextLine("", line, fileName)));
+
+				line = reader.ReadLine ().Trim ();
+			} while (line != "<}>");
+		
+			return (Expansion[])expansions.ToArray(typeof(Expansion));
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
 
 	
 	/* 
@@ -1054,6 +1174,20 @@ public class FileManager : TIOMonoBehaviour {
 			return Option.DistantSuns;
 		} else {
 			return Option.TheFinalFrontier;
+		}
+	}
+
+	private OType stringToOType(string objType) {
+		if (objType == "Public Stage I") {
+			return OType.PublicStageI;
+		} else if (objType == "Public Stage II") {
+			return OType.PublicStageII;
+		} else if (objType == "Preliminary") {
+			return OType.Preliminary;
+		} else if (objType == "Secret") {
+			return OType.Secret;
+		} else {
+			return OType.Special;
 		}
 	}
 }

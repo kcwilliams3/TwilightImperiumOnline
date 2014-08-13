@@ -9,6 +9,7 @@ public class CardManager : MonoBehaviour {
 	//TODO: May not need these dictionaries. Decide.
 	private Dictionary<string, ActionCard> actionCards = new Dictionary<string, ActionCard>();
 	private Dictionary<string, Merc> mercs = new Dictionary<string, Merc>();
+	private Dictionary<string, Objective> objs = new Dictionary<string, Objective>();
 
 	// Decks
 	//TODO: After finished, get rid of debug arrays.
@@ -18,6 +19,9 @@ public class CardManager : MonoBehaviour {
 	[SerializeField]
 	private Merc[] mercDeckDebug;
 	private ArrayList mercDeck = new ArrayList();
+	[SerializeField]
+	private Objective[] objDeckDebug;
+	private ArrayList objDeck = new ArrayList ();
 
 	// Discard piles
 	//TODO: After finished, get rid of debug arrays.
@@ -41,8 +45,10 @@ public class CardManager : MonoBehaviour {
 
 		readActionCards ();
 		readMercCards ();
+		readObjCards ();
 		prepActionDeck ();
 		prepMercDeck ();
+		prepObjDeck ();
 	}
 	
 	// Update is called once per frame
@@ -63,6 +69,7 @@ public class CardManager : MonoBehaviour {
 
 		actionDeckDebug = (ActionCard[])actionDeck.ToArray (typeof(ActionCard));
 		mercDeckDebug = (Merc[])mercDeck.ToArray (typeof(Merc));
+		objDeckDebug = (Objective[])objDeck.ToArray (typeof(Objective));
 		actionDiscDebug = (ActionCard[])actionDisc.ToArray (typeof(ActionCard));
 		mercDiscDebug = (Merc[])mercDisc.ToArray (typeof(Merc));
 	}
@@ -93,6 +100,15 @@ public class CardManager : MonoBehaviour {
 		mercDeckDebug = new Merc[deckSize];
 	}
 
+	private void readObjCards(){
+		int deckSize = 0;
+		foreach (Objective obj in fileManager.ReadObjectiveFile()){
+			objs[obj.Name] = obj;
+			deckSize += 1;
+		}
+		objDeckDebug = new Objective[deckSize];
+	}
+
 	private void prepActionDeck() {
 		foreach (ActionCard actionCard in actionCards.Values) {
 			for (int j=0; j < actionCard.Quantity; j++) {
@@ -107,6 +123,12 @@ public class CardManager : MonoBehaviour {
 			mercDeck.Add(merc);
 		}
 		ShuffleMercDeck ();
+	}
+
+	private void prepObjDeck() {
+		foreach (Objective obj in objs.Values){
+			objDeck.Add(obj);
+		}
 	}
 
 	private void shuffleDeck<T>(ArrayList deck) {

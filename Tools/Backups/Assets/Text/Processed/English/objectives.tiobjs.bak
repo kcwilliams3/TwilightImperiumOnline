@@ -1,0 +1,604 @@
+<{>
+Name: 			Antagonist<;>
+Type: 			Preliminary<;>
+Expansions: 	<{>
+					Shards of the Throne<;>
+				<}>
+Text: 			I control a planet in a system adjacent to an enemy player's Home System. After completing this Objective, draw a Secret Objective.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Commander<;>
+Type: 			Preliminary<;>
+Expansions: 	<{>
+					Shards of the Throne<;>
+				<}>
+Text: 			I have all 5 of my Dreadnoughts on the game board. After completing this Objective, draw a Secret Objective.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Defender<;>
+Type: 			Preliminary<;>
+Expansions: 	<{>
+					Shards of the Throne<;>
+				<}>
+Text: 			I have all 6 of my PDS units on the game board. After completing this Objective, draw a Secret Objective.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Enemy<;>
+Type: 			Preliminary<;>
+Expansions: 	<{>
+					Shards of the Throne<;>
+				<}>
+Text: 			I have destroyed 2 enemy Cruisers this round. After completing this Objective, draw a Secret Objective.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Explorer<;>
+Type: 			Preliminary<;>
+Expansions: 	<{>
+					Shards of the Throne<;>
+				<}>
+Text: 			I control 2 systems adjacent to Mecatol Rex. After completing this Objective, draw a Secret Objective.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Infiltrator<;>
+Type: 			Preliminary<;>
+Expansions: 	<{>
+					Shards of the Throne<;>
+				<}>
+Text: 			I have destroyed at least 1 enemy ship in a system adjacent to its owner's Home System. After completing this Objective, draw a Secret Objective.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Invader<;>
+Type: 			Preliminary<;>
+Expansions: 	<{>
+					Shards of the Throne<;>
+				<}>
+Text: 			I control a planet that was controlled by an enemy player this round. After completing this Objective, draw a Secret Objective.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Researcher<;>
+Type: 			Preliminary<;>
+Expansions: 	<{>
+					Shards of the Throne<;>
+				<}>
+Text: 			I control at least 4 planets with a Technology specialty. After completing this Objective, draw a Secret Objective.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Scientist<;>
+Type: 			Preliminary<;>
+Expansions: 	<{>
+					Shards of the Throne<;>
+				<}>
+Text: 			I have 3 yellow Technology advances. After completing this Objective, draw a Secret Objective.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Traitor<;>
+Type: 			Preliminary<;>
+Expansions: 	<{>
+					Shards of the Throne<;>
+				<}>
+Text: 			I have attacked a player this round with whom I have a trade agreement. After completing this Objective, draw a Secret Objective.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I control 11 planets outside my Home System.<;>
+Reward: 		3<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I control the Mecatol Rex system and at least 3 systems adjacent to it. (I control a system if I have at least one (non-Fighter) ship there, and I control every planet in the system).<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I destroyed an opponent's Space Dock at the end of combat this turn.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I have 5 Technology Advances of the same color.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I have at least 4 (non-Fighter) ships in two different opponent's Home Systems.<;>
+Reward: 		I WIN THE GAME<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I now spend 20 resources or 20 influence.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I now spend 6 Command Counters from my Command and/or Strategy Allocation areas.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I successfully invaded two planets, each containing at least 1 opposing Ground Force, this turn.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I won two Space Battles this turn, each in different systems and against at least 3 opposing ships.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Domination!<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control all the planets in the Home Systems of two other players.<;>
+Reward: 		I WIN THE GAME<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control 10 planets outside my Home System.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control planets with a combined total influence greater than the combined total influence of all the planets controlled by my two neighbors (the player to my immediate right and my immediate left).<;>
+Reward: 		3<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control the Mecatol Rex system and all systems adjacent to it. (I "control" a system if I have at least one (non-Fighter) ship there, and I control every planet in the system.)<;>
+Reward: 		3<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I have at least 9 Technology Advances.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I now spend 12 Trade Goods.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I now spend 20 influence.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I now spend 20 resources.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Imperium Rex<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Vanilla<;>
+					Shattered Empire<;>
+				<}>
+Text: 			As soon as this card is revealed, the game ends immediately. The player with the most victory points wins the game.<;>
+Reward: 		GAME OVER<;>
+<}>
+<{>
+Name: 			Supremacy!<;>
+Type: 			Public Stage II<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control 18 planets outside my Home System<;>
+Reward: 		I WIN THE GAME<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I am blockading an opponent's Space Dock.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I control Mecatol Rex.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I control planets with a total influence greater than the player to my immediate right and greater than the player to my immediate left.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I have more than one Technology Advance in 3 different colors.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I now spend 10 resources or 10 influence.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I now spend 3 Command Counters from my Command and/or Strategy Allocation areas.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I now spend 4 Trade Goods, 3 resources, and 3 influence.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I successfully invaded one planet containing at least 1 opposing Ground Force this turn.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I took control of 3 planets this turn.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I won a Space Battle against at least 3 opposing ships in one system this turn.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			All three of my Space Docks are on the board.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control 5 planets outside my Home System.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control the planets needed to have at least one of each of the 3 technology specialties.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I have 3 Technology Advances of the same color.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I have 5 Technology Advances.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I have Technology Advances in all 4 colors.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I have controlled Mecatol Rex the entire Strategy Phase and Action Phase of this round.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I now spend 10 influence.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I now spend 10 resources.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			<;>
+Type: 			Public Stage I<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I now spend 6 Trade Goods.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Expansionist<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I control 8 systems outside of my Home System. (I "control" a system if I have at least one (non-Fighter) ship there, and I control every planet in the system.)<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Regulator<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I destroyed Space Docks controlled by two different players this turn.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Threatening<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I control systems adjacent to 2 different player's Home Systems. (I "control" a system if I have at least one (non-Fighter) ship there, and I control every planet in the system.)<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Conqueror<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control all the planets in another player's Home System.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Diversified<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control Mecatol Rex; I have a Space Dock here, and I have at least 2 Technology Advances in each of three different colors.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Focused<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control at least 4 planets with the same technology specialty.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Forceful<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control Mecatol Rex; I have a Space Dock here, and at least 4 Dreadnoughts in the Mecatol Rex system.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Industrial<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control Mecatol Rex, and I have all 3 of my Space Docks and all 5 of my Dreadnoughts on the board.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Keeper of Gates<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I have at least 1 (non-Fighter) ship in every system containing a wormhole.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Master of Ships<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control Mecatol Rex, I have a Space Dock here, and at least 8 (non-Fighter) ships in the Mecatol Rex system.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Merciless<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			This turn, I successfully took control of my neighbor's planet that held his last Space Dock on the board. (My neighbor is another player directly to my right or left.)<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Technocrat<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control at least 6 planets with a technology specialty.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Usurper<;>
+Type: 			Secret<;>
+Expansions: 	<{>
+					Vanilla<;>
+				<}>
+Text: 			I control Mecatol Rex; I have a Space Dock and at least 6 Ground Forces here.<;>
+Reward: 		2<;>
+<}>
+<{>
+Name: 			Ancient Shipwreck<;>
+Type: 			Special<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I control the planet containing the Ancient Shipwreck.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Imperial Datacache<;>
+Type: 			Special<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I control the planet containing the Imperial Datacache.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Lazax Armory<;>
+Type: 			Special<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I control the planet containing the Lazax Armory.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Precursor Fossil<;>
+Type: 			Special<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			I control the planet containing the Precursor Fossil.<;>
+Reward: 		1<;>
+<}>
+<{>
+Name: 			Voice of the Council<;>
+Type: 			Special<;>
+Expansions: 	<{>
+					Shattered Empire<;>
+				<}>
+Text: 			Before using the primary ability of the Political or Assembly Strategy, its owner may call for a vote to see who gains control of this Objective.<;>
+Reward: 		1<;>
+<}>

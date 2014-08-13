@@ -1,25 +1,25 @@
-# processtechnologies.py
+# processobjectives.py
 #
-# Reads the raw text data relating to non-racial technologies
+# Reads the raw text data relating to objectives
 # and saves it in the format that will be read by the game.
 #
-# Current output format options: .titechs (basically just a .txt file with a specific format)
+# Current output format options: .tiobjs (basically just a .txt file with a specific format)
 #
 # Written by Kaleb Williams as part of Twilight Imperium Online project
 #
-# Usage: processtechnologies.py <language=english || ...>
+# Usage: processobjectives.py <language=english || ...>
 
 import shutil
 import os
 import sys
 import math
 import string
-from libs.inputClasses import Technology
+from libs.inputClasses import Objective
 from libs.exceptions import UsageError
 from libs.syntaxAssertions import *
 
 acceptedLanguages = ["english"]
-outFormat = ".titechs"
+outFormat = ".tiobjs"
 tabSize = 4
 firstValueCol = 3
 secondValueCol = firstValueCol + 1
@@ -35,7 +35,7 @@ def checkUsage():
 		if sys.argv[1] not in acceptedLanguages:
 			raise UsageError
 	except UsageError as e:
-		print("UsageError: processtechnologies.py <language=english || ...>")
+		print("UsageError: processobjectives.py <language=english || ...>")
 		
 ################################################################
 #	File read section
@@ -50,34 +50,37 @@ def readFolders():
 
 def readAll(inFolder):
 	#Reads in the data from the input file and returns a
-	# dictionary of Action objects
+	# dictionary of Objective objects
 	
 	#Set file name
 	path = inFolder + sys.argv[1].lower().capitalize() + '/'
-	fileName = path + "technologies.txt"
+	fileName = path + "objectives.txt"
 	
-	techCards = {}
+	objectives = {}
 	
-	with open(fileName, 'r') as techsFile:
+	with open(fileName, 'r') as objectivesFile:
 		lineNumber = 3
-		sections = techsFile.read().split(26*"-")
+		sections = objectivesFile.read().split(26*"-")
 		sections = [section for section in sections if section] #Remove empty sections
 		for section in sections:
-			# Each section is a technology group (color)
+			# Each section is an objective type
 			blocks = section.split("\n\n")
 			blocks = [block for block in blocks if block] #Remove empty blocks
 				
-			sectionHeader = blocks[0]; # Designates which color the tech group is
-			color = sectionHeader.split(' ')[0].strip()
+			sectionHeader = blocks[0]; # Designates which objective type the group is
+			typeParts = sectionHeader.split(', ')
+			type = typeParts[0].split(' ')[0].strip()
+			if len(typeParts) > 1:
+				type += " " + typeParts[1]
 			blocks.remove(blocks[0]);
 			
 			
-			techName = '' 
-			expansion = ''
-			prerequisites = []
+			objName = '' 
+			expansions = []
 			text = ''
+			reward = ''
 			for block in blocks:
-				# Each block is a technology card
+				# Each block is an objective card
 				
 				lines = block.split("\n")
 				lines = [line for line in lines if line] #Remove empty lines
@@ -85,42 +88,33 @@ def readAll(inFolder):
 				for i in range(0,len(lines)):
 					line = lines[i]
 
-					if i == 0:
-						#Tech Name
-						techName = line.strip()
-						assertNotEmpty(techName, fileName, lineNumber)
-						assertNotSeparator(techName, fileName, lineNumber)
-					elif i == 1:
-						#Expansion
-						expansion = line.strip()
-						assertNotEmpty(expansion, fileName, lineNumber)
-						assertNotSeparator(expansion, fileName, lineNumber)
-					elif i == 2:
-						#Prerequisites
-						line = line.strip().split(":")[1].strip()
-						prerequisites = line.strip().split(" AND ")
-						if len(prerequisites) > 1:
-							prerequisites.insert(1,"AND");
-						else:
-							prerequisites = line.strip().split(" OR ")
-							if len(prerequisites) > 1:
-								prerequisites.insert(1,"OR");
-						if "None" in prerequisites:
-							prerequisites.remove("None")
-						for element in prerequisites:
-							assertNotEmpty(element, fileName, lineNumber)
-							assertNotSeparator(element, fileName, lineNumber)
-					else:
+					if i == 0 and len(lines) == 4:
+						#Objective Name
+						objName = line.strip()
+						assertNotEmpty(objName, fileName, lineNumber)
+						assertNotSeparator(objName, fileName, lineNumber)
+					elif (i == 1 and len(lines) == 4) or (i == 0 and len(lines) == 3):
 						#Text
 						text = line.strip()
 						assertNotEmpty(text, fileName, lineNumber)
-						assertNotSeparator(text, fileName, lineNumber)	
+						assertNotSeparator(text, fileName, lineNumber)
+					elif (i == 2 and len(lines) == 4) or (i == 1 and len(lines) == 3):
+						#Expansions
+						expansions = line.strip().split(", ")
+						for expansion in expansions:
+							assertNotEmpty(expansion, fileName, lineNumber)
+							assertNotSeparator(expansion, fileName, lineNumber)
+					else:
+						#Reward
+						reward = line.strip()
+						assertNotEmpty(reward, fileName, lineNumber)
+						assertNotSeparator(reward, fileName, lineNumber)	
 					lineNumber += 1
 				lineNumber += 1
-				techCard = Technology(techName, color, expansion, prerequisites, text)
-				techCards[techCard.getName()] = techCard
+				objective = Objective(objName, expansions, type, text, reward)
+				objectives[objective.getType() + objective.getExpansions()[0] + objective.getName() + objective.getText()] = objective
 			lineNumber += 1
-	return techCards
+	return objectives
 
 ################################################################
 #	File write section
@@ -145,36 +139,36 @@ def getSpaceBeforeCol(col,preString,file):
 def getStringAtCol(string,col,preString,file):
 	return preString + getSpaceBeforeCol(col, preString,file) + string
 
-def writeName(tech, file):
-	file.write(getStringAtCol(tech.getName()+lineEnd, firstValueCol, "Name: ", file))
+def writeName(obj, file):
+	file.write(getStringAtCol(obj.getName()+lineEnd, firstValueCol, "Name: ", file))
 	
-def writeExpansion(tech, file):
-	file.write(getStringAtCol(tech.getExpansion()+lineEnd, firstValueCol, "Expansion: ", file))
-	
-def writeColor(tech, file):
-	file.write(getStringAtCol(tech.getColor()+lineEnd, firstValueCol, "Color: ", file))
-	
-def writePrerequisites(tech, file):
-	file.write(getStringAtCol(blockStart, firstValueCol, "Requires: ", file))
-	for element in tech.getRequirements():
-		file.write(getStringAtCol(element+lineEnd, secondValueCol, '', file))
+def writeExpansions(obj, file):
+	file.write(getStringAtCol(blockStart, firstValueCol, "Expansions: ", file))
+	for expansion in obj.getExpansions():
+		file.write(getStringAtCol(expansion+lineEnd, secondValueCol, '', file))
 	file.write(getStringAtCol(blockEnd, firstValueCol, '', file))
 	
-def writeText(tech, file):
-	file.write(getStringAtCol(tech.getText()+lineEnd, firstValueCol, "Text: ", file))
+def writeType(obj, file):
+	file.write(getStringAtCol(obj.getType()+lineEnd, firstValueCol, "Type: ", file))
 	
-def writeOne(tech, file):
-	if outFormat == ".titechs":
+def writeReward(obj, file):
+	file.write(getStringAtCol(obj.getReward()+lineEnd, firstValueCol, "Reward: ", file))
+	
+def writeText(obj, file):
+	file.write(getStringAtCol(obj.getText()+lineEnd, firstValueCol, "Text: ", file))
+	
+def writeOne(obj, file):
+	if outFormat == ".tiobjs":
 		file.write(blockStart)
-		writeName(tech, file)
-		writeColor(tech, file)
-		writeExpansion(tech, file)
-		writePrerequisites(tech, file)
-		writeText(tech, file)
+		writeName(obj, file)
+		writeType(obj, file)
+		writeExpansions(obj, file)
+		writeText(obj, file)
+		writeReward(obj, file)
 		file.write(blockEnd)
 	#No other formats currently implemented
 	
-def writeAll(techCards, outFolder):
+def writeAll(objectives, outFolder):
 	#Takes in a dictionary of Action objects and writes them to file
 	
 	#Make sure directories exist
@@ -182,22 +176,22 @@ def writeAll(techCards, outFolder):
 	if not os.path.exists(path):
 		os.makedirs(path)
 	
-	outFileName = "technologies" + outFormat
+	outFileName = "objectives" + outFormat
 	outFileLoc = path + outFileName
-	tempFileName = "technologiestemp.tmp"
+	tempFileName = "objectivestemp.tmp"
 	fileMode = 'w'
 	first = True
 	with open(tempFileName, fileMode) as outFile:
-		for techName in sorted(techCards):
-			tech = techCards[techName]
-			writeOne(tech, outFile)
+		for objTNameText in sorted(objectives):
+			obj = objectives[objTNameText]
+			writeOne(obj, outFile)
 	if not os.path.exists("./Backups/"+path[3:]):
 		os.makedirs("./Backups/"+path[3:])
 	#Save old file as a backup
 	if os.path.exists(path+"/"+outFileName):
 		shutil.move(path+"/"+outFileName,"./Backups/"+path[3:]+outFileName+".bak")
 	#Replace old file with temp file
-	shutil.move("technologiestemp.tmp",path+"/"+outFileName)
+	shutil.move(tempFileName,path+"/"+outFileName)
 	
 ################################################################
 #	Main program flow section
@@ -206,7 +200,7 @@ def writeAll(techCards, outFolder):
 def main():
 	checkUsage()
 	inFolder, outFolder = readFolders()
-	techCards = readAll(inFolder)
-	writeAll(techCards, outFolder)
+	objectives = readAll(inFolder)
+	writeAll(objectives, outFolder)
 	
 main()
