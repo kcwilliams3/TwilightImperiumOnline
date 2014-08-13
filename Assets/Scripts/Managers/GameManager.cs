@@ -17,7 +17,10 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		Activate (Option.AllObjectives);
+		Activate (Option.PreliminaryObjectives);
+		Activate (Option.Artifacts);
+		Activate (Option.VoiceOfTheCouncil);
 	}
 	
 	// Update is called once per frame

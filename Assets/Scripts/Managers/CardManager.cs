@@ -20,8 +20,17 @@ public class CardManager : MonoBehaviour {
 	private Merc[] mercDeckDebug;
 	private ArrayList mercDeck = new ArrayList();
 	[SerializeField]
-	private Objective[] objDeckDebug;
-	private ArrayList objDeck = new ArrayList ();
+	private Objective[] pubObjDeckDebug;
+	private ArrayList pubObjDeck = new ArrayList ();
+	[SerializeField]
+	private Objective[] prelimObjsDebug;
+	private ArrayList prelimObjs = new ArrayList ();
+	[SerializeField]
+	private Objective[] secretObjsDebug;
+	private ArrayList secretObjs = new ArrayList ();
+	[SerializeField]
+	private Objective[] specialObjsDebug;
+	private ArrayList specialObjs = new ArrayList ();
 
 	// Discard piles
 	//TODO: After finished, get rid of debug arrays.
@@ -38,40 +47,36 @@ public class CardManager : MonoBehaviour {
 	private int updateCounter = 0;
 
 	private FileManager fileManager;
+	private GameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
 		fileManager = GetComponent<FileManager>();
+		gameManager = GetComponent<GameManager>();
 
 		readActionCards ();
 		readMercCards ();
 		readObjCards ();
 		prepActionDeck ();
 		prepMercDeck ();
-		prepObjDeck ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-//		if (updateCounter == 0) {
-//			testcard = (ActionCard)actionDeck[0];
-//			Debug.Log ("Searching for " + testcard.Name);
-//		} else if (updateCounter % 100 == 0) {
-//			ActionCard card = SearchForAction (testcard);
-//			if (card != default(ActionCard)) {
-//				Debug.Log (card.Name);
-//			}
-//			else {
-//				Debug.Log ("Not found!");
-//			}
-//		} 
+		if (updateCounter == 0) {
+			prepObjectives ();
+		} 
 		updateCounter ++;
 
 		actionDeckDebug = (ActionCard[])actionDeck.ToArray (typeof(ActionCard));
 		mercDeckDebug = (Merc[])mercDeck.ToArray (typeof(Merc));
-		objDeckDebug = (Objective[])objDeck.ToArray (typeof(Objective));
 		actionDiscDebug = (ActionCard[])actionDisc.ToArray (typeof(ActionCard));
 		mercDiscDebug = (Merc[])mercDisc.ToArray (typeof(Merc));
+
+		pubObjDeckDebug = (Objective[])pubObjDeck.ToArray (typeof(Objective));
+		prelimObjsDebug = (Objective[])prelimObjs.ToArray (typeof(Objective));
+		secretObjsDebug = (Objective[])secretObjs.ToArray (typeof(Objective));
+		specialObjsDebug = (Objective[])specialObjs.ToArray (typeof(Objective));
 	}
 
 	public ActionCard getActionCard(string actionCardName) {
@@ -101,12 +106,9 @@ public class CardManager : MonoBehaviour {
 	}
 
 	private void readObjCards(){
-		int deckSize = 0;
 		foreach (Objective obj in fileManager.ReadObjectiveFile()){
 			objs[obj.Name] = obj;
-			deckSize += 1;
 		}
-		objDeckDebug = new Objective[deckSize];
 	}
 
 	private void prepActionDeck() {
@@ -125,9 +127,97 @@ public class CardManager : MonoBehaviour {
 		ShuffleMercDeck ();
 	}
 
-	private void prepObjDeck() {
+	private void prepObjectives() {
+		//Accumulate all valid objectives (based on game options)
+		ArrayList validStageIObjectives = new ArrayList();
+		ArrayList validStageIIObjectives = new ArrayList();
+		Objective imperiumRexCard = new Objective();
 		foreach (Objective obj in objs.Values){
-			objDeck.Add(obj);
+			switch (obj.Type) {
+				case OType.PublicStageI:
+					if (validPublicObjective(obj)) {
+						// Valid Stage I Public Objective
+						validStageIObjectives.Add (obj);
+					}
+					break;
+				case OType.PublicStageII:
+					if (validPublicObjective(obj)) {
+						// Valid Stage II Public Objective
+						if (obj.Name == "Imperium Rex") {
+							imperiumRexCard = obj;
+						} else {
+							validStageIIObjectives.Add (obj);
+						}
+					}
+					break;
+				case OType.Preliminary:
+					if (gameManager.Active (Option.PreliminaryObjectives)) {
+						// Prelim Objective & using Prelim Objectives
+						prelimObjs.Add (obj);
+					}
+					break;
+				case OType.Secret:
+					// Secret Objectives (always used)
+					secretObjs.Add (obj);
+					break;
+				case OType.Special:
+					if (validSpecialObjective(obj)) {
+						// Valid Special Objective
+						specialObjs.Add(obj);
+					}
+					break;
+			}
+		}
+
+		// Build Public Objectives deck
+		//		Choose Stage I objectives
+		ArrayList stageIdeck = new ArrayList();
+		shuffleDeck<Objective>(validStageIObjectives);
+		while (stageIdeck.Count < 6) {
+			stageIdeck.Add (drawCard<Objective>(validStageIObjectives));
+		}
+		shuffleDeck<Objective>(stageIdeck);
+		//		Choose Stage II objectives
+		ArrayList stageIIdeck = new ArrayList();
+		stageIIdeck.Add (imperiumRexCard);
+		shuffleDeck<Objective>(validStageIIObjectives);
+		while (stageIIdeck.Count < 4) {
+			stageIIdeck.Add (drawCard<Objective>(validStageIIObjectives));
+		}
+		shuffleDeck<Objective>(stageIIdeck);
+		//		Combine into one Public Objectives deck
+		pubObjDeck.AddRange(stageIdeck);
+		pubObjDeck.AddRange(stageIIdeck);
+	}
+
+	private bool validPublicObjective(Objective obj) {
+		if (gameManager.Active(Option.AllObjectives)) {
+			return true;
+		} else if (gameManager.Active (Option.SEObjectives)) {
+			foreach(Expansion exp in obj.Expansions) {
+				if (exp == Expansion.ShatteredEmpire) {
+					return true;
+				}
+			}
+		} else {
+			foreach(Expansion exp in obj.Expansions) {
+				if (exp == Expansion.Vanilla) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private bool validSpecialObjective(Objective obj) {
+		if (gameManager.Active (Option.Artifacts) && (obj.Name == "Lazax Armory" || obj.Name == "Precursor Fossil" || obj.Name == "Ancient Shipwreck" || obj.Name == "Imperial Datacache")) {
+			// Artifact & using the artifacts option
+			return true;
+		} else if (gameManager.Active (Option.VoiceOfTheCouncil) && (obj.Name == "Voice of the Council")) {
+			// Voice of the Council & using the VotC option
+			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -146,6 +236,12 @@ public class CardManager : MonoBehaviour {
 
 	public void ShuffleMercDeck() {
 		shuffleDeck<Merc> (mercDeck);
+	}
+
+	private T drawCard<T>(ArrayList deck) {
+		T card = (T)deck [0];
+		deck.Remove (card);
+		return card;
 	}
 
 	private T drawCard<T>(ArrayList deck, ArrayList discPile) {
