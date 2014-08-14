@@ -27,7 +27,7 @@ public class BoardManager : MonoBehaviour {
 	void Update () {
 		if (first) {
 			first = false;
-			DealSystems (5);
+			//DealSystems (5);
 		}
 	}
 
