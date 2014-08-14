@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class BoardManager : MonoBehaviour {
+public class BoardManager : TIOMonoBehaviour {
 
 	//TODO: May not need these dictionaries. Decide.
 	private Dictionary<string, PlanetSystem> systems = new Dictionary<string, PlanetSystem>();

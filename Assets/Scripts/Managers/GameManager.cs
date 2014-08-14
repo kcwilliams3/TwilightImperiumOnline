@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public enum Expansion {Vanilla, ShatteredEmpire, ShardsOfTheThrone};
 public enum Option {DistantSuns, TheFinalFrontier, TheLongWar, AgeOfEmpire, Leaders, SabotageRuns, SEObjectives, AllObjectives, RaceSpecificTechnologies, Artifacts, ShockTroops, SpaceMines, WormholeNexus, Facilities, TacticalRetreats, TerritorialDistantSuns, CustodiansOfMecatolRex, VoiceOfTheCouncil, SimulatedEarlyTurns, PreliminaryObjectives, Flagships, MechanizedUnits, Mercenaries, PoliticalIntrigue, FallOfTheEmpire};
 
-public class GameManager : MonoBehaviour {
+public class GameManager : TIOMonoBehaviour {
 
 	private string language = "English";
 	public string Language { get { return language; } }

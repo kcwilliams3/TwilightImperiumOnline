@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ComponentManager : MonoBehaviour {
+public class ComponentManager : TIOMonoBehaviour {
 
 	//Maximum Component Counts
 	private int maxCommandCounters = 16;

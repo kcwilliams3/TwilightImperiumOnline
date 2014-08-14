@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class UnitManager : MonoBehaviour {
+public class UnitManager : TIOMonoBehaviour {
 
 	//TODO: May not need these dictionaries. Decide.
 	private Dictionary<UType, Unit> baseStats = new Dictionary<UType, Unit>();

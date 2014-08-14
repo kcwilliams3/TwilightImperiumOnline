@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class TechManager : MonoBehaviour {
+public class TechManager : TIOMonoBehaviour {
 
 	private Dictionary<string, Tech> techs = new Dictionary<string, Tech>();
 	private FileManager fileManager;

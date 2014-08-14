@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class CardManager : MonoBehaviour {
+public class CardManager : TIOMonoBehaviour {
 
 	// Card directories
 	//TODO: May not need these dictionaries. Decide.
