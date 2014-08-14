@@ -1,0 +1,30 @@
+<{>
+Name: 			Monetary Concession<;>
+Flavor Text: 	"What do you desire? Money? If you support me, I'll drown you in riches!"<;>
+Play Text: 		As an action.<;>
+Rule Text: 		You may force me to give you all my Trade Goods.<;>
+<}>
+<{>
+Name: 			Promise of Protection<;>
+Flavor Text: 	"My spies and assassins are at your disposal."<;>
+Play Text: 		After I target a Representative with a Spy.<;>
+Rule Text: 		You may force me to target a different Representative.<;>
+<}>
+<{>
+Name: 			Support of the Throne<;>
+Flavor Text: 	"Support me today, and I will support your claim for the galaxy!"<;>
+Play Text: 		<;>
+Rule Text: 		You require 1 less victory point in order to win the game.<;>
+<}>
+<{>
+Name: 			Territorial Concession<;>
+Flavor Text: 	"I'll repay your loyalty with any system of your choice... and all its inhabitants."<;>
+Play Text: 		At the start of a combat round in Space Battle.<;>
+Rule Text: 		You may force me to retreat from the battle.<;>
+<}>
+<{>
+Name: 			Voting Concession<;>
+Flavor Text: 	"You know you're going to need my support in the future. I promise to be your pawn if you support me."<;>
+Play Text: 		During the Bargaining step of a Council.<;>
+Rule Text: 		You may force me to vote in your favor.<;>
+<}>

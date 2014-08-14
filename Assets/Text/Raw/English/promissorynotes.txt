@@ -1,10 +1,12 @@
 Monetary Concession
 "What do you desire? Money? If you support me, I'll drown you in riches!"
-Play as an action: You may force me to give you all my Trade Goods.
+Play as an action: 
+You may force me to give you all my Trade Goods.
 
 Promise of Protection
 "My spies and assassins are at your disposal."
-Play after I target a Representative with a Spy: You may force me to target a different Representative.
+Play after I target a Representative with a Spy: 
+You may force me to target a different Representative.
 
 Support of the Throne
 "Support me today, and I will support your claim for the galaxy!"
@@ -17,4 +19,5 @@ You may force me to retreat from the battle.
 
 Voting Concession
 "You know you're going to need my support in the future. I promise to be your pawn if you support me."
-Play during the Bargaining step of a Council: You may force me to vote in your favor.
+Play during the Bargaining step of a Council: 
+You may force me to vote in your favor.

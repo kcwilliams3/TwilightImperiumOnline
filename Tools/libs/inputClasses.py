@@ -448,3 +448,25 @@ class PoliticalCard:
 	def addRuleText(self, text):
 		self._ruleText.append(text);
 		
+class PromissoryNote:
+	def __init__(self, name, flavorText, playText, ruleText):
+		self._name = name
+		self._flavorText = flavorText
+		self._playText = playText
+		self._ruleText = ruleText
+		
+	def __repr__(self):
+		return "PromissoryNote {0}".format(self._name)
+		
+	def getName(self):
+		return self._name
+		
+	def getFlavorText(self):
+		return self._flavorText
+		
+	def getPlayText(self):
+		return self._playText
+		
+	def getRuleText(self):
+		return self._ruleText
+		

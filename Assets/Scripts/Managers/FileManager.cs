@@ -123,6 +123,12 @@ public class FileManager : TIOMonoBehaviour {
 		return readPoliticalFile (fullPath);
 	}
 
+	public PromissoryNote[] ReadPromissoryFile() {
+		string fullPath = procTextDir + gameManager.Language + "/promissoryNotes.tiproms";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readPromissoryFile (fullPath);
+	}
+
 
 	/*
 	 * Specific File Readers
@@ -271,6 +277,25 @@ public class FileManager : TIOMonoBehaviour {
 				reader.Close ();
 				
 				return politicalCards;
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
+
+	private PromissoryNote[] readPromissoryFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				PromissoryNote[] promissoryNotes = readPromissoryBlock(fileName, reader);
+				
+				// Reading successfully finished
+				reader.Close ();
+				
+				return promissoryNotes;
 			}
 		}
 		catch (System.Exception e) {
@@ -1259,6 +1284,59 @@ public class FileManager : TIOMonoBehaviour {
 			} while (line != "<}>");
 		
 			return (Expansion[])expansions.ToArray(typeof(Expansion));
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private PromissoryNote[] readPromissoryBlock(string fileName, StreamReader reader) {
+		
+		ArrayList notes = new ArrayList ();
+		
+		string line = reader.ReadLine().Trim ();
+		
+		do {
+			if (line == "<{>") {
+				// Start of an outermost block
+				notes.Add(readPNote("", line, fileName, reader));
+				
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				} 
+			}
+		} while (line == "<{>" && !reader.EndOfStream);
+		
+		return (PromissoryNote[])notes.ToArray(typeof(PromissoryNote));
+	}
+	
+	private PromissoryNote readPNote(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			PromissoryNote note = new PromissoryNote();
+			string line = reader.ReadLine().Trim ();
+			
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0].Trim ();
+				string newDataText = lineParts[1].Trim ();
+				
+				if (newDataType == "Name") {
+					note.Name = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Flavor Text") {
+					note.FlavorText = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Rule Text") {
+					note.RulesText = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Play Text") {
+					note.PlayText = readTextLine(newDataType, newDataText, fileName);
+				}
+				line = reader.ReadLine().Trim ();
+			} while (line != "<}>");
+			// End of outermost block
+			
+			return note;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}
