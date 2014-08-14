@@ -172,19 +172,19 @@ public class CardManager : MonoBehaviour {
 		// Build Public Objectives deck
 		//		Choose Stage I objectives
 		ArrayList stageIdeck = new ArrayList();
-		shuffleDeck<Objective>(validStageIObjectives);
+		ShuffleDeck<Objective>(validStageIObjectives);
 		while (stageIdeck.Count < 6) {
-			stageIdeck.Add (drawCard<Objective>(validStageIObjectives));
+			stageIdeck.Add (DrawCard<Objective>(validStageIObjectives));
 		}
-		shuffleDeck<Objective>(stageIdeck);
+		ShuffleDeck<Objective>(stageIdeck);
 		//		Choose Stage II objectives
 		ArrayList stageIIdeck = new ArrayList();
 		stageIIdeck.Add (imperiumRexCard);
-		shuffleDeck<Objective>(validStageIIObjectives);
+		ShuffleDeck<Objective>(validStageIIObjectives);
 		while (stageIIdeck.Count < 4) {
-			stageIIdeck.Add (drawCard<Objective>(validStageIIObjectives));
+			stageIIdeck.Add (DrawCard<Objective>(validStageIIObjectives));
 		}
-		shuffleDeck<Objective>(stageIIdeck);
+		ShuffleDeck<Objective>(stageIIdeck);
 		//		Combine into one Public Objectives deck
 		pubObjDeck.AddRange(stageIdeck);
 		pubObjDeck.AddRange(stageIIdeck);
@@ -221,7 +221,7 @@ public class CardManager : MonoBehaviour {
 		}
 	}
 
-	private void shuffleDeck<T>(ArrayList deck) {
+	public void ShuffleDeck<T>(ArrayList deck) {
 		for (int i=deck.Count-1; i > 0; i--) {
 			int targetIndex = Random.Range(0,i+1);
 			T tempCard = (T)deck[i];
@@ -231,20 +231,20 @@ public class CardManager : MonoBehaviour {
 	}
 
 	public void ShuffleActionDeck() {
-		shuffleDeck<ActionCard> (actionDeck);
+		ShuffleDeck<ActionCard> (actionDeck);
 	}
 
 	public void ShuffleMercDeck() {
-		shuffleDeck<Merc> (mercDeck);
+		ShuffleDeck<Merc> (mercDeck);
 	}
 
-	private T drawCard<T>(ArrayList deck) {
+	public T DrawCard<T>(ArrayList deck) {
 		T card = (T)deck [0];
 		deck.Remove (card);
 		return card;
 	}
 
-	private T drawCard<T>(ArrayList deck, ArrayList discPile) {
+	private T DrawCard<T>(ArrayList deck, ArrayList discPile) {
 		if (deck.Count > 0) {
 			T card = (T)deck [0];
 			deck.Remove (card);
@@ -252,17 +252,17 @@ public class CardManager : MonoBehaviour {
 		} else {
 			deck.AddRange(discPile);
 			discPile.RemoveRange(0, discPile.Count);
-			shuffleDeck<T>(deck);
-			return drawCard<T>(deck, discPile);
+			ShuffleDeck<T>(deck);
+			return DrawCard<T>(deck, discPile);
 		}
 	}
 
 	public ActionCard DrawActionCard() {
-		return drawCard<ActionCard>(actionDeck, actionDisc);
+		return DrawCard<ActionCard>(actionDeck, actionDisc);
 	}
 
 	public Merc DrawMerc() {
-		return drawCard<Merc>(mercDeck, mercDisc);
+		return DrawCard<Merc>(mercDeck, mercDisc);
 	}
 
 	private T discardCard<T>(T card, ArrayList discPile) {

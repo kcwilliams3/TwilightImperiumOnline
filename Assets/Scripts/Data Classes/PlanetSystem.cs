@@ -15,7 +15,7 @@ public class PlanetSystem {
 	private string name;
 	public string Name { get { return name; } set { if (!isLocked[0]) { name = value; isLocked[0] = true; } else { Debug.Log("PlanetSystem: Attempted to set locked property Name."); } } }
 	[SerializeField]
-	private SType[] sysTypes;
+	private SType[] sysTypes = new SType[0];
 	public SType[] SysTypes { get { return sysTypes; } set { if (!isLocked[1]) { sysTypes = value; isLocked[1] = true; } else { Debug.Log("PlanetSystem: Attempted to set locked property SysTypes."); } } }
 	[SerializeField]
 	private Planet[] planets;
@@ -35,5 +35,45 @@ public class PlanetSystem {
 		for (int i=0; i<TIGameProperties; i++) {
 			isLocked[i] = false;
 		}
+	}
+
+	public bool isUnattached() {
+		foreach(SType sysType in sysTypes) {
+			if (sysType == SType.Unattached) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public bool isFixed() {
+		foreach(SType sysType in sysTypes) {
+			if (sysType == SType.Fixed) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public bool isSpecial() {
+		foreach(SType sysType in sysTypes) {
+			if (sysType == SType.Special) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public bool isHome() {
+		foreach(SType sysType in sysTypes) {
+			if (sysType == SType.Home) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public bool isEmpty() {
+		return planets.Length == 0;
 	}
 }

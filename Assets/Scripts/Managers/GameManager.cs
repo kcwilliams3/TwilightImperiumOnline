@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 		Activate (Option.AllObjectives);
 		Activate (Option.PreliminaryObjectives);
 		Activate (Option.Artifacts);
-		Activate (Option.VoiceOfTheCouncil);
+		Activate (Option.WormholeNexus);
 	}
 	
 	// Update is called once per frame

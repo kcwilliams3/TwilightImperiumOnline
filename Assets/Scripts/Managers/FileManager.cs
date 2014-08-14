@@ -55,10 +55,10 @@ public class FileManager : TIOMonoBehaviour {
 			testRaces[14] = ReadRaceFile ("Xxcha");
 			testRaces[15] = ReadRaceFile ("Yin");
 			testRaces[16] = ReadRaceFile ("Yssaril");
-			testActionCard = GetComponent<CardManager>().getActionCard("The Hand That Takes");
-			testMerc = GetComponent<CardManager>().getMerc ("52N6");
+			//testActionCard = GetComponent<CardManager>().getActionCard("The Hand That Takes");
+			//testMerc = GetComponent<CardManager>().getMerc ("52N6");
 			read = true;
-			testSystems = ReadSystemFile();
+			//testSystems = ReadSystemFile();
 		}
 	}
 
