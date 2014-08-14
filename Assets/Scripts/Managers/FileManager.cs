@@ -117,6 +117,12 @@ public class FileManager : TIOMonoBehaviour {
 		return readSystemFile (fullPath);
 	}
 
+	public PoliticalCard[] ReadPoliticalFile() {
+		string fullPath = procTextDir + gameManager.Language + "/politicalCards.tipols";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readPoliticalFile (fullPath);
+	}
+
 
 	/*
 	 * Specific File Readers
@@ -246,6 +252,25 @@ public class FileManager : TIOMonoBehaviour {
 				reader.Close ();
 				
 				return systs;
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
+
+	private PoliticalCard[] readPoliticalFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				PoliticalCard[] politicalCards = readPoliticalCardsBlock(fileName, reader);
+				
+				// Reading successfully finished
+				reader.Close ();
+				
+				return politicalCards;
 			}
 		}
 		catch (System.Exception e) {
@@ -897,6 +922,103 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+	private PoliticalCard[] readPoliticalCardsBlock(string fileName, StreamReader reader) {
+
+		ArrayList politicalCards = new ArrayList ();
+		
+		string line = reader.ReadLine().Trim ();
+		
+		do {
+			if (line == "<{>") {
+				// Start of an outermost block
+				politicalCards.Add(readPoliticalCard("", line, fileName, reader));
+				
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				} 
+			}
+		} while (line == "<{>" && !reader.EndOfStream);
+		
+		return (PoliticalCard[])politicalCards.ToArray(typeof(PoliticalCard));
+	}
+
+	private PoliticalCard readPoliticalCard(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			PoliticalCard politicalCard = new PoliticalCard();
+			string line = reader.ReadLine().Trim ();
+
+			VType voteType = VType.ForAgainst;
+			
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0].Trim ();
+				string newDataText = lineParts[1].Trim ();
+
+				if (newDataType == "Name") {
+					politicalCard.Name = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Law") {
+					politicalCard.IsLaw = stringToBool(readTextLine(newDataType, newDataText, fileName));
+				} else if (newDataType == "Expansion") {
+					politicalCard.Expansion = stringToExpansion(readTextLine(newDataType, newDataText, fileName));
+				} else if (newDataType == "Flavor Text") {
+					politicalCard.FlavorText = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "For") {
+					politicalCard.ForText = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Against") {
+					politicalCard.AgainstText = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Discard") {
+					politicalCard.DiscardText = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Elect") {
+					voteType = VType.Elect;
+					readElectLine(readTextLine (newDataType, newDataText, fileName), politicalCard);
+				} else if (newDataType == "Effect") {
+					politicalCard.ElectText = readTextLine(newDataType, newDataText, fileName);
+				}
+				line = reader.ReadLine().Trim ();	
+			} while (line != "<}>");
+			// End of outermost block
+
+			politicalCard.VoteType = voteType;
+
+			return politicalCard;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private void readElectLine(string line, PoliticalCard politicalCard) {
+		//Determine election type
+		if (line.Contains ("Player")) {
+			politicalCard.ElectType = EType.Player;
+		} else if (line.Contains ("Planet")) {
+			politicalCard.ElectType = EType.Planet;
+		} else if (line.Contains ("Public Objective")) {
+			politicalCard.ElectType = EType.PublicObjective;
+		} else if (line.Contains ("Current Law")) {
+			politicalCard.ElectType = EType.CurrentLaw;
+		} else if (line.Contains ("a Special System")) {
+			politicalCard.ElectType = EType.ASpecialSystem;
+		} else if (line.Contains ("Technology Color")) {
+			politicalCard.ElectType = EType.TechColor;
+		}
+
+		//Determine election quantity
+		string[] parts = line.Split (" ".ToCharArray());
+		int quantity = 1;
+		foreach(string part in parts) {
+			bool isANumber;
+			int conversion = stringToInt(part, out isANumber);
+			if (isANumber) {
+				quantity = conversion;
+			}
+		}
+		politicalCard.ElectQuantity = quantity;
+	}
+
 	private DomainCounter[] readDomainsBlock(string fileName, StreamReader reader) {
 		
 		ArrayList domains = new ArrayList ();
@@ -1337,6 +1459,27 @@ public class FileManager : TIOMonoBehaviour {
 			return Wormhole.C;
 		} else {
 			return Wormhole.Delta;
+		}
+	}
+
+	private bool stringToBool(string boolString) {
+		if (boolString.ToLower() == "true") {
+			return true;
+		} else if (boolString.ToLower () == "false") {
+			return false;
+		} else {
+			throw new System.Exception(string.Format("Error converting string {0} to bool:: no equivalent bool value", boolString));
+		}
+	}
+
+	private int stringToInt(string numberString, out bool isAnInt) {
+		int number = 0;
+		if (numberString.ToLower()== "two") {
+			isAnInt = true;
+			return 2;
+		} else {
+			isAnInt = int.TryParse(numberString, out number);
+			return number;
 		}
 	}
 }

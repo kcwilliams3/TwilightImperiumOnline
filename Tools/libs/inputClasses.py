@@ -418,3 +418,33 @@ class Objective:
 		
 	def getReward(self):
 		return self._reward
+		
+class PoliticalCard:
+	def __init__(self, name, isLaw, expansion, flavorText):
+		self._name = name
+		self._expansion = expansion
+		self._flavorText = flavorText
+		self._ruleText = []
+		self._isLaw = isLaw
+		
+	def __repr__(self):
+		return "PoliticalCard {0}".format(self._name)
+		
+	def getName(self):
+		return self._name
+		
+	def getExpansion(self):
+		return self._expansion
+		
+	def getFlavorText(self):
+		return self._flavorText
+		
+	def getRuleText(self):
+		return self._ruleText
+		
+	def getIsLaw(self):
+		return self._isLaw
+		
+	def addRuleText(self, text):
+		self._ruleText.append(text);
+		

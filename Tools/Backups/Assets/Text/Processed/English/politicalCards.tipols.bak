@@ -1,0 +1,883 @@
+<{>
+Name: 			Aggressive Strategy<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We must show vision and strength..."<;>
+For: 			Each player may immediately, in the order of play, execute the secondary ability of his own Strategy Card, without spending a Command Counter from his Strategy Allocation area.<;>
+Against: 		No player may execute the secondary ability of any Strategy Card for the remainder of this round.<;>
+<}>
+<{>
+Name: 			Ancient Artifact<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Shall we activate it? It may bring reward or great peril."<;>
+For: 			Roll a die. On a result of 1-5, all units and ships in the Mecatol Rex system are destroyed, and every fleet and planetary unit in systems adjacent to the Mecatol system immediately sustain three combat rolls (hit on rolls of 5 or higher). On a result of 6-10, all players immediately gain two Technology advancements of their choice (prerequisites still apply).<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Archived Secret<;>
+Law: 			false<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"No doubt this artifact holds power from the ancients. Who do we trust to decipher its secrets?"<;>
+Elect: 			Player<;>
+Effect: 		The elected player draws 1 Secret Objective Card. When an ability affects 1 of his Secret Objective Cards, he chooses which one it affects.<;>
+<}>
+<{>
+Name: 			Arms Reduction<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"What do you seek? To feed the coffers of the dealers in death?"<;>
+For: 			Each player must destroy all but two of his Dreadnoughts and all but four of his Cruisers (all other ship types are unaffected).<;>
+Against: 		Players must exhaust their planets that provide a red technology credit.<;>
+<}>
+<{>
+Name: 			Build Monument<;>
+Law: 			true<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"This place will be treasured for years to come."<;>
+Elect: 			Planet<;>
+Effect: 		The player controlling this planet needs 1 less victory point in order to win the game. Place this card on the planet's Planet Card to remember this.<;>
+<}>
+<{>
+Name: 			Centrillic Gas<;>
+Law: 			false<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"We've discovered this gas to be as profitable as it is unstable."<;>
+For: 			Roll a die. On a result of 1-3, destroy all units in Nebula and Ion Storm systems. On a result of 4 or higher, each player gains 5 Trade Goods for each Nebula or Ion Storm he controls.<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Checks and Balances<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Never again must the aggressive strategy of a single race threaten the stability of the galaxy."<;>
+For: 			When a player chooses a Strategy Card during the Strategy Phase, he must give the chosen card to another player (who does not currently have a Strategy Card).<;>
+Against: 		Each player must immediately pass his current Strategy Card to the player on his left.<;>
+<}>
+<{>
+Name: 			Class Struggle<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Equality between races cannot end with money. But it can start with it."<;>
+For: 			When players receive Trade Goods from the Trade Strategy card, all Trade Goods are added together and distributed evenly to every player that would receive at least 1. Any that cannot be evenly distributed are lost.<;>
+Against: 		Each player immediately loses 2 Trade Goods.<;>
+<}>
+<{>
+Name: 			Closing the Wormholes<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"I've seen demons in there! Monsters that will swallow your ship!"<;>
+For: 			Fleets may no longer move through wormholes.<;>
+Against: 		If a player has a fleet in a system that contains a wormhole, that player must discard one non-Fighter ship in that fleet.<;>
+<}>
+<{>
+Name: 			Code of Honor<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Let us fight this war as our exalted ancestors did. No quarter shall be asked and none given!"<;>
+For: 			Fleets may not withdraw or retreat from Space Battles.<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Colonial Redistribution<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Inequality is immorality!"<;>
+For: 			The player with the most victory points (choose randomly if there is a tie) must choose one of his planets and destroy all Ground Force units on that planet, if any. The player must then choose a player with the fewest victory points. The chosen player may immediately place three free Ground Force units on that planet and take control of it.<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Colonization Licensing<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Do you have any idea of the paperwork involved in conquering a civilization?"<;>
+For: 			Before executing a planetary landing on a neutral planet, players must spend resources at least equal to the resource value of the planet.<;>
+Against: 		All players must immediately exhaust one planet of their choice for every three planets they control outside their Home Systems (round down), if able.<;>
+<}>
+<{>
+Name: 			Compensated Disarmament<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"War must be avoided at all costs, and cost it will!"<;>
+Elect: 			Planet<;>
+Effect: 		All Ground Forces on this planet are destroyed, but the planet's controller receives one Trade Good for each such unit destroyed and retains control of the planet.<;>
+<}>
+<{>
+Name: 			Conventions of War<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We cannot allow the economic cornerstones of our galaxy to be the targets of warfare."<;>
+For: 			Dreadnoughts and War Suns may not bombard planets that contain Space Docks.<;>
+Against: 		Each player that voted against this law must immediately choose one of his Space Docks outside his Home System, if able, and place it in his reinforcements.<;>
+<}>
+<{>
+Name: 			Core Stability<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"National policies and agendas should be far more transparent."<;>
+For: 			During each Status Phase, all Action Cards are drawn and placed face up on the table. The player with the highest unexhausted influence may choose his Action Cards first, followed by the player with the second-most unexhausted influence, etc.<;>
+Against: 		No Action Cards are drawn this round.<;>
+<}>
+<{>
+Name: 			Corrupt Empire<;>
+Law: 			true<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"They must be hunted down and brought to justice."<;>
+Elect: 			Player<;>
+Effect: 		Give this card to the elected player. When another player attacks the elected player, the attacking player receives 1 victory point and then discards this card.<;>
+<}>
+<{>
+Name: 			Cost Overruns<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"I don't care how you do it, just get the budget under control!"<;>
+For: 			Each player must discard one Trade Good from his Trade Goods area for each planet he controls, if able.<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Council Elder<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"You have given me this power, and now I shall exercise it!"<;>
+Elect: 			Player<;>
+Effect: 		Give this card to the elected player. The elected player may discard this card immediately after an "Elect" agenda is drawn. Only the elected player's votes are counted in resolving the agenda.<;>
+<}>
+<{>
+Name: 			Council's Censure<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"The unbridled aggression of this rogue empire will not be allowed to stand!"<;>
+Elect: 			Player<;>
+Effect: 		The elected player must discard two Command Counters from his Strategy Allocation area in order to choose the Imperial Strategy during the Strategy Phase.<;>
+<}>
+<{>
+Name: 			Crown of Thalnos<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"The masses bowed before the symbol of power..."<;>
+Elect: 			Player<;>
+Effect: 		The elected player's Ground Forces now receive +1 on their combat rolls.<;>
+<}>
+<{>
+Name: 			Defend the Jewel<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"We must protect the heart of our empire from invasion!"<;>
+For: 			Immediately place 1 Space Mine (not belonging to any player) in the Mecatol Rex System.<;>
+Against: 		Each player may place 1 Space Mine (under his control) in his Home System.<;>
+<}>
+<{>
+Name: 			Defensive Mobilizations<;>
+Law: 			false<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"We must each make preparations and protect our interests."<;>
+For: 			Each player may take any number of friendly units from any 1 system and place them in his Home System.<;>
+Against: 		Each player may take any number of friendly units from his Home System and place them in 1 other friendly system he controls.<;>
+<}>
+<{>
+Name: 			Dispute Resolution<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"You both claim these planets... There! Now they belong to no one! There is no more dispute!"<;>
+Elect: 			Two Planets<;>
+Effect: 		Elect two planets controlled by two different players. Destroy all Ground Forces and PDS on both planets. The elected planets revert to neutral status. Neither Mecatol Rex nor planets inside a player's Home System may be elected.<;>
+<}>
+<{>
+Name: 			Diversified Income<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Those who value external commerce over their own populous shall soon pay for their lack of loyalty!"<;>
+For: 			No player may have more Trade Goods than the total number of planets he or she controls.<;>
+Against: 		Each player without any Trade Goods immediately receive 3 Trade Goods.<;>
+<}>
+<{>
+Name: 			Documenting Research<;>
+Law: 			true<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"We encourage you to share your findings with your peers."<;>
+For: 			When a player uses the secondary ability of the Technology Strategy Card, reduce his cost to 0 if he is purchasing the same Technology acquired using the primary ability.<;>
+Against: 		Exhaust each planet that has a Technology specialty.<;>
+<}>
+<{>
+Name: 			Economic Revitalization<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"How can we call ourselves civilized while allowing our brothers' children to starve?"<;>
+Elect: 			Player<;>
+Effect: 		The elected player receives one Trade Good from the Trade Goods area of each opponent, if able.<;>
+<}>
+<{>
+Name: 			Emperor<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"It is time for us to determine who shall lead us into a new age of prosperity."<;>
+Elect: 			Player<;>
+Effect: 		The elected player immediately gains 1 victory point. If he ever loses this card, he loses 1 victory point.<;>
+<}>
+<{>
+Name: 			Enemy of the Throne<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Punishment! There must be punishment for this insubordination!"<;>
+Elect: 			Player<;>
+Effect: 		If a player wins a Space Battle against this player, the attacker gains 2 Trade Goods, 1 Command Counter, and 1 Action Card. This card is then discarded.<;>
+<}>
+<{>
+Name: 			Equal Threats<;>
+Law: 			false<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"Perhaps tasting your own medicine will provide perspective."<;>
+Elect: 			2 Players<;>
+Effect: 		Each elected player must give his Secret Objective card to the other elected player. If 1 of the players does not have a Secret Objective, he simply takes the other player's card (and keeps it).<;>
+<}>
+<{>
+Name: 			Fighter Tax<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"In this time of war, let us not forget to fill the pockets of our providers."<;>
+For: 			Fighter units now cost 1 resource each.<;>
+Against: 		Each player must destroy 3 of his Fighters.<;>
+<}>
+<{>
+Name: 			Flawed Planning<;>
+Law: 			false<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"We are the hand that giveth as well as that which takes away!"<;>
+For: 			Each player shuffles his Preliminary Objectives into the deck. Each player is then dealt a Secret Objective (even if he already completed one).<;>
+Against: 		Each player that has completed his Secret Objectives receives 1 victory point.<;>
+<}>
+<{>
+Name: 			Fleet Regulations<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Fleets of such enormous size are only meant for one thing!"<;>
+For: 			No player may have more than five Command Counters in his Fleet Supply area.<;>
+Against: 		Each player receives one Command Counter from his reinforcements and must place it in his Fleet Supply area.<;>
+<}>
+<{>
+Name: 			Fleet Restrictions<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"The lobbyists have requested what will be most profitable for the spacing industry."<;>
+For: 			Players may never have more than 2 of a single ship type in a single system (including Fighters).<;>
+Against: 		For each system a player has with more than 2 ships of the same type, the owner must pay 1 Trade Good or destroy all excess ships.<;>
+<}>
+<{>
+Name: 			Forbidden Research<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"There are some mysteries that science should not unravel."<;>
+Elect: 			Player<;>
+Effect: 		The elected player may not acquire any new technologies the next time the Technology Strategy card is activated. Then discard this law.<;>
+<}>
+<{>
+Name: 			Forced Economic Independence<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"It's time they learned to support themselves!"<;>
+Elect: 			Two Players<;>
+Effect: 		Place control markers of the elected players on this law. The elected players cannot have trade agreements with each other while this law is in play. If they have a trade agreement already, it is immediately broken.<;>
+<}>
+<{>
+Name: 			Free Trade<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Let the shields open, and let all races embrace trade, for it is the wheel of wealth!"<;>
+For: 			Each time a player receives Trade Goods from his active trade agreements, he receives one additional Trade Good.<;>
+Against: 		All players must discard two Trade Goods from their Trade Goods areas, if able.<;>
+<}>
+<{>
+Name: 			Fund Research Complex<;>
+Law: 			true<;>
+Expansion: 		Shards of the Empire<;>
+Flavor Text: 	"We should consider building better facilities to further our knowledge.<;>
+Elect: 			Planet<;>
+Effect: 		The player controlling this planet has his cost to purchase Technologies reduced by 2. Place this card on the planet's Planet Card to remember this.<;>
+<}>
+<{>
+Name: 			Glory of the Empire<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"The pride and glory of our race has been the center of our accomplishments."<;>
+For: 			From now on, any player that fulfills his Secret Objective receives 1 additional victory point.<;>
+Against: 		Each player that has already fulfilled his Secret Objective immediately receives 1 victory point.<;>
+<}>
+<{>
+Name: 			Holder of Mecatol Rex<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"To the Holder be all future and present glory..."<;>
+For: 			The player who controls Mecatol Rex may immediately choose and discard one current law.<;>
+Against: 		The player who controls Mecatol Rex may add two free Ground Forces to Mecatol Rex.<;>
+<}>
+<{>
+Name: 			Holy Planet of Ixth<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"I saw the splendid ruins there, and I was struck by a great tranquility and wonder!"<;>
+Elect: 			Planet<;>
+Effect: 		This planet may not produce any units for the rest of the game. (No planet in a Home System may be elected.)<;>
+<}>
+<{>
+Name: 			Hope's End Training Ground<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Accelerate the production of our hardened warriors."<;>
+For: 			The player controlling Hope's End may immediately place 1 Ground Force and 2 Shock Troops there.<;>
+Against: 		All Shock Troops in play are replaced with Ground Forces.<;>
+Discard: 		Discard this Agenda and draw a new one if the Hope's End System is not in play.<;>
+<}>
+<{>
+Name: 			Humane Labor<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"They are dying like flies. The conditions are simply and totally deplorable!"<;>
+For: 			The production limit of all Space Docks is lowered to 2.<;>
+Against: 		No Space Docks may produce units for the remainder of this round.<;>
+<}>
+<{>
+Name: 			Imperial Academy<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"This grand institution will train the great leaders of tomorrow, and we will reach farther than ever before."<;>
+For: 			When executing the secondary ability of the Logistics Strategy, players may now purchase a Command Counter by spending two influence (instead of three).<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Imperial Containment<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We shall not bow to the tyranny of the strong!"<;>
+For: 			The player (or players) with the most planets outside his Home System must discard one Command Counter from his Command Pool for each Command Counter he places during a Tactical Action for the remainder of this round.<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Imperial Mandate<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We must not allow the galaxy to descend further into war. The empire must be reestablished as soon as possible!"<;>
+For: 			Each player receives two victory points.<;>
+Against: 		Each player loses one victory point.<;>
+<}>
+<{>
+Name: 			Imperial Peace<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We must have at least one place of peace in a burning galaxy."<;>
+For: 			Players may not invade Mecatol Rex.<;>
+Against: 		Mecatol Rex is the only planet that players may invade this round.<;>
+<}>
+<{>
+Name: 			Incentive Program<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Fools! How could you fail at such a simple task as eliminating an invincible legion of Sardakk N'orr?"<;>
+Elect: 			Public Objective<;>
+Effect: 		Each player that has already completed the elected Public Objective immediately receives 1 victory point. Players that fulfill the elected Public Objective in the future receive one more victory point than stated on the elected Public Objective.<;>
+<}>
+<{>
+Name: 			Intergalactic Commerce<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Therein lies the doorway to great riches."<;>
+For: 			Each wormhole system that contains ships immediately gives its controller 3 Trade goods.<;>
+Against: 		Each Trade Contracts value is reduced to 1 for the remainder of this game round.<;>
+<}>
+<{>
+Name: 			Interstellar Arms Dealers<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"We should adjourn and go to the special two-day sale!"<;>
+For: 			Players may pay 3 resources to immediately receive 1 Destroyer and 1 Dreadnought. These ships must immediately be placed in any system containing a friendly Space Dock.<;>
+Against: 		The cost of all (non-fighter) ships is increased by 1 resource until the end of the round.<;>
+<}>
+<{>
+Name: 			Investigate Spatial Anomalies<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"We understand so little about the bodies in our skies."<;>
+For: 			Ion Storms and Nebulas no longer have an affect on ship movement.<;>
+Against: 		No Special Systems (red-bordered) may be entered for the remainder of this round.<;>
+<}>
+<{>
+Name: 			Labor Force Politics<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"If the workers are happy, the politicians are happy."<;>
+For: 			The influence and resource values of all planets are reversed.<;>
+Against: 		Players can produce units at only one of their Space Docks for the remainder of this round.<;>
+<}>
+<{>
+Name: 			Limits to Individual Power<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"The few shall not be allowed to tyrannize the many!"<;>
+For: 			All players must immediately discard down to three Action Cards. Whenever a player draws a new Action Card, he must immediately discard down to three.<;>
+Against: 		All players must discard one random Action Card, if able.<;>
+<}>
+<{>
+Name: 			Lord of Mecatol Rex<;>
+Law: 			false<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"It is time we recognize our new leader..."<;>
+For: 			The player who controls Mecatol Rex gains 1 victory point. He must then destroy  all units in his Home System.<;>
+Against: 		Discard this card.<;>
+Discard: 		If no player controls Mecatol Rex when this card is drawn, discard this card and draw a new one.<;>
+<}>
+<{>
+Name: 			Mass Mobilization<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"They're drafted, every one of them! And if you don't like it, you can be drafted too!"<;>
+For: 			Divide the total votes for this agenda by 5. Each player may place that number of Ground Force units on planets he controls.<;>
+Against: 		No player may purchase Ground Forces for the remainder of this round.<;>
+<}>
+<{>
+Name: 			Mining Operations<;>
+Law: 			false<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"We've found a significant source of minerals here. Give us funding so that all neighbors stand to profit."<;>
+For: 			Each player gains 4 Trade Goods for each system he controls that is adjacent to one or more Asteroid Fields.<;>
+Against: 		Each player discards 2 Trade Goods.<;>
+<}>
+<{>
+Name: 			Minister of Commerce<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Someone has to regulate all this commerce, and that someone is me!"<;>
+Elect: 			Player<;>
+Effect: 		Give this card to the elected player. During each Status Phase, the elected player receives one Trade Good from each player that has at least one active trade agreement.<;>
+<}>
+<{>
+Name: 			Minister of Exploration<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"There are wonders beyond the stars, and it is my destiny to discover them."<;>
+Elect: 			Player<;>
+Effect: 		Give this card to the elected player. The elected player receives one Trade Good each time another player successfully executes a planetary landing on a neutral planet.<;>
+<}>
+<{>
+Name: 			Minister of Internal Security<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"The security of the Council is more important than the rights of any individual."<;>
+Elect: 			Player<;>
+Effect: 		Give this card to the elected player. The elected player may discard this card at any time to immediately destroy up to four Ground Forces on Mecatol Rex.<;>
+<}>
+<{>
+Name: 			Minister of Peace<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Let there be an impartial judge whose peaceful heart will wield unquestioned judgement."<;>
+Elect: 			Player<;>
+Effect: 		Give this card to the elected player. He may discard this card at any time to cancel a fleet's movement into a system containing an enemy fleet, as long as the elected player controls neither fleet. The target system is still activated by the attacker.<;>
+<}>
+<{>
+Name: 			Minister of Policy<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"He is so cocooned in red tape, he is virtually untouchable!"<;>
+Elect: 			Player<;>
+Effect: 		Give this card to the elected player. During the Status Phase, the elected player receives one additional Action Card.<;>
+<}>
+<{>
+Name: 			Minister of War<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"I have become death, the destroyer of worlds."<;>
+Elect: 			Player<;>
+Effect: 		The elected player may spend a Command Counter from his Strategy Allocation area to gain one automatic hit before the first round of any Space Battle in which he participates. The casualty from this hit is applied immediately and no return fire is allowed.<;>
+<}>
+<{>
+Name: 			Mutiny<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"It is a question of honor!"<;>
+For: 			Each player that voted for this agenda gains 1 victory point.<;>
+Against: 		Each player that voted for this agenda loses 1 victory point.<;>
+<}>
+<{>
+Name: 			Necessary Bureaucracy<;>
+Law: 			true<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"It is clear they need us to lead them into an era of peace and prosperity!"<;>
+For: 			After voting on an agenda, during each future game round, players vote on the next card of the Political deck. Once per agenda.<;>
+Against: 		Draw the top card of the Political deck. If it has a "For" effect, immediately resolve it. otherwise, discard the card without effect.<;>
+<}>
+<{>
+Name: 			Neutrality Pact<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"We must not become entangled in the affairs of foreign powers."<;>
+For: 			No player may activate a planetless system that contain enemy units unless he spends 3 influence.<;>
+Against: 		Each player must place a Command Counter form his reinforcements onto one of his unactivated systems containing a Space Dock.<;>
+<}>
+<{>
+Name: 			New Constitution<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We must revolutionize the future to cleanse our past."<;>
+For: 			All current laws are discarded. Each player must choose and exhaust two of his planets, if able.<;>
+Against: 		The player with the highest unexhausted influence may discard a current law of his choice.<;>
+<}>
+<{>
+Name: 			Non-Aggression Pact<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"We must put an end to violence and bloodshed."<;>
+For: 			The first player to activate a system containing enemy ships loses 1 victory point. Then discard this law.<;>
+Against: 		Draw the top card of the Objective deck and place it faceup in the common play area.<;>
+<}>
+<{>
+Name: 			Official Sanction<;>
+Law: 			false<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"This person's atrocities are a matter of fact. He must be stopped!"<;>
+Elect: 			Player<;>
+Effect: 		The elected player may not invade a neutral planet or a planet controlled by an opponent for the remainder of this round.<;>
+<}>
+<{>
+Name: 			Official Sanction<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"This person's atrocities are a matter of horrific fact. He must be stopped!"<;>
+Elect: 			Player<;>
+Effect: 		The elected player may not invade a neutral planet or a planet controlled by an opponent for the remainder of this round.<;>
+<}>
+<{>
+Name: 			On Observation<;>
+Law: 			true<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"You are not trusted!"<;>
+Elect: 			Player<;>
+Effect: 		If the elected player ever chooses a Spy Representative Card, his Spy is killed at the end of the Council.<;>
+Discard: 		If not playing with the the Galactic Council option, discard this card and draw a new one.<;>
+<}>
+<{>
+Name: 			Open the Trade Routes<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"We must spread the wealth of commerce to the distant suns of our galaxy."<;>
+For: 			Each player receives 2 Trade Goods.<;>
+Against: 		This game round, each player must give all of the Trade Goods he receives to the player on his left.<;>
+<}>
+<{>
+Name: 			Planetary Conscription<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We must do a better job of harnessing the populations of the lawless planets we liberate."<;>
+For: 			Each time a player takes control of a neutral planet, he may take a Ground Force unit from his reinforcements and place it on the planet.<;>
+Against: 		No player may execute a planetary landing on a neutral planet for the remainder of this round.<;>
+<}>
+<{>
+Name: 			Planetary Security<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"These planets have become lawless and corrupt! We must take steps to insure the security of our colonies!"<;>
+For: 			Non-Home System planets that are not garrisoned with at least one Ground Force immediately revert to neutral status.<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Political Focus<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Let the stains on our shirts be from ink and not blood."<;>
+For: 			When a player chooses the Political Strategy Card, he immediately gains 1 Command Counter or 2 Trade Goods.<;>
+Against: 		Draw the top card of the Political deck and immediately resolve its agenda.<;>
+<}>
+<{>
+Name: 			Prophecy of Ixth<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"The chosen one will fly with birds of fire, and not be consumed."<;>
+Elect: 			Player<;>
+Effect: 		The elected player's Fighters receive +1 to all combat rolls for the duration of the game. The elected player loses this ability if he does not purchase at least two new Fighters during each game round.<;>
+<}>
+<{>
+Name: 			Public Execution<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"For his crimes against the Council he must die; let his death set an example..."<;>
+Elect: 			Player<;>
+Effect: 		The elected player loses all Action Cards, his planets are exhausted, and his units receive -1 on all combat rolls for the remainder of this round.<;>
+<}>
+<{>
+Name: 			Publicize Weapon Schematic<;>
+Law: 			true<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"War affects us all. We should all be prepared."<;>
+For: 			Each player gains the War Sun Technology (for free), even if he does not own the prerequisites. When a player rolls two results of 10 for his Fighters during the same round of combat, these hits must be assigned to an enemy War Sun (if able).<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Recognize Accomplishments<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"In this time of need, those who are willing and able will not be questioned."<;>
+Elect: 			Public Objective<;>
+Effect: 		Remove all Control Markers from the elected Objective. Players who have already fulfilled the elected Objective may fulfill it again. Those players do not lose any points, and must fullow normal rules when fulfilling the Objective again.<;>
+<}>
+<{>
+Name: 			Redefining War Crimes<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"All acts of violence shall be seen as acts of war against the glory of the empire!"<;>
+For: 			When a player fires a PDS at an opposing fleet, he must terminate any trade agreements with his target.<;>
+Against: 		Players may not use their PDS units this turn, except to defend during planetary invasions.<;>
+<}>
+<{>
+Name: 			Regressive Rhetoric<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"This relentless pursuit of innovation will cost us our souls!"<;>
+For: 			The cost of all Technologies increases by two. Players who do not execute the secondary ability of the Technology Strategy may instead draw a free Action Card.<;>
+Against: 		All players must immediately discard one Action Card, if able.<;>
+<}>
+<{>
+Name: 			Regulated Conscription<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Our planets simply do not have the capacity to support these massive armies!"<;>
+For: 			Ground Force units now cost 1 resource each. The Sol player may place only one Ground Force unit for each Command Counter he spends using his racial special ability.<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Repeal Labor Laws<;>
+Law: 			true<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"We must make sacrifices to support expansion."<;>
+For: 			Players may build Space Docks on planets acquired during the same game round.<;>
+Against: 		Each player must lose 3 Trade Goods or destroy 1 of his Space Docks.<;>
+<}>
+<{>
+Name: 			Repeal<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"It is time to admit that this Council does not always have the foresight to choose its course wisely."<;>
+Elect: 			Current Law<;>
+Effect: 		Discard the elected law.<;>
+<}>
+<{>
+Name: 			Research Grant<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"If we are to expect breakthroughs, we must be willing to pay the price."<;>
+For: 			All planets that provide a technology credit now provide that credit to all technology colors.<;>
+Against: 		No general (yellow) Technologies may be acquired or purchased for the remainder of this round.<;>
+<}>
+<{>
+Name: 			Resource Management<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"It's a matter of deciding priorities and specializations. Simply, really."<;>
+For: 			Players may not redistribute Command Counters on their Race Sheets during the Status Phase.<;>
+Against: 		All players with three or more Action Cards must immediately discard two.<;>
+<}>
+<{>
+Name: 			Revote<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"It is time to reconsider our foolish actions of the past!"<;>
+Elect: 			Current Law<;>
+Effect: 		After a law has been elected, revote on its agenda.<;>
+<}>
+<{>
+Name: 			Sanctuary Shield<;>
+Law: 			true<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"We are working to make the galaxy safer to travel."<;>
+Elect: 			a Special System<;>
+Effect: 		The special ability of this system is now ignored. Players may activate and travel into and through the system as if it were an empty system.<;>
+<}>
+<{>
+Name: 			Science Community Speaker<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"It is an honor to serve the Council with my brilliant intellect. You have chosen well."<;>
+Elect: 			Player<;>
+Effect: 		The elected player may execute the secondary ability of the Technology Strategy without spending a Command Counter from his Strategy Allocation area. In addition, his cost to purchase Technologies is reduced by 1.<;>
+<}>
+<{>
+Name: 			Seed of an Empire<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"May those who deserve to rule, rule us all."<;>
+For: 			The player or players with the most victory points gain 1 victory point.<;>
+Against: 		The player or players with the fewest victory points gain 1 victory point.<;>
+<}>
+<{>
+Name: 			Shard of the Throne<;>
+Law: 			true<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"I name thee malignant usurper and a fool."<;>
+Elect: 			Player<;>
+Effect: 		Give this card to the elected player. He needs 1 less victory point in order to win the game. When another player destroys 1 unit belonging to this card's owner during battle, the attacker receives this card.<;>
+<}>
+<{>
+Name: 			Sharing of Technology<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"There is so much we can learn from each other, but are we willing to trust one another?"<;>
+For: 			Each player that has at least one trade agreement may immediately acquire one Technology advance that one of his trade partners has acquired (ignore prerequisites).<;>
+Against: 		All trade agreements are immediately broken.<;>
+<}>
+<{>
+Name: 			Short Term Truce<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Let us rest our guns, if only for a little while..."<;>
+For: 			No player may activate any system that contains enemy ships or invade any planet controlled by another player next round. Any player may spend 10 influence at any time to discard this law.<;>
+Against: 		Each player who voted against this agenda must exhaust one planet. The planet is chosen by the opponent to that player's left.<;>
+<}>
+<{>
+Name: 			Subsidized Industry<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"Prosperous neighbors make profitable trade partners."<;>
+Elect: 			Player<;>
+Effect: 		The elected player may immediately place a free Space Dock on any planet he controls.<;>
+<}>
+<{>
+Name: 			Subsidized Studies<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We should focus our limited resources on only the most important avenues of research."<;>
+Elect: 			Technology Color<;>
+Effect: 		The cost for all Technologies of the elected color decreases by three. The cost of all other Technologies increases by two.<;>
+<}>
+<{>
+Name: 			Supported Expansion<;>
+Law: 			false<;>
+Expansion: 		Shards of the Throne<;>
+Flavor Text: 	"It's time we return the freehold world to the galactic family."<;>
+For: 			Starting with the Speaker, each player may place 1 free Ground Force on 1 uncontrolled planet of his choice.<;>
+Against: 		Each player loses control of each non-Home System planet that he does not have at least 1 unit on.<;>
+<}>
+<{>
+Name: 			Technological Jihad<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"We will no longer be slaves to the machinations of our forefathers!"<;>
+For: 			Each time a player receives a Technology advance, he must roll a die. On a 9 or 10, he must destroy one of his Destroyers or Cruisers.<;>
+Against: 		Each player must exhaust 1 planet for each non-starting Technology advance he has.<;>
+<}>
+<{>
+Name: 			Technology Buy-back<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"The costs of repairing these machines are outrageous!"<;>
+For: 			Players may, during the Status Phase, discard one of their Technology advancements in exchange for six Trade Goods. They may not discard a Technology that is  required for another Technology they already have.<;>
+Against: 		Players may not acquire or purchase Technology advancements this round.<;>
+<}>
+<{>
+Name: 			Technology Investigation Committee<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We know it's unsafe. The question is, how unsafe is it?"<;>
+For: 			No Technologies may be purchased this round.<;>
+Against: 		All players discard one Action Card at random. Then immediately draw two new Political Cards and resolve them in the order in which they are drawn.<;>
+<}>
+<{>
+Name: 			Technology Tariffs<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"If you want to sell your off-world equipment here, you'll have to pay the price."<;>
+For: 			All red technology costs +4 resources to purchase.<;>
+Against: 		Green technology cannot be acquired or purchased for the remainder of this round.<;>
+<}>
+<{>
+Name: 			The Crown of Emphidia<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"It is a sign of power from beyond this realm. It will not follow you to the grave, but it will lead you there."<;>
+Elect: 			Player<;>
+Effect: 		Give this card to the elected player. He immediately receives 1 victory point. A player that wins an Invasion Combat against this player immediately claims this card and receives 1 victory point. If a player ever loses this card, he loses 1 victory point.<;>
+<}>
+<{>
+Name: 			Trade Embargo<;>
+Law: 			false<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"His crimes against his own people are horrid and unspeakable..."<;>
+Elect: 			Player<;>
+Effect: 		All trade agreements with this player are broken and no new trade agreements may be formed with this player this or the following round.<;>
+<}>
+<{>
+Name: 			Trade War<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We shall not expose our lucrative markets to inferior foreign goods."<;>
+For: 			Each time a player executes the secondary ability of the Trade Strategy, he may also discard one Trade Good from one opponent's Trade Goods area.<;>
+Against: 		Immediately discard one Trade Good from all players' Trade Goods areas.<;>
+<}>
+<{>
+Name: 			Traffic Tariffs<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We must set aside resources for the next generation of leaders."<;>
+For: 			In order to activate a system containing a planet controlled by another player, a player must spend one Trade Good or choose and exhaust one planet.<;>
+Against: 		Each player must immediately discard one Command Counter from his Command Pool or Strategy Allocation, if able.<;>
+<}>
+<{>
+Name: 			Unconventional Measures<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"We can either profit together or all be damned!"<;>
+For: 			Each player may draw one Action Card.<;>
+Against: 		All players must immediately discard their hand of Action Cards.<;>
+<}>
+<{>
+Name: 			Unconventional Weapons<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We must immediately dismantle these creations of chaos!"<;>
+For: 			All Dreadnoughts and War Suns receive -2 on all combat rolls.<;>
+Against: 		All players must choose and exhaust one of their planets for each Dreadnought and War Sun they have in play, if able.<;>
+<}>
+<{>
+Name: 			Veto Power<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Who will save us from the corruption that has infested our government?"<;>
+Elect: 			Player<;>
+Effect: 		Give this card to the elected player. He may discard this card at any time to discard any one law immediately after it is voted on. The law is discarded without any effect<;>
+<}>
+<{>
+Name: 			Vorhal Peace Prize<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Those who strive for peace deserve our respect."<;>
+For: 			The player or players with the lowest Fleet Supply gain 1 additional Command Counter during each Status Phase.<;>
+Against: 		The player or players with the lowest Fleet Supply immediately gain 3 Trade Goods.<;>
+<}>
+<{>
+Name: 			War Funding<;>
+Law: 			true<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"Our massive fleets will now be government subsidized."<;>
+For: 			Players do not have to adhere to Fleet Supply limits during the Action Phase. At the start of the Status Phase, players must remove any ships in excess of each system's capacity.<;>
+Against: 		Each player must immediately discard 1 Command Counter from his Fleet Supply area and place it back into his reinforcements.<;>
+<}>
+<{>
+Name: 			Warship Commission<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"And we shall all build ships for the glory of the empire!"<;>
+For: 			Each player may immediately build one Dreadnought unit (for free) at one of his Space Docks.<;>
+Against: 		The cost of each Cruiser, Dreadnought, and War Sun is increased by 2 resources for the remainder of this round.<;>
+<}>
+<{>
+Name: 			Wormhole Reconstruction<;>
+Law: 			true<;>
+Expansion: 		Vanilla<;>
+Flavor Text: 	"We must use these celestial shortcuts to unite all the corners of the galaxy."<;>
+For: 			All systems containing wormholes are considered adjacent to all other systems containing wormholes.<;>
+Against: 		Discard this card.<;>
+<}>
+<{>
+Name: 			Wormhole Research<;>
+Law: 			false<;>
+Expansion: 		Shattered Empire<;>
+Flavor Text: 	"If we can harvest the energy that lies within, it could have extraordinary consequences."<;>
+For: 			Roll a die. On a result of 1-3, every ship in a wormhole system is destroyed. On a 4-7, each player controlling at least one wormhole gains 2 Trade Goods. On an 8-10, each player that voted for this agenda gains one blue Technology advance (must have the prerequisites).<;>
+Against: 		Wormholes may not be used for the remainder of this game round.<;>
+<}>

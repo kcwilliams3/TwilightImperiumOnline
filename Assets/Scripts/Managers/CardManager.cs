@@ -10,6 +10,7 @@ public class CardManager : MonoBehaviour {
 	private Dictionary<string, ActionCard> actionCards = new Dictionary<string, ActionCard>();
 	private Dictionary<string, Merc> mercs = new Dictionary<string, Merc>();
 	private Dictionary<string, Objective> objs = new Dictionary<string, Objective>();
+	private Dictionary<string, PoliticalCard> politicalCards = new Dictionary<string, PoliticalCard>();
 
 	// Decks
 	//TODO: After finished, get rid of debug arrays.
@@ -31,6 +32,9 @@ public class CardManager : MonoBehaviour {
 	[SerializeField]
 	private Objective[] specialObjsDebug;
 	private ArrayList specialObjs = new ArrayList ();
+	[SerializeField]
+	private PoliticalCard[] politicalDeckDebug; 
+	private ArrayList politicalDeck = new ArrayList();
 
 	// Discard piles
 	//TODO: After finished, get rid of debug arrays.
@@ -40,9 +44,9 @@ public class CardManager : MonoBehaviour {
 	[SerializeField]
 	private Merc[] mercDiscDebug;
 	private ArrayList mercDisc = new ArrayList();
-
-	ActionCard testcard = new ActionCard ();
-
+	[SerializeField]
+	private PoliticalCard[] politicalDiscDebug;
+	private ArrayList politicalDisc = new ArrayList();
 
 	private int updateCounter = 0;
 
@@ -57,8 +61,10 @@ public class CardManager : MonoBehaviour {
 		readActionCards ();
 		readMercCards ();
 		readObjCards ();
+		readPoliticalCards ();
 		prepActionDeck ();
 		prepMercDeck ();
+		prepPoliticalDeck ();
 	}
 	
 	// Update is called once per frame
@@ -70,8 +76,10 @@ public class CardManager : MonoBehaviour {
 
 		actionDeckDebug = (ActionCard[])actionDeck.ToArray (typeof(ActionCard));
 		mercDeckDebug = (Merc[])mercDeck.ToArray (typeof(Merc));
+		politicalDeckDebug = (PoliticalCard[])politicalDeck.ToArray (typeof(PoliticalCard));
 		actionDiscDebug = (ActionCard[])actionDisc.ToArray (typeof(ActionCard));
 		mercDiscDebug = (Merc[])mercDisc.ToArray (typeof(Merc));
+		politicalDiscDebug = (PoliticalCard[])politicalDisc.ToArray (typeof(PoliticalCard));
 
 		pubObjDeckDebug = (Objective[])pubObjDeck.ToArray (typeof(Objective));
 		prelimObjsDebug = (Objective[])prelimObjs.ToArray (typeof(Objective));
@@ -111,6 +119,19 @@ public class CardManager : MonoBehaviour {
 		}
 	}
 
+	private void readPoliticalCards() {
+		int deckSize = 0;
+		foreach (PoliticalCard politicalCard in fileManager.ReadPoliticalFile()){
+			if (politicalCards.ContainsKey(politicalCard.Name)) {
+				politicalCards[politicalCard.Name + "/" + politicalCard.Expansion] = politicalCard;
+			} else {
+				politicalCards[politicalCard.Name] = politicalCard;
+			}
+			deckSize += 1;
+		}
+		politicalDeckDebug = new PoliticalCard[deckSize];
+	}
+
 	private void prepActionDeck() {
 		foreach (ActionCard actionCard in actionCards.Values) {
 			for (int j=0; j < actionCard.Quantity; j++) {
@@ -125,6 +146,13 @@ public class CardManager : MonoBehaviour {
 			mercDeck.Add(merc);
 		}
 		ShuffleMercDeck ();
+	}
+
+	private void prepPoliticalDeck() {
+		foreach (PoliticalCard politicalCard in politicalCards.Values){
+			politicalDeck.Add(politicalCard);
+		}
+		ShufflePoliticalDeck ();
 	}
 
 	private void prepObjectives() {
@@ -238,6 +266,10 @@ public class CardManager : MonoBehaviour {
 		ShuffleDeck<Merc> (mercDeck);
 	}
 
+	public void ShufflePoliticalDeck() {
+		ShuffleDeck<PoliticalCard> (politicalDeck);
+	}
+
 	public T DrawCard<T>(ArrayList deck) {
 		T card = (T)deck [0];
 		deck.Remove (card);
@@ -265,6 +297,10 @@ public class CardManager : MonoBehaviour {
 		return DrawCard<Merc>(mercDeck, mercDisc);
 	}
 
+	public PoliticalCard DrawPoliticalCard() {
+		return DrawCard<PoliticalCard> (politicalDeck, politicalDisc);
+	}
+
 	private T discardCard<T>(T card, ArrayList discPile) {
 		discPile.Add (card);
 		return card;
@@ -276,6 +312,10 @@ public class CardManager : MonoBehaviour {
 
 	public Merc DiscardMerc(Merc card) {
 		return discardCard<Merc> (card, mercDisc);
+	}
+
+	public PoliticalCard DiscardPoliticalCard(PoliticalCard card) {
+		return discardCard<PoliticalCard> (card, politicalDisc);
 	}
 
 	private T putOnBottom<T>(T card, ArrayList deck) {
@@ -293,6 +333,7 @@ public class CardManager : MonoBehaviour {
 	}
 
 	private T searchFor<T>(T card, ArrayList deck) {
+		ShuffleDeck<T> (deck);
 		if (deck.Contains (card)){
 			deck.Remove (card);
 			return card;

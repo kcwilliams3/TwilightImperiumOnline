@@ -1,7 +1,7 @@
 Aggressive Strategy
 Vanilla
 "We must show vision and strength..."
-For: Each player may immediately, in the order of play, excuse the secondary ability of his own Strategy Card, without spending a Command Counter from his Strategy Allocation area.
+For: Each player may immediately, in the order of play, execute the secondary ability of his own Strategy Card, without spending a Command Counter from his Strategy Allocation area.
 Against: No player may execute the secondary ability of any Strategy Card for the remainder of this round.
 
 Ancient Artifact
@@ -515,8 +515,7 @@ Sanctuary Shield (LAW)
 Shards of the Throne
 "We are working to make the galaxy safer to travel."
 Elect a Special System
-The special ability of this system is now ignored.
-Players may activate and travel into and through the system as if it were an empty system.
+The special ability of this system is now ignored. Players may activate and travel into and through the system as if it were an empty system.
 
 Science Community Speaker (LAW)
 Vanilla
