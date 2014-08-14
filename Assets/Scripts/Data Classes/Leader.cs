@@ -6,7 +6,7 @@ public enum LType {Admiral, General, Scientist, Diplomat, Agent};
 public class Leader {
 	
 	// Variables for logical use
-	private int TIGameProperties = 2;
+	private const int TIGameProperties = 2;
 	private bool[] isLocked;
 	
 	// TI Game Data

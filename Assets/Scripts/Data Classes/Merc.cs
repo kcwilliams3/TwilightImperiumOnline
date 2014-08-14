@@ -4,7 +4,7 @@ using UnityEngine;
 public class Merc {
 	
 	// Variables for logical use
-	private int TIGameProperties = 10;
+	private const int TIGameProperties = 10;
 	private bool[] isLocked;
 	
 	// TI Game Data

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Planet {
 	
 	// Variables for logical use
-	private int TIGameProperties = 6;
+	private const int TIGameProperties = 6;
 	private bool[] isLocked;
 	
 	// TI Game Data

@@ -7,7 +7,7 @@ public enum EType { Player, Planet, PublicObjective, CurrentLaw, ASpecialSystem,
 public class PoliticalCard {
 	
 	// Variables for logical use
-	private int TIGameProperties = 11;
+	private const int TIGameProperties = 11;
 	private bool[] isLocked;
 	
 	// TI Game Data

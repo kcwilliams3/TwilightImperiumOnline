@@ -7,7 +7,7 @@ public enum Wormhole {Alpha, Beta, Delta, C}
 public class PlanetSystem {
 
 	// Variables for logical use
-	private int TIGameProperties = 6;
+	private const int TIGameProperties = 6;
 	private bool[] isLocked;
 	
 	// TI Game Data

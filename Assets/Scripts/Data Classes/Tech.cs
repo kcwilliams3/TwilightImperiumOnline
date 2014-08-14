@@ -7,7 +7,7 @@ public enum TPrereqMode {AND, OR, SINGULARorNONE}
 public class Tech {
 	
 	// Variables for logical use
-	private int TIGameProperties = 8;
+	private const int TIGameProperties = 8;
 	private bool[] isLocked;
 	
 	// TI Game Data

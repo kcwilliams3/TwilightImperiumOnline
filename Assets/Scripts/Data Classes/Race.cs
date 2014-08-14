@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Race {
 
 	// Variables for logical use
-	private int TIGameProperties = 14;
+	private const int TIGameProperties = 14;
 	private bool[] isLocked;
 
 	// TI Game Data

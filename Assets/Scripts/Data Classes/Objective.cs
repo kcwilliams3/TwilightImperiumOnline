@@ -7,7 +7,7 @@ public enum OReward {VP, WIN, GAMEOVER}
 public class Objective {
 	
 	// Variables for logical use
-	private int TIGameProperties = 7;
+	private const int TIGameProperties = 7;
 	private bool[] isLocked;
 	
 	// TI Game Data
