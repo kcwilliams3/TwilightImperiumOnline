@@ -129,6 +129,12 @@ public class FileManager : TIOMonoBehaviour {
 		return readPromissoryFile (fullPath);
 	}
 
+	public StrategyCard[] ReadStrategyFile() {
+		string fullPath = procTextDir + gameManager.Language + "/strategyCards.tistrats";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readStrategyFile (fullPath);
+	}
+
 
 	/*
 	 * Specific File Readers
@@ -296,6 +302,25 @@ public class FileManager : TIOMonoBehaviour {
 				reader.Close ();
 				
 				return promissoryNotes;
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
+
+	private StrategyCard[] readStrategyFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				StrategyCard[] strategyCards = readStrategyBlock(fileName, reader);
+				
+				// Reading successfully finished
+				reader.Close ();
+				
+				return strategyCards;
 			}
 		}
 		catch (System.Exception e) {
@@ -1342,6 +1367,91 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+	private StrategyCard[] readStrategyBlock(string fileName, StreamReader reader) {
+		
+		ArrayList strategyCards = new ArrayList ();
+		
+		string line = reader.ReadLine().Trim ();
+		
+		do {
+			if (line == "<{>") {
+				// Start of an outermost block
+				strategyCards.Add(readStrategyCard("", line, fileName, reader));
+				
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				} 
+			}
+		} while (line == "<{>" && !reader.EndOfStream);
+		
+		return (StrategyCard[])strategyCards.ToArray(typeof(StrategyCard));
+	}
+
+	private StrategyCard readStrategyCard(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			StrategyCard strategyCard = new StrategyCard();
+			string line = reader.ReadLine().Trim ();
+			
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0].Trim ();
+				string newDataText = lineParts[1].Trim ();
+				
+				if (newDataType == "Name") {
+					strategyCard.Name = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Initiative") {
+					strategyCard.Initiative = readIntLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Set") {
+					strategyCard.Set = stringToStrategySet(readTextLine(newDataType, newDataText, fileName));
+				} else if (newDataType == "Primary Ability") {
+					strategyCard.PrimaryAbility = readStrategyAbility(newDataType, newDataText, fileName, reader);
+				} else if (newDataType == "Secondary Ability") {
+					strategyCard.SecondaryAbility = readStrategyAbility(newDataType, newDataText, fileName, reader);
+				} else if (newDataType == "Special") {
+					strategyCard.Special = readTextLine (newDataType, newDataText, fileName);
+				}
+				line = reader.ReadLine().Trim ();
+			} while (line != "<}>");
+			// End of outermost block
+			
+			return strategyCard;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private StrategyAbility readStrategyAbility(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			StrategyAbility strategyAbility = new StrategyAbility();
+			string line = reader.ReadLine().Trim ();
+			
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0].Trim ();
+				string newDataText = lineParts[1].Trim ();
+				
+				if (newDataType == "Name") {
+					strategyAbility.Name = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Text") {
+					strategyAbility.Text = readTextLine (newDataType, newDataText, fileName);
+				} 
+				line = reader.ReadLine().Trim ();
+			} while (line != "<}>");
+			// End of outermost block
+			
+			return strategyAbility;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
 
 	
 	/* 
@@ -1558,6 +1668,18 @@ public class FileManager : TIOMonoBehaviour {
 		} else {
 			isAnInt = int.TryParse(numberString, out number);
 			return number;
+		}
+	}
+
+	private StrategySet stringToStrategySet(string setName) {
+		if (setName == "Vanilla Set") {
+			return StrategySet.Vanilla;
+		} else if (setName == "Shattered Empire Set") {
+			return StrategySet.ShatteredEmpire;
+		} else if (setName == "Fall of the Empire Variants") {
+			return StrategySet.FallOfTheEmpire;
+		} else {
+			return StrategySet.None;
 		}
 	}
 }

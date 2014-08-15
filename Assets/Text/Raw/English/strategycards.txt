@@ -72,7 +72,7 @@ Special : After selecting this Strategy Card, reveal cards from the Objective de
 Primary Ability: Senatorial Control : Receive 1 Command Counter from your reinforcements. Then draw the top two cards from the Objective deck. Place one faceup in the common play area and the other on the top of the deck. You may then immediately claim one public objective that you qualify for.
 Secondary Ability: New Agendas : Spend 1 Command Counter from your Strategy Allocation area to draw one Political Card and one Action Card.
 --------------------
-Shards of the Throne Variant Cards
+Shards of the Throne Variants
 
 3 : Assembly II
 Primary Ability: Assembly of Councilors : Draw 2 Political Cards. Then: 1) Choose a player to resolve 1 Political Card from his hand. 2) Give the Speaker Token to any player except the chosen player. 3) Choose Representatives. 4) Resolve Spies. 5) Bargaining and Promissory Notes. 6) Resolve Voting & Outcome.
@@ -86,7 +86,7 @@ Secondary Ability: Subterfuge : Spend 1 Command Counter from your Strategy Alloc
 Primary Ability: Merchants and Mercenaries : Open trade negotiations among all players. All players then receive Trade Good from active trade agreements (even if just acquired). Then each player pays 1 Trade Good to each of his Mercenaries or discards it. Finally, you may recruit 1 of the top 2 Mercenary Cards from the deck.
 Secondary Ability: Free Commerce : Spend 1 Command Counter from your Strategy Allocation area to break a trade agreement between any 2 other players and gain 1 Trade Good.
 --------------------
-Shards of the Throne: Fall of the Empire
+Fall of the Empire Variants
 
 3 : Civilization
 Primary Ability: Power of the People : Resolve this card based upon your race: Lazax: Draw the top 2 cards of the Agenda deck, choose 1, and discard the other. Choose any result on the card (no voting). Other: Draw the top 2 cards of the Agenda deck, choose 1 to vote on, and discard the other.

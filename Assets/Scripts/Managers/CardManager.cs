@@ -87,14 +87,6 @@ public class CardManager : TIOMonoBehaviour {
 		specialObjsDebug = (Objective[])specialObjs.ToArray (typeof(Objective));
 	}
 
-	public ActionCard getActionCard(string actionCardName) {
-		return actionCards [actionCardName];
-	}
-
-	public Merc getMerc(string mercName) {
-		return mercs [mercName];
-	}
-	
 	private void readActionCards() {
 		int deckSize = 0;
 		foreach (ActionCard actionCard in fileManager.ReadActionFile ()) {

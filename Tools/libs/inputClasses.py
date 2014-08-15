@@ -470,3 +470,43 @@ class PromissoryNote:
 	def getRuleText(self):
 		return self._ruleText
 		
+class StrategyCard:
+	def __init__(self, name, initiative, set, primaryName, primaryText, secondaryName, secondaryText, specialText):
+		self._name = name
+		self._initiative = initiative
+		self._set = set
+		self._primaryName = primaryName
+		self._primaryText = primaryText
+		self._secondaryName = secondaryName
+		self._secondaryText = secondaryText
+		self._specialText = specialText
+		
+	def __repr__(self):
+		return "StrategyCard {0}".format(self._name)
+		
+	def getName(self):
+		return self._name
+	
+	def getInitiative(self):
+		return self._initiative
+		
+	def getPrimaryName(self):
+		return self._primaryName
+		
+	def getPrimaryText(self):
+		return self._primaryText
+		
+	def getSecondaryName(self):
+		return self._secondaryName
+		
+	def getSecondaryText(self):
+		return self._secondaryText
+		
+	def getSpecialText(self):
+		return self._specialText
+		
+	def getSet(self):
+		return self._set
+		
+	def getSpecial(self):
+		return self._specialText

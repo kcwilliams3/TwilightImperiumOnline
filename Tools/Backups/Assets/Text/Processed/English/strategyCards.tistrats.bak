@@ -1,0 +1,294 @@
+<{>
+Name: 					Leadership<;>
+Initiative: 			1<;>
+Set: 					Shattered Empire Set<;>
+Primary Ability: 		<{>
+						Name:	Take Charge<;>
+						Text:	Receive 3 Command Counters from your reinforcements. You may then immediately use this card's secondary ability.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Masterful Tactician<;>
+						Text:	You may spend influence to purchase up to 3 Command Counters from your reinforcements. You receive 1 Command Counter for every 2 influence you spend.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Initiative<;>
+Initiative: 			1<;>
+Set: 					Vanilla Set<;>
+Primary Ability: 		<{>
+						Name:	<;>
+						Text:	<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	<;>
+						Text:	<;>
+						<}>
+Special: 				After selecting this Strategy Card, claim the Speaker Token. During the Action Phase, you do not have to pay Command Counters from your Strategy Allocation area in order to execute the secondary ability of Strategy Cards. You may not select the Initiative Strategy during the next Strategy Phase. You do not take a Strategic Action during the Action Phase this round.<;>
+<}>
+<{>
+Name: 					Diplomacy II<;>
+Initiative: 			2<;>
+Set: 					Shattered Empire Set<;>
+Primary Ability: 		<{>
+						Name:	Demilitarized Zone<;>
+						Text:	Choose either a) or b). a) Choose one system containing a planet you control. Each opponent must place one of his Command Counters into the system from his reinforcements. b) Execute the secondary ability of this card without paying a Command Counter or any influence.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Peaceful Annexation<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area and 3 influence to claim an empty planet adjacent to a system you control. Place your Control Marker on the planet.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Diplomacy<;>
+Initiative: 			2<;>
+Set: 					Vanilla Set<;>
+Primary Ability: 		<{>
+						Name:	Diplomatic Envoy<;>
+						Text:	Name an opponent. For the remainder of this phase, neither you nor that opponent may activate a system containing units of the other player (including Ground Forces and PDS).<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Economic Stimulus<;>
+						Text:	Spend one Command Counter from your Strategy Allocation area to refresh up to two of your exhausted (non-Home System) Planet Cards.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Civilization<;>
+Initiative: 			3<;>
+Set: 					Fall of the Empire Variants<;>
+Primary Ability: 		<{>
+						Name:	Power of the People<;>
+						Text:	Resolve this card based upon your race: Lazax: Draw the top 2 cards of the Agenda deck, choose 1, and discard the other. Choose any result on the card (no voting). Other: Draw the top 2 cards of the Agenda deck, choose 1 to vote on, and discard the other.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Subterfuge<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area and 2 influence to draw 2 Action Cards.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Political II<;>
+Initiative: 			3<;>
+Set: 					Shards of the Throne Variants<;>
+Primary Ability: 		<{>
+						Name:	Summon the Councilors<;>
+						Text:	Choose 1 available Political Card to resolve as follows: 1) Choose Representatives. 2) Resolve Spies. 3) Resolve Bargaining and Promissory Notes. 4) Resolve Voting & Outcome. 5) Draw New Political Card.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Subterfuge<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area and 2 influence to draw 2 Action Cards.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Assembly<;>
+Initiative: 			3<;>
+Set: 					Shattered Empire Set<;>
+Primary Ability: 		<{>
+						Name:	Senate<;>
+						Text:	Draw 1 Political Card and 2 Action Cards. Then choose either a) or b). You may not choose option a if you are the Speaker. a) Claim the Speaker token and choose one other player to play a Political Card and resolve its agenda. b) Choose one other player to claim the Speaker token. Play a Political Card from your hand and resolve its agenda.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Morale Boost<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area to refresh any number of your Planet Cards with total combined resource and influence of 6 or less.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Political<;>
+Initiative: 			3<;>
+Set: 					Vanilla Set<;>
+Primary Ability: 		<{>
+						Name:	The Galactic Council<;>
+						Text:	Draw three Action Cards and receive one Command Counter from your reinforcements.  Then draw the top card of the Political Deck and resolve its agenda. After completing the agenda, draw the top three Cards of the Political Deck, secretly read them, and then place one card face down on the top of the deck and the rest face down on the bottom of the deck.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Seek Destiny<;>
+						Text:	Spend one Command Counter from your Strategy Allocation area to draw one Action Card.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Production<;>
+Initiative: 			4<;>
+Set: 					Shattered Empire Set<;>
+Primary Ability: 		<{>
+						Name:	Tight Deadlines<;>
+						Text:	Immediately build units in one of your systems containing one or more friendly Space Docks, receiving 2 additional resources with which to build, even if you have activated this system already. Building units here does not activate the system.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Double Efforts<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area to immediately build up to 3 units in one of your systems containing one or more friendly Space Docks, even if you have activated this system already. Building units here does not activate the system.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Logistics<;>
+Initiative: 			4<;>
+Set: 					Vanilla Set<;>
+Primary Ability: 		<{>
+						Name:	Comprehensive Operations<;>
+						Text:	Receive 4 Command Counters from your reinforcements.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Domestic Mandate<;>
+						Text:	You may spend influence to receive Command Counters from your reinforcements. You receive 1 Command Counter for every 3 influence you spend.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Trade III<;>
+Initiative: 			5<;>
+Set: 					Shards of the Throne Variants<;>
+Primary Ability: 		<{>
+						Name:	Merchants and Mercenaries<;>
+						Text:	Open trade negotiations among all players. All players then receive Trade Good from active trade agreements (even if just acquired). Then each player pays 1 Trade Good to each of his Mercenaries or discards it. Finally, you may recruit 1 of the top 2 Mercenary Cards from the deck.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Free Commerce<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area to break a trade agreement between any 2 other players and gain 1 Trade Good.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Trade II<;>
+Initiative: 			5<;>
+Set: 					Shattered Empire Set<;>
+Primary Ability: 		<{>
+						Name:	Free Trade<;>
+						Text:	Receive 3 Trade Goods or cancel up to 2 trade agreements (you may not cancel Hacan trade agreements). Then all players receive Trade Goods from their active trade agreements. Players who are not the active player receive 1 fewer total Trade Goods. Finally, open trade negotiations among all players. You must approve all new trade agreements.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	<;>
+						Text:	<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Trade<;>
+Initiative: 			5<;>
+Set: 					Vanilla Set<;>
+Primary Ability: 		<{>
+						Name:	Influence on the Merchant's Guild<;>
+						Text:	Choose either a) or b) a) Immediately receive 3 Trade Goods. Then receive Trade Goods for your active trade agreements. Finally, open trade negotiations among all players. You must approve all new trade agreements. b) All trade agreements are cancelled. Return all Trade Contracts to their owners.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Commerce<;>
+						Text:	Spend one Command Counter from your Strategy Allocation area to receive Trade Goods for your active trade agreements.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Warfare II<;>
+Initiative: 			6<;>
+Set: 					Shattered Empire Set<;>
+Primary Ability: 		<{>
+						Name:	High Alert<;>
+						Text:	Place the High Alert token in a system. Your ships in the system with the token gain +1 movement and +1 on all combat rolls. If you move any ships from this system, you may move the token with them. Remove the token from the board at the start of the next Status Phase.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Reinforce<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area to move up to two of your ships from unactivated systems into any adjacent systems you control. This does not activate the destination system(s).<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Warfare<;>
+Initiative: 			6<;>
+Set: 					Vanilla Set<;>
+Primary Ability: 		<{>
+						Name:	Major Offensive<;>
+						Text:	Immediately retrieve one of your Command Counters from the board and place it back in your Command Pool.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Patrols<;>
+						Text:	Spend one Command Counter from your Strategy Allocation area to choose one or two of your Destroyer/Cruiser units anywhere on the board. Each unit may now move to an adjacent empty (non-Home) system. Then place one of your Command Counters from your reinforcements in each destination system.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Technology II<;>
+Initiative: 			7<;>
+Set: 					Shattered Empire Set<;>
+Primary Ability: 		<{>
+						Name:	Technological Focus<;>
+						Text:	Receive one Technology advance. You may then buy a second Technology advance at the cost of 8 resources. You must have the necessary prerequisites for each Technology.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Advanced Development<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area and 6 resources to receive one Technology advance (for which you have the necessary prerequisites).<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Technology<;>
+Initiative: 			7<;>
+Set: 					Vanilla Set<;>
+Primary Ability: 		<{>
+						Name:	Technological Breakthrough<;>
+						Text:	Receive one Technology advance (for which you have the necessary prerequisites).<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Research and Development<;>
+						Text:	Spend one Command Counter from your Strategy Allocation area and spend 8 resources to receive one Technology advance (for which you have the necessary prerequisites).<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Industry<;>
+Initiative: 			8<;>
+Set: 					Fall of the Empire Variants<;>
+Primary Ability: 		<{>
+						Name:	Accelerated Economy<;>
+						Text:	Choose either a) or b). a) Receive 1 free Space Dock on a planet you control. You may do this even if you gained the planet's Planet Card this round. b) Receive up to 4 resources worth of free units in an activated system you control that contains a Space Dock.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Fabrication<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area to receive up to 2 resources worth of free units in an activated system you control that contains a Space Dock.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Imperial II<;>
+Initiative: 			8<;>
+Set: 					Shattered Empire Imperial Variant<;>
+Primary Ability: 		<{>
+						Name:	The Ancient Throne<;>
+						Text:	Choose either a) or b). a) During the upcoming Status Phase, you may qualify for any number of Public Objective Cards. Also, if you control Mecatol Rex, immediately gain 1 Victory Point. b) You may execute the secondary ability of this Strategy Card for free. No other player may execute this secondary ability.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Rapid Mobilization<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area to build at one of your Space Docks (even if the system is already activated). This does not activate the system.<;>
+						<}>
+Special: 				<;>
+<}>
+<{>
+Name: 					Bureaucracy<;>
+Initiative: 			8<;>
+Set: 					Shattered Empire Set<;>
+Primary Ability: 		<{>
+						Name:	Senatorial Control<;>
+						Text:	Receive 1 Command Counter from your reinforcements. Then draw the top two cards from the Objective deck. Place one faceup in the common play area and the other on the top of the deck. You may then immediately claim one public objective that you qualify for.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	New Agendas<;>
+						Text:	Spend 1 Command Counter from your Strategy Allocation area to draw one Political Card and one Action Card.<;>
+						<}>
+Special: 				After selecting this Strategy Card, reveal cards from the Objective deck equal to the number of Bonus Counters on this card.<;>
+<}>
+<{>
+Name: 					Imperial<;>
+Initiative: 			8<;>
+Set: 					Vanilla Set<;>
+Primary Ability: 		<{>
+						Name:	Imperial Claim<;>
+						Text:	Draw the top card from the Objective Deck and place it face up in the common play area. Then receive 2 victory points.<;>
+						<}>
+Secondary Ability: 		<{>
+						Name:	Rapid Mobilization<;>
+						Text:	Spend one Command Counter from your Strategy Allocation area to immediately build units in one of your systems containing one or more friendly Space Docks, even if you have activated this system already. Building units here does not activate the system.<;>
+						<}>
+Special: 				<;>
+<}>
