@@ -11,19 +11,29 @@ public class BoardManager : TIOMonoBehaviour {
 	private Dictionary<PlanetSystem, int> systemCounts = new Dictionary<PlanetSystem, int>();
 
 	//Board
+	//TODO: Probably get rid of center and nexus
 	public PlanetSystem center;
 	public PlanetSystem nexus;
+	[SerializeField]
+	private Board gameBoard;
+
+	[SerializeField]
+	private PlanetSystem[] systemsDebug;
 
 	private bool isReady;
 	public bool IsReady { get { return isReady; } }
 
 	private GameManager gameManager;
+	private FileManager fileManager;
+	private PlayerManager playerManager;
 
 	private bool first = true;
 
 	// Use this for initialization
 	void Start () {
 		gameManager = GetComponent<GameManager> ();
+		fileManager = GetComponent<FileManager> ();
+		playerManager = GetComponent<PlayerManager> ();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +42,21 @@ public class BoardManager : TIOMonoBehaviour {
 			first = false;
 			//DealSystems (5);
 		}
+		systemsDebug = new PlanetSystem[systems.Values.Count];
+		systems.Values.CopyTo (systemsDebug,0);
+	}
+
+	public PlanetSystem GetSystem(string systemName) {
+		if (systemName.Contains("Home System")) {
+			return playerManager.GetHomeSystem (systemName);
+		}
+		return systems [systemName];
+	}
+
+	public void LoadMap(string mapName) {
+		prepareSystemsDirectory ();
+		gameBoard = fileManager.ReadMapFile (mapName);
+		gameBoard.DisplayForDebug ();
 	}
 
 	private void prepareSystemsDirectory() {

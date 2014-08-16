@@ -32,6 +32,7 @@ public class GameManager : TIOMonoBehaviour {
 
 	private PlayerManager playerManager;
 	private CardManager cardManager;
+	private BoardManager boardManager;
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +45,7 @@ public class GameManager : TIOMonoBehaviour {
 		playerCount = 7;
 		playerManager = GetComponent<PlayerManager> ();
 		cardManager = GetComponent<CardManager> ();
+		boardManager = GetComponent<BoardManager> ();
 	}
 	
 	// Update is called once per frame
@@ -119,5 +121,9 @@ public class GameManager : TIOMonoBehaviour {
 		playerManager.InitializePlayers();
 		cardManager.InitializeCards();
 		playerManager.InitializePlayerComponents ();
+		if (scenario == Scenario.FallOfTheEmpire) {
+			string mapName = "fall" + playerCount.ToString() + "p";
+			boardManager.LoadMap (mapName);
+		}
 	}
 }

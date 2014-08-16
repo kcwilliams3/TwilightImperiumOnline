@@ -15,13 +15,16 @@ public class FileManager : TIOMonoBehaviour {
 
 	// Directory-related Variables
 	private string rawTextDir;
+	[SerializeField]
 	private string procTextDir;
+	private string mapDir = "Assets/Maps/";
 
 	// Managers
 	private GameManager gameManager;
 	private UnitManager unitManager;
 	private TechManager techManager;
 	private PlayerManager playerManager;
+	private BoardManager boardManager;
 
 	// Need to check directories before Tech Manager starts
 	void Awake() {
@@ -34,6 +37,7 @@ public class FileManager : TIOMonoBehaviour {
 		unitManager = GetComponent<UnitManager>();
 		techManager = GetComponent<TechManager>();
 		playerManager = GetComponent<PlayerManager>();
+		boardManager = GetComponent<BoardManager>();
 	}
 	
 	// Update is called once per frame
@@ -140,6 +144,12 @@ public class FileManager : TIOMonoBehaviour {
 		string fullPath = procTextDir + gameManager.Language + "/Fall of the Empire/treaties.titrts";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readTreatyFile (fullPath);
+	}
+
+	public Board ReadMapFile(string mapName){
+		string fullPath = mapDir + mapName + ".timap";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readMapFile (fullPath);
 	}
 
 
@@ -348,6 +358,26 @@ public class FileManager : TIOMonoBehaviour {
 				reader.Close ();
 				
 				return treaties;
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
+
+	
+	private Board readMapFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+
+			using (reader) {
+				Board map = readMap(fileName, reader);
+
+				// Reading successfully finished
+				reader.Close ();
+
+				return map;
 			}
 		}
 		catch (System.Exception e) {
@@ -1552,6 +1582,63 @@ public class FileManager : TIOMonoBehaviour {
 			// End of outermost block
 			
 			return treaty;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
+	private Board readMap(string fileName, StreamReader reader) {
+		ArrayList sections = new ArrayList ();
+		
+		string line = reader.ReadLine().Trim ();
+		
+		do {
+			if (line == "<{>") {
+				// Start of an outermost block
+				sections.Add(readMapSection("", line, fileName, reader));
+				
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				} 
+			}
+		} while (line == "<{>" && !reader.EndOfStream);
+		
+		return new Board((BoardSection[])sections.ToArray(typeof(BoardSection)));
+	}
+
+	private BoardSection readMapSection(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			string line = reader.ReadLine().Trim ();
+
+			// Read "first column" information
+			string[] firstColumnStrings = readTextLine ("", line, fileName).Split (",".ToCharArray());
+			ArrayList firstCols = new ArrayList();
+			foreach(string numberString in firstColumnStrings) {
+				firstCols.Add(System.Convert.ToInt32(numberString));
+			}
+
+			int[] columnArray = (int[])firstCols.ToArray (typeof(int));
+
+			line = reader.ReadLine().Trim ();
+
+			ArrayList mapGrid = new ArrayList();
+			do {
+				string[] systemNames = readTextLine ("", line, fileName).Split (",".ToCharArray());
+				ArrayList systems = new ArrayList();
+				foreach(string name in systemNames) {
+					systems.Add(boardManager.GetSystem(name));
+				}
+				mapGrid.Add ((PlanetSystem[])systems.ToArray (typeof(PlanetSystem)));
+				line = reader.ReadLine().Trim ();	
+			} while (line != "<}>");
+			// End of outermost block
+
+			PlanetSystem[][] section = new PlanetSystem[mapGrid.Count][];
+			for (int i=0; i<mapGrid.Count; i++) {
+				section[i] = (PlanetSystem[])mapGrid[i];
+			}
+
+			return new BoardSection(section, columnArray);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}

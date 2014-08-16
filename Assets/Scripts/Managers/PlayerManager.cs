@@ -40,6 +40,17 @@ public class PlayerManager : TIOMonoBehaviour {
 		return races [id];
 	}
 
+	public PlanetSystem GetHomeSystem(string systemName) {
+		foreach(Race race in races.Values) {
+			foreach(PlanetSystem sys in race.HomeSystems) {
+				if (sys.Name == systemName) {
+					return sys;
+				}
+			}
+		} 
+		return new PlanetSystem();
+	}
+
 	public void InitializePlayers() {
 		players = new Player[gameManager.PlayerCount];
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
