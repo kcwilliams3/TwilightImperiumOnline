@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Race {
 
 	// Variables for logical use
-	private const int TIGameProperties = 14;
+	private const int TIGameProperties = 15;
 	private bool[] isLocked;
 
 	// TI Game Data
@@ -51,6 +51,8 @@ public class Race {
 	[SerializeField]
 	private Representative[] representatives;
 	public Representative[] Representatives { get { return representatives; } set { if (!isLocked[13]) { representatives = value; isLocked[13] = true; } else { Debug.Log("Race: Attempted to set locked property Representatives."); } } }
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[14]) { id = value; isLocked[14] = true; } else { Debug.Log("Race: Attempted to set locked property Id."); } } }
 
 	public Race() {
 		isLocked = new bool[TIGameProperties];

@@ -55,7 +55,7 @@ Against: Each player destroys at least 3 resources worth of units in his Home Sy
 
 Disbanding the Empire
 "A central seat of power is a sure road to corruption. The only way to foster trust is to delegate that power to many systems!"
-For: The Lazax player takes each unit in the Mecatol Rex system He may place each unit in any other system controlled by the same player as the unit being placed.
+For: The Lazax player takes each unit in the Mecatol Rex system. He may place each unit in any other system controlled by the same player as the unit being placed.
 Against: Move the round marker back one space.
 
 Dissolve the Council (EVENT)
@@ -148,16 +148,16 @@ The Lazax player may look at the player's hand of Treaty Cards.
 The Maandu Edict (EVENT)
 After the Sol attack on the Letnev blockade at Quann, the Emperor has little choice but to place all warships under direct imperial supervision.
 Keep this card in play as long as the Lazax control Mecatol Rex. The Lazax player may force any player to retreat from Space Battles.
- 
+
 The Quann Conflict (EVENT)
 Many historians mark the regulation of the Quann trade routes as the beginning of the end for the Lazax Empire.
 Keep this card in play. The maximum Fleet limit in the Quann system is 4. At the start of each Status Phase, the player controlling the Quann system receives 3 Trade Goods.
- 
+
 Trade Embargo
 "His crimes against his own people are horrid and unspeakable..."
 Elect Player
 All trade agreements with this player are broken, and no new trade agreements may be formed with this player during this or the following round.
- 
+
 Unknown Threat
 "You must fully disclose this scandal. Declassify ALL knowledge of this massacre, or I promise, you will be hunted like the wild boars of Metix."
 Elect Player (excluding the Lazax)

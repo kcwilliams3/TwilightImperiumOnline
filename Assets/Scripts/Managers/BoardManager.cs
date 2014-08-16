@@ -14,6 +14,9 @@ public class BoardManager : TIOMonoBehaviour {
 	public PlanetSystem center;
 	public PlanetSystem nexus;
 
+	private bool isReady;
+	public bool IsReady { get { return isReady; } }
+
 	private GameManager gameManager;
 
 	private bool first = true;

@@ -1,0 +1,301 @@
+<{>
+Name: 				Aggressive Strategy<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"We must show vision and strength..."<;>
+For: 				Each play may immediately, in the order of play, execute the secondary ability of his own Strategy Card, without spending a Command Counter from his Strategy Allocation area.<;>
+Against: 			No player may execute the secondary ability of any Strategy Card for the remainder of this round.<;>
+<}>
+<{>
+Name: 				Birth of a Prophecy<;>
+Law: 				true<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"Flightless birds have visions of fire." - Ancient Ixth Proverb<;>
+Elect: 				Player<;>
+Effect: 			The player's Ground Forces receive +1 to all combat rolls. Discard this card during the Status Phase if the player did not purchase at least 2 new Ground Forces this round.<;>
+<}>
+<{>
+Name: 				Broad Cloaking Technology<;>
+Law: 				true<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"Visitors from afar wish to share technology that allows travel between the fabric of space. Would anyone dare abuse such a boon?"<;>
+For: 				Players may move through systems containing enemy ships as if the systems were empty.<;>
+Against: 			Each player discards 2 random Action Cards from his hand. Then discard this card.<;>
+<}>
+<{>
+Name: 				Broken Allegiances<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"The Lazax continue to spread lies about equal representation. For far too long we have been neglected while they command us from their golden spires!"<;>
+For: 				The Lazax player must show his hand of Treaty Cards.<;>
+Against: 			Each player must discard 1 Treaty Card facedown (adjacent to the Action Card deck).<;>
+<}>
+<{>
+Name: 				Checks and Balances<;>
+Law: 				true<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"Never again must the aggressive strategy of a single race threaten the stability of the galaxy."<;>
+For: 				When a player chooses a Strategy Card during the Strategy Phase, he must give the chosen card to another player (who does not currently have a Strategy Card).<;>
+Against: 			Discard this card.<;>
+<}>
+<{>
+Name: 				Citizens' Weapon Rights<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"How DARE the Lazax tell us these weapons are contraband. A citizen has the right to defend himself and his homeworld!"<;>
+For: 				Each player gains a War Sun in his Home System (unless he does not control his Home System).<;>
+Against: 			Each player destroys 1 unit of an opposing player.<;>
+<}>
+<{>
+Name: 				Clearing the Wormholes<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"Amendment 3 of the Quann Treaty demands that wormholes remain neutral. All violators will pay violent ramifications."<;>
+For: 				At the end of this game round, all units in Wormhole systems are destroyed.<;>
+Against: 			Each player must place 1 Command Counter from his supply in each Wormhole system he controls.<;>
+<}>
+<{>
+Name: 				Compensated Disarmament<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"War must be avoided at all costs, and cost it will!"<;>
+Elect: 				Planet<;>
+Effect: 			All Ground Forces on this planet are destroyed, but the planet's controller receives 1 Trade Good for each such unit destroyed and retains control of the planet.<;>
+<}>
+<{>
+Name: 				Defensive Mobilizations<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"We must make preparations and protect our interests."<;>
+For: 				Each player may take any number of friendly units from any 1 system and place them in his Home System.<;>
+Against: 			Each player may take any number of friendly units from his Home System and place them in 1 other friendly system he controls.<;>
+<}>
+<{>
+Name: 				Demilitarization<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"We cannot allow this mounting and illegal threat to remain unchallenged."<;>
+Elect: 				Planet<;>
+Effect: 			All ships in the planet's system are destroyed.<;>
+<}>
+<{>
+Name: 				Desperate Experiments<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"These experiments could provide benefits to us all."<;>
+For: 				The Lazax player chooses a system under his control and rolls a die. 1-3: He gains 1 free Technology ignoring prerequisites. 4+: All units in the system are destroyed.<;>
+Against: 			Each player destroys at least 3 resources worth of units in his Home System.<;>
+<}>
+<{>
+Name: 				Disbanding the Empire<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"A central seat of power is a sure road to corruption. The only way to foster trust is to delegate that power to many systems!"<;>
+For: 				The Lazax player takes each unit in the Mecatol Rex system He may place each unit in any other system controlled by the same player as the unit being placed.<;>
+Against: 			Move the round marker back one space.<;>
+<}>
+<{>
+Name: 				Dissolve the Council<;>
+Law: 				false<;>
+Event: 				true<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		As civil war erupted throughout the galaxy, it became clear the Galactic Council could do little to turn this crimson tide.<;>
+Effect: 			If there are no Events already in play, discard this card. Otherwise, discard all Laws in play and keep this card in play. Players choosing the Civilization Strategy Card can only use the secondary ability but at no cost.<;>
+<}>
+<{>
+Name: 				Documenting Research<;>
+Law: 				true<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"We encourage you to share your findings with your peers."<;>
+For: 				When a player uses the secondary ability of the Technology Strategy Card, reduce his cost to 0 if he is purchasing the same Technology that was acquired using the primary ability.<;>
+Against: 			Exhaust each planet that has a Technology specialty.<;>
+<}>
+<{>
+Name: 				Fallout from the Deserter<;>
+Law: 				false<;>
+Event: 				true<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		Near the last days, Ibna Vel Syd gathered his closest allies and fled Mecatol Rex. Years later, on the other side of the galaxy, this fugitive brought rise to the L1z1x.<;>
+Effect: 			The Lazax player must destroy 3 of his non-Fighter ships at Mecatol Rex or move the round marker back one space.<;>
+<}>
+<{>
+Name: 				Fund Research Complex<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"This state-of-the-art facility will dwarf the combined universities of Jol Nar!"<;>
+Elect: 				Planet<;>
+Effect: 			The player controlling this planet has his cost to purchase Technologies reduced by 2. Place this card on the planet's Planet Card to remember this.<;>
+<}>
+<{>
+Name: 				Leave No Survivors<;>
+Law: 				false<;>
+Event: 				true<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		After the fall of Mecatol Rex, the hated Lazax became hunted by many of the great races.<;>
+Effect: 			Keep this card in play. Each time a player destroys an enemy Lazax unit in battle, he receives 1 Trade Good.<;>
+<}>
+<{>
+Name: 				Minister of Commerce<;>
+Law: 				true<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"Someone has to regulate all this commerce, and that someone is me!"<;>
+Elect: 				Player<;>
+Effect: 			Give this card to the elected player. During each Status Phase, the elected player receives one Trade Good from each player that has at least one active trade agreement.<;>
+<}>
+<{>
+Name: 				Minister of War<;>
+Law: 				true<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"I have become death, the destroyer of worlds."<;>
+Elect: 				Player<;>
+Effect: 			The elected player may spend a Command Counter from his Strategy Allocation area to gain one automatic hit before the first round of any Space Battle in which he participates. This hit is applied before return fire.<;>
+<}>
+<{>
+Name: 				Official Sanction<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"His atrocities are a matter of fact. He must be stopped!"<;>
+Elect: 				Player<;>
+Effect: 			The player may not invade a neutral planet or a planet controlled by an opponent for the remainder of this round.<;>
+<}>
+<{>
+Name: 				Open the Trade Routes<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"We must spread the wealth of commerce to the distant suns of our galaxy."<;>
+For: 				Each player receives two Trade Goods.<;>
+Against: 			This round, during the Status Phase, each player must give all of the Trade Goods he would normally receive this round to the player on his left.<;>
+<}>
+<{>
+Name: 				Planetary Security<;>
+Law: 				true<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"These planets have become lawless and corrupt! We must take steps to insure the security of our colonies!"<;>
+For: 				Discard this card<;>
+Against: 			Non-Home System planets that are not garrisoned with at least one Ground Force immediately revert to neutral status.<;>
+<}>
+<{>
+Name: 				Public Execution<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"For his crimes against the Council he must die; let his death set an example..."<;>
+Elect: 				Player<;>
+Effect: 			The player loses all Action Cards, his planets are exhausted, and his units receive -1 on all combat rolls for the remainder of this round.<;>
+<}>
+<{>
+Name: 				Repeal<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"It is time to admit that this Council does not always have the foresight to choose course wisely."<;>
+Elect: 				Current LAW<;>
+Effect: 			Discard the elected card.<;>
+<}>
+<{>
+Name: 				Repeal Labor Laws<;>
+Law: 				true<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"We must make sacrifices to support expansion."<;>
+For: 				Players may build Space Docks on planets acquired during the same game round.<;>
+Against: 			Each player must lose 3 Trade Goods or destroy 1 of his Space Docks.<;>
+<}>
+<{>
+Name: 				Sacred Ground<;>
+Law: 				true<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"I saw the splendid ruins there, and I was struck by a great tranquility and wonder!"<;>
+Elect: 				Planet<;>
+Effect: 			This planet may not produce any units for the rest of the game. (No planet in a Home System may be elected.)<;>
+<}>
+<{>
+Name: 				Scientific Conference<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"Together, we can accomplish more progress than we'd dare dream!"<;>
+For: 				Each player receives 1 free Technology Card for which he has the prerequisites.<;>
+Against: 			Each player receives 1 Trade Good for each Technology Card he has.<;>
+<}>
+<{>
+Name: 				Stifle Imperial Power<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"Checks and balances have failed. It is time to regulate the regulators."<;>
+For: 				The Lazax player must destroy all of his units in 1 system he controls adjacent to his Home System.<;>
+Against: 			Advance the round marker forward one space.<;>
+<}>
+<{>
+Name: 				Subsidized Trade<;>
+Law: 				true<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"For too long the Hacan monopoly has bled our trade enterprise dry!"<;>
+For: 				Increase the trade value on each trade agreement by 1.<;>
+Against: 			The Hacan player loses all Trade Goods, and each other player loses 2 Trade Goods. Then discard this card.<;>
+<}>
+<{>
+Name: 				Test of Loyalty<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"Traitors will experience the most severe consequences. Revolution you say? You are a fool who would doom us all."<;>
+Elect: 				Player (excluding the Lazax)<;>
+Effect: 			The Lazax player may look at the player's hand of Treaty Cards.<;>
+<}>
+<{>
+Name: 				The Maandu Edict<;>
+Law: 				false<;>
+Event: 				true<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		After the Sol attack on the Letnev blockade at Quann, the Emperor has little choice but to place all warships under direct imperial supervision.<;>
+Effect: 			Keep this card in play as long as the Lazax control Mecatol Rex. The Lazax player may force any player to retreat from Space Battles.<;>
+<}>
+<{>
+Name: 				The Quann Conflict<;>
+Law: 				false<;>
+Event: 				true<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		Many historians mark the regulation of the Quann trade routes as the beginning of the end for the Lazax Empire.<;>
+Effect: 			Keep this card in play. The maximum Fleet limit in the Quann system is 4. At the start of each Status Phase, the player controlling the Quann system receives 3 Trade Goods.<;>
+<}>
+<{>
+Name: 				Trade Embargo<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"His crimes against his own people are horrid and unspeakable..."<;>
+Elect: 				Player<;>
+Effect: 			All trade agreements with this player are broken, and no new trade agreements may be formed with this player during this or the following round.<;>
+<}>
+<{>
+Name: 				Unknown Threat<;>
+Law: 				false<;>
+Event: 				false<;>
+Expansion: 			Shards of the Throne<;>
+Flavor Text: 		"You must fully disclose this scandal. Declassify ALL knowledge of this massacre, or I promise, you will be hunted like the wild boars of Metix."<;>
+Elect: 				Player (excluding the Lazax)<;>
+Effect: 			The player's Objective Card is turned face up for the remainder of this game.<;>
+<}>

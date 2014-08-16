@@ -21,6 +21,7 @@ public class FileManager : TIOMonoBehaviour {
 	private GameManager gameManager;
 	private UnitManager unitManager;
 	private TechManager techManager;
+	private PlayerManager playerManager;
 
 	// Need to check directories before Tech Manager starts
 	void Awake() {
@@ -32,29 +33,12 @@ public class FileManager : TIOMonoBehaviour {
 		gameManager = GetComponent<GameManager>();
 		unitManager = GetComponent<UnitManager>();
 		techManager = GetComponent<TechManager>();
+		playerManager = GetComponent<PlayerManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (!read) {
-			testRaces = new Race[17];
-			testRaces[0] = ReadRaceFile ("Arborec");
-			testRaces[1] = ReadRaceFile ("Gashlai");
-			testRaces[2] = ReadRaceFile ("Ghosts");
-			testRaces[3] = ReadRaceFile ("Hacan");
-			testRaces[4] = ReadRaceFile ("Jol Nar");
-			testRaces[5] = ReadRaceFile ("L1z1x");
-			testRaces[6] = ReadRaceFile ("Letnev");
-			testRaces[7] = ReadRaceFile ("Mentak");
-			testRaces[8] = ReadRaceFile ("Naalu");
-			testRaces[9] = ReadRaceFile ("Nekro");
-			testRaces[10] = ReadRaceFile ("N'orr");
-			testRaces[11] = ReadRaceFile ("Saar");
-			testRaces[12] = ReadRaceFile ("Sol");
-			testRaces[13] = ReadRaceFile ("Winnu");
-			testRaces[14] = ReadRaceFile ("Xxcha");
-			testRaces[15] = ReadRaceFile ("Yin");
-			testRaces[16] = ReadRaceFile ("Yssaril");
 			//testActionCard = GetComponent<CardManager>().getActionCard("The Hand That Takes");
 			//testMerc = GetComponent<CardManager>().getMerc ("52N6");
 			read = true;
@@ -76,9 +60,15 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	public Race ReadRaceFile(string raceName) {
-		string fullPath = procTextDir + gameManager.Language + "/Races/" + raceName + ".tirace";
+		string fullPath = procTextDir + gameManager.Language;
+		if (raceName == "Lazax") {
+			fullPath += "/Fall Of The Empire/";
+		} else {
+			fullPath += "/Races/";
+		}
+		fullPath += raceName + ".tirace";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
-		return readRaceFile(fullPath);
+		return readRaceFile(fullPath, raceName);
 	}
 
 	public Tech[] ReadTechFile() {
@@ -106,7 +96,12 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	public Objective[] ReadObjectiveFile() {
-		string fullPath = procTextDir + gameManager.Language + "/objectives.tiobjs";
+		string fullPath = procTextDir + gameManager.Language;
+		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
+			fullPath += "/Fall of the Empire/scenario.tiobjs";
+		} else {
+			fullPath += "/objectives.tiobjs";
+		}
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readObjectiveFile (fullPath);
 	}
@@ -135,17 +130,30 @@ public class FileManager : TIOMonoBehaviour {
 		return readStrategyFile (fullPath);
 	}
 
+	public PoliticalCard[] ReadAgendaFile() {
+		string fullPath = procTextDir + gameManager.Language + "/Fall of the Empire/agendas.tipols";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readPoliticalFile (fullPath);
+	}
+
+	public Treaty[] ReadTreatyFile() {
+		string fullPath = procTextDir + gameManager.Language + "/Fall of the Empire/treaties.titrts";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		return readTreatyFile (fullPath);
+	}
+
 
 	/*
 	 * Specific File Readers
 	 */
 
-	private Race readRaceFile(string fileName) {
+	private Race readRaceFile(string fileName, string id) {
 		try {
 			StreamReader reader = new StreamReader(fileName, Encoding.Default);
 
 			using (reader) {
 				Race race = readRace(fileName, reader);
+				race.Id = id;
 
 				// Reading successfully finished
 				reader.Close ();
@@ -329,6 +337,27 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+	private Treaty[] readTreatyFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				Treaty[] treaties = readTreatiesBlock(fileName, reader);
+				
+				// Reading successfully finished
+				reader.Close ();
+				
+				return treaties;
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
+			return null;
+		}
+	}
+
+
+
 
 	/*
 	 * Complex Section Readers
@@ -386,6 +415,10 @@ public class FileManager : TIOMonoBehaviour {
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of outermost block
+		}
+
+		foreach(PlanetSystem sys in race.HomeSystems) {
+			sys.Expansion = race.Expansion;
 		}
 
 		return race;
@@ -1012,6 +1045,11 @@ public class FileManager : TIOMonoBehaviour {
 					politicalCard.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Law") {
 					politicalCard.IsLaw = stringToBool(readTextLine(newDataType, newDataText, fileName));
+				} else if (newDataType == "Event") {
+					bool isEvent = stringToBool (readTextLine (newDataType, newDataText, fileName));
+					if (isEvent) {
+						voteType = VType.Event;
+					}
 				} else if (newDataType == "Expansion") {
 					politicalCard.Expansion = stringToExpansion(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Flavor Text") {
@@ -1026,7 +1064,11 @@ public class FileManager : TIOMonoBehaviour {
 					voteType = VType.Elect;
 					readElectLine(readTextLine (newDataType, newDataText, fileName), politicalCard);
 				} else if (newDataType == "Effect") {
-					politicalCard.ElectText = readTextLine(newDataType, newDataText, fileName);
+					if (voteType == VType.Event) {
+						politicalCard.EventText = readTextLine(newDataType, newDataText, fileName);
+					} else {
+						politicalCard.ElectText = readTextLine(newDataType, newDataText, fileName);
+					}
 				}
 				line = reader.ReadLine().Trim ();	
 			} while (line != "<}>");
@@ -1275,11 +1317,14 @@ public class FileManager : TIOMonoBehaviour {
 					} else if (rewardText == "GAME OVER") {
 						obj.RewardType = OReward.GAMEOVER;
 						obj.RewardQuantity = 0;
+					} else if (rewardText == "Immediate Victory") {
+						obj.RewardType = OReward.INSTANTWIN;
+						obj.RewardQuantity = 0;
 					} else {
 						obj.RewardType = OReward.VP;
 						obj.RewardQuantity = System.Convert.ToInt32(rewardText);
 					}
-				} 
+				}
 				
 				line = reader.ReadLine().Trim ();	
 			} while (line != "<}>");
@@ -1453,6 +1498,65 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+	private Treaty[] readTreatiesBlock(string fileName, StreamReader reader) {
+		
+		ArrayList treaties = new ArrayList ();
+		
+		string line = reader.ReadLine().Trim ();
+		
+		do {
+			if (line == "<{>") {
+				// Start of an outermost block
+				treaties.Add(readTreaty("", line, fileName, reader));
+				
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				} 
+			}
+		} while (line == "<{>" && !reader.EndOfStream);
+		
+		return (Treaty[])treaties.ToArray(typeof(Treaty));
+	}
+	
+	private Treaty readTreaty(string dataType, string dataText, string fileName, StreamReader reader) {
+		if (dataText == "<{>") {
+			Treaty treaty = new Treaty();
+			string line = reader.ReadLine().Trim ();
+			
+			do {
+				string[] lineParts;
+				//Split category name from data
+				lineParts = line.Split(":".ToCharArray(), 2);
+				
+				//Remove any extra whitespace from parts & set descriptive variables
+				string newDataType = lineParts[0].Trim ();
+				string newDataText = lineParts[1].Trim ();
+				
+				
+				if (newDataType == "Name") {
+					treaty.Name = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Flavor") {
+					treaty.FlavorText = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Rule") {
+					treaty.RulesText = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Suggestion") {
+					treaty.SuggestionText = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "Rank") {
+					treaty.Rank = readIntLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "Race") {
+					treaty.Race = playerManager.GetRace (readTextLine(newDataType, newDataText, fileName));
+				}
+				
+				line = reader.ReadLine().Trim ();	
+			} while (line != "<}>");
+			// End of outermost block
+			
+			return treaty;
+		} else {
+			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
+		}
+	}
+
 	
 	/* 
 	 * Basic Section Readers 
@@ -1621,8 +1725,12 @@ public class FileManager : TIOMonoBehaviour {
 			return OType.Preliminary;
 		} else if (objType == "Secret") {
 			return OType.Secret;
-		} else {
+		} else  if (objType == "Special") {
 			return OType.Special;
+		} else if (objType == "Lazax") {
+			return OType.Lazax;
+		} else {
+			return OType.Scenario;
 		}
 	}
 

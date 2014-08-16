@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public enum Expansion {Vanilla, ShatteredEmpire, ShardsOfTheThrone};
-public enum Option {DistantSuns, TheFinalFrontier, TheLongWar, AgeOfEmpire, Leaders, SabotageRuns, SEObjectives, AllObjectives, RaceSpecificTechnologies, Artifacts, ShockTroops, SpaceMines, WormholeNexus, Facilities, TacticalRetreats, TerritorialDistantSuns, CustodiansOfMecatolRex, VoiceOfTheCouncil, SimulatedEarlyTurns, PreliminaryObjectives, Flagships, MechanizedUnits, Mercenaries, PoliticalIntrigue, FallOfTheEmpire};
+public enum Option {DistantSuns, TheFinalFrontier, TheLongWar, AgeOfEmpire, Leaders, SabotageRuns, SEObjectives, AllObjectives, RaceSpecificTechnologies, Artifacts, ShockTroops, SpaceMines, WormholeNexus, Facilities, TacticalRetreats, TerritorialDistantSuns, CustodiansOfMecatolRex, VoiceOfTheCouncil, SimulatedEarlyTurns, PreliminaryObjectives, Flagships, MechanizedUnits, Mercenaries, PoliticalIntrigue};
+public enum Scenario {StandardGame, FallOfTheEmpire};
 
 public class GameManager : TIOMonoBehaviour {
 
@@ -13,15 +14,24 @@ public class GameManager : TIOMonoBehaviour {
 	//TODO: May not need these dictionaries. Decide.
 	private Dictionary<string, StrategyCard> strats = new Dictionary<string, StrategyCard> ();
 
-	[SerializeField]
 	//TODO: After finished, get rid of debug arrays.
+	[SerializeField]
 	private Option[] activeOptionsDebug;
 	private ArrayList activeOptions = new ArrayList ();
 	[SerializeField]
 	private StrategyCard[] strategyCardsDebug;
 	private Dictionary<int, StrategyCard> strategyCards = new Dictionary<int, StrategyCard> ();
+	[SerializeField]
+	private Scenario scenario;
+	public Scenario Scenario { get { return scenario; } }
+	[SerializeField]
+	private int playerCount;
+	public int PlayerCount { get { return playerCount; } }
 
 	private bool first = true;
+
+	private PlayerManager playerManager;
+	private CardManager cardManager;
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +39,11 @@ public class GameManager : TIOMonoBehaviour {
 		Activate (Option.PreliminaryObjectives);
 		Activate (Option.Artifacts);
 		Activate (Option.WormholeNexus);
+		Activate (Option.PoliticalIntrigue);
+		scenario = Scenario.FallOfTheEmpire;
+		playerCount = 7;
+		playerManager = GetComponent<PlayerManager> ();
+		cardManager = GetComponent<CardManager> ();
 	}
 	
 	// Update is called once per frame
@@ -38,6 +53,8 @@ public class GameManager : TIOMonoBehaviour {
 			readStrategyCards ();
 			StrategyCard[] replacements = new StrategyCard[2]{strats["Technology II"],strats["Trade III"]};
 			prepStrategyCards (StrategySet.FallOfTheEmpire, replacements);
+
+			InitializeGame();
 		}
 
 		activeOptionsDebug = (Option[])activeOptions.ToArray (typeof(Option));
@@ -96,5 +113,11 @@ public class GameManager : TIOMonoBehaviour {
 
 	public StrategyCard ChooseStrategyCard(int initiative) {
 		return strategyCards [initiative];
+	}
+
+	public void InitializeGame() {
+		playerManager.InitializePlayers();
+		cardManager.InitializeCards();
+		playerManager.InitializePlayerComponents ();
 	}
 }

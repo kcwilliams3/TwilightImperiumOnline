@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-public enum OType {Preliminary, Secret, PublicStageI, PublicStageII, Special}
-public enum OReward {VP, WIN, GAMEOVER}
+public enum OType {Preliminary, Secret, PublicStageI, PublicStageII, Special, Lazax, Scenario}
+public enum OReward {NONE, VP, WIN, GAMEOVER, INSTANTWIN}
 
 [System.Serializable]
 public class Objective {

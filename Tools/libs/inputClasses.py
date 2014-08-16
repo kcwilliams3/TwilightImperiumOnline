@@ -4,7 +4,7 @@
 #
 # Written by Kaleb Williams as part of Twilight Imperium project
 #
-# Used in process______data.py scripts
+# Used in process______.py scripts
 
 class Race:
 	def __init__(self):
@@ -394,12 +394,14 @@ class Merc:
 		return self._movement
 		
 class Objective:
-	def __init__(self, name, expansions, type, text, reward):
+	def __init__(self, name, expansions, type, text, reward, flavor=""):
 		self._name = name
 		self._expansions = expansions
 		self._type = type
 		self._text = text
 		self._reward = reward
+		#Fall of the Empire objective attribute
+		self._flavor = flavor
 		
 	def __repr__(self):
 		return "Objective {0}".format(self._name)
@@ -419,13 +421,19 @@ class Objective:
 	def getReward(self):
 		return self._reward
 		
+	#Fall of the Empire attribute getter
+	def getFlavor(self):
+		return self._flavor
+		
 class PoliticalCard:
-	def __init__(self, name, isLaw, expansion, flavorText):
+	def __init__(self, name, isLaw, expansion, flavorText, isEvent=False):
 		self._name = name
 		self._expansion = expansion
 		self._flavorText = flavorText
 		self._ruleText = []
 		self._isLaw = isLaw
+		#Fall of the Empire attribute
+		self._isEvent = isEvent
 		
 	def __repr__(self):
 		return "PoliticalCard {0}".format(self._name)
@@ -447,6 +455,10 @@ class PoliticalCard:
 		
 	def addRuleText(self, text):
 		self._ruleText.append(text);
+		
+	#Fall of the Empire getter
+	def isEvent(self):
+		return self._isEvent
 		
 class PromissoryNote:
 	def __init__(self, name, flavorText, playText, ruleText):
@@ -510,3 +522,33 @@ class StrategyCard:
 		
 	def getSpecial(self):
 		return self._specialText
+		
+class Treaty:
+	def __init__(self, name, flavor, rule, suggestion, rank, race=""):
+		self._name = name
+		self._flavor = flavor
+		self._rule = rule
+		self._suggestion = suggestion
+		self._rank = rank
+		self._race = race
+		
+	def __repr__(self):
+		return "Treaty {0}".format(self._name)
+		
+	def getName(self):
+		return self._name
+		
+	def getFlavor(self):
+		return self._flavor
+		
+	def getRule(self):
+		return self._rule
+		
+	def getSuggestion(self):
+		return self._suggestion
+		
+	def getRank(self):
+		return self._rank
+		
+	def getRace(self):
+		return self._race

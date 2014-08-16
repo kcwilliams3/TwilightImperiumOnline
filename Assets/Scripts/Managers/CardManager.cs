@@ -11,6 +11,7 @@ public class CardManager : TIOMonoBehaviour {
 	private Dictionary<string, Merc> mercs = new Dictionary<string, Merc>();
 	private Dictionary<string, Objective> objs = new Dictionary<string, Objective>();
 	private Dictionary<string, PoliticalCard> politicalCards = new Dictionary<string, PoliticalCard>();
+	private Dictionary<string, PoliticalCard> agendas = new Dictionary<string, PoliticalCard>();
 
 	// Decks
 	//TODO: After finished, get rid of debug arrays.
@@ -33,6 +34,10 @@ public class CardManager : TIOMonoBehaviour {
 	private Objective[] specialObjsDebug;
 	private ArrayList specialObjs = new ArrayList ();
 	[SerializeField]
+	private Objective[] scenarioObjsDebug;
+	private ArrayList scenarioObjs = new ArrayList ();
+	private Objective lazaxObj;
+	[SerializeField]
 	private PoliticalCard[] politicalDeckDebug; 
 	private ArrayList politicalDeck = new ArrayList();
 
@@ -50,27 +55,25 @@ public class CardManager : TIOMonoBehaviour {
 
 	private int updateCounter = 0;
 
+	private bool isReady;
+	public bool IsReady { get { return isReady; } }
+
 	private FileManager fileManager;
 	private GameManager gameManager;
+	private PlayerManager playerManager;
 
 	// Use this for initialization
 	void Start () {
 		fileManager = GetComponent<FileManager>();
 		gameManager = GetComponent<GameManager>();
-
-		readActionCards ();
-		readMercCards ();
-		readObjCards ();
-		readPoliticalCards ();
-		prepActionDeck ();
-		prepMercDeck ();
-		prepPoliticalDeck ();
+		playerManager = GetComponent<PlayerManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (updateCounter == 0) {
-			prepObjectives ();
+
+			isReady = true;
 		} 
 		updateCounter ++;
 
@@ -85,6 +88,27 @@ public class CardManager : TIOMonoBehaviour {
 		prelimObjsDebug = (Objective[])prelimObjs.ToArray (typeof(Objective));
 		secretObjsDebug = (Objective[])secretObjs.ToArray (typeof(Objective));
 		specialObjsDebug = (Objective[])specialObjs.ToArray (typeof(Objective));
+		scenarioObjsDebug = (Objective[])scenarioObjs.ToArray (typeof(Objective));
+	}
+
+	public void InitializeCards() {
+		//Initialize Action Cards
+		readActionCards ();
+		prepActionDeck ();
+
+		if (gameManager.Active(Option.Mercenaries)) {
+			//Initialize Mercenaries
+			readMercCards ();
+			prepMercDeck ();
+		}
+
+		//Initialize Political Cards/Agendas
+		readPoliticalCards ();
+		prepPoliticalDeck ();
+
+		//Initialize Objectives
+		readObjCards ();
+		prepObjectives ();
 	}
 
 	private void readActionCards() {
@@ -113,7 +137,13 @@ public class CardManager : TIOMonoBehaviour {
 
 	private void readPoliticalCards() {
 		int deckSize = 0;
-		foreach (PoliticalCard politicalCard in fileManager.ReadPoliticalFile()){
+		PoliticalCard[] cards = new PoliticalCard[1];
+		if (gameManager.Scenario == Scenario.StandardGame) {
+			cards = fileManager.ReadPoliticalFile();
+		} else if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
+			cards = fileManager.ReadAgendaFile();
+		}
+		foreach (PoliticalCard politicalCard in cards){
 			if (politicalCards.ContainsKey(politicalCard.Name)) {
 				politicalCards[politicalCard.Name + "/" + politicalCard.Expansion] = politicalCard;
 			} else {
@@ -186,28 +216,38 @@ public class CardManager : TIOMonoBehaviour {
 						specialObjs.Add(obj);
 					}
 					break;
+				case OType.Scenario:
+					scenarioObjs.Add (obj);
+					break;
+				case OType.Lazax:
+					lazaxObj = obj;
+					break;
 			}
 		}
 
-		// Build Public Objectives deck
-		//		Choose Stage I objectives
-		ArrayList stageIdeck = new ArrayList();
-		ShuffleDeck<Objective>(validStageIObjectives);
-		while (stageIdeck.Count < 6) {
-			stageIdeck.Add (DrawCard<Objective>(validStageIObjectives));
+		if (gameManager.Scenario != Scenario.FallOfTheEmpire) {
+			// Build Public Objectives deck
+			//		Choose Stage I objectives
+			ArrayList stageIdeck = new ArrayList();
+			ShuffleDeck<Objective>(validStageIObjectives);
+			while (stageIdeck.Count < 6) {
+				stageIdeck.Add (DrawCard<Objective>(validStageIObjectives));
+			}
+			ShuffleDeck<Objective>(stageIdeck);
+			//		Choose Stage II objectives
+			ArrayList stageIIdeck = new ArrayList();
+			stageIIdeck.Add (imperiumRexCard);
+			ShuffleDeck<Objective>(validStageIIObjectives);
+			while (stageIIdeck.Count < 4) {
+				stageIIdeck.Add (DrawCard<Objective>(validStageIIObjectives));
+			}
+			ShuffleDeck<Objective>(stageIIdeck);
+			//		Combine into one Public Objectives deck
+			pubObjDeck.AddRange(stageIdeck);
+			pubObjDeck.AddRange(stageIIdeck);
 		}
-		ShuffleDeck<Objective>(stageIdeck);
-		//		Choose Stage II objectives
-		ArrayList stageIIdeck = new ArrayList();
-		stageIIdeck.Add (imperiumRexCard);
-		ShuffleDeck<Objective>(validStageIIObjectives);
-		while (stageIIdeck.Count < 4) {
-			stageIIdeck.Add (DrawCard<Objective>(validStageIIObjectives));
-		}
-		ShuffleDeck<Objective>(stageIIdeck);
-		//		Combine into one Public Objectives deck
-		pubObjDeck.AddRange(stageIdeck);
-		pubObjDeck.AddRange(stageIIdeck);
+
+		ShuffleHiddenObjectives();
 	}
 
 	private bool validPublicObjective(Objective obj) {
@@ -260,6 +300,18 @@ public class CardManager : TIOMonoBehaviour {
 
 	public void ShufflePoliticalDeck() {
 		ShuffleDeck<PoliticalCard> (politicalDeck);
+	}
+
+	public void ShuffleHiddenObjectives() {
+		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
+			ShuffleDeck<Objective>(scenarioObjs);
+		} else {
+			if (gameManager.Active (Option.PreliminaryObjectives)) {
+				ShuffleDeck<Objective>(prelimObjs);
+			}
+			ShuffleDeck<Objective>(secretObjs);
+		} 
+		
 	}
 
 	public T DrawCard<T>(ArrayList deck) {
@@ -336,5 +388,19 @@ public class CardManager : TIOMonoBehaviour {
 
 	public ActionCard SearchForAction(ActionCard action) {
 		return (ActionCard)searchFor<ActionCard>(action, actionDeck);
+	}
+
+	public Objective GetStartingObjective(Player player) {
+		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
+			if (player.Race.Id == "Lazax") {
+				return lazaxObj;
+			} else {
+				return DrawCard<Objective> (scenarioObjs);
+			}
+		} else if (gameManager.Active (Option.PreliminaryObjectives)) {
+			return DrawCard<Objective> (prelimObjs);
+		} else {
+			return DrawCard<Objective> (secretObjs);
+		}
 	}
 }

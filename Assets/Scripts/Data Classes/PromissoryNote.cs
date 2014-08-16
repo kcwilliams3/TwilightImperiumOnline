@@ -4,7 +4,7 @@
 public class PromissoryNote {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 4;
+	private const int TIGameProperties = 5;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -20,11 +20,23 @@ public class PromissoryNote {
 	[SerializeField]
 	private string rulesText;
 	public string RulesText { get { return rulesText; } set { if (!isLocked[3]) { rulesText = value; isLocked[3] = true; } else { Debug.Log("PromissoryNote: Attempted to set locked property RulesText."); } } }
+	private Player owner;
+	public Player Owner { get { return owner; } set { if (!isLocked[4]) { owner = value; isLocked[4] = true; } else { Debug.Log("PromissoryNote: Attempted to set locked property Owner."); } } }
 	
 	public PromissoryNote() {
 		isLocked = new bool[TIGameProperties];
 		for (int i=0; i<TIGameProperties; i++) {
 			isLocked[i] = false;
 		}
+	}
+
+	public PromissoryNote DuplicateFor(Player pOwner) {
+		PromissoryNote note = new PromissoryNote ();
+		note.Name = name;
+		note.FlavorText = flavorText;
+		note.rulesText = rulesText;
+		note.playText = playText;
+		note.owner = pOwner;
+		return note;
 	}
 }

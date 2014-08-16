@@ -1,0 +1,77 @@
+<{>
+Name: 				Emperor of the Galaxy<;>
+Type: 				Lazax<;>
+Expansions: 		<{>
+							Shards of the Throne<;>
+					<}>
+Flavor: 			Peace to the Faithful<;>
+Text: 				You win the game if each Home System is controlled by you and/or its starting race at the end of round 8.<;>
+<}>
+<{>
+Name: 				Anarchist<;>
+Type: 				Scenario<;>
+Expansions: 		<{>
+							Shards of the Throne<;>
+					<}>
+Flavor: 			"The time of not only the Lazax, but also of the council, must come to an end.<;>
+Text: 				You win the game if you control your Home System and the Lazax player has not fulfilled his objective at the end of round 8.<;>
+<}>
+<{>
+Name: 				Loyalist<;>
+Type: 				Scenario<;>
+Expansions: 		<{>
+							Shards of the Throne<;>
+					<}>
+Flavor: 			"We know where our loyalties lie."<;>
+Text: 				You also win the game if the Lazax player wins.<;>
+<}>
+<{>
+Name: 				Opportunist<;>
+Type: 				Scenario<;>
+Expansions: 		<{>
+							Shards of the Throne<;>
+					<}>
+Flavor: 			The discovery of the Quann Wormhole ultimately changed everything. Some saw it as a doorway to unlimited trade, others as a portal of expansion.<;>
+Text: 				You win the game if you control the Quann system.<;>
+Reward: 			Immediate Victory<;>
+<}>
+<{>
+Name: 				Powerhungry<;>
+Type: 				Scenario<;>
+Expansions: 		<{>
+							Shards of the Throne<;>
+					<}>
+Flavor: 			"The only way to win this war is to plunge the knife in the heart!"<;>
+Text: 				You win the game if you control the Mecatol Rex system.<;>
+Reward: 			Immediate Victory<;>
+<}>
+<{>
+Name: 				Support of the People<;>
+Type: 				Scenario<;>
+Expansions: 		<{>
+							Shards of the Throne<;>
+					<}>
+Flavor: 			"We must rally support."<;>
+Text: 				When you give away your fourth Treaty Card, reveal this objective. If at least 3 other players have your Treaty Card in hand at this time, you win.<;>
+Reward: 			Immediate Victory<;>
+<}>
+<{>
+Name: 				Traitor<;>
+Type: 				Scenario<;>
+Expansions: 		<{>
+							Shards of the Throne<;>
+					<}>
+Flavor: 			"The Lazax are not the only threat we face in this war."<;>
+Text: 				You win the game if you control an enemy Home System (excluding Mecatol Rex).<;>
+Reward: 			Immediate Victory<;>
+<}>
+<{>
+Name: 				Unstoppable Army<;>
+Type: 				Scenario<;>
+Expansions: 		<{>
+							Shards of the Throne<;>
+					<}>
+Flavor: 			"We need superior numbers if we hope to win this war."<;>
+Text: 				You win the game if you have 60 plastic figures on the game board.<;>
+Reward: 			Immediate Victory<;>
+<}>

@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public enum VType { ForAgainst, Elect };
+public enum VType { ForAgainst, Elect, Event };
 public enum EType { Player, Planet, PublicObjective, CurrentLaw, ASpecialSystem, TechColor };
 
 [System.Serializable]
 public class PoliticalCard {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 11;
+	private const int TIGameProperties = 12;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -46,6 +46,9 @@ public class PoliticalCard {
 	[SerializeField]
 	private string electText;
 	public string ElectText { get { return electText; } set { if (!isLocked[10]) { electText = value; isLocked[10] = true; } else { Debug.Log("PoliticalCard: Attempted to set locked property ElectText."); } } }
+	[SerializeField]
+	private string eventText;
+	public string EventText { get { return eventText; } set { if (!isLocked[11]) { eventText = value; isLocked[11] = true; } else { Debug.Log("PoliticalCard: Attempted to set locked property EventText."); } } }
 
 	public PoliticalCard() {
 		isLocked = new bool[TIGameProperties];
