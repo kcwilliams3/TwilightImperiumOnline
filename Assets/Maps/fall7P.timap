@@ -1,9 +1,4 @@
 <{>
-0,-1<;>
-Tempesta,Alpha Wormhole<;>
-Beta Wormhole,Industrex<;>
-<}>
-<{>
 0,-1,-2,-3,-3,-3,-3<;>
 Federation of Sol Home System,Lazar/Sakulag,Centauri/Gral,The Barony of Letnev Home System<;>
 Mellon/Zohbat,Empty System,Asteroid Field,Empty System,Arnor/Lor<;>
@@ -12,4 +7,9 @@ The Xxcha Kingdom Home System,Supernova,Quann/Beta Wormhole,The Lazax Home Syste
 Tequ'Ran/Torkan,Tar'Mann,Qucen'n/Rarron,Dal Bootha/Xxehan,Empty System,Coorneeq/Resculon<;>
 Empty System,Abyz/Fria,Empty System,Asteroid Field,Thibah<;>
 Universities of Jol Nar Home System,Wellon,Bereg/Lirta IV,The Emirates of Hacan Home System<;>
+<}>
+<{>
+0,-1<;>
+Tempesta,Alpha Wormhole<;>
+Beta Wormhole,Industrex<;>
 <}>

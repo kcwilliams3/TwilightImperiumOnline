@@ -1591,7 +1591,7 @@ public class FileManager : TIOMonoBehaviour {
 		ArrayList sections = new ArrayList ();
 		
 		string line = reader.ReadLine().Trim ();
-		
+
 		do {
 			if (line == "<{>") {
 				// Start of an outermost block
@@ -1638,7 +1638,7 @@ public class FileManager : TIOMonoBehaviour {
 				section[i] = (PlanetSystem[])mapGrid[i];
 			}
 
-			return new BoardSection(section, columnArray);
+			return boardManager.CreateSection(section, columnArray);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}

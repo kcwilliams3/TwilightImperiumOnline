@@ -17,6 +17,11 @@ public class BoardManager : TIOMonoBehaviour {
 	[SerializeField]
 	private Board gameBoard;
 
+	//Attributes for hex and section creation
+	public GameObject HexPrefab;
+	private float hexSize;
+	private int sectionCount = 0;
+
 	[SerializeField]
 	private PlanetSystem[] systemsDebug;
 
@@ -34,6 +39,7 @@ public class BoardManager : TIOMonoBehaviour {
 		gameManager = GetComponent<GameManager> ();
 		fileManager = GetComponent<FileManager> ();
 		playerManager = GetComponent<PlayerManager> ();
+		hexSize = HexPrefab.renderer.bounds.size.x;
 	}
 	
 	// Update is called once per frame
@@ -56,7 +62,23 @@ public class BoardManager : TIOMonoBehaviour {
 	public void LoadMap(string mapName) {
 		prepareSystemsDirectory ();
 		gameBoard = fileManager.ReadMapFile (mapName);
-		gameBoard.DisplayForDebug ();
+		//gameBoard.DisplayForDebug ();
+	}
+
+	public BoardSection CreateSection(PlanetSystem[][] sectionArrays, int[] columnArray) {
+		BoardSection section = new BoardSection (sectionArrays, columnArray, calculateNextOrigin (), HexPrefab, hexSize);
+		return section;
+	}
+
+	private Vector3 calculateNextOrigin() {
+		sectionCount += 1;
+		if (sectionCount == 1) {
+			Debug.Log("IF!!!!!!!!!!!!!!!!!!");
+			return Vector3.zero;
+		} else {
+			Debug.Log ("ELSE!!!!!!!!!!!!!!!!!!!");
+			return new Vector3(2 * hexSize, 0, 5 * hexSize);
+		}
 	}
 
 	private void prepareSystemsDirectory() {
