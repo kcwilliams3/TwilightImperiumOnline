@@ -73,10 +73,8 @@ public class BoardManager : TIOMonoBehaviour {
 	private Vector3 calculateNextOrigin() {
 		sectionCount += 1;
 		if (sectionCount == 1) {
-			Debug.Log("IF!!!!!!!!!!!!!!!!!!");
 			return Vector3.zero;
 		} else {
-			Debug.Log ("ELSE!!!!!!!!!!!!!!!!!!!");
 			return new Vector3(2 * hexSize, 0, 5 * hexSize);
 		}
 	}

@@ -31,6 +31,7 @@ public class BoardSection {
 	private Vector3 origin;
 	public Vector3 Origin { get { return origin; } }
 
+	private FileManager fileManager;
 
 	private float hexSize;
 	private int maxRowSize;
@@ -52,6 +53,8 @@ public class BoardSection {
 				hexObject.AddComponent<SystemHex>();
 				hexObject.GetComponent<SystemHex>().System = inMap[i][j];
 				hexObject.transform.parent = GameObject.Find ("Board").transform;
+				fileManager = GameObject.Find ("Manager").GetComponent<FileManager>();
+				hexObject.transform.FindChild("Top").renderer.material.mainTexture = fileManager.ReadSystemTexture(inMap[i][j].Name);
 				hexObject.name = inMap[i][j].Name;
 			}
 			hexMap[i] = hexRow;

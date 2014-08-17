@@ -152,6 +152,16 @@ public class FileManager : TIOMonoBehaviour {
 		return readMapFile (fullPath);
 	}
 
+	public Texture ReadSystemTexture(string sysName) {
+		if (sysName.Contains("Home System")) {
+			Debug.Log(string.Format("Loading \"Home System (Back)\" texture... "));
+			return (Texture)Resources.Load ("Systems/Home System (Back)",typeof(Texture));
+		} else {
+			Debug.Log(string.Format("Loading \"Empty System\" texture... "));
+			return (Texture)Resources.Load ("Systems/Empty System",typeof(Texture));
+		}
+	}
+
 
 	/*
 	 * Specific File Readers
