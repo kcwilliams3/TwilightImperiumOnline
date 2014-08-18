@@ -54,7 +54,7 @@ public class BoardSection {
 				hexObject.GetComponent<SystemHex>().System = inMap[i][j];
 				hexObject.transform.parent = GameObject.Find ("Board").transform;
 				fileManager = GameObject.Find ("Manager").GetComponent<FileManager>();
-				hexObject.transform.FindChild("Top").renderer.material.mainTexture = fileManager.ReadSystemTexture(inMap[i][j].Name);
+				hexObject.transform.FindChild("Top").renderer.material.mainTexture = fileManager.ReadSystemTexture(inMap[i][j].Name, hexObject);
 				hexObject.name = inMap[i][j].Name;
 			}
 			hexMap[i] = hexRow;
@@ -69,7 +69,7 @@ public class BoardSection {
 		float boardLocalY = (float)Math.Sqrt (3.0f) * (hexSize / 2) * (axial.y + (axial.x / 2));
 		//board's local x is global x, but board's local y is global -z
 
-		return new Vector3 (boardLocalX + origin.x, origin.y, boardLocalY + origin.z);
+		return new Vector3 (boardLocalX + origin.x, origin.y, -boardLocalY + origin.z);
 	}
 
 	public void DisplayForDebug() {

@@ -152,14 +152,39 @@ public class FileManager : TIOMonoBehaviour {
 		return readMapFile (fullPath);
 	}
 
-	public Texture ReadSystemTexture(string sysName) {
-		if (sysName.Contains("Home System")) {
-			Debug.Log(string.Format("Loading \"Home System (Back)\" texture... "));
-			return (Texture)Resources.Load ("Systems/Home System (Back)",typeof(Texture));
-		} else {
-			Debug.Log(string.Format("Loading \"Empty System\" texture... "));
-			return (Texture)Resources.Load ("Systems/Empty System",typeof(Texture));
+	public Texture ReadSystemTexture(string sysName, GameObject hexObject) {
+		//If it's a regular empty system, randomly choose a variant and orientation
+		if (sysName == "Empty System") {
+			sysName += " " + ((int)Random.Range (1,3)); //Currently two variants. Not likely to change, so no need to make it a variable.
+			hexObject.transform.Rotate(hexObject.transform.up, 60 * (int)Random.Range(0,6));
+			Debug.Log (sysName);
 		}
+	
+		//Otherwise, change the system name into a valid file name
+		string tempName = "";
+		foreach(char c in sysName) {
+			if (c != '/') {
+				tempName += c; 
+			}
+		}
+		sysName = tempName;
+
+		//Now try to load the texture
+		string directory = "Systems/" + gameManager.Language;
+		Texture systemTexture;
+		systemTexture = (Texture)Resources.Load (directory + "/" + sysName, typeof(Texture));
+
+		if (systemTexture != null) {
+			//If the texture exists, we're done
+			return systemTexture;
+		} else {
+			//Otherwise, load the relevant system back-side
+			if (sysName.Contains("Home System")) {
+				return (Texture)Resources.Load (directory + "/Home System (Back)",typeof(Texture));
+			} else {
+				return (Texture)Resources.Load (directory + "/Regular System (Back)",typeof(Texture));
+			}
+		} 
 	}
 
 

@@ -49,6 +49,7 @@ public class CameraManager : MonoBehaviour {
 		
 		
 		// Keep camera within boundaries
+		//TODO: Update bounds check to account for zoom
 		Vector3 desiredPosition = camera.transform.position + translation;
 		if (desiredPosition.x < -wBoundary || desiredPosition.x > eBoundary) {
 			translation.x = 0;
