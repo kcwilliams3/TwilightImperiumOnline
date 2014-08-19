@@ -179,7 +179,7 @@ public class FileManager : TIOMonoBehaviour {
 			return systemTexture;
 		} else {
 			//Otherwise, load the relevant system back-side
-			if (sysName.Contains("Home System")) {
+			if (sysName.Contains("Home System") || sysName.Contains ("Creuss")) {
 				return (Texture)Resources.Load (directory + "/Home System (Back)",typeof(Texture));
 			} else {
 				return (Texture)Resources.Load (directory + "/Regular System (Back)",typeof(Texture));
