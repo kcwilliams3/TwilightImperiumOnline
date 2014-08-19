@@ -75,7 +75,7 @@ public class BoardManager : TIOMonoBehaviour {
 		if (sectionCount == 1) {
 			return Vector3.zero;
 		} else {
-			return new Vector3(2 * hexSize, 0, 5 * hexSize);
+			return new Vector3(2 * hexSize, 0, 3 * hexSize);
 		}
 	}
 
