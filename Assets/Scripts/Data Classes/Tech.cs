@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public enum TType {Red, Blue, Yellow, Green, Racial}
-public enum TPrereqMode {AND, OR, SINGULARorNONE}
+public enum TPrereqMode {SINGULARorNONE, AND, OR}
 
 [System.Serializable]
 public class Tech {

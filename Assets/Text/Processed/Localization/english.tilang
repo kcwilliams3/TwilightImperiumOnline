@@ -84,6 +84,7 @@ Cruiser<;>
 Destroyer<;>
 Dreadnought<;>
 Fighter<;>
+Flagship<;>
 Ground Force<;>
 Mechanized Unit<;>
 PDS<;>
@@ -128,6 +129,7 @@ Scenario<;>
 I WIN THE GAME<;>
 Immediate Victory<;>
 GAME OVER<;>
+VP<;>
 <}>
 <{>
 Vanilla Set<;>
