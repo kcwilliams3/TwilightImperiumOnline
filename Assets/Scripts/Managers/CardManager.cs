@@ -53,8 +53,6 @@ public class CardManager : TIOMonoBehaviour {
 	private PoliticalCard[] politicalDiscDebug;
 	private ArrayList politicalDisc = new ArrayList();
 
-	private int updateCounter = 0;
-
 	private bool isReady;
 	public bool IsReady { get { return isReady; } }
 
@@ -71,12 +69,6 @@ public class CardManager : TIOMonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (updateCounter == 0) {
-
-			isReady = true;
-		} 
-		updateCounter ++;
-
 		actionDeckDebug = (ActionCard[])actionDeck.ToArray (typeof(ActionCard));
 		mercDeckDebug = (Merc[])mercDeck.ToArray (typeof(Merc));
 		politicalDeckDebug = (PoliticalCard[])politicalDeck.ToArray (typeof(PoliticalCard));
@@ -193,6 +185,8 @@ public class CardManager : TIOMonoBehaviour {
 				case OType.PublicStageII:
 					if (validPublicObjective(obj)) {
 						// Valid Stage II Public Objective
+						//TODO: A: Move language dependency to language manager
+						//TODO: A: Maybe use a language-independent identifier
 						if (obj.Name == "Imperium Rex") {
 							imperiumRexCard = obj;
 						} else {
@@ -270,9 +264,13 @@ public class CardManager : TIOMonoBehaviour {
 	}
 
 	private bool validSpecialObjective(Objective obj) {
+		//TODO: A: Move language dependency to language manager
+		//TODO: A: Maybe use a language-independent identifier
 		if (gameManager.Active (Option.Artifacts) && (obj.Name == "Lazax Armory" || obj.Name == "Precursor Fossil" || obj.Name == "Ancient Shipwreck" || obj.Name == "Imperial Datacache")) {
 			// Artifact & using the artifacts option
 			return true;
+			//TODO: A: Move language dependency to language manager
+			//TODO: A: Maybe use a language-independent identifier
 		} else if (gameManager.Active (Option.VoiceOfTheCouncil) && (obj.Name == "Voice of the Council")) {
 			// Voice of the Council & using the VotC option
 			return true;
@@ -392,6 +390,7 @@ public class CardManager : TIOMonoBehaviour {
 
 	public Objective GetStartingObjective(Player player) {
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
+			//TODO: A: Decide if the current race Ids are sufficient in terms of language independence
 			if (player.Race.Id == "Lazax") {
 				return lazaxObj;
 			} else {

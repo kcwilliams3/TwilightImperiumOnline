@@ -4,7 +4,7 @@ using UnityEngine;
 public class ActionCard {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 7;
+	private const int TIGameProperties = 8;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -29,6 +29,9 @@ public class ActionCard {
 	[SerializeField]
 	private string[] discardText;
 	public string[] DiscardText { get { return discardText; } set { if (!isLocked[6]) { discardText = value; isLocked[6] = true; } else { Debug.Log("ActionCard: Attempted to set locked property DiscardText."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[7]) { id = value; isLocked[7] = true; } else { Debug.Log("ActionCard: Attempted to set locked property Id."); } } }
 	
 	public ActionCard() {
 		isLocked = new bool[TIGameProperties];

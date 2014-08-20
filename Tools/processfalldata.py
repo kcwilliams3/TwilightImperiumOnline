@@ -533,10 +533,10 @@ def writeTName(treaty, file):
 	file.write(getStringAtCol(treaty.getName()+lineEnd, firstValueCol, "Name: ", file))
 
 def writeTFlavor(treaty, file):
-	file.write(getStringAtCol(treaty.getFlavor()+lineEnd, firstValueCol, "Flavor: ", file))
+	file.write(getStringAtCol(treaty.getFlavor()+lineEnd, firstValueCol, "Flavor Text: ", file))
 	
 def writeTRule(treaty, file):
-	file.write(getStringAtCol(treaty.getRule()+lineEnd, firstValueCol, "Rule: ", file))
+	file.write(getStringAtCol(treaty.getRule()+lineEnd, firstValueCol, "Rule Text: ", file))
 	
 def writeTSuggestion(treaty, file):
 	file.write(getStringAtCol(treaty.getSuggestion()+lineEnd, firstValueCol, "Suggestion: ", file))

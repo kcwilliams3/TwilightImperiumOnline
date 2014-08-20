@@ -26,7 +26,7 @@ public class Unit {
 	protected int battle;
 	public int Battle { get { return battle; } }
 	[SerializeField]
-	protected int shots; // A value of -1 represents a special values ("?" for the Winnu flagship)
+	protected int shots; // A value of -1 represents a special value ("?" for the Winnu flagship)
 	public int Shots { get { return shots; } }
 	[SerializeField]
 	protected int capacity;

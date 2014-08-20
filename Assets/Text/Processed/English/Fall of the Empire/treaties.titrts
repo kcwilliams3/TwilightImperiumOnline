@@ -1,84 +1,84 @@
 <{>
 Name: 				Containment<;>
-Flavor: 			They grow and they spread with no recognition of the damage they cause. They will pay for their ignorance of the other races!<;>
-Rule: 				You also win the game if the Lazax player fulfills his objective.<;>
+Flavor Text: 		They grow and they spread with no recognition of the damage they cause. They will pay for their ignorance of the other races!<;>
+Rule Text: 			You also win the game if the Lazax player fulfills his objective.<;>
 Suggestion: 		Attack the Sol<;>
 Rank: 				3<;>
 Race: 				Lazax<;>
 <}>
 <{>
 Name: 				Defender of the Throne<;>
-Flavor: 			Against their combined arms, there is no hope for survival. Help me stop this empire from crumbling!<;>
-Rule: 				You also win the game if the Lazax player fulfills his objective.<;>
+Flavor Text: 		Against their combined arms, there is no hope for survival. Help me stop this empire from crumbling!<;>
+Rule Text: 			You also win the game if the Lazax player fulfills his objective.<;>
 Suggestion: 		Defend Mecatol Rex<;>
 Rank: 				1<;>
 Race: 				Lazax<;>
 <}>
 <{>
 Name: 				Oppressors<;>
-Flavor: 			Long have the Letnev sought the wealth of others. The barony would kill their own family for a drop of power.<;>
-Rule: 				You also win the game if the Lazax player fulfills his objective.<;>
+Flavor Text: 		Long have the Letnev sought the wealth of others. The barony would kill their own family for a drop of power.<;>
+Rule Text: 			You also win the game if the Lazax player fulfills his objective.<;>
 Suggestion: 		Attack the Letnev<;>
 Rank: 				4<;>
 Race: 				Lazax<;>
 <}>
 <{>
 Name: 				Peacekeeper<;>
-Flavor: 			They are a violent and horrible race that must be kept in check, lest they destroy us all!<;>
-Rule: 				You also win the game if the Lazax player fulfills his objective.<;>
+Flavor Text: 		They are a violent and horrible race that must be kept in check, lest they destroy us all!<;>
+Rule Text: 			You also win the game if the Lazax player fulfills his objective.<;>
 Suggestion: 		Attack the Sardakk N'orr<;>
 Rank: 				2<;>
 Race: 				Lazax<;>
 <}>
 <{>
 Name: 				Tech Regulator<;>
-Flavor: 			As much as we need their genius and technology, we must remember that they are a threat! They develop secret weapons and bide their time...<;>
-Rule: 				You also win the game if the Lazax player fulfills his objective.<;>
+Flavor Text: 		As much as we need their genius and technology, we must remember that they are a threat! They develop secret weapons and bide their time...<;>
+Rule Text: 			You also win the game if the Lazax player fulfills his objective.<;>
 Suggestion: 		Attack the Jol Nar<;>
 Rank: 				6<;>
 Race: 				Lazax<;>
 <}>
 <{>
 Name: 				Trade Regulator<;>
-Flavor: 			Peaceful traders? Hah! The Hacan have a corrupt monopoly on trade, and there is only so much the empire can openly do to oppose them...<;>
-Rule: 				You also win the game if the Lazax player fulfills his objective.<;>
+Flavor Text: 		Peaceful traders? Hah! The Hacan have a corrupt monopoly on trade, and there is only so much the empire can openly do to oppose them...<;>
+Rule Text: 			You also win the game if the Lazax player fulfills his objective.<;>
 Suggestion: 		Attack the Hacan<;>
 Rank: 				5<;>
 Race: 				Lazax<;>
 <}>
 <{>
 Name: 				Truth Dealer<;>
-Flavor: 			They act peaceful, but be wary! Their weapons are not guns and ships, they are diplomacy and treachery.<;>
-Rule: 				You also win the game if the Lazax player fulfills his objective.<;>
+Flavor Text: 		They act peaceful, but be wary! Their weapons are not guns and ships, they are diplomacy and treachery.<;>
+Rule Text: 			You also win the game if the Lazax player fulfills his objective.<;>
 Suggestion: 		Attack the Xxcha<;>
 Rank: 				7<;>
 Race: 				Lazax<;>
 <}>
 <{>
 Name: 				Common Foe<;>
-Flavor: 			I tell you true, they are developing horrible weapons that will lead us to the destruction of us all!<;>
-Rule: 				You also win the game if the <%race%> player fulfills his objective.<;>
+Flavor Text: 		I tell you true, they are developing horrible weapons that will lead us to the destruction of us all!<;>
+Rule Text: 			You also win the game if the <%race%> player fulfills his objective.<;>
 Suggestion: 		Attack the player to the left of the <%race%><;>
 Rank: 				2<;>
 <}>
 <{>
 Name: 				Freedom Fighters<;>
-Flavor: 			For far too long has the power of the corrupt empire grown unchecked. United against them, we can create a better galaxy.<;>
-Rule: 				You also win the game if the <%race%> player fulfills his objective<;>
+Flavor Text: 		For far too long has the power of the corrupt empire grown unchecked. United against them, we can create a better galaxy.<;>
+Rule Text: 			You also win the game if the <%race%> player fulfills his objective<;>
 Suggestion: 		Attack the Lazax<;>
 Rank: 				4<;>
 <}>
 <{>
 Name: 				Partners in War<;>
-Flavor: 			Their race is weak and needs our strong leadership values to flourish to its full potential.<;>
-Rule: 				You also win the game if the <%race%> player fulfills his objective.<;>
+Flavor Text: 		Their race is weak and needs our strong leadership values to flourish to its full potential.<;>
+Rule Text: 			You also win the game if the <%race%> player fulfills his objective.<;>
 Suggestion: 		Attack the player to the right of the <%race%><;>
 Rank: 				3<;>
 <}>
 <{>
 Name: 				Peace Treaty<;>
-Flavor: 			In order for both of our civilizations to flourish, we must be sure to not fight amongst ourselves.<;>
-Rule: 				You also win the game if the <%race%> player fulfills his objective.<;>
+Flavor Text: 		In order for both of our civilizations to flourish, we must be sure to not fight amongst ourselves.<;>
+Rule Text: 			You also win the game if the <%race%> player fulfills his objective.<;>
 Suggestion: 		Don't attack the <%race%><;>
 Rank: 				1<;>
 <}>

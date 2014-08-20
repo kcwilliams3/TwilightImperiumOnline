@@ -7,7 +7,7 @@ public enum EType { Player, Planet, PublicObjective, CurrentLaw, ASpecialSystem,
 public class PoliticalCard {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 12;
+	private const int TIGameProperties = 13;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -49,6 +49,9 @@ public class PoliticalCard {
 	[SerializeField]
 	private string eventText;
 	public string EventText { get { return eventText; } set { if (!isLocked[11]) { eventText = value; isLocked[11] = true; } else { Debug.Log("PoliticalCard: Attempted to set locked property EventText."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[12]) { id = value; isLocked[12] = true; } else { Debug.Log("PoliticalCard: Attempted to set locked property Id."); } } }
 
 	public PoliticalCard() {
 		isLocked = new bool[TIGameProperties];

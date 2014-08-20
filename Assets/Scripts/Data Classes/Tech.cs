@@ -7,7 +7,7 @@ public enum TPrereqMode {AND, OR, SINGULARorNONE}
 public class Tech {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 8;
+	private const int TIGameProperties = 9;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -36,6 +36,9 @@ public class Tech {
 	[SerializeField]
 	private Race race;
 	public Race Race { get { return race; } set { if (!isLocked[7]) { race = value; isLocked[7] = true; } else { Debug.Log("Tech: Attempted to set locked property Race."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[8]) { id = value; isLocked[8] = true; } else { Debug.Log("Tech: Attempted to set locked property Id."); } } }
 	
 	public Tech() {
 		isLocked = new bool[TIGameProperties];

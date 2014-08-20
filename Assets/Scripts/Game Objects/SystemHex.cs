@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SystemHex : MonoBehaviour {
+public class SystemHex : TIOMonoBehaviour {
 	
 	public PlanetSystem System;
 

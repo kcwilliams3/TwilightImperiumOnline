@@ -10,8 +10,12 @@ public class Flagship : Unit {
 	[SerializeField]
 	private string text;
 	public string Text { get { return text; } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } }
 	
-	public Flagship(string pName, UAbility[] pAbilities, string pText, int pCost, int pBattle, int pMultiplier, int pMove, int pCapacity, UnitManager pUnitManager) : base(UType.Flagship, pUnitManager) {
+	public Flagship(string pId, string pName, UAbility[] pAbilities, string pText, int pCost, int pBattle, int pMultiplier, int pMove, int pCapacity, UnitManager pUnitManager) : base(UType.Flagship, pUnitManager) {
+		id = pId;
 		name = pName;
 		abilities = pAbilities;
 		text = pText;

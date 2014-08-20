@@ -7,7 +7,7 @@ public enum OReward {NONE, VP, WIN, GAMEOVER, INSTANTWIN}
 public class Objective {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 7;
+	private const int TIGameProperties = 8;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -32,6 +32,9 @@ public class Objective {
 	[SerializeField]
 	private bool hasRealName;
 	public bool HasRealName { get { return hasRealName; } set { if (!isLocked[6]) { hasRealName = value; isLocked[6] = true; } else { Debug.Log("Objective: Attempted to set locked property HasRealName."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[7]) { id = value; isLocked[7] = true; } else { Debug.Log("Objective: Attempted to set locked property Id."); } } }
 
 	
 	public Objective() {

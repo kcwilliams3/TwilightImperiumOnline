@@ -4,7 +4,7 @@ using UnityEngine;
 public class Planet {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 6;
+	private const int TIGameProperties = 7;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -26,6 +26,9 @@ public class Planet {
 	[SerializeField]
 	private TType[] techSpecialties;
 	public TType[] TechSpecialties { get { return techSpecialties; } set { if (!isLocked[5]) { techSpecialties = value; isLocked[5] = true; } else { Debug.Log("Planet: Attempted to set locked property TechSpecialties."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[6]) { id = value; isLocked[6] = true; } else { Debug.Log("Planet: Attempted to set locked property Id."); } } }
 
 	public Planet() {
 		isLocked = new bool[TIGameProperties];

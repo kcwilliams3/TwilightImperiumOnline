@@ -5,7 +5,7 @@ using System.Collections;
 public class Player {
 
 	// Variables for logical use
-	private const int TIGameProperties = 3;
+	private const int TIGameProperties = 4;
 	private bool[] isLocked;
 
 	[SerializeField]
@@ -19,6 +19,9 @@ public class Player {
 	public PromissoryNote[] Notes { get { return notes; } set { if (!isLocked[1]) { notes = value; isLocked[1] = true; } else { Debug.Log("Player: Attempted to set locked property Notes."); } } }
 	private ArrayList hiddenObjectives = new ArrayList();
 	public ArrayList HiddenObjectives { get { return hiddenObjectives; } set { if (!isLocked[2]) { hiddenObjectives = value; isLocked[2] = true; } else { Debug.Log("Player: Attempted to set locked property HiddenObjectives."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[3]) { id = value; isLocked[3] = true; } else { Debug.Log("Player: Attempted to set locked property Id."); } } }
 
 	public Player(Race pRace) {
 		isLocked = new bool[TIGameProperties];

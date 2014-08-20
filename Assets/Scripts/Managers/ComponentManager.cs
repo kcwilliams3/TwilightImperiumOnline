@@ -44,7 +44,6 @@ public class ComponentManager : TIOMonoBehaviour {
 	private FileManager fileManager;
 	private GameManager gameManager;
 
-	private bool firstUpdate = true;
 
 	// Use this for initialization
 	void Start () {
@@ -54,10 +53,7 @@ public class ComponentManager : TIOMonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (firstUpdate) {
-			setInitialCounts ();
-			firstUpdate = false;
-		}
+
 	}
 	
 	private void setInitialCounts(){

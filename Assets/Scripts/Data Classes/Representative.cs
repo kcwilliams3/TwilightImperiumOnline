@@ -6,7 +6,7 @@ public enum RType {Spy, Councilor, Bodyguard};
 public class Representative {
 	
 	// Variables for logical use
-	protected int TIGameProperties = 4;
+	protected int TIGameProperties = 5;
 	protected bool[] isLocked;
 	
 	// TI Game Data
@@ -21,7 +21,10 @@ public class Representative {
 	public RType[] RepTypes { get { return repTypes; } set { if (!isLocked[2]) { repTypes = value; isLocked[2] = true; } else { Debug.Log("Representative: Attempted to set locked property RepTypes."); } } }
 	[SerializeField]
 	private string text;
-	public string Text { get { return text; } set { if (!isLocked[3]) { text = value; isLocked[2] = true; } else { Debug.Log("Representative: Attempted to set locked property Text."); } } }
+	public string Text { get { return text; } set { if (!isLocked[3]) { text = value; isLocked[3] = true; } else { Debug.Log("Representative: Attempted to set locked property Text."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[4]) { id = value; isLocked[4] = true; } else { Debug.Log("Representative: Attempted to set locked property Id."); } } }
 	
 	public Representative() {
 		isLocked = new bool[TIGameProperties];

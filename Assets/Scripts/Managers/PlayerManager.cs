@@ -55,6 +55,7 @@ public class PlayerManager : TIOMonoBehaviour {
 		players = new Player[gameManager.PlayerCount];
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
 			string raceID = "";
+			//TODO: A: Decide if the current race Ids are sufficient in terms of language independence
 			for (int i=0; i < gameManager.PlayerCount; i++) {
 				switch (i) {
 				case 0:
@@ -137,6 +138,7 @@ public class PlayerManager : TIOMonoBehaviour {
 		ArrayList hand = new ArrayList ();
 		foreach(Treaty treaty in treaties.Values) {
 			//Note: the use of "Lazax" here is as a language-independent id
+			//TODO: A: Decide if the current race Ids are sufficient in terms of language independence
 			Race lazax = GetRace ("Lazax");
 			if ((player.Race == lazax && player.Race == treaty.Race) || (player.Race != lazax && treaty.Race != lazax)) {
 				hand.Add (treaty.DuplicateFor(player));

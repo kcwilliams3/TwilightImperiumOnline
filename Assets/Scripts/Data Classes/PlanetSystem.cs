@@ -7,7 +7,7 @@ public enum Wormhole {Alpha, Beta, Delta, C}
 public class PlanetSystem {
 
 	// Variables for logical use
-	private const int TIGameProperties = 6;
+	private const int TIGameProperties = 7;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -29,6 +29,9 @@ public class PlanetSystem {
 	[SerializeField]
 	private Expansion expansion;
 	public Expansion Expansion { get { return expansion; } set { if (!isLocked[5]) { expansion = value; isLocked[5] = true; } else { Debug.Log("PlanetSystem: Attempted to set locked property Expansion."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[6]) { id = value; isLocked[6] = true; } else { Debug.Log("PlanetSystem: Attempted to set locked property Id."); } } }
 
 	public PlanetSystem() {
 		isLocked = new bool[TIGameProperties];

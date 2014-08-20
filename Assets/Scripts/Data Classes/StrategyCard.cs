@@ -29,7 +29,7 @@ public class StrategyAbility {
 public class StrategyCard {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 6;
+	private const int TIGameProperties = 7;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -51,6 +51,9 @@ public class StrategyCard {
 	[SerializeField]
 	private string special;
 	public string Special { get { return special; } set { if (!isLocked[5]) { special = value; isLocked[5] = true; } else { Debug.Log("StrategyCard: Attempted to set locked property Special."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[6]) { id = value; isLocked[6] = true; } else { Debug.Log("StrategyCard: Attempted to set locked property Id."); } } }
 	
 	public StrategyCard() {
 		isLocked = new bool[TIGameProperties];

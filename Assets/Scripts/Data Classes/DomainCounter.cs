@@ -5,7 +5,7 @@ using System.Collections;
 public class DomainCounter {
 
 	// Variables for logical use
-	private const int TIGameProperties = 6;
+	private const int TIGameProperties = 7;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -27,6 +27,9 @@ public class DomainCounter {
 	[SerializeField]
 	private string text;
 	public string Text { get { return text; } set { if (!isLocked[5]) { text = value; isLocked[5] = true; } else { Debug.Log("DomainCounter: Attempted to set locked property Text."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[6]) { id = value; isLocked[6] = true; } else { Debug.Log("DomainCounter: Attempted to set locked property Id."); } } }
 	
 	public DomainCounter() {
 		isLocked = new bool[TIGameProperties];

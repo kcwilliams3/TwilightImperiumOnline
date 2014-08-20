@@ -22,6 +22,9 @@ public class PromissoryNote {
 	public string RulesText { get { return rulesText; } set { if (!isLocked[3]) { rulesText = value; isLocked[3] = true; } else { Debug.Log("PromissoryNote: Attempted to set locked property RulesText."); } } }
 	private Player owner;
 	public Player Owner { get { return owner; } set { if (!isLocked[4]) { owner = value; isLocked[4] = true; } else { Debug.Log("PromissoryNote: Attempted to set locked property Owner."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[3]) { id = value; isLocked[3] = true; } else { Debug.Log("PromissoryNote: Attempted to set locked property Id."); } } }
 	
 	public PromissoryNote() {
 		isLocked = new bool[TIGameProperties];

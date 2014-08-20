@@ -4,7 +4,7 @@
 public class Treaty {
 
 	// Variables for logical use
-	private const int TIGameProperties = 7;
+	private const int TIGameProperties = 8;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -28,6 +28,9 @@ public class Treaty {
 	public Race Race { get { return race; } set { if (!isLocked[5]) { race = value; isLocked[5] = true; } else { Debug.Log("Treaty: Attempted to set locked property Race."); } } }
 	private Player owner;
 	public Player Owner { get { return owner; } set { if (!isLocked[6]) { owner = value; isLocked[6] = true; } else { Debug.Log("Treaty: Attempted to set locked property Owner."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[7]) { id = value; isLocked[7] = true; } else { Debug.Log("Treaty: Attempted to set locked property Id."); } } }
 
 	public Treaty() {
 		isLocked = new bool[TIGameProperties];

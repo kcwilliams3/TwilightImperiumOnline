@@ -4,7 +4,7 @@ using UnityEngine;
 public class Merc {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 10;
+	private const int TIGameProperties = 11;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -38,6 +38,9 @@ public class Merc {
 	[SerializeField]
 	private int movement;
 	public int Movement { get { return movement; } set { if (!isLocked[9]) { movement = value; isLocked[9] = true; } else { Debug.Log("Merc: Attempted to set locked property Movement."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[10]) { id = value; isLocked[10] = true; } else { Debug.Log("Merc: Attempted to set locked property Id."); } } }
 
 
 	public Merc() {

@@ -8,6 +8,7 @@ public enum Scenario {StandardGame, FallOfTheEmpire};
 
 public class GameManager : TIOMonoBehaviour {
 
+	//TODO: A: Move language dependency to language manager
 	private string language = "English";
 	public string Language { get { return language; } }
 

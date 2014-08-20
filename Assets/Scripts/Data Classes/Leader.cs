@@ -6,7 +6,7 @@ public enum LType {Admiral, General, Scientist, Diplomat, Agent};
 public class Leader {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 2;
+	private const int TIGameProperties = 3;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -16,6 +16,9 @@ public class Leader {
 	[SerializeField]
 	private LType leaderType;
 	public LType LeaderType { get { return leaderType; } set { if (!isLocked[1]) { leaderType = value; isLocked[1] = true; } else { Debug.Log("Leader: Attempted to set locked property LeaderType."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[2]) { id = value; isLocked[2] = true; } else { Debug.Log("Leader: Attempted to set locked property Id."); } } }
 	
 	public Leader() {
 		isLocked = new bool[TIGameProperties];
