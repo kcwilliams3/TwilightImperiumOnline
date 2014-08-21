@@ -39,6 +39,7 @@ public class BoardManager : TIOMonoBehaviour {
 		gameManager = GetComponent<GameManager> ();
 		fileManager = GetComponent<FileManager> ();
 		playerManager = GetComponent<PlayerManager> ();
+		languageManager = GetComponent<LanguageManager> ();
 		hexSize = HexPrefab.renderer.bounds.size.x;
 	}
 	

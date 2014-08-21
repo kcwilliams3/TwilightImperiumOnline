@@ -24,6 +24,7 @@ Event<;>
 Expansion<;>
 Expansions<;>
 Flagship<;>
+Flavor<;>
 Flavor Text<;>
 For<;>
 Full Name<;>
@@ -46,6 +47,7 @@ Play Text<;>
 Primary Ability<;>
 Qualifier<;>
 Quantity<;>
+Race<;>
 Racial Techs<;>
 Rank<;>
 Refresh Ability<;>
@@ -54,6 +56,8 @@ Requires<;>
 Resources<;>
 Reward<;>
 Rule Text<;>
+Rule Text A<;>
+Rule Text B<;>
 Secondary Ability<;>
 Set<;>
 Short Name<;>
@@ -81,20 +85,31 @@ Shards of the Throne<;>
 <}>
 <{>
 Carrier<;>
+Carriers<;>
 Cruiser<;>
+Cruisers<;>
 Destroyer<;>
+Destroyers<;>
 Dreadnought<;>
+Dreadnoughts<;>
 Fighter<;>
+Fighters<;>
 Flagship<;>
+Flagships<;>
 Ground Force<;>
+Ground Forces<;>
 Mechanized Unit<;>
+Mechanized Units<;>
 PDS<;>
+PDSs<;>
 Space Dock<;>
+Space Docks<;>
 War Sun<;>
+War Suns<;>
 <}>
 <{>
 Anti-Fighter Barrage<;>
-Bombardment<;>
+Bombard<;>
 Planetary Shield<;>
 Production<;>
 Sustain Damage<;>
@@ -111,6 +126,7 @@ Standard<;>
 Empty<;>
 Wormhole<;>
 System<;>
+Home<;>
 <}>
 <{>
 Special<;>
@@ -120,7 +136,7 @@ Fixed<;>
 <}>
 <{>
 Public Stage I<;>
-Puglic Stage II<;>
+Public Stage II<;>
 Preliminary<;>
 Secret<;>
 Special<;>
@@ -137,7 +153,6 @@ VP<;>
 Vanilla Set<;>
 Shattered Empire Set<;>
 Fall of the Empire Variants<;>
-None<;>
 <}>
 <{>
 A Special System<;>

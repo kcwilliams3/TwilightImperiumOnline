@@ -7,7 +7,7 @@ public class UnitManager : TIOMonoBehaviour {
 	//TODO: May not need these dictionaries. Decide.
 	private Dictionary<UType, Unit> baseStats = new Dictionary<UType, Unit>();
 
-	private bool firstUpdate = true;
+	private int updateCount = 0;
 
 	// Unit manager needs to be ready before file manager
 	void Awake() {
@@ -20,10 +20,10 @@ public class UnitManager : TIOMonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (firstUpdate) {
+		if (updateCount == 2) {
 			setBasePrereqs();
-			firstUpdate = false;
 		}
+		updateCount++;
 	}
 
 	private void setBaseStats(){

@@ -7,16 +7,19 @@ public class TechManager : TIOMonoBehaviour {
 	private Dictionary<string, Tech> techs = new Dictionary<string, Tech>();
 	private FileManager fileManager;
 
+	int updateCount = 0;
+
 	// Use this for initialization
 	void Start () {
 		fileManager = GetComponent<FileManager>();
-
-		readTechs ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (updateCount == 1) {
+			readTechs ();
+		}
+		updateCount++;
 	}
 
 	public Tech GetTech(string techName) {

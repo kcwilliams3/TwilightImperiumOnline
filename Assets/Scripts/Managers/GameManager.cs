@@ -25,7 +25,7 @@ public class GameManager : TIOMonoBehaviour {
 	private int playerCount;
 	public int PlayerCount { get { return playerCount; } }
 
-	private bool first = true;
+	private int updateCounter = 0;
 
 	private PlayerManager playerManager;
 	private CardManager cardManager;
@@ -47,14 +47,14 @@ public class GameManager : TIOMonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (first) {
-			first = false;
+		if (updateCounter == 2) {
 			readStrategyCards ();
 			StrategyCard[] replacements = new StrategyCard[2]{strats["Technology II"],strats["Trade III"]};
 			prepStrategyCards (StrategySet.FallOfTheEmpire, replacements);
 
 			InitializeGame();
 		}
+		updateCounter++;
 
 		activeOptionsDebug = (Option[])activeOptions.ToArray (typeof(Option));
 		strategyCards.Values.CopyTo(strategyCardsDebug,0);

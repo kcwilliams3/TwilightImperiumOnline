@@ -60,7 +60,7 @@ public class FileManager : TIOMonoBehaviour {
 
 	public Race ReadRaceFile(string raceID) {
 		//RaceID should be the language-independent identifier. (Equivalent to english short name, currently.)
-		string fullPath = procTextDir + gameManager.Language;
+		string fullPath = procTextDir + languageManager.Language;
 		if (raceID == "Lazax") {
 			fullPath += "/Fall Of The Empire/";
 		} else {
@@ -68,35 +68,35 @@ public class FileManager : TIOMonoBehaviour {
 		}
 		fullPath += raceID + ".tirace";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
-		return readRaceFile(fullPath, raceID);
+		return readRaceFile(fullPath);
 	}
 
 	public Tech[] ReadTechFile() {
-		string fullPath = procTextDir + gameManager.Language + "/technologies.titechs";
+		string fullPath = procTextDir + languageManager.Language + "/technologies.titechs";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readTechFile (fullPath);
 	}
 
 	public ActionCard[] ReadActionFile() {
-		string fullPath = procTextDir + gameManager.Language + "/actions.tiacts";
+		string fullPath = procTextDir + languageManager.Language + "/actions.tiacts";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readActionFile (fullPath);
 	}
 
 	public DomainCounter[] ReadDomainFile() {
-		string fullPath = procTextDir + gameManager.Language + "/domainCounters.tidomain";
+		string fullPath = procTextDir + languageManager.Language + "/domainCounters.tidomain";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readDomainFile (fullPath);
 	}
 
 	public Merc[] ReadMercFile() {
-		string fullPath = procTextDir + gameManager.Language + "/mercenaries.timercs";
+		string fullPath = procTextDir + languageManager.Language + "/mercenaries.timercs";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readMercFile (fullPath);
 	}
 
 	public Objective[] ReadObjectiveFile() {
-		string fullPath = procTextDir + gameManager.Language;
+		string fullPath = procTextDir + languageManager.Language;
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
 			fullPath += "/Fall of the Empire/scenario.tiobjs";
 		} else {
@@ -107,37 +107,37 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	public PlanetSystem[] ReadSystemFile() {
-		string fullPath = procTextDir + gameManager.Language + "/systems.tisysts";
+		string fullPath = procTextDir + languageManager.Language + "/systems.tisysts";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readSystemFile (fullPath);
 	}
 
 	public PoliticalCard[] ReadPoliticalFile() {
-		string fullPath = procTextDir + gameManager.Language + "/politicalCards.tipols";
+		string fullPath = procTextDir + languageManager.Language + "/politicalCards.tipols";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readPoliticalFile (fullPath);
 	}
 
 	public PromissoryNote[] ReadPromissoryFile() {
-		string fullPath = procTextDir + gameManager.Language + "/promissoryNotes.tiproms";
+		string fullPath = procTextDir + languageManager.Language + "/promissoryNotes.tiproms";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readPromissoryFile (fullPath);
 	}
 
 	public StrategyCard[] ReadStrategyFile() {
-		string fullPath = procTextDir + gameManager.Language + "/strategyCards.tistrats";
+		string fullPath = procTextDir + languageManager.Language + "/strategyCards.tistrats";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readStrategyFile (fullPath);
 	}
 
 	public PoliticalCard[] ReadAgendaFile() {
-		string fullPath = procTextDir + gameManager.Language + "/Fall of the Empire/agendas.tipols";
+		string fullPath = procTextDir + languageManager.Language + "/Fall of the Empire/agendas.tipols";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readPoliticalFile (fullPath);
 	}
 
 	public Treaty[] ReadTreatyFile() {
-		string fullPath = procTextDir + gameManager.Language + "/Fall of the Empire/treaties.titrts";
+		string fullPath = procTextDir + languageManager.Language + "/Fall of the Empire/treaties.titrts";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readTreatyFile (fullPath);
 	}
@@ -166,7 +166,7 @@ public class FileManager : TIOMonoBehaviour {
 		sysID = tempName;
 
 		//Now try to load the texture
-		string directory = "Systems/" + gameManager.Language;
+		string directory = "Systems/" + languageManager.Language;
 		Texture systemTexture;
 		systemTexture = (Texture)Resources.Load (directory + "/" + sysID, typeof(Texture));
 
@@ -183,18 +183,24 @@ public class FileManager : TIOMonoBehaviour {
 		} 
 	}
 
+	public void ReadLanguageFile() {
+		string fullPath = procTextDir + "Localization/";
+		fullPath += languageManager.Language + ".tilang";
+		Debug.Log(string.Format("Reading {0}... ", fullPath));
+		readLanguageFile(fullPath);
+	}
+
 
 	/*
 	 * Specific File Readers
 	 */
 
-	private Race readRaceFile(string fileName, string id) {
+	private Race readRaceFile(string fileName) {
 		try {
 			StreamReader reader = new StreamReader(fileName, Encoding.Default);
 
 			using (reader) {
 				Race race = readRace(fileName, reader);
-				race.Id = id;
 
 				// Reading successfully finished
 				reader.Close ();
@@ -414,6 +420,22 @@ public class FileManager : TIOMonoBehaviour {
 		catch (System.Exception e) {
 			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
 			return null;
+		}
+	}
+
+	private void readLanguageFile(string fileName) {
+		try {
+			StreamReader reader = new StreamReader(fileName, Encoding.Default);
+			
+			using (reader) {
+				readLanguage(fileName, reader);
+				
+				// Reading successfully finished
+				reader.Close ();
+			}
+		}
+		catch (System.Exception e) {
+			Debug.Log(string.Format("{0}\n{1}\n", e.Message, e.StackTrace));
 		}
 	}
 
@@ -865,10 +887,8 @@ public class FileManager : TIOMonoBehaviour {
 
 			if (prereqs.Keys.Count > 0) {
 				foreach (string techName in prereqs[tech]) {
-					if (techName == languageManager.StringToTPrereqMode("AND")) {
-						tech.PrereqMode = TPrereqMode.AND;
-					} else if (techName == languageManager.StringToTPrereqMode ("OR")) {
-						tech.PrereqMode = TPrereqMode.OR;
+					if (languageManager.HasTPrereqMode(techName)) {
+						tech.PrereqMode = languageManager.StringToTPrereqMode(techName);
 					} else if (techs.ContainsKey(techName)) {
 						prereqObjects.Add(techs[techName]);
 					}
@@ -942,7 +962,7 @@ public class FileManager : TIOMonoBehaviour {
 				id = name;
 			}
 
-			return new Flagship(name, abilities, text, cost, battle, multiplier, move, capacity, unitManager, id);
+			return new Flagship(name, id, abilities, text, cost, battle, multiplier, move, capacity, unitManager);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}
@@ -1195,27 +1215,16 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	private void readElectLine(string line, PoliticalCard politicalCard) {
+		string[] parts = line.Split (" ".ToCharArray());
+
 		//Determine election type
-		if (line.Contains (languageManager.StringToEType("Player"))) {
-			politicalCard.ElectType = EType.Player;
-		} else if (line.Contains (languageManager.StringToEType("Planet"))) {
-			politicalCard.ElectType = EType.Planet;
-		} else if (line.Contains (languageManager.StringToEType("Public Objective"))) {
-			politicalCard.ElectType = EType.PublicObjective;
-		} else if (line.Contains (languageManager.StringToEType("Current Law"))) {
-			politicalCard.ElectType = EType.CurrentLaw;
-		} else if (line.Contains (languageManager.StringToEType("a Special System"))) {
-			politicalCard.ElectType = EType.ASpecialSystem;
-		} else if (line.Contains (languageManager.StringToEType("Technology Color"))) {
-			politicalCard.ElectType = EType.TechColor;
-		}
+		politicalCard.ElectType = languageManager.ExtractEType(parts);
 
 		//Determine election quantity
-		string[] parts = line.Split (" ".ToCharArray());
 		int quantity = 1;
 		foreach(string part in parts) {
 			bool isANumber;
-			int conversion = languageManager.StringToNumber(part, out isANumber);
+			int conversion = stringToInt(part, out isANumber);
 			if (isANumber) {
 				quantity = conversion;
 			}
@@ -1764,6 +1773,86 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
+	private void readLanguage(string fileName, StreamReader reader) {
+		string line = reader.ReadLine().Trim ();
+		int sectionIndex = 0;
+		do {
+			if (line == "<{>") {
+				// Start of an outermost block
+				line = reader.ReadLine ().Trim ();
+				do {
+					line = readTextLine("", line, fileName);
+					string englishString = line;
+					string languageString = line;
+					if (line.Contains (",")) {
+						string[] parts = line.Split(",".ToCharArray());
+						englishString = parts[0];
+						languageString = parts[1];
+					}
+					switch(sectionIndex) {
+						case 0:
+							languageManager.AddNumber(languageString, englishString);
+							break;
+						case 1:
+							languageManager.AddBoolean(languageString, englishString);
+							break;
+						case 2:
+							languageManager.AddTPrereqMode(languageString, englishString);
+							break;
+						case 3:
+							languageManager.AddDataType(languageString, englishString);
+							break;
+						case 4:
+							languageManager.AddExpansion(languageString, englishString);
+							break;
+						case 5:
+							languageManager.AddUType(languageString, englishString);
+							break;
+						case 6:
+							languageManager.AddUAbility(languageString, englishString);
+							break;
+						case 7:
+							languageManager.AddTType(languageString, englishString);
+							break;
+						case 8:
+							languageManager.AddSTag(languageString, englishString);
+							break;
+						case 9:
+							languageManager.AddSType(languageString, englishString);
+							break;
+						case 10:
+							languageManager.AddOType(languageString, englishString);
+							break;
+						case 11:
+							languageManager.AddOReward(languageString, englishString);
+							break;
+						case 12:
+							languageManager.AddStrategySet(languageString, englishString);
+							break;
+						case 13:
+							languageManager.AddEType(languageString, englishString);
+							break;
+						case 14:
+							languageManager.AddRType(languageString, englishString);
+							break;
+						case 15:
+							languageManager.AddOption(languageString, englishString);
+							break;
+						case 16:
+							languageManager.AddLType(languageString, englishString);
+							break;
+					}
+					line = reader.ReadLine ().Trim ();
+				} while (line != "<}>");
+				sectionIndex += 1;
+				if (!reader.EndOfStream) {
+					line = reader.ReadLine().Trim ();
+				} 
+			}
+		} while (line == "<{>" && !reader.EndOfStream);
+
+	}
+
 	
 	/* 
 	 * Basic Section Readers 
@@ -1820,5 +1909,17 @@ public class FileManager : TIOMonoBehaviour {
 			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <{>", fileName, dataType, dataText));
 		}
 	}
-	
+
+
+	// Conversions
+	private int stringToInt(string numberString, out bool isAnInt) {
+		int number = 0;
+		if (numberString.ToLower()== "two") {
+			isAnInt = true;
+			return 2;
+		} else {
+			isAnInt = int.TryParse(numberString, out number);
+			return number;
+		}
+	}
 }

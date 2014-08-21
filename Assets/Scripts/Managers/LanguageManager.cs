@@ -14,7 +14,7 @@ public class LocalizationException : System.Exception, ISerializable
 	protected LocalizationException (SerializationInfo info, StreamingContext context)
 		: base(info, context) { }
 	public LocalizationException(string languageString, string englishString) 
-		: base("LocalizationException: {0}: Unrecognized identifier {1}",languageString,englishString) { }
+		: base(string.Format ("LocalizationException: {0}: Unrecognized identifier {1}",languageString,englishString)) { }
 }
 
 
@@ -36,7 +36,7 @@ public class LanguageManager : TIOMonoBehaviour {
 	private Dictionary<string,OType> toOType = new Dictionary<string,OType>();
 	private Dictionary<string,OReward> toOReward = new Dictionary<string,OReward>();
 	private Dictionary<string,StrategySet> toStrategySet = new Dictionary<string,StrategySet>();
-	private Dictionary<string,string> toElect = new Dictionary<string,string>();
+	private Dictionary<string,EType> toEType = new Dictionary<string,EType>();
 	private Dictionary<string,RType> toRType = new Dictionary<string,RType>();
 	private Dictionary<string,Option> toOption = new Dictionary<string,Option>();
 	private Dictionary<string,LType> toLType = new Dictionary<string,LType> ();
@@ -54,41 +54,52 @@ public class LanguageManager : TIOMonoBehaviour {
 	private Dictionary<OType,string> oTypeTo = new Dictionary<OType, string>();
 	private Dictionary<OReward,string> oRewardTo = new Dictionary<OReward,string>();
 	private Dictionary<StrategySet,string> strategySetTo = new Dictionary<StrategySet, string>();
-	private Dictionary<string,string> electTo = new Dictionary<string,string>();
+	private Dictionary<EType,string> eTypeTo = new Dictionary<EType,string>();
 	private Dictionary<RType,string> rTypeTo = new Dictionary<RType,string>();
 	private Dictionary<Option,string> optionTo = new Dictionary<Option,string>();
 	private Dictionary<LType,string> lTypeTo = new Dictionary<LType,string>();
 
+	int updateCount = 0;
+
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (updateCount == 0) {
+			GetComponent<FileManager> ().ReadLanguageFile ();
+		}
+		updateCount++;
 	}
 
 
 	//StringTo_____ functions
-	public int StringToNumber(string numberString) { return toNumber [numberString]; }
-	public bool StringToBoolean(string boolString) { return toBoolean [boolString]; }
-	public TPrereqMode StringToTPrereqMode(string prereqString) { return toTPrereqMode [prereqString]; }
-	public string StringToDataType(string dataTypeString) { return toDataType [dataTypeString]; }
-	public Expansion StringToExpansion(string expansionString) { return toExpansion [expansionString]; }
-	public UType StringToUType(string uTypeString) { return toUType [uTypeString]; }
-	public UAbility StringToUAbility(string uAbilityString) { return toUAbility [uAbilityString]; }
-	public TType StringToTType(string tTypeString) { return toTType [tTypeString]; }
-	public string StringToSTag(string sTagString) { return toSTag [sTagString]; }
-	public SType StringToSType(string sTypeString) { return toSType [sTypeString]; } 
-	public OType StringToOType(string oTypeString) { return toOType [oTypeString]; }
-	public OReward StringToOReward(string oRewardString) { return toOReward [oRewardString]; }
-	public EType StringToEType(string eTypeString) { return toElect[eTypeString]; }
-	public RType StringToRType(string rTypeString) { return toRType [rTypeString]; }
-	public Option StringToOption(string optionString) { return toOption [optionString]; }
-	public LType StringToLType(string lTypeString) { return toLType [lTypeString]; }
-	public StrategySet StringToStrategySet(string strategySetString) { return toStrategySet [strategySetString]; }
+	public int StringToNumber(string numberString) { return toNumber [numberString.ToLower ()]; }
+	public bool StringToBoolean(string boolString) { return toBoolean [boolString.ToLower ()]; }
+	public TPrereqMode StringToTPrereqMode(string prereqString) { return toTPrereqMode [prereqString.ToLower ()]; }
+	public string StringToDataType(string dataTypeString) { return toDataType [dataTypeString.ToLower ()]; }
+	public Expansion StringToExpansion(string expansionString) { return toExpansion [expansionString.ToLower ()]; }
+	public UType StringToUType(string uTypeString) { return toUType [uTypeString.ToLower ()]; }
+	public UAbility StringToUAbility(string uAbilityString) { return toUAbility [uAbilityString.ToLower ()]; }
+	public TType StringToTType(string tTypeString) { return toTType [tTypeString.ToLower ()]; }
+	public string StringToSTag(string sTagString) { return toSTag [sTagString.ToLower ()]; }
+	public SType StringToSType(string sTypeString) { return toSType [sTypeString.ToLower ()]; } 
+	public OType StringToOType(string oTypeString) { return toOType [oTypeString.ToLower ()]; }
+	public OReward StringToOReward(string oRewardString) { return toOReward [oRewardString.ToLower ()]; }
+	public EType StringToEType(string eTypeString) { return toEType[eTypeString.ToLower ()]; }
+	public RType StringToRType(string rTypeString) { return toRType [rTypeString.ToLower ()]; }
+	public Option StringToOption(string optionString) { return toOption [optionString.ToLower ()]; }
+	public LType StringToLType(string lTypeString) { return toLType [lTypeString.ToLower ()]; }
+	public StrategySet StringToStrategySet(string strategySetString) { 
+		if (toStrategySet.ContainsKey(strategySetString.ToLower ())) {
+			return toStrategySet [strategySetString.ToLower ()]; 
+		} else {
+			return StrategySet.None;
+		}
+	}
 
 	//______ToString functions
 	public string NumberToString(int number) { return numberTo [number]; }
@@ -98,15 +109,15 @@ public class LanguageManager : TIOMonoBehaviour {
 	public string UTypeToString(UType unitType) { return uTypeTo [unitType]; }
 	public string UAbilityToString(UAbility unitAbility) { return uAbilityTo [unitAbility]; }
 	public string TTypeToString(TType techType) { return tTypeTo [techType]; }
-	public string STagToString(string systemTag) { return sTagTo [systemTag]; }
+	public string STagToString(string systemTag) { return sTagTo [systemTag.ToLower ()]; }
 	public string STypeToString(SType systemType) { return sTypeTo [systemType]; }
 	public string OTypeToString(OType objectiveType) { return oTypeTo [objectiveType]; }
 	public string ORewardToString(OReward objectiveReward) { return oRewardTo [objectiveReward]; }
-	public string ETypeToString(EType electionType) { return electTo [electionType]; }
+	public string ETypeToString(EType electionType) { return eTypeTo [electionType]; }
 	public string RTypeToString(RType repType) { return rTypeTo [repType]; }
 	public string OptionToString(Option opt) { return optionTo [opt]; }
 	public string LTypeToString(LType leaderType) { return lTypeTo [leaderType]; }
-	public string StrategySetToString(StrategySet strategySet) { return strategySetTo [
+	public string StrategySetToString(StrategySet strategySet) { return strategySetTo [strategySet]; }
 
 
 	//Dictionary-filling functions
@@ -119,10 +130,10 @@ public class LanguageManager : TIOMonoBehaviour {
 		if (englishString.ToLower() == "two") {
 			value = 2;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		numberTo [value] = languageString;
-		toNumber [languageString] = value;
+		numberTo [value] = languageString.ToLower ();
+		toNumber [languageString.ToLower ()] = value;
 	}
 
 	public void AddBoolean(string languageString) {
@@ -135,10 +146,10 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else  if (englishString.ToLower () == "false") {
 			value = false;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		booleanTo [value] = languageString;
-		toBoolean [languageString] = value;
+		booleanTo [value] = languageString.ToLower ();
+		toBoolean [languageString.ToLower ()] = value;
 	}
 
 	public void AddTPrereqMode(string languageString) {
@@ -151,18 +162,17 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else  if (englishString.ToLower () == "or") {
 			value = TPrereqMode.OR;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		tPrereqModeTo [value] = languageString;
-		toTPrereqMode [languageString] = value;
+		tPrereqModeTo [value] = languageString.ToLower ();
+		toTPrereqMode [languageString.ToLower ()] = value;
 	}
 
 	public void AddDataType(string languageString) {
 		AddDataType (languageString, languageString);
 	}
 	public void AddDataType(string languageString, string englishString) {
-		int value;
-		toDataType [languageString] = englishString;
+		toDataType [languageString.ToLower ()] = englishString;
 	}
 
 	public void AddExpansion(string languageString) {
@@ -177,10 +187,10 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else if (englishString.ToLower () == "shards of the throne") {
 			value = Expansion.ShardsOfTheThrone;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		expansionTo [value] = languageString;
-		toExpansion [languageString] = value;
+		expansionTo [value] = languageString.ToLower ();
+		toExpansion [languageString.ToLower ()] = value;
 	}
 
 	public void AddUType(string languageString) {
@@ -188,33 +198,33 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddUType(string languageString, string englishString) {
 		UType value;
-		if (englishString.ToLower () == "carrier") {
+		if (englishString.ToLower () == "carrier" || englishString.ToLower () == "carriers") {
 			value = UType.Carrier;
-		} else  if (englishString.ToLower () == "cruiser") {
+		} else  if (englishString.ToLower () == "cruiser" || englishString.ToLower () == "cruisers") {
 			value = UType.Cruiser;
-		} else if (englishString.ToLower () == "destroyer") {
+		} else if (englishString.ToLower () == "destroyer" || englishString.ToLower () == "destroyers") {
 			value = UType.Destroyer;
-		} else if (englishString.ToLower () == "dreadnought") {
+		} else if (englishString.ToLower () == "dreadnought" || englishString.ToLower () == "dreadnoughts") {
 			value = UType.Dreadnought;
-		} else if (englishString.ToLower () == "fighter") {
+		} else if (englishString.ToLower () == "fighter" || englishString.ToLower () == "fighters") {
 			value = UType.Fighter;
-		} else if (englishString.ToLower () == "flagship") {
+		} else if (englishString.ToLower () == "flagship" || englishString.ToLower () == "flagships") {
 			value = UType.Flagship;
-		} else if (englishString.ToLower() == "ground force") {
+		} else if (englishString.ToLower() == "ground force" || englishString.ToLower() == "ground forces") {
 			value = UType.GroundForce;
-		} else if (englishString.ToLower () == "mechanized unit") {
+		} else if (englishString.ToLower () == "mechanized unit" || englishString.ToLower () == "mechanized units") {
 			value = UType.MechanizedUnit;
-		} else if (englishString.ToLower () == "pds") {
+		} else if (englishString.ToLower () == "pds" || englishString.ToLower () == "pdss") {
 			value = UType.PDS;
-		} else if (englishString.ToLower () == "space dock") {
+		} else if (englishString.ToLower () == "space dock" || englishString.ToLower () == "space docks") {
 			value = UType.SpaceDock;
-		} else if (englishString.ToLower () == "war sun") {
+		} else if (englishString.ToLower () == "war sun" || englishString.ToLower () == "war suns") {
 			value = UType.WarSun;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		uTypeTo [value] = languageString;
-		toUType [languageString] = value;
+		uTypeTo [value] = languageString.ToLower ();
+		toUType [languageString.ToLower ()] = value;
 	}
 
 	public void AddUAbility(string languageString) {
@@ -224,7 +234,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		UAbility value;
 		if (englishString.ToLower () == "anti-fighter barrage") {
 			value = UAbility.AntiFighterBarrage;
-		} else  if (englishString.ToLower () == "bombardment") {
+		} else  if (englishString.ToLower () == "bombard") {
 			value = UAbility.Bombardment;
 		} else if (englishString.ToLower () == "planetary shield") {
 			value = UAbility.PlanetaryShield;
@@ -233,10 +243,10 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else if (englishString.ToLower () == "sustain damage") {
 			value = UAbility.SustainDamage;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		uAbilityTo [value] = languageString;
-		toUAbility [languageString] = value;
+		uAbilityTo [value] = languageString.ToLower ();
+		toUAbility [languageString.ToLower ()] = value;
 	}
 
 	public void AddTType(string languageString) {
@@ -255,18 +265,18 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else if (englishString.ToLower () == "yellow") {
 			value = TType.Yellow;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		tTypeTo [value] = languageString;
-		toTType [languageString] = value;
+		tTypeTo [value] = languageString.ToLower ();
+		toTType [languageString.ToLower ()] = value;
 	}
 
 	public void AddSTag(string languageString) {
 		AddSTag (languageString, languageString);
 	}
 	public void AddSTag(string languageString, string englishString) {
-		sTagTo [englishString] = languageString;
-		toSTag [languageString] = englishString;
+		sTagTo [englishString.ToLower ()] = languageString;
+		toSTag [languageString.ToLower ()] = englishString;
 	}
 
 	public void AddSType(string languageString) {
@@ -283,10 +293,10 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else if (englishString.ToLower () == "fixed") {
 			value = SType.Fixed;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		sTypeTo [value] = languageString;
-		toSType [languageString] = value;
+		sTypeTo [value] = languageString.ToLower ();
+		toSType [languageString.ToLower ()] = value;
 	}
 
 	public void AddOType(string languageString) {
@@ -309,10 +319,10 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else if (englishString.ToLower () == "scenario") {
 			value = OType.Scenario;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		oTypeTo [value] = languageString;
-		toOType [languageString] = value;
+		oTypeTo [value] = languageString.ToLower ();
+		toOType [languageString.ToLower ()] = value;
 	}
 
 	public void AddOReward(string languageString) {
@@ -329,10 +339,10 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else if (englishString.ToLower () == "vp") {
 			value = OReward.VP;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		oRewardTo [value] = languageString;
-		toOReward [languageString] = value;
+		oRewardTo [value] = languageString.ToLower ();
+		toOReward [languageString.ToLower ()] = value;
 	}
 
 	public void AddStrategySet(string languageString) {
@@ -344,24 +354,37 @@ public class LanguageManager : TIOMonoBehaviour {
 			value = StrategySet.Vanilla;
 		} else  if (englishString.ToLower () == "shattered empire set") {
 			value = StrategySet.ShatteredEmpire;
-		} else if (englishString.ToLower () == "fall of the empire variant") {
+		} else if (englishString.ToLower () == "fall of the empire variants") {
 			value = StrategySet.FallOfTheEmpire;
-		} else if (englishString.ToLower () == "none") {
-			value = StrategySet.None;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		strategySetTo [value] = languageString;
-		toStrategySet [languageString] = value;
+		strategySetTo [value] = languageString.ToLower ();
+		toStrategySet [languageString.ToLower ()] = value;
 	}
 
-	public void AddElect(string languageString) {
-		AddElect (languageString, languageString);
+	public void AddEType(string languageString) {
+		AddEType (languageString, languageString);
 	}
-	public void AddElect(string languageString, string englishString) {
-		string value;
-		electTo [englishString] = languageString;
-		toElect [languageString] = englishString;
+	public void AddEType(string languageString, string englishString) {
+		EType value;
+		if (englishString.ToLower () == "a special system") {
+			value = EType.ASpecialSystem;
+		} else if (englishString.ToLower () == "current law") {
+			value = EType.CurrentLaw;
+		} else if (englishString.ToLower () == "planet") {
+			value = EType.Planet;
+		} else if (englishString.ToLower () == "player") {
+			value = EType.Player;
+		} else if (englishString.ToLower () == "public objective") {
+			value = EType.PublicObjective;
+		} else if (englishString.ToLower () == "technology color") {
+			value = EType.TechColor;
+		} else {
+			throw new LocalizationException(languageString, englishString);
+		}
+		eTypeTo [value] = languageString.ToLower ();
+		toEType [languageString.ToLower ()] = value;
 	}
 
 	public void AddRType(string languageString) {
@@ -376,10 +399,10 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else if (englishString.ToLower () == "spy") {
 			value = RType.Spy;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		rTypeTo [value] = languageString;
-		toRType [languageString] = value;
+		rTypeTo [value] = languageString.ToLower ();
+		toRType [languageString.ToLower ()] = value;
 	}
 
 	public void AddOption(string languageString) {
@@ -392,17 +415,17 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else  if (englishString.ToLower () == "the final frontier") {
 			value = Option.TheFinalFrontier;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		optionTo [englishString] = languageString;
-		toOption [languageString] = englishString;
+		optionTo [value] = languageString.ToLower ();
+		toOption [languageString.ToLower ()] = value;
 	}
 
 	public void AddLType(string languageString) {
 		AddLType (languageString, languageString);
 	}
 	public void AddLType(string languageString, string englishString) {
-		Leader value;
+		LType value;
 		if (englishString.ToLower () == "admiral") {
 			value = LType.Admiral;
 		} else  if (englishString.ToLower () == "agent") {
@@ -414,9 +437,48 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else if (englishString.ToLower () == "scientist") {
 			value = LType.Scientist;
 		} else {
-			throw LocalizationException(languageString, englishString);
+			throw new LocalizationException(languageString, englishString);
 		}
-		lTypeTo [value] = languageString;
-		toLType [languageString] = value;
+		lTypeTo [value] = languageString.ToLower ();
+		toLType [languageString.ToLower ()] = value;
+	}
+
+	
+	// More complex dictionary fetching functions
+	
+	public EType ExtractEType(string[] languageStrings) {
+		string accumulatedString = "";
+		foreach(string languageString in languageStrings) {
+			if (toEType.ContainsKey(languageString.ToLower ())) {
+				return toEType[languageString.ToLower ()];
+			}
+			if (accumulatedString != "") {
+				accumulatedString += " ";
+			}
+			accumulatedString += languageString;
+		}
+		if (toEType.ContainsKey(accumulatedString.ToLower())) {
+			return toEType[accumulatedString.ToLower ()];
+		}
+		throw new LocalizationException (accumulatedString, accumulatedString);
+	}
+	
+	
+	// Dictionary checking functions
+	
+	public bool HasTPrereqMode(string languageString) {
+		if (toTPrereqMode.ContainsKey(languageString)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public bool HasNumber(string languageString) {
+		if (toNumber.ContainsKey(languageString)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
