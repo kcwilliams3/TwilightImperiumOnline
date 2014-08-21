@@ -8,10 +8,6 @@ public enum Scenario {StandardGame, FallOfTheEmpire};
 
 public class GameManager : TIOMonoBehaviour {
 
-	//TODO: A: Move language dependency to language manager
-	private string language = "English";
-	public string Language { get { return language; } }
-
 	//TODO: May not need these dictionaries. Decide.
 	private Dictionary<string, StrategyCard> strats = new Dictionary<string, StrategyCard> ();
 

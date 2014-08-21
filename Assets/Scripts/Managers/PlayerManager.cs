@@ -136,8 +136,6 @@ public class PlayerManager : TIOMonoBehaviour {
 	private Treaty[] getTreatyHand(Player player) {
 		ArrayList hand = new ArrayList ();
 		foreach(Treaty treaty in treaties.Values) {
-			//Note: the use of "Lazax" here is as a language-independent id
-			//TODO: A: Decide if the current race Ids are sufficient in terms of language independence
 			Race lazax = GetRace ("Lazax");
 			if ((player.Race == lazax && player.Race == treaty.Race) || (player.Race != lazax && treaty.Race != lazax)) {
 				hand.Add (treaty.DuplicateFor(player));
