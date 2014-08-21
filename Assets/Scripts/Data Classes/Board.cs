@@ -54,7 +54,7 @@ public class BoardSection {
 				hexObject.GetComponent<SystemHex>().System = inMap[i][j];
 				hexObject.transform.parent = GameObject.Find ("Board").transform;
 				fileManager = GameObject.Find ("Manager").GetComponent<FileManager>();
-				hexObject.transform.FindChild("Top").renderer.material.mainTexture = fileManager.ReadSystemTexture(inMap[i][j].Name, hexObject);
+				hexObject.transform.FindChild("Top").renderer.material.mainTexture = fileManager.ReadSystemTexture(inMap[i][j].Name, inMap[i][j].Id, hexObject);
 				hexObject.name = inMap[i][j].Name;
 			}
 			hexMap[i] = hexRow;

@@ -148,37 +148,56 @@ public class FileManager : TIOMonoBehaviour {
 		return readMapFile (fullPath);
 	}
 
-	public Texture ReadSystemTexture(string sysID, GameObject hexObject) {
+	public Texture ReadSystemTexture(string sysName, string sysID, GameObject hexObject) {
 		//RaceID should be the language-independent identifier. (Equivalent to english short name, currently.)
 		//If it's a regular empty system, randomly choose a variant and orientation
 		if (sysID == "Empty System") {
-			sysID += " " + ((int)Random.Range (1,3)); //Currently two variants. Not likely to change, so no need to make it a variable.
+			int variant = ((int)Random.Range (1,3)); //Currently two variants. Not likely to change, so no need to make it a variable.
+			sysID += " " + variant;
+			sysName += " " + variant;
 			hexObject.transform.Rotate(hexObject.transform.up, 60 * (int)Random.Range(0,6));
 		}
-	
-		//Otherwise, change the system name into a valid file name
-		string tempName = "";
-		foreach(char c in sysID) {
-			if (c != '/') {
-				tempName += c; 
+		else {
+			//Otherwise, change the name & ID into a valid file name
+			string tempName = "";
+			foreach(char c in sysID) {
+				if (c != '/') {
+					tempName += c; 
+				}
 			}
+			sysID = tempName;
+			tempName = "";
+			foreach(char c in sysName) {
+				if (c != '/') {
+					tempName += c; 
+				}
+			}
+			sysName = tempName;
 		}
-		sysID = tempName;
 
 		//Now try to load the texture
 		string directory = "Systems/" + languageManager.Language;
 		Texture systemTexture;
-		systemTexture = (Texture)Resources.Load (directory + "/" + sysID, typeof(Texture));
+		systemTexture = (Texture)Resources.Load (directory + "/" + sysName, typeof(Texture));
+
 
 		if (systemTexture != null) {
 			//If the texture exists, we're done
 			return systemTexture;
 		} else {
-			//Otherwise, load the relevant system backside
-			if (sysID.Contains("Home System") || sysID.Contains ("Creuss")) {
-				return (Texture)Resources.Load (directory + "/Home System (Back)",typeof(Texture));
+			//Otherwise, try an english asset
+			directory = "Systems/english/";
+			systemTexture = (Texture)Resources.Load (directory + sysID, typeof(Texture));
+			if (systemTexture != null) {
+				//If the english texture exists, we're done
+				return systemTexture;
 			} else {
-				return (Texture)Resources.Load (directory + "/Regular System (Back)",typeof(Texture));
+				//Otherwise, load the relevant system backside
+				if (sysID.Contains("Home System") || sysID.Contains ("Creuss")) {
+					return (Texture)Resources.Load (directory + "/Home System (Back)",typeof(Texture));
+				} else {
+					return (Texture)Resources.Load (directory + "/Regular System (Back)",typeof(Texture));
+				}
 			}
 		} 
 	}
