@@ -14,10 +14,14 @@ english string 3,french string 3<;>
 
 Step 2: For every text asset in Assets/Text/English  
 (Assets/Processed/Text/English in the development build), write 
-an equivalent file in the appropriate language. 
-Note: You MUST use the data category names you provided in the 
-.tilang file from step 1, as the file reader uses those names to
-know what each piece of data represents.
+an equivalent file in the appropriate language. You MUST use the 
+data category names you provided in the .tilang file from step 1, 
+as the file reader uses those names to know what each piece of 
+data represents. In addition, each item with a name should have
+an "ID" data category included (whatever equivalent you've
+defined in your .tilang file.) For this category, use the English
+name for the item (use the "Short Name" for races.) This ID will be
+used by the program when a specific item needs to be identified.
 Note that all text file names must be the same as the equivalent
 english files (just in a different language directory).
 

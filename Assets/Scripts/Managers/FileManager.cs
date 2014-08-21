@@ -24,6 +24,7 @@ public class FileManager : TIOMonoBehaviour {
 	private TechManager techManager;
 	private PlayerManager playerManager;
 	private BoardManager boardManager;
+	private LanguageManager languageManager;
 
 	// Need to check directories before Tech Manager starts
 	void Awake() {
@@ -37,6 +38,7 @@ public class FileManager : TIOMonoBehaviour {
 		techManager = GetComponent<TechManager>();
 		playerManager = GetComponent<PlayerManager>();
 		boardManager = GetComponent<BoardManager>();
+		languageManager = GetComponent<LanguageManager>();
 	}
 	
 	// Update is called once per frame
@@ -56,18 +58,17 @@ public class FileManager : TIOMonoBehaviour {
 		}
 	}
 
-	public Race ReadRaceFile(string raceName) {
-		//TODO: A: Move language dependency to language manager
-		//TODO: A: Maybe use a language-independent identifier
+	public Race ReadRaceFile(string raceID) {
+		//RaceID should be the language-independent identifier. (Equivalent to english short name, currently.)
 		string fullPath = procTextDir + gameManager.Language;
-		if (raceName == "Lazax") {
+		if (raceID == "Lazax") {
 			fullPath += "/Fall Of The Empire/";
 		} else {
 			fullPath += "/Races/";
 		}
-		fullPath += raceName + ".tirace";
+		fullPath += raceID + ".tirace";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
-		return readRaceFile(fullPath, raceName);
+		return readRaceFile(fullPath, raceID);
 	}
 
 	public Tech[] ReadTechFile() {
@@ -147,35 +148,34 @@ public class FileManager : TIOMonoBehaviour {
 		return readMapFile (fullPath);
 	}
 
-	public Texture ReadSystemTexture(string sysName, GameObject hexObject) {
+	public Texture ReadSystemTexture(string sysID, GameObject hexObject) {
+		//RaceID should be the language-independent identifier. (Equivalent to english short name, currently.)
 		//If it's a regular empty system, randomly choose a variant and orientation
-		//TODO: A: Move language dependency to language manager
-		if (sysName == "Empty System") {
-			sysName += " " + ((int)Random.Range (1,3)); //Currently two variants. Not likely to change, so no need to make it a variable.
+		if (sysID == "Empty System") {
+			sysID += " " + ((int)Random.Range (1,3)); //Currently two variants. Not likely to change, so no need to make it a variable.
 			hexObject.transform.Rotate(hexObject.transform.up, 60 * (int)Random.Range(0,6));
 		}
 	
 		//Otherwise, change the system name into a valid file name
 		string tempName = "";
-		foreach(char c in sysName) {
+		foreach(char c in sysID) {
 			if (c != '/') {
 				tempName += c; 
 			}
 		}
-		sysName = tempName;
+		sysID = tempName;
 
 		//Now try to load the texture
 		string directory = "Systems/" + gameManager.Language;
 		Texture systemTexture;
-		systemTexture = (Texture)Resources.Load (directory + "/" + sysName, typeof(Texture));
+		systemTexture = (Texture)Resources.Load (directory + "/" + sysID, typeof(Texture));
 
 		if (systemTexture != null) {
 			//If the texture exists, we're done
 			return systemTexture;
 		} else {
 			//Otherwise, load the relevant system backside
-			//TODO: A: Move language dependency to language manager
-			if (sysName.Contains("Home System") || sysName.Contains ("Creuss")) {
+			if (sysID.Contains("Home System") || sysID.Contains ("Creuss")) {
 				return (Texture)Resources.Load (directory + "/Home System (Back)",typeof(Texture));
 			} else {
 				return (Texture)Resources.Load (directory + "/Regular System (Back)",typeof(Texture));
@@ -438,10 +438,9 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string dataType = lineParts[0].Trim ();
+				string dataType = languageManager.StringToDataType(lineParts[0].Trim ());
 				string dataText = lineParts[1].Trim ();
 
-				//TODO: A: Move language dependency to language manager
 				if (dataType == "Full Name") {
 					race.FullName = readTextLine(dataType, dataText, fileName);
 				} else if (dataType == "Short Name") {
@@ -449,7 +448,7 @@ public class FileManager : TIOMonoBehaviour {
 				} else if (dataType == "Species Name") {
 					race.SpeciesName = readTextLine(dataType, dataText, fileName);
 				} else if (dataType == "Expansion") {
-					race.Expansion = stringToExpansion(readTextLine(dataType, dataText, fileName));
+					race.Expansion = languageManager.StringToExpansion(readTextLine(dataType, dataText, fileName));
 				} else if (dataType == "History") {
 					race.History = readTextBlock (dataType, dataText, fileName, reader);
 				} else if (dataType == "Special Abilities") {
@@ -473,10 +472,16 @@ public class FileManager : TIOMonoBehaviour {
 					race.Flagship = readFlagship(dataType, dataText, fileName, reader);
 				} else if (dataType == "Representatives") {
 					race.Representatives = readRepsBlock(dataType, dataText, fileName, reader);
+				} else if (dataType == "ID") {
+					race.Id = readTextLine (dataType, dataText, fileName);
 				}
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of outermost block
+		}
+
+		if (race.Id == default(string)) {
+			race.Id = race.ShortName;
 		}
 
 		foreach(PlanetSystem sys in race.HomeSystems) {
@@ -517,10 +522,9 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0] = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0] = lineParts[0].Trim ());
 				string newDataText = lineParts[1] = lineParts[1].Trim ();
-				
-				//TODO: A: Move language dependency to language manager
+
 				if (newDataType == "Name") {
 					name = readTextLine(newDataType, newDataText, fileName);
 					if (name != "") {
@@ -529,14 +533,14 @@ public class FileManager : TIOMonoBehaviour {
 						system.HasRealName = false;
 					}
 				} else if (newDataType == "Expansion") {
-					system.Expansion = stringToExpansion(readTextLine(newDataType, newDataText, fileName));
+					system.Expansion = languageManager.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Type") {
 					string typeString = readTextLine (newDataType, newDataText, fileName);
-					if (typeString != "Standard" && typeString != "Empty") {
+					if (typeString != languageManager.StringToSTag("Standard") && typeString != languageManager.StringToSTag("Empty")) {
 						if (isHomeSystem) {
-							system.SysTypes = new SType[2]{stringToSType(typeString), SType.Home};
+							system.SysTypes = new SType[2]{languageManager.StringToSType(typeString), SType.Home};
 						} else {
-							system.SysTypes = new SType[1]{stringToSType (typeString)};
+							system.SysTypes = new SType[1]{languageManager.StringToSType (typeString)};
 						}
 					} else if (isHomeSystem) {
 						system.SysTypes = new SType[1]{SType.Home};
@@ -547,14 +551,18 @@ public class FileManager : TIOMonoBehaviour {
 					ArrayList wormholesForSystem = new ArrayList();
 					foreach(Planet planet in planets){
 						string[] parts = planet.Name.Split(' ');
-						if (parts.Length == 2 && parts[1] == "Wormhole") {
-							wormholesForSystem.Add (stringToWormhole(planet.Name));
+						if (parts.Length == 2 && parts[1] == languageManager.StringToSTag ("Wormhole")) {
+							Wormhole wormhole = new Wormhole();
+							wormhole.Name = planet.Name;
+							wormholesForSystem.Add (wormhole);
 						} else {
 							planetsForSystem.Add (planet);
 						}
 					}
 					system.Planets = (Planet[])planetsForSystem.ToArray(typeof(Planet));
 					system.Wormholes = (Wormhole[])wormholesForSystem.ToArray(typeof(Wormhole));
+				} else if (newDataType == "ID") {
+					system.Id = readTextLine (newDataType, newDataText, fileName);
 				}
 				line = reader.ReadLine().Trim ();
 			}
@@ -571,18 +579,20 @@ public class FileManager : TIOMonoBehaviour {
 					if (name != "") {
 						name += "/";
 					}
-					//TODO: A: Move language dependency to language manager
-					name += wormhole + " Wormhole";
+					name += wormhole.Name;
 				}
-				//TODO: A: Move language dependency to language manager
 				if (name == "") {
-					name = "Empty System";
+					name = languageManager.STagToString ("Empty") + " " + languageManager.STagToString("System");
 				}
 				system.Name = name;
 			} else if (system.Planets.Length == 1 && system.SysTypes.Length == 1 && system.SysTypes[0] == SType.Special){
 				system.Name = system.Planets[0].Name + " " + name;
 			} else {
 				system.Name = name;
+			}
+
+			if (system.Id == default(string)) {
+				system.Id = system.Name;
 			}
 
 			return system;
@@ -619,10 +629,9 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0] = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0] = lineParts[0].Trim ());
 				string newDataText = lineParts[1] = lineParts[1].Trim ();
 
-				//TODO: A: Move language dependency to language manager
 				if (newDataType == "Name") {
 					planet.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Text") {
@@ -635,10 +644,17 @@ public class FileManager : TIOMonoBehaviour {
 					planet.Refresh = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Tech Specialties") {
 					planet.TechSpecialties = readTechSpecsBlock( newDataType, newDataText, fileName, reader);
+				} else if (newDataType == "ID") {
+					planet.Id = readTextLine (newDataType, newDataText, fileName);
 				}
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of block
+
+			if (planet.Id == default(string)) {
+				planet.Id = planet.Name;
+			}
+
 			return planet;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
@@ -652,7 +668,7 @@ public class FileManager : TIOMonoBehaviour {
 			
 			string line = reader.ReadLine().Trim ();
 			while (line != "<}>") {
-				techSpecs.Add (stringToTType(readTextLine("", line, fileName)));
+				techSpecs.Add (languageManager.StringToTType(readTextLine("", line, fileName)));
 				
 				line = reader.ReadLine ().Trim ();
 				
@@ -696,12 +712,11 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0] = lineParts[0].Trim ();
-				string newDataText = lineParts[1] = lineParts[1].Trim ();
-				
-				//TODO: A: Move language dependency to language manager
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataText = lineParts[1].Trim ();
+
 				if (newDataType == "Unit") {
-					unit = unitManager.GetUnit(stringToUType(readTextLine (newDataType, newDataText, fileName)));
+					unit = unitManager.GetUnit(languageManager.StringToUType(readTextLine (newDataType, newDataText, fileName)));
 				} else if (newDataType == "Quantity") {
 					quantity = readIntLine (newDataType, newDataText, fileName);
 				} 
@@ -764,19 +779,24 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0] = lineParts[0].Trim ();
-				string newDataText = lineParts[1] = lineParts[1].Trim ();
-				
-				//TODO: A: Move language dependency to language manager
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataText = lineParts[1].Trim ();
+
 				if (newDataType == "Name") {
 					leader.Name = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Type") {
-					leader.LeaderType = stringToLType(readTextLine (newDataType, newDataText, fileName));
+					leader.LeaderType = languageManager.StringToLType(readTextLine (newDataType, newDataText, fileName));
+				} else if (newDataType == "ID") {
+					leader.Id = readTextLine (newDataType, newDataText, fileName);
 				} 
 				line = reader.ReadLine().Trim ();
 				
 			} while (line != "<}>");
 			// End of block
+
+			if (leader.Id == default(string)) {
+				leader.Id = leader.Name;
+			}
 
 			return leader;
 		} else {
@@ -802,16 +822,15 @@ public class FileManager : TIOMonoBehaviour {
 					lineParts = line.Split(":".ToCharArray(), 2);
 					
 					//Remove any extra whitespace from parts & set descriptive variables
-					string dataType = lineParts[0].Trim ();
+					string dataType = languageManager.StringToDataType(lineParts[0].Trim ());
 					string dataText = lineParts[1].Trim ();
-					
-					//TODO: A: Move language dependency to language manager
+
 					if (dataType == "Name") {
 						tech.Name = readTextLine(dataType, dataText, fileName);
 					} else if (dataType == "Color") {
-						tech.TechType = stringToTType(readTextLine(dataType, dataText, fileName));
+						tech.TechType = languageManager.StringToTType(readTextLine(dataType, dataText, fileName));
 					} else if (dataType == "Expansion") {
-						tech.Expansion = stringToExpansion(readTextLine(dataType, dataText, fileName));
+						tech.Expansion = languageManager.StringToExpansion(readTextLine(dataType, dataText, fileName));
 					} else if (dataType == "Requires") {
 						// The prereq techs may not actually exist yet, so just save the name for now
 						prereqs[tech] = readTextBlock (dataType, dataText, fileName, reader);
@@ -821,6 +840,8 @@ public class FileManager : TIOMonoBehaviour {
 						tech.Cost = readIntLine(dataType, dataText, fileName);
 						// Only racial techs have a cost.
 						tech.TechType = TType.Racial;
+					} else if (dataType == "ID") {
+						tech.Id = readTextLine (dataType, dataText, fileName);
 					}
 					line = reader.ReadLine().Trim ();	
 				} while (line != "<}>");
@@ -842,18 +863,20 @@ public class FileManager : TIOMonoBehaviour {
 		foreach (Tech tech in techs.Values) {
 			ArrayList prereqObjects = new ArrayList();
 
-			//TODO: A: Move language dependency to language manager
 			if (prereqs.Keys.Count > 0) {
 				foreach (string techName in prereqs[tech]) {
-					if (techName == "AND") {
+					if (techName == languageManager.StringToTPrereqMode("AND")) {
 						tech.PrereqMode = TPrereqMode.AND;
-					} else if (techName == "OR") {
+					} else if (techName == languageManager.StringToTPrereqMode ("OR")) {
 						tech.PrereqMode = TPrereqMode.OR;
 					} else if (techs.ContainsKey(techName)) {
 						prereqObjects.Add(techs[techName]);
 					}
 				}
 				tech.Prereqs = (Tech[])prereqObjects.ToArray(typeof(Tech));
+			}
+			if (tech.Id == default(string)) {
+				tech.Id = tech.Name;
 			}
 		}
 		
@@ -873,7 +896,8 @@ public class FileManager : TIOMonoBehaviour {
 			int battle = 0;
 			int multiplier = 0;
 			int move = 0;
-			int capacity = 0;;
+			int capacity = 0;
+			string id = "";
 
 			string line = reader.ReadLine().Trim ();
 			do {
@@ -882,10 +906,9 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0] = lineParts[0].Trim ();
-				string newDataText = lineParts[1] = lineParts[1].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataText = lineParts[1].Trim ();
 
-				//TODO: A: Move language dependency to language manager
 				if (newDataType == "Name") {
 					name = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Abilities") {
@@ -907,13 +930,19 @@ public class FileManager : TIOMonoBehaviour {
 					move = readIntLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Capacity") {
 					capacity = readIntLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "ID") {
+					id = readTextLine (newDataType, newDataText, fileName);
 				}
 				line = reader.ReadLine().Trim ();
 				
 			} while (line != "<}>");
 			// End of block
-			
-			return new Flagship(name, abilities, text, cost, battle, multiplier, move, capacity, unitManager);
+
+			if (id == default(string)) {
+				id = name;
+			}
+
+			return new Flagship(name, abilities, text, cost, battle, multiplier, move, capacity, unitManager, id);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}
@@ -949,10 +978,9 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0] = lineParts[0].Trim ();
-				string newDataText = lineParts[1] = lineParts[1].Trim ();
-				
-				//TODO: A: Move language dependency to language manager
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataText = lineParts[1].Trim ();
+
 				if (newDataType == "Name") {
 					rep.Name = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Votes") {
@@ -961,12 +989,18 @@ public class FileManager : TIOMonoBehaviour {
 					rep.RepTypes = readRTypesBlock (newDataType, newDataText, fileName, reader);
 				} else if (newDataType == "Text") {
 					rep.Text = readTextLine (newDataType, newDataText, fileName);
-				} 
+				} else if (newDataType == "ID") {
+					rep.Id = readTextLine (newDataType, newDataText, fileName);
+				}
 				line = reader.ReadLine().Trim ();
 				
 			} while (line != "<}>");
 			// End of block
-			
+
+			if (rep.Id == default(string)) {
+				rep.Id = rep.Name;
+			}
+
 			return rep;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
@@ -980,7 +1014,7 @@ public class FileManager : TIOMonoBehaviour {
 			
 			string line = reader.ReadLine().Trim ();
 			do {
-				repTypes.Add (stringToRType(readTextLine("", line, fileName)));
+				repTypes.Add (languageManager.StringToRType(readTextLine("", line, fileName)));
 
 				line = reader.ReadLine ().Trim ();
 				
@@ -1001,7 +1035,7 @@ public class FileManager : TIOMonoBehaviour {
 			string line = reader.ReadLine().Trim ();
 
 			do {
-				uAbilities.Add (stringToUAbility(readTextLine("", line, fileName)));
+				uAbilities.Add (languageManager.StringToUAbility(readTextLine("", line, fileName)));
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of block
@@ -1043,16 +1077,15 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
-				
-				//TODO: A: Move language dependency to language manager
+
 				if (newDataType == "Name") {
 					action.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Quantity") {
 					action.Quantity = readIntLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Expansion") {
-					action.Expansion = stringToExpansion(readTextLine(newDataType, newDataText, fileName));
+					action.Expansion = languageManager.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Flavor Text") {
 					action.FlavorText = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Rule Text A") {
@@ -1061,10 +1094,16 @@ public class FileManager : TIOMonoBehaviour {
 					action.PlayText = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Rule Text B") {
 					action.DiscardText = readTextBlock(newDataType, newDataText, fileName, reader);
+				} else if (newDataType == "ID") {
+					action.Id = readTextLine (newDataType, newDataText, fileName);
 				}
 				line = reader.ReadLine().Trim ();	
 			} while (line != "<}>");
 			// End of outermost block
+
+			if (action.Id == default(string)) {
+				action.Id = action.Name;
+			}
 
 			return action;
 		} else {
@@ -1105,21 +1144,20 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
-				//TODO: A: Move language dependency to language manager
 				if (newDataType == "Name") {
 					politicalCard.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Law") {
-					politicalCard.IsLaw = stringToBool(readTextLine(newDataType, newDataText, fileName));
+					politicalCard.IsLaw = languageManager.StringToBoolean(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Event") {
-					bool isEvent = stringToBool (readTextLine (newDataType, newDataText, fileName));
+					bool isEvent = languageManager.StringToBoolean (readTextLine (newDataType, newDataText, fileName));
 					if (isEvent) {
 						voteType = VType.Event;
 					}
 				} else if (newDataType == "Expansion") {
-					politicalCard.Expansion = stringToExpansion(readTextLine(newDataType, newDataText, fileName));
+					politicalCard.Expansion = languageManager.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Flavor Text") {
 					politicalCard.FlavorText = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "For") {
@@ -1137,12 +1175,18 @@ public class FileManager : TIOMonoBehaviour {
 					} else {
 						politicalCard.ElectText = readTextLine(newDataType, newDataText, fileName);
 					}
+				} else if (newDataType == "ID") {
+					politicalCard.Id = readTextLine (newDataType, dataText, fileName);
 				}
 				line = reader.ReadLine().Trim ();	
 			} while (line != "<}>");
 			// End of outermost block
 
 			politicalCard.VoteType = voteType;
+
+			if (politicalCard.Id == default(string)) {
+				politicalCard.Id = politicalCard.Name;
+			}
 
 			return politicalCard;
 		} else {
@@ -1151,19 +1195,18 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	private void readElectLine(string line, PoliticalCard politicalCard) {
-		//TODO: A: Move language dependency to language manager
 		//Determine election type
-		if (line.Contains ("Player")) {
+		if (line.Contains (languageManager.StringToEType("Player"))) {
 			politicalCard.ElectType = EType.Player;
-		} else if (line.Contains ("Planet")) {
+		} else if (line.Contains (languageManager.StringToEType("Planet"))) {
 			politicalCard.ElectType = EType.Planet;
-		} else if (line.Contains ("Public Objective")) {
+		} else if (line.Contains (languageManager.StringToEType("Public Objective"))) {
 			politicalCard.ElectType = EType.PublicObjective;
-		} else if (line.Contains ("Current Law")) {
+		} else if (line.Contains (languageManager.StringToEType("Current Law"))) {
 			politicalCard.ElectType = EType.CurrentLaw;
-		} else if (line.Contains ("a Special System")) {
+		} else if (line.Contains (languageManager.StringToEType("a Special System"))) {
 			politicalCard.ElectType = EType.ASpecialSystem;
-		} else if (line.Contains ("Technology Color")) {
+		} else if (line.Contains (languageManager.StringToEType("Technology Color"))) {
 			politicalCard.ElectType = EType.TechColor;
 		}
 
@@ -1172,7 +1215,7 @@ public class FileManager : TIOMonoBehaviour {
 		int quantity = 1;
 		foreach(string part in parts) {
 			bool isANumber;
-			int conversion = stringToInt(part, out isANumber);
+			int conversion = languageManager.StringToNumber(part, out isANumber);
 			if (isANumber) {
 				quantity = conversion;
 			}
@@ -1211,27 +1254,32 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
-				
-				//TODO: A: Move language dependency to language manager
+
 				if (newDataType == "Name") {
 					domain.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Quantity") {
 					domain.Quantity = readIntLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Expansion") {
-					domain.Expansion = stringToExpansion(readTextLine(newDataType, newDataText, fileName));
+					domain.Expansion = languageManager.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Qualifier") {
 					domain.Qualifier = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Option") {
-					domain.Option = stringToOption(readTextLine(newDataType, newDataText, fileName));
+					domain.Option = languageManager.StringToOption(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Text") {
 					domain.Text = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "ID") {
+					domain.Id = readTextLine (newDataType, newDataText, fileName);
 				} 
 				line = reader.ReadLine().Trim ();	
 			} while (line != "<}>");
 			// End of outermost block
-			
+
+			if (domain.Id == default(string)) {
+				domain.Id = domain.Name;
+			}
+
 			return domain;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
@@ -1275,10 +1323,9 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
-				
-				//TODO: A: Move language dependency to language manager
+
 				if (newDataType == "Name") {
 					merc.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Sustain Damage") {
@@ -1303,6 +1350,8 @@ public class FileManager : TIOMonoBehaviour {
 					groundShots = true;
 				} else if (newDataType == "Movement") {
 					merc.Movement = readIntLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "ID") {
+					merc.Id = readTextLine (newDataType, newDataText, fileName);
 				}
 
 				line = reader.ReadLine().Trim ();	
@@ -1323,6 +1372,10 @@ public class FileManager : TIOMonoBehaviour {
 			}
 			if (!spaceShots) {
 				merc.SpaceShots = 1;
+			}
+
+			if (merc.Id == default(string)) {
+				merc.Id = merc.Name;
 			}
 			
 			return merc;
@@ -1362,10 +1415,9 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
-				
-				//TODO: A: Move language dependency to language manager
+
 				if (newDataType == "Name") {
 					string nameString = readTextLine(newDataType, newDataText, fileName);
 					if (nameString != "") {
@@ -1373,7 +1425,7 @@ public class FileManager : TIOMonoBehaviour {
 						obj.HasRealName = true;
 					}
 				} else if (newDataType == "Type") {
-					obj.Type = stringToOType(readTextLine (newDataType, newDataText, fileName));;
+					obj.Type = languageManager.StringToOType(readTextLine (newDataType, newDataText, fileName));;
 				} else if (newDataType == "Expansions") {
 					obj.Expansions = readExpansionsBlock(newDataType, newDataText, fileName, reader);
 				} else if (newDataType == "Text") {
@@ -1393,6 +1445,8 @@ public class FileManager : TIOMonoBehaviour {
 						obj.RewardType = OReward.VP;
 						obj.RewardQuantity = System.Convert.ToInt32(rewardText);
 					}
+				} else if (newDataType == "ID") {
+					obj.Id = readTextLine (dataType, dataText, fileName);
 				}
 				
 				line = reader.ReadLine().Trim ();	
@@ -1402,6 +1456,10 @@ public class FileManager : TIOMonoBehaviour {
 			if (obj.Name == default(string)) {
 				obj.Name = obj.Text;
 				obj.HasRealName = false;
+			}
+
+			if (obj.Id == default(string)) {
+				obj.Id = obj.Name;
 			}
 			
 			return obj;
@@ -1417,7 +1475,7 @@ public class FileManager : TIOMonoBehaviour {
 
 			do {
 				// Start of an outermost block
-				expansions.Add(stringToExpansion(readTextLine("", line, fileName)));
+				expansions.Add(languageManager.StringToExpansion(readTextLine("", line, fileName)));
 
 				line = reader.ReadLine ().Trim ();
 			} while (line != "<}>");
@@ -1459,10 +1517,9 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
-				//TODO: A: Move language dependency to language manager
 				if (newDataType == "Name") {
 					note.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Flavor Text") {
@@ -1471,11 +1528,17 @@ public class FileManager : TIOMonoBehaviour {
 					note.RulesText = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Play Text") {
 					note.PlayText = readTextLine(newDataType, newDataText, fileName);
+				} else if (newDataType == "ID") {
+					note.Id = readTextLine (newDataType, dataText, fileName);
 				}
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of outermost block
-			
+
+			if (note.Id == default(string)) {
+				note.Id = note.Name;
+			}
+
 			return note;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
@@ -1513,27 +1576,32 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
-				//TODO: A: Move language dependency to language manager
 				if (newDataType == "Name") {
 					strategyCard.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Initiative") {
 					strategyCard.Initiative = readIntLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Set") {
-					strategyCard.Set = stringToStrategySet(readTextLine(newDataType, newDataText, fileName));
+					strategyCard.Set = languageManager.StringToStrategySet(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Primary Ability") {
 					strategyCard.PrimaryAbility = readStrategyAbility(newDataType, newDataText, fileName, reader);
 				} else if (newDataType == "Secondary Ability") {
 					strategyCard.SecondaryAbility = readStrategyAbility(newDataType, newDataText, fileName, reader);
 				} else if (newDataType == "Special") {
 					strategyCard.Special = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "ID") {
+					strategyCard.Id = readTextLine (dataType, dataText, fileName);
 				}
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of outermost block
-			
+
+			if (strategyCard.Id == default(string)) {
+				strategyCard.Id = strategyCard.Name;
+			}
+
 			return strategyCard;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
@@ -1551,19 +1619,24 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
-				//TODO: A: Move language dependency to language manager
 				if (newDataType == "Name") {
 					strategyAbility.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Text") {
 					strategyAbility.Text = readTextLine (newDataType, newDataText, fileName);
+				} else if (newDataType == "ID") {
+					strategyAbility.Id = readTextLine (newDataType, newDataText, fileName);
 				} 
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of outermost block
-			
+
+			if (strategyAbility.Id == default(string)) {
+				strategyAbility.Id = strategyAbility.Name;
+			}
+
 			return strategyAbility;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
@@ -1601,10 +1674,9 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = lineParts[0].Trim ();
+				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
-				
-				//TODO: A: Move language dependency to language manager
+
 				if (newDataType == "Name") {
 					treaty.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Flavor Text") {
@@ -1617,12 +1689,18 @@ public class FileManager : TIOMonoBehaviour {
 					treaty.Rank = readIntLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Race") {
 					treaty.Race = playerManager.GetRace (readTextLine(newDataType, newDataText, fileName));
+				} else if (newDataType == "ID") {
+					treaty.Id = readTextLine (newDataType, newDataText, fileName);
 				}
 				
 				line = reader.ReadLine().Trim ();	
 			} while (line != "<}>");
 			// End of outermost block
-			
+
+			if (treaty.Id == default(string)) {
+				treaty.Id = treaty.Name;
+			}
+
 			return treaty;
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
@@ -1742,193 +1820,5 @@ public class FileManager : TIOMonoBehaviour {
 			throw new System.Exception(string.Format("Error reading file {0}:: \"{1}: {2}\" should end with <{>", fileName, dataType, dataText));
 		}
 	}
-
-
-	/*
-	 * Conversions
-	 */
-	//TODO: A: Move language dependency to language manager
-	private UType stringToUType(string unitName) {
-		if (unitName != "PDS") {
-			unitName = unitName.TrimEnd ('s');
-		}
-		if (unitName == "Ground Force") {
-			return UType.GroundForce;
-		} else if (unitName == "Space Dock") {
-			return UType.SpaceDock;
-		} else if (unitName == "Carrier") {
-			return UType.Carrier;
-		} else if (unitName == "PDS") {
-			return UType.PDS;
-		} else if (unitName == "Fighter") {
-			return UType.Fighter;
-		} else if (unitName == "Cruiser") {
-			return UType.Cruiser;
-		} else if (unitName == "Destroyer") {
-			return UType.Destroyer;
-		} else if (unitName == "Dreadnought") {
-			return UType.Dreadnought;
-		} else if (unitName == "War Sun") {
-			return UType.WarSun;
-		} else {
-			return UType.MechanizedUnit;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private TType stringToTType(string techType) {
-		if (techType == "Blue") {
-			return TType.Blue;
-		} else if (techType == "Red") {
-			return TType.Red;
-		} else if (techType == "Yellow") {
-			return TType.Yellow;
-		} else if (techType == "Green") {
-			return TType.Green;
-		} else {
-			return TType.Racial;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private LType stringToLType(string leaderType) {
-		if (leaderType == "Admiral") {
-			return LType.Admiral;
-		} else if (leaderType == "Agent") {
-			return LType.Agent;
-		} else if (leaderType == "Diplomat") {
-			return LType.Diplomat;
-		} else if (leaderType == "General") {
-			return LType.General;
-		} else {
-			return LType.Scientist;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private RType stringToRType(string repType) {
-		if (repType == "Spy") {
-			return RType.Spy;
-		} else if (repType == "Councilor") {
-			return RType.Councilor;
-		} else {
-			return RType.Bodyguard;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private UAbility stringToUAbility(string unitAbility) {
-		if (unitAbility == "Sustain Damage") {
-			return UAbility.SustainDamage;
-		} else if (unitAbility == "Anti-Fighter Barrage") {
-			return UAbility.AntiFighterBarrage;
-		} else if (unitAbility == "Bombardment") {
-			return UAbility.Bombardment;
-		} else if (unitAbility == "Planetary Shield") {
-			return UAbility.PlanetaryShield;
-		} else {
-			return UAbility.Production;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private Expansion stringToExpansion(string expansionName) {
-		if (expansionName == "Shattered Empire") {
-			return Expansion.ShatteredEmpire;
-		} else if (expansionName == "Shards of the Throne") {
-			return Expansion.ShardsOfTheThrone;
-		} else {
-			return Expansion.Vanilla;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private Option stringToOption(string optionName) {
-		if (optionName == "Distant Suns") {
-			return Option.DistantSuns;
-		} else {
-			return Option.TheFinalFrontier;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private OType stringToOType(string objType) {
-		if (objType == "Public Stage I") {
-			return OType.PublicStageI;
-		} else if (objType == "Public Stage II") {
-			return OType.PublicStageII;
-		} else if (objType == "Preliminary") {
-			return OType.Preliminary;
-		} else if (objType == "Secret") {
-			return OType.Secret;
-		} else  if (objType == "Special") {
-			return OType.Special;
-		} else if (objType == "Lazax") {
-			return OType.Lazax;
-		} else {
-			return OType.Scenario;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private SType stringToSType(string sysType) {
-		if (sysType == "Unattached") {
-			return SType.Unattached;
-		} else if (sysType == "Home") {
-			return SType.Home;
-		} else if (sysType == "Special") {
-			return SType.Special;
-		} else {
-			return SType.Fixed;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private Wormhole stringToWormhole(string wormhole) {
-		if (wormhole == "Alpha Wormhole") {
-			return Wormhole.Alpha;
-		} else if (wormhole == "Beta Wormhole") {
-			return Wormhole.Beta;
-		} else if (wormhole == "C Wormhole") {
-			return Wormhole.C;
-		} else {
-			return Wormhole.Delta;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private bool stringToBool(string boolString) {
-		if (boolString.ToLower() == "true") {
-			return true;
-		} else if (boolString.ToLower () == "false") {
-			return false;
-		} else {
-			throw new System.Exception(string.Format("Error converting string {0} to bool:: no equivalent bool value", boolString));
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private int stringToInt(string numberString, out bool isAnInt) {
-		int number = 0;
-		if (numberString.ToLower()== "two") {
-			isAnInt = true;
-			return 2;
-		} else {
-			isAnInt = int.TryParse(numberString, out number);
-			return number;
-		}
-	}
-
-	//TODO: A: Move language dependency to language manager
-	private StrategySet stringToStrategySet(string setName) {
-		if (setName == "Vanilla Set") {
-			return StrategySet.Vanilla;
-		} else if (setName == "Shattered Empire Set") {
-			return StrategySet.ShatteredEmpire;
-		} else if (setName == "Fall of the Empire Variants") {
-			return StrategySet.FallOfTheEmpire;
-		} else {
-			return StrategySet.None;
-		}
-	}
+	
 }

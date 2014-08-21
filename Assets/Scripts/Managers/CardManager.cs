@@ -185,9 +185,7 @@ public class CardManager : TIOMonoBehaviour {
 				case OType.PublicStageII:
 					if (validPublicObjective(obj)) {
 						// Valid Stage II Public Objective
-						//TODO: A: Move language dependency to language manager
-						//TODO: A: Maybe use a language-independent identifier
-						if (obj.Name == "Imperium Rex") {
+						if (obj.Id == "Imperium Rex") {
 							imperiumRexCard = obj;
 						} else {
 							validStageIIObjectives.Add (obj);
@@ -264,14 +262,10 @@ public class CardManager : TIOMonoBehaviour {
 	}
 
 	private bool validSpecialObjective(Objective obj) {
-		//TODO: A: Move language dependency to language manager
-		//TODO: A: Maybe use a language-independent identifier
-		if (gameManager.Active (Option.Artifacts) && (obj.Name == "Lazax Armory" || obj.Name == "Precursor Fossil" || obj.Name == "Ancient Shipwreck" || obj.Name == "Imperial Datacache")) {
+		if (gameManager.Active (Option.Artifacts) && (obj.Id == "Lazax Armory" || obj.Id == "Precursor Fossil" || obj.Id == "Ancient Shipwreck" || obj.Id == "Imperial Datacache")) {
 			// Artifact & using the artifacts option
 			return true;
-			//TODO: A: Move language dependency to language manager
-			//TODO: A: Maybe use a language-independent identifier
-		} else if (gameManager.Active (Option.VoiceOfTheCouncil) && (obj.Name == "Voice of the Council")) {
+		} else if (gameManager.Active (Option.VoiceOfTheCouncil) && (obj.Id == "Voice of the Council")) {
 			// Voice of the Council & using the VotC option
 			return true;
 		} else {
@@ -390,7 +384,6 @@ public class CardManager : TIOMonoBehaviour {
 
 	public Objective GetStartingObjective(Player player) {
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
-			//TODO: A: Decide if the current race Ids are sufficient in terms of language independence
 			if (player.Race.Id == "Lazax") {
 				return lazaxObj;
 			} else {

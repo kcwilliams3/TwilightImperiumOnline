@@ -88,6 +88,7 @@ public class LanguageManager : TIOMonoBehaviour {
 	public RType StringToRType(string rTypeString) { return toRType [rTypeString]; }
 	public Option StringToOption(string optionString) { return toOption [optionString]; }
 	public LType StringToLType(string lTypeString) { return toLType [lTypeString]; }
+	public StrategySet StringToStrategySet(string strategySetString) { return toStrategySet [strategySetString]; }
 
 	//______ToString functions
 	public string NumberToString(int number) { return numberTo [number]; }
@@ -105,8 +106,11 @@ public class LanguageManager : TIOMonoBehaviour {
 	public string RTypeToString(RType repType) { return rTypeTo [repType]; }
 	public string OptionToString(Option opt) { return optionTo [opt]; }
 	public string LTypeToString(LType leaderType) { return lTypeTo [leaderType]; }
+	public string StrategySetToString(StrategySet strategySet) { return strategySetTo [
+
 
 	//Dictionary-filling functions
+
 	public void AddNumber (string languageString) {
 		AddNumber (languageString, languageString);
 	}

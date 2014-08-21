@@ -31,6 +31,7 @@ public class BoardManager : TIOMonoBehaviour {
 	private GameManager gameManager;
 	private FileManager fileManager;
 	private PlayerManager playerManager;
+	private LanguageManager languageManager;
 
 
 	// Use this for initialization
@@ -48,8 +49,7 @@ public class BoardManager : TIOMonoBehaviour {
 	}
 
 	public PlanetSystem GetSystem(string systemName) {
-		//TODO: A: Move language dependency to language manager
-		if (systemName.Contains("Home System")) {
+		if (systemName.Contains(languageManager.StringToSTag ("Home") + " " + languageManager.StringToSTag("System"))) {
 			return playerManager.GetHomeSystem (systemName);
 		}
 		return systems [systemName];
@@ -82,17 +82,16 @@ public class BoardManager : TIOMonoBehaviour {
 	}
 
 	private void prepareMaxSystemCounts() {
-		//TODO: A: Move language dependency to language manager
 		foreach(PlanetSystem sys in systems.Values) {
-			if (sys.Name == "Asteroid Field") {
+			if (sys.Id == "Asteroid Field") {
 				systemCounts[sys] = 4;
-			} else if (sys.Name == "Supernova") {
+			} else if (sys.Id == "Supernova") {
 				systemCounts[sys] = 2;
-			} else if (sys.Name == "Nebula") {
+			} else if (sys.Id == "Nebula") {
 				systemCounts[sys] = 2;
-			} else if (sys.Name == "Ion Storm") {
+			} else if (sys.Id == "Ion Storm") {
 				systemCounts[sys] = 2;
-			} else if (sys.Name == "Empty System") {
+			} else if (sys.Id == "Empty System") {
 				systemCounts[sys] = 12;
 			} else {
 				systemCounts[sys] = 1;
@@ -112,7 +111,6 @@ public class BoardManager : TIOMonoBehaviour {
 
 		//Shuffle the system groups
 		CardManager cardManager = GetComponent<CardManager>();
-		//TODO: A: Maybe use a language-independent identifier
 		cardManager.ShuffleDeck<PlanetSystem> (availableSystems ["Special"]);
 		cardManager.ShuffleDeck<PlanetSystem> (availableSystems ["Empty"]);
 		cardManager.ShuffleDeck<PlanetSystem> (availableSystems ["Regular"]);
@@ -175,17 +173,14 @@ public class BoardManager : TIOMonoBehaviour {
 		//Draw the correct number of systems
 		ArrayList drawnSpecialSystems = new ArrayList ();
 		while (drawnSpecialSystems.Count < special) {
-			//TODO: A: Maybe use a language-independent identifier
 			drawnSpecialSystems.Add (cardManager.DrawCard<PlanetSystem>(availableSystems ["Special"]));
 		}
 		ArrayList drawnEmptySystems = new ArrayList();
 		while (drawnEmptySystems.Count < empty) {
-			//TODO: A: Maybe use a language-independent identifier
 			drawnEmptySystems.Add (cardManager.DrawCard<PlanetSystem>(availableSystems ["Empty"]));
 		}
 		ArrayList drawnRegularSystems = new ArrayList();
 		while (drawnRegularSystems.Count < regular) {
-			//TODO: A: Maybe use a language-independent identifier
 			drawnRegularSystems.Add (cardManager.DrawCard<PlanetSystem>(availableSystems ["Regular"]));
 		}
 
@@ -235,10 +230,9 @@ public class BoardManager : TIOMonoBehaviour {
 
 		foreach(PlanetSystem sys in systems.Values) {
 			for (int i=0; i < systemCounts[sys]; i++) {
-				//TODO: A: Move language dependency to language manager
-				if (sys.isFixed() && sys.Name == "Mecatol Rex") {
+				if (sys.isFixed() && sys.Id == "Mecatol Rex") {
 					center = sys;
-				} else if (sys.isUnattached() && gameManager.Active (Option.WormholeNexus) && sys.Name == "Wormhole Nexus"){
+				} else if (sys.isUnattached() && gameManager.Active (Option.WormholeNexus) && sys.Id == "Wormhole Nexus"){
 					nexus = sys;
 				} else if (sys.isSpecial()) {
 					specialSystems.Add (sys);

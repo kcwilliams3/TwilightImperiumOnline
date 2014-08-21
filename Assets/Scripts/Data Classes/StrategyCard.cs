@@ -6,7 +6,7 @@ public enum StrategySet {Vanilla, ShatteredEmpire, FallOfTheEmpire, None};
 public class StrategyAbility {
 	
 	// Variables for logical use
-	private const int TIGameProperties = 2;
+	private const int TIGameProperties = 3;
 	private bool[] isLocked;
 	
 	// TI Game Data
@@ -16,6 +16,9 @@ public class StrategyAbility {
 	[SerializeField]
 	private string text;
 	public string Text { get { return text; } set { if (!isLocked[1]) { text = value; isLocked[1] = true; } else { Debug.Log("StrategyAbility: Attempted to set locked property Text."); } } }
+	[SerializeField]
+	private string id;
+	public string Id { get { return id; } set { if (!isLocked[2]) { text = value; isLocked[2] = true; } else { Debug.Log ("StrategyAbility: Attempted to set locked property Id."); } } }
 	
 	public StrategyAbility() {
 		isLocked = new bool[TIGameProperties];

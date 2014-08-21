@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public enum SType {Unattached, Fixed, Special, Home};
-public enum Wormhole {Alpha, Beta, Delta, C}
 
 [System.Serializable]
 public class PlanetSystem {
