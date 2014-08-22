@@ -17,7 +17,8 @@ public class PunStartup : MonoBehaviour
             "DemoWorker/DemoWorkerGame-Scene.unity",
             "MarcoPolo-Tutorial/MarcoPolo-Scene.unity",
             "DemoSynchronization/DemoSynchronization-Scene.unity",
-            "DemoFriendsAndCustomAuth/DemoFriends-Scene.unity"
+            "DemoFriendsAndCustomAuth/DemoFriends-Scene.unity",
+            "DemoFriendsAndCustomAuth/DemoPickup-Scene.unity"
         };
 
     static PunStartup()
@@ -40,7 +41,7 @@ public class PunStartup : MonoBehaviour
 
         if (String.IsNullOrEmpty(EditorApplication.currentScene) && EditorBuildSettings.scenes.Length == 0)
         {
-            #if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_5
+            #if UNITY_4_2 || UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_5 || UNITY_5_1 || UNITY_5_2
             if (EditorApplication.isUpdating) return;
             #endif
 
@@ -51,7 +52,7 @@ public class PunStartup : MonoBehaviour
         }
     }
 
-    [MenuItem("Window/Photon Unity Networking/PUN Demo Build Setup")]
+    [MenuItem("Window/Photon Unity Networking/Apply Build Setup for Demos")]
     public static void SetupDemo()
     {
         SetPunDemoBuildSettings();

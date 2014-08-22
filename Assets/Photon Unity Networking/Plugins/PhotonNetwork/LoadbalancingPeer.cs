@@ -16,7 +16,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 
 /// <summary>
-/// Internally used by PUN, a LoadbalancingPeer provides the operations and enum 
+/// Internally used by PUN, a LoadbalancingPeer provides the operations and enum
 /// definitions needed to use the Photon Loadbalancing server (or the Photon Cloud).
 /// </summary>
 /// <remarks>
@@ -161,7 +161,7 @@ internal class LoadbalancingPeer : PhotonPeer
                 op[ParameterCode.PlayerProperties] = playerProperties;
                 op[ParameterCode.Broadcast] = true; // broadcast actor properties
             }
-            
+
 
             if (createIfNotExists)
             {
@@ -188,7 +188,7 @@ internal class LoadbalancingPeer : PhotonPeer
                 }
             }
         }
-        
+
         // UnityEngine.Debug.Log("JoinGame: " + SupportClass.DictionaryToString(op));
         return this.OpCustom(OperationCode.JoinGame, op, true);
     }
@@ -257,7 +257,7 @@ internal class LoadbalancingPeer : PhotonPeer
     /// Used on Master Server to find the rooms played by a selected list of users.
     /// Users identify themselves by using OpAuthenticate with a unique username.
     /// The list of usernames must be fetched from some other source (not provided by Photon).
-    /// 
+    ///
     /// The server response includes 2 arrays of info (each index matching a friend from the request):
     /// ParameterCode.FindFriendsResponseOnlineList = bool[] of online states
     /// ParameterCode.FindFriendsResponseRoomIdList = string[] of room names (empty string if not in a room)
@@ -295,7 +295,7 @@ internal class LoadbalancingPeer : PhotonPeer
             }
             return false;
         }
-            
+
         Dictionary<byte, object> opParameters = new Dictionary<byte, object>();
         opParameters.Add(ParameterCode.Properties, actorProperties);
         opParameters.Add(ParameterCode.ActorNr, actorNr);
@@ -330,7 +330,7 @@ internal class LoadbalancingPeer : PhotonPeer
         opParameters.Add(ParameterCode.Properties, gameProperties);
         if (broadcast)
         {
-            opParameters.Add(ParameterCode.Broadcast, broadcast);
+            opParameters.Add(ParameterCode.Broadcast, true);
         }
 
         return this.OpCustom((byte)OperationCode.SetProperties, opParameters, broadcast, channelId);
@@ -362,7 +362,7 @@ internal class LoadbalancingPeer : PhotonPeer
         if (authValues != null && authValues.Secret != null)
         {
             opParameters[ParameterCode.Secret] = authValues.Secret;
-            //return this.OpCustom(OperationCode.Authenticate, opParameters, true, (byte)0, false);
+            return this.OpCustom(OperationCode.Authenticate, opParameters, true, (byte)0, false);
         }
 
         opParameters[ParameterCode.AppVersion] = appVersion;
@@ -404,7 +404,7 @@ internal class LoadbalancingPeer : PhotonPeer
                 }
             //}
         }
-        
+
         bool sent = this.OpCustom(OperationCode.Authenticate, opParameters, true, (byte)0, this.IsEncryptionAvailable);
         if (!sent)
         {
@@ -427,7 +427,7 @@ internal class LoadbalancingPeer : PhotonPeer
     /// <param name="groupsToAdd">Groups to add to interest. Null will not add any. A byte[0] will add all current.</param>
     /// <returns></returns>
     public virtual bool OpChangeGroups(byte[] groupsToRemove, byte[] groupsToAdd)
-    {        
+    {
         if (this.DebugOut >= DebugLevel.ALL)
         {
             this.Listener.DebugReturn(DebugLevel.ALL, "OpChangeGroups()");
@@ -557,13 +557,13 @@ public class ErrorCode
 
     /// <summary>(32757) Authorization on the Photon Cloud failed because the concurrent users (CCU) limit of the app's subscription is reached.</summary>
     /// <remarks>
-    /// Unless you have a plan with "CCU Burst", clients might fail the authentication step during connect. 
-    /// Affected client are unable to call operations. Please note that players who end a game and return 
-    /// to the master server will disconnect and re-connect, which means that they just played and are rejected 
+    /// Unless you have a plan with "CCU Burst", clients might fail the authentication step during connect.
+    /// Affected client are unable to call operations. Please note that players who end a game and return
+    /// to the master server will disconnect and re-connect, which means that they just played and are rejected
     /// in the next minute / re-connect.
     /// This is a temporary measure. Once the CCU is below the limit, players will be able to connect an play again.
-    /// 
-    /// OpAuthorize is part of connection workflow but only on the Photon Cloud, this error can happen. 
+    ///
+    /// OpAuthorize is part of connection workflow but only on the Photon Cloud, this error can happen.
     /// Self-hosted Photon servers with a CCU limited license won't let a client connect at all.
     /// </remarks>
     public const int MaxCcuReached = 0x7FFF - 10;
@@ -573,8 +573,8 @@ public class ErrorCode
     /// Some subscription plans for the Photon Cloud are region-bound. Servers of other regions can't be used then.
     /// Check your master server address and compare it with your Photon Cloud Dashboard's info.
     /// https://cloud.exitgames.com/dashboard
-    /// 
-    /// OpAuthorize is part of connection workflow but only on the Photon Cloud, this error can happen. 
+    ///
+    /// OpAuthorize is part of connection workflow but only on the Photon Cloud, this error can happen.
     /// Self-hosted Photon servers with a CCU limited license won't let a client connect at all.
     /// </remarks>
     public const int InvalidRegion = 0x7FFF - 11;
@@ -583,6 +583,11 @@ public class ErrorCode
     /// (32755) Custom Authentication of the user failed due to setup reasons (see Cloud Dashboard) or the provided user data (like username or token). Check error message for details.
     /// </summary>
     public const int CustomAuthenticationFailed = 0x7FFF - 12;
+
+    /// <summary>
+    /// (32752) Also known as "PluginReportedError". A call to an external web service (WebHook) failed and in turn, caused the operation to fail. Check the debug message (increase the logging level, if needed).
+    /// </summary>
+    public const int WebHookCallFailed = 0x7FFF - 15;
 }
 
 
@@ -597,6 +602,10 @@ public class ActorProperties
 {
     /// <summary>(255) Name of a player/actor.</summary>
     public const byte PlayerName = 255; // was: 1
+
+    /// <summary>(254) Tells you if the player is currently in this game (getting events live).</summary>
+    /// <remarks>A server-set value for async games, where players can leave the game and return later.</remarks>
+    public const byte IsInactive = 254;
 }
 
 /// <summary>
@@ -620,7 +629,7 @@ public class GameProperties
     public const byte Removed = 251;
     /// <summary>(250) A list of the room properties to pass to the RoomInfo list in a lobby. This is used in CreateRoom, which defines this list once per room.</summary>
     public const byte PropsListedInLobby = 250;
-    /// <summary>Equivalent of Operation Join parameter CleanupCacheOnLeave.</summary>
+    /// <summary>(249) Equivalent of Operation Join parameter CleanupCacheOnLeave.</summary>
     public const byte CleanupCacheOnLeave = 249;
 }
 
@@ -667,6 +676,13 @@ public class ParameterCode
     public const byte SuppressRoomEvents = 237;
     /// <summary>(234) Optional parameter of OpRaiseEvent to forward the event to some web-service.</summary>
     public const byte EventForward = 234;
+
+    /// <summary>(233) Used in EvLeave to describe if a user is inactive (and might come back) or not. In async / Turnbased games, inactive is default.</summary>
+    public const byte IsInactive = (byte)233;
+
+    /// <summary>(232) Used when creating rooms to define if any userid can join the room only once.</summary>
+    public const byte CheckUserOnJoin = (byte)232;
+
     /// <summary>(230) Address of a (game) server to use.</summary>
     public const byte Address = 230;
     /// <summary>(229) Count of players in rooms (connected to game servers for this application, used in stats event)</summary>
@@ -732,6 +748,14 @@ public class ParameterCode
     /// <summary>(238) The "Add" operation-parameter can be used to add something to some list or set. E.g. add groups to player's interest groups.</summary>
     public const byte Add = LiteOpKey.Add;
 
+
+    /// <summary>(236) Time To Live (TTL) for a room when the last player leaves. Keeps room in memory for case a player re-joins soon. In milliseconds.</summary>
+    public const byte EmptyRoomTTL = 236;
+
+    /// <summary>(235) Time To Live (TTL) for an 'actor' in a room. If a client disconnects, this actor is inactive first and removed after this timeout. In milliseconds.</summary>
+    public const byte PlayerTTL = 235;
+
+
     /// <summary>(217) This key's (byte) value defines the target custom authentication type/service the client connects with. Used in OpAuthenticate</summary>
     public const byte ClientAuthenticationType = 217;
 
@@ -740,6 +764,10 @@ public class ParameterCode
 
     /// <summary>(215) Makes the server create a room if it doesn't exist. OpJoin uses this to always enter a room, unless it exists and is full/closed.</summary>
     public const byte CreateIfNotExists = 215;
+
+    /// <summary>(215) The JoinMode enum defines which variant of joining a room will be executed: Join only if available, create if not exists or re-join.</summary>
+    /// <remarks>Replaces CreateIfNotExists which was only a bool-value.</remarks>
+    public const byte JoinMode = 215;
 
     /// <summary>(214) This key's (string or byte[]) value provides parameters sent to the custom authentication service setup in Photon Dashboard. Used in OpAuthenticate</summary>
     public const byte ClientAuthenticationData = 214;
@@ -753,6 +781,22 @@ public class ParameterCode
     /// <summary>(211) This (optional) parameter can be sent in Op Authenticate to turn on Lobby Stats (info about lobby names and their user- and game-counts). See: PhotonNetwork.Lobbies</summary>
     public const byte LobbyStats = (byte)211;
 
+    /// <summary>(210) Used for region values in OpAuth and OpGetRegions.</summary>
+    public const byte Region = (byte)210;
+
+    /// <summary>(209) Path of the WebRPC that got called. Also known as "WebRpc Name". Type: string.</summary>
+    public const byte UriPath = 209;
+
+    /// <summary>(208) Parameters for a WebRPC as: Dictionary<string, object>. This will get serialized to JSon.</summary>
+    public const byte WebRpcParameters = 208;
+
+    /// <summary>(207) ReturnCode for the WebRPC, as sent by the web service (not by Photon, which uses ErrorCode). Type: byte.</summary>
+    public const byte WebRpcReturnCode = 207;
+
+    /// <summary>(206) Message returned by WebRPC server. Analog to Photon's debug message. Type: string.</summary>
+    public const byte WebRpcReturnMessage = 206;
+
+
     /// <summary>(1) Used in Op FindFriends request. Value must be string[] of friends to look up.</summary>
     public const byte FindFriendsRequestList = (byte)1;
 
@@ -761,9 +805,6 @@ public class ParameterCode
 
     /// <summary>(2) Used in Op FindFriends response. Contains string[] of room names ("" where not known or no room joined).</summary>
     public const byte FindFriendsResponseRoomIdList = (byte)2;
-
-    /// <summary>(210) Used for region values in OpAuth and OpGetRegions.</summary>
-    public const byte Region = (byte)210;
 }
 
 /// <summary>
@@ -807,6 +848,9 @@ public class OperationCode
 
     /// <summary>(220) Get list of regional servers from a NameServer.</summary>
     public const byte GetRegions = 220;
+
+    /// <summary>(219) WebRpc Operation.</summary>
+    public const byte WebRpc = 219;
 }
 
 /// <summary>
@@ -847,7 +891,7 @@ public enum CustomAuthenticationType : byte
 /// <remarks>
 /// Custom Authentication lets you verify end-users by some kind of login or token. It sends those
 /// values to Photon which will verify them before granting access or disconnecting the client.
-/// 
+///
 /// The Photon Cloud Dashboard will let you enable this feature and set important server values for it.
 /// https://cloud.exitgames.com/dashboard
 /// </remarks>
@@ -860,7 +904,7 @@ public class AuthenticationValues
     /// <remarks>Standard http get parameters are used here and passed on to the service that's defined in the server (Photon Cloud Dashboard).</remarks>
     public string AuthParameters;   // { get { return a; } set { a = value; UnityEngine.Debug.LogWarning("AuthParameters set: " + value + " server: " + PhotonNetwork.ServerAddress); } }
     //private string a;
-    
+
     /// <summary>After initial authentication, Photon provides a secret for this client / user, which is subsequently used as (cached) validation.</summary>
     public string Secret;   // { get { return s; } set { s = value; UnityEngine.Debug.LogWarning("Secret set: " + value + " server: " + PhotonNetwork.ServerAddress); } }
     //private string s;

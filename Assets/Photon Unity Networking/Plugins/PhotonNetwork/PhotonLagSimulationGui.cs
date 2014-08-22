@@ -1,3 +1,8 @@
+#pragma warning disable 1587
+/// \file
+/// <summary>Part of the [Optional GUI](@ref optionalGui).</summary>
+#pragma warning restore 1587
+
 
 using ExitGames.Client.Photon;
 using UnityEngine;

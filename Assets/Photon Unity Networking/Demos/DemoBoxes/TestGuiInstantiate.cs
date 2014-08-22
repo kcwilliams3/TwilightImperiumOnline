@@ -27,7 +27,7 @@ public class TestGuiInstantiate : Photon.MonoBehaviour
         {
             if (GUILayout.Button("Connect"))
             {
-                PhotonNetwork.ConnectUsingSettings("1");
+                PhotonNetwork.ConnectUsingSettings("2." + Application.loadedLevel);
             }
         }
         else

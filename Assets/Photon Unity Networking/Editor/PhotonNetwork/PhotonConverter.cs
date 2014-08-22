@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 public class PhotonConverter : Photon.MonoBehaviour
 {
     public static void RunConversion()
-    {		
+    {
         //Ask if user has made a backup.
         int option = EditorUtility.DisplayDialogComplex("Conversion", "Attempt automatic conversion from Unity Networking to Photon Unity Networking \"PUN\"?", "Yes", "No!", "Pick Script Folder");
         switch (option)
@@ -48,7 +48,7 @@ public class PhotonConverter : Photon.MonoBehaviour
         //Convert NetworkViews to PhotonViews in Project prefabs
         //Ask the user if we can move all prefabs to a resources folder
         bool movePrefabs = EditorUtility.DisplayDialog("Conversion", "Can all prefabs that use a PhotonView be moved to a Resources/ folder? You need this if you use Network.Instantiate.", "Yes", "No");
-       
+
 
         string[] prefabs = Directory.GetFiles("Assets/", "*.prefab", SearchOption.AllDirectories);
         foreach (string prefab in prefabs)
@@ -85,26 +85,26 @@ public class PhotonConverter : Photon.MonoBehaviour
                 }
             }
         }
-        
+
         //Convert NetworkViews to PhotonViews in scenes
         string[] sceneFiles = Directory.GetFiles("Assets/", "*.unity", SearchOption.AllDirectories);
         foreach (string sceneName in sceneFiles)
         {
             EditorApplication.OpenScene(sceneName);
             EditorUtility.DisplayProgressBar("Converting..", "Scene:" + sceneName, 0.2f);
-        
+
             int converted2 = ConvertNetworkView((NetworkView[])GameObject.FindObjectsOfType(typeof(NetworkView)), true);
             if (converted2 > 0)
             {
                 //This will correct all prefabs: The prefabs have gotten new components, but the correct ID's were lost in this case
                 PhotonViewHandler.HierarchyChange();    //TODO: most likely this is triggered on change or on save
-                
+
                 Output("Replaced " + converted2 + " NetworkViews with PhotonViews in scene: " + sceneName);
                 EditorApplication.SaveScene(EditorApplication.currentScene);
             }
-            
+
         }
-        
+
         //Convert C#/JS scripts (API stuff)
         List<string> scripts = GetScriptsInFolder("Assets");
 
@@ -113,8 +113,8 @@ public class PhotonConverter : Photon.MonoBehaviour
 
         Output(EditorApplication.timeSinceStartup + " Completed conversion!");
         EditorUtility.ClearProgressBar();
-		
-		EditorUtility.DisplayDialog("Completed the conversion", "Don't forget to add \"PhotonNetwork.ConnectWithDefaultSettings();\" to connect to the Photon server before using any multiplayer functionality.", "OK");
+
+        EditorUtility.DisplayDialog("Completed the conversion", "Don't forget to add \"PhotonNetwork.ConnectWithDefaultSettings();\" to connect to the Photon server before using any multiplayer functionality.", "OK");
     }
 
     public static void PickFolderAndConvertScripts()
@@ -195,7 +195,7 @@ public class PhotonConverter : Photon.MonoBehaviour
         file = file.Replace("\\", "/"); // Get Class name for JS
         string className = file.Substring(file.LastIndexOf("/")+1);
         className = className.Substring(0, className.IndexOf("."));
-         
+
 
         //REGEXP STUFF
         //Valid are: Space { } , /n /r
@@ -203,8 +203,8 @@ public class PhotonConverter : Photon.MonoBehaviour
         string NOT_VAR_WITH_DOT = @"([^A-Za-z0-9_]+)";
 
         //string VAR_NONARRAY = @"[^A-Za-z0-9_]";
-        
-        
+
+
         //NetworkView
         {
             text = PregReplace(text, NOT_VAR_WITH_DOT + "NetworkView" + NOT_VAR_WITH_DOT, "$1PhotonView$2");
@@ -264,15 +264,15 @@ public class PhotonConverter : Photon.MonoBehaviour
                 text = PregReplace(text, NOT_VAR_WITH_DOT + "PhotonNetwork.playerList.Length" + NOT_VAR_WITH_DOT, "$1PhotonNetwork.playerList.Count$2");
 
                 /*DROPPED:
-                    minimumAllocatableViewIDs 
-	                natFacilitatorIP is dropped
-	                natFacilitatorPort is dropped
-	                connectionTesterIP
-	                connectionTesterPort
-	                proxyIP
-	                proxyPort
-	                useProxy
-	                proxyPassword
+                    minimumAllocatableViewIDs
+                    natFacilitatorIP is dropped
+                    natFacilitatorPort is dropped
+                    connectionTesterIP
+                    connectionTesterPort
+                    proxyIP
+                    proxyPort
+                    useProxy
+                    proxyPassword
                  */
             }
 
@@ -285,20 +285,20 @@ public class PhotonConverter : Photon.MonoBehaviour
                 /*DROPPED:
                     TestConnection
                     TestConnectionNAT
-                    HavePublicAddress                
+                    HavePublicAddress
                 */
             }
 
             //Overall
             text = PregReplace(text, NOT_VAR_WITH_DOT + "Network" + NOT_VAR_WITH_DOT, "$1PhotonNetwork$2");
-			
-		
-		//Changed methods
-			 string ignoreMe = @"([A-Za-z0-9_\[\]\(\) ]+)";
 
-		 text = PregReplace(text, NOT_VAR_WITH_DOT + "PhotonNetwork.GetPing\\(" + ignoreMe+"\\);", "$1PhotonNetwork.GetPing();");
-		text = PregReplace(text, NOT_VAR_WITH_DOT + "PhotonNetwork.CloseConnection\\(" + ignoreMe+","+ignoreMe+"\\);", "$1PhotonNetwork.CloseConnection($2);");
-			
+
+        //Changed methods
+             string ignoreMe = @"([A-Za-z0-9_\[\]\(\) ]+)";
+
+         text = PregReplace(text, NOT_VAR_WITH_DOT + "PhotonNetwork.GetPing\\(" + ignoreMe+"\\);", "$1PhotonNetwork.GetPing();");
+        text = PregReplace(text, NOT_VAR_WITH_DOT + "PhotonNetwork.CloseConnection\\(" + ignoreMe+","+ignoreMe+"\\);", "$1PhotonNetwork.CloseConnection($2);");
+
         }
 
         //General

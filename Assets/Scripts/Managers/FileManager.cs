@@ -34,10 +34,6 @@ public class FileManager : TIOMonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gameManager = GetComponent<GameManager>();
-		unitManager = GetComponent<UnitManager>();
-		techManager = GetComponent<TechManager>();
-		playerManager = GetComponent<PlayerManager>();
-		boardManager = GetComponent<BoardManager>();
 		languageManager = GetComponent<LanguageManager>();
 	}
 	
@@ -59,6 +55,7 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	public Race ReadRaceFile(string raceID) {
+		unitManager = GetComponent<UnitManager>();
 		//RaceID should be the language-independent identifier. (Equivalent to english short name, currently.)
 		string fullPath = procTextDir + languageManager.Language;
 		if (raceID == "Lazax") {
@@ -72,6 +69,7 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	public Tech[] ReadTechFile() {
+		techManager = GetComponent<TechManager>();
 		string fullPath = procTextDir + languageManager.Language + "/technologies.titechs";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readTechFile (fullPath);
@@ -143,6 +141,7 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	public Board ReadMapFile(string mapName){
+		boardManager = GetComponent<BoardManager>();
 		string fullPath = mapDir + mapName + ".timap";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readMapFile (fullPath);
@@ -404,6 +403,9 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	private Treaty[] readTreatyFile(string fileName) {
+		if (playerManager == null) {
+			playerManager = GetComponent<PlayerManager>();
+		}
 		try {
 			StreamReader reader = new StreamReader(fileName, Encoding.Default);
 			
@@ -1825,39 +1827,42 @@ public class FileManager : TIOMonoBehaviour {
 							languageManager.AddExpansion(languageString, englishString);
 							break;
 						case 5:
-							languageManager.AddUType(languageString, englishString);
+							languageManager.AddScenario(languageString, englishString);
 							break;
 						case 6:
-							languageManager.AddUAbility(languageString, englishString);
+							languageManager.AddUType(languageString, englishString);
 							break;
 						case 7:
-							languageManager.AddTType(languageString, englishString);
+							languageManager.AddUAbility(languageString, englishString);
 							break;
 						case 8:
-							languageManager.AddSTag(languageString, englishString);
+							languageManager.AddTType(languageString, englishString);
 							break;
 						case 9:
-							languageManager.AddSType(languageString, englishString);
+							languageManager.AddSTag(languageString, englishString);
 							break;
 						case 10:
-							languageManager.AddOType(languageString, englishString);
+							languageManager.AddSType(languageString, englishString);
 							break;
 						case 11:
-							languageManager.AddOReward(languageString, englishString);
+							languageManager.AddOType(languageString, englishString);
 							break;
 						case 12:
-							languageManager.AddStrategySet(languageString, englishString);
+							languageManager.AddOReward(languageString, englishString);
 							break;
 						case 13:
-							languageManager.AddEType(languageString, englishString);
+							languageManager.AddStrategySet(languageString, englishString);
 							break;
 						case 14:
-							languageManager.AddRType(languageString, englishString);
+							languageManager.AddEType(languageString, englishString);
 							break;
 						case 15:
-							languageManager.AddOption(languageString, englishString);
+							languageManager.AddRType(languageString, englishString);
 							break;
 						case 16:
+							languageManager.AddOption(languageString, englishString);
+							break;
+						case 17:
 							languageManager.AddLType(languageString, englishString);
 							break;
 					}

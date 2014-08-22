@@ -12,18 +12,20 @@ public class GameManager : TIOMonoBehaviour {
 	private Dictionary<string, StrategyCard> strats = new Dictionary<string, StrategyCard> ();
 
 	//TODO: After finished, get rid of debug arrays.
+	//[SerializeField]
+	//private Option[] activeOptionsDebugKeys;
 	[SerializeField]
-	private Option[] activeOptionsDebug;
-	private ArrayList activeOptions = new ArrayList ();
+	private bool[] activeOptionsDebugValues;
+	public Dictionary<Option,bool> ActiveOptions = new Dictionary<Option, bool> ();
 	[SerializeField]
 	private StrategyCard[] strategyCardsDebug;
 	private Dictionary<int, StrategyCard> strategyCards = new Dictionary<int, StrategyCard> ();
-	[SerializeField]
-	private Scenario scenario;
-	public Scenario Scenario { get { return scenario; } }
-	[SerializeField]
+	public Expansion Expansion;
+	public Scenario Scenario;
 	private int playerCount;
 	public int PlayerCount { get { return playerCount; } }
+
+	public GameObject HexPrefab;
 
 	private int updateCounter = 0;
 
@@ -33,47 +35,48 @@ public class GameManager : TIOMonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Activate (Option.AllObjectives);
-		Activate (Option.PreliminaryObjectives);
-		Activate (Option.Artifacts);
-		Activate (Option.WormholeNexus);
-		Activate (Option.PoliticalIntrigue);
-		scenario = Scenario.FallOfTheEmpire;
-		playerCount = 7;
-		playerManager = GetComponent<PlayerManager> ();
-		cardManager = GetComponent<CardManager> ();
-		boardManager = GetComponent<BoardManager> ();
+//		Activate (Option.AllObjectives);
+//		Activate (Option.PreliminaryObjectives);
+//		Activate (Option.Artifacts);
+//		Activate (Option.WormholeNexus);
+//		Activate (Option.PoliticalIntrigue);
+//		scenario = Scenario.FallOfTheEmpire;
+//		playerCount = 7;
+//		playerManager = GetComponent<PlayerManager> ();
+//		cardManager = GetComponent<CardManager> ();
+//		boardManager = GetComponent<BoardManager> ();
+
+		initializeOptions ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (updateCounter == 2) {
-			readStrategyCards ();
-			StrategyCard[] replacements = new StrategyCard[2]{strats["Technology II"],strats["Trade III"]};
-			prepStrategyCards (StrategySet.FallOfTheEmpire, replacements);
+//		if (updateCounter == 2) {
+//			readStrategyCards ();
+//			StrategyCard[] replacements = new StrategyCard[2]{strats["Technology II"],strats["Trade III"]};
+//			prepStrategyCards (StrategySet.FallOfTheEmpire, replacements);
+//
+//			InitializeGame();
+//		}
+//		updateCounter++;
 
-			InitializeGame();
-		}
-		updateCounter++;
-
-		activeOptionsDebug = (Option[])activeOptions.ToArray (typeof(Option));
+		//ActiveOptions.Keys.CopyTo (activeOptionsDebugKeys,0);
+		ActiveOptions.Values.CopyTo (activeOptionsDebugValues,0);
 		strategyCards.Values.CopyTo(strategyCardsDebug,0);
 	}
 
-	public void Activate(Option option) {
-		if (!Active (option)){
-			activeOptions.Add (option);
+	private void initializeOptions() {
+		int count = 0;
+		foreach(Option option in (Option[])System.Enum.GetValues(typeof(Option))) {
+			ActiveOptions[option] = false;
+			count += 1;
 		}
+		//activeOptionsDebugKeys = new Option[count];
+		activeOptionsDebugValues = new bool[count];
 	}
 
-	public bool Active(Option option) {
-		return activeOptions.Contains(option);
-	}
-
-	public void Deactivate(Option option) {
-		if (Active (option)){
-			activeOptions.Remove(option);
-		}
+	public bool IsActive(Option option) {
+		return ActiveOptions[option];
 	}
 
 	private void readStrategyCards(){
@@ -118,9 +121,44 @@ public class GameManager : TIOMonoBehaviour {
 		playerManager.InitializePlayers();
 		cardManager.InitializeCards();
 		playerManager.InitializePlayerComponents ();
-		if (scenario == Scenario.FallOfTheEmpire) {
+		if (Scenario == Scenario.FallOfTheEmpire) {
 			string mapName = "fall" + playerCount.ToString() + "p";
 			boardManager.LoadMap (mapName);
 		}
+	}
+
+	// RPC functions
+
+	[RPC]
+	private void RPC_SetPlayerCount(int players) {
+		playerCount = players;
+	}
+
+	[RPC]
+	private void RPC_SetExpansion(int expansion) { //can't pass Expansion via RPC, so it's been cast to an int
+		this.Expansion = (Expansion)expansion;
+	}
+
+	[RPC]
+	private void RPC_SetScenario(int scenario) { //can't pass Scenario via RPC, so it's been cast to an int
+		this.Scenario = (Scenario)scenario;
+	}
+
+	[RPC]
+	private void RPC_SetOption(int option, bool boolean) { //can't pass Option via RPC, so it's been cast to an int
+		ActiveOptions [(Option)option] = boolean;
+	}
+
+	[RPC]
+	private void RPC_StartGame() {
+		((TechManager)this.gameObject.AddComponent ("TechManager")).Initialize();
+		((UnitManager)this.gameObject.AddComponent ("UnitManager")).Initialize();
+		cardManager = (CardManager)this.gameObject.AddComponent ("CardManager");
+		playerManager = (PlayerManager)this.gameObject.AddComponent ("PlayerManager");
+		boardManager = (BoardManager)this.gameObject.AddComponent ("BoardManager");
+		boardManager.Initialize ();
+		this.gameObject.AddComponent ("ComponentManager");
+		((CameraManager)GameObject.Find("Main Camera").GetComponent<CameraManager>()).SetInGameBackground ();
+		InitializeGame ();
 	}
 }

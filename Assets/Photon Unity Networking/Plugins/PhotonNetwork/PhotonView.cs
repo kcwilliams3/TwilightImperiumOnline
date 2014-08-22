@@ -3,7 +3,7 @@
 //   PhotonNetwork Framework for Unity - Copyright (C) 2011 Exit Games GmbH
 // </copyright>
 // <summary>
-//   
+//
 // </summary>
 // <author>developer@exitgames.com</author>
 // ----------------------------------------------------------------------------
@@ -20,6 +20,10 @@ public enum ViewSynchronization { Off, ReliableDeltaCompressed, Unreliable, Unre
 public enum OnSerializeTransform { OnlyPosition, OnlyRotation, OnlyScale, PositionAndRotation, All }
 public enum OnSerializeRigidBody { OnlyVelocity, OnlyAngularVelocity, All }
 
+/// <summary>Defines the OnPhotonSerializeView method, so it's easy to implement (correctly) for observable scripts.</summary>
+public interface IPunObservable { void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info); }
+
+
 /// <summary>
 /// PUN's NetworkView replacement class for networking. Use it like a NetworkView.
 /// </summary>
@@ -28,25 +32,25 @@ public enum OnSerializeRigidBody { OnlyVelocity, OnlyAngularVelocity, All }
 public class PhotonView : Photon.MonoBehaviour
 {
 
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
     [ContextMenu("Open PUN Wizard")]
     void OpenPunWizard()
     {
         EditorApplication.ExecuteMenuItem("Window/Photon Unity Networking");
     }
-#endif
+    #endif
 
     public int subId;
 
     public int ownerId;
-    
+
     public int group = 0;
 
     protected internal bool mixedModeIsReliable = false;
 
     // NOTE: this is now an integer because unity won't serialize short (needed for instantiation). we SEND only a short though!
     // NOTE: prefabs have a prefixBackup of -1. this is replaced with any currentLevelPrefix that's used at runtime. instantiated GOs get their prefix set pre-instantiation (so those are not -1 anymore)
-    public int prefix   
+    public int prefix
     {
         get
         {
@@ -58,7 +62,7 @@ public class PhotonView : Photon.MonoBehaviour
             return this.prefixBackup;
         }
         set { this.prefixBackup = value; }
-    } 
+    }
 
     // this field is serialized by unity. that means it is copied when instantiating a persistent obj into the scene
     public int prefixBackup = -1;
@@ -68,7 +72,7 @@ public class PhotonView : Photon.MonoBehaviour
     /// </summary>
     public object[] instantiationData
     {
-        get 
+        get
         {
             if (!this.didAwake)
             {
@@ -86,7 +90,7 @@ public class PhotonView : Photon.MonoBehaviour
     /// For internal use only, don't use
     /// </summary>
     protected internal object[] lastOnSerializeDataSent = null;
-    
+
     /// <summary>
     /// For internal use only, don't use
     /// </summary>
@@ -95,11 +99,15 @@ public class PhotonView : Photon.MonoBehaviour
     public Component observed;
 
     public ViewSynchronization synchronization;
-    
+
     public OnSerializeTransform onSerializeTransformOption = OnSerializeTransform.PositionAndRotation;
-    
+
     public OnSerializeRigidBody onSerializeRigidBodyOption = OnSerializeRigidBody.All;
 
+    /// <summary>
+    /// The ID of the PhotonView. Identifies it in a networked game (per room).
+    /// </summary>
+    /// <remarks>See: [Network Instantiation](@ref instantiateManual)</remarks>
     public int viewID
     {
         get { return ownerId * PhotonNetwork.MAX_VIEW_IDS + subId; }
@@ -128,7 +136,7 @@ public class PhotonView : Photon.MonoBehaviour
 
     /// <summary>True if the PhotonView was loaded with the scene (game object) or instantiated with InstantiateSceneObject.</summary>
     /// <remarks>
-    /// Scene objects are not owned by a particular player but belong to the scene. Thus they don't get destroyed when their 
+    /// Scene objects are not owned by a particular player but belong to the scene. Thus they don't get destroyed when their
     /// creator leaves the game and the current Master Client can control them (whoever that is).
     /// The ownerId is 0 (player IDs are 1 and up).
     /// </remarks>
@@ -137,6 +145,9 @@ public class PhotonView : Photon.MonoBehaviour
         get { return this.ownerId == 0; }
     }
 
+    /// <summary>
+    /// The owner of a PhotonView is the player who created the GameObject with that view. Objects in the scene don't have an owner.
+    /// </summary>
     public PhotonPlayer owner
     {
         get { return PhotonPlayer.Find(this.ownerId); }
@@ -168,21 +179,21 @@ public class PhotonView : Photon.MonoBehaviour
     protected internal bool destroyedByPhotonNetworkOrQuit;
 
     /// <summary>Called by Unity on start of the application and does a setup the PhotonView.</summary>
-    public void Awake()
+    protected internal void Awake()
     {
         // registration might be too late when some script (on this GO) searches this view BUT GetPhotonView() can search ALL in that case
         PhotonNetwork.networkingPeer.RegisterPhotonView(this);
-        
+
         this.instantiationDataField = PhotonNetwork.networkingPeer.FetchInstantiationData(this.instantiationId);
         this.didAwake = true;
     }
 
-    public void OnApplicationQuit()
+    protected internal void OnApplicationQuit()
     {
         destroyedByPhotonNetworkOrQuit = true;	// on stop-playing its ok Destroy is being called directly (not by PN.Destroy())
     }
 
-    public void OnDestroy()
+    protected internal void OnDestroy()
     {
         if (!this.destroyedByPhotonNetworkOrQuit)
         {
@@ -202,7 +213,7 @@ public class PhotonView : Photon.MonoBehaviour
                 if (this.viewID <= 0)
                 {
                     Debug.LogWarning(string.Format("OnDestroy manually allocated PhotonView {0}. The viewID is 0. Was it ever (manually) set?", this));
-                } 
+                }
                 else if (this.isMine && !PhotonNetwork.manuallyAllocatedViewIds.Contains(this.viewID))
                 {
                     Debug.LogWarning(string.Format("OnDestroy manually allocated PhotonView {0}. The viewID is local (isMine) but not in manuallyAllocatedViewIds list. Use UnAllocateViewID() after you destroyed the PV.", this));
@@ -246,6 +257,26 @@ public class PhotonView : Photon.MonoBehaviour
         this.OnSerializeMethodInfo.Invoke((object)this.observed, new object[] { pStream, info });
     }
 
+    /// <summary>
+    /// Call a RPC method of this GameObject on remote clients of this room (or on all, inclunding this client).
+    /// </summary>
+    /// <remarks>
+    /// [Remote Procedure Calls](@ref rpcManual) are an essential tool in making multiplayer games with PUN.
+    /// It enables you to make every client in a room call a specific method.
+    ///
+    /// RPC calls can target "All" or the "Others".
+    /// Usually, the target "All" gets executed locally immediately after sending the RPC.
+    /// The "*ViaServer" options send the RPC to the server and execute it on this client when it's sent back.
+    /// Of course, calls are affected by this client's lag and that of remote clients.
+    ///
+    /// Each call automatically is routed to the same PhotonView (and GameObject) that was used on the
+    /// originating client.
+    ///
+    /// See: [Remote Procedure Calls](@ref rpcManual).
+    /// </remarks>
+    /// <param name="methodName">The name of a fitting method that was has the RPC attribute.</param>
+    /// <param name="target">The group of targets and the way the RPC gets sent.</param>
+    /// <param name="parameters">The parameters that the RPC method has (must fit this call!).</param>
     public void RPC(string methodName, PhotonTargets target, params object[] parameters)
     {
 		if(PhotonNetwork.networkingPeer.hasSwitchedMC && target == PhotonTargets.MasterClient)
@@ -258,6 +289,24 @@ public class PhotonView : Photon.MonoBehaviour
 		}
     }
 
+    /// <summary>
+    /// Call a RPC method of this GameObject on remote clients of this room (or on all, inclunding this client).
+    /// </summary>
+    /// <remarks>
+    /// [Remote Procedure Calls](@ref rpcManual) are an essential tool in making multiplayer games with PUN.
+    /// It enables you to make every client in a room call a specific method.
+    ///
+    /// This method allows you to make an RPC calls on a specific player's client.
+    /// Of course, calls are affected by this client's lag and that of remote clients.
+    ///
+    /// Each call automatically is routed to the same PhotonView (and GameObject) that was used on the
+    /// originating client.
+    ///
+    /// See: [Remote Procedure Calls](@ref rpcManual).
+    /// </remarks>
+    /// <param name="methodName">The name of a fitting method that was has the RPC attribute.</param>
+    /// <param name="targetPlayer">The group of targets and the way the RPC gets sent.</param>
+    /// <param name="parameters">The parameters that the RPC method has (must fit this call!).</param>
     public void RPC(string methodName, PhotonPlayer targetPlayer, params object[] parameters)
     {
         PhotonNetwork.RPC(this, methodName, targetPlayer, parameters);

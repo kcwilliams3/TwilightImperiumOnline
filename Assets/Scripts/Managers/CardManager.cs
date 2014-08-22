@@ -62,9 +62,6 @@ public class CardManager : TIOMonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		fileManager = GetComponent<FileManager>();
-		gameManager = GetComponent<GameManager>();
-		playerManager = GetComponent<PlayerManager>();
 	}
 	
 	// Update is called once per frame
@@ -84,11 +81,14 @@ public class CardManager : TIOMonoBehaviour {
 	}
 
 	public void InitializeCards() {
+		gameManager = GetComponent<GameManager>();
+		playerManager = GetComponent<PlayerManager>();
+		fileManager = GetComponent<FileManager>();
 		//Initialize Action Cards
 		readActionCards ();
 		prepActionDeck ();
 
-		if (gameManager.Active(Option.Mercenaries)) {
+		if (gameManager.IsActive(Option.Mercenaries)) {
 			//Initialize Mercenaries
 			readMercCards ();
 			prepMercDeck ();
@@ -193,7 +193,7 @@ public class CardManager : TIOMonoBehaviour {
 					}
 					break;
 				case OType.Preliminary:
-					if (gameManager.Active (Option.PreliminaryObjectives)) {
+					if (gameManager.IsActive (Option.PreliminaryObjectives)) {
 						// Prelim Objective & using Prelim Objectives
 						prelimObjs.Add (obj);
 					}
@@ -243,9 +243,9 @@ public class CardManager : TIOMonoBehaviour {
 	}
 
 	private bool validPublicObjective(Objective obj) {
-		if (gameManager.Active(Option.AllObjectives)) {
+		if (gameManager.IsActive(Option.AllObjectives)) {
 			return true;
-		} else if (gameManager.Active (Option.SEObjectives)) {
+		} else if (gameManager.IsActive (Option.SEObjectives)) {
 			foreach(Expansion exp in obj.Expansions) {
 				if (exp == Expansion.ShatteredEmpire) {
 					return true;
@@ -262,10 +262,10 @@ public class CardManager : TIOMonoBehaviour {
 	}
 
 	private bool validSpecialObjective(Objective obj) {
-		if (gameManager.Active (Option.Artifacts) && (obj.Id == "Lazax Armory" || obj.Id == "Precursor Fossil" || obj.Id == "Ancient Shipwreck" || obj.Id == "Imperial Datacache")) {
+		if (gameManager.IsActive (Option.Artifacts) && (obj.Id == "Lazax Armory" || obj.Id == "Precursor Fossil" || obj.Id == "Ancient Shipwreck" || obj.Id == "Imperial Datacache")) {
 			// Artifact & using the artifacts option
 			return true;
-		} else if (gameManager.Active (Option.VoiceOfTheCouncil) && (obj.Id == "Voice of the Council")) {
+		} else if (gameManager.IsActive (Option.VoiceOfTheCouncil) && (obj.Id == "Voice of the Council")) {
 			// Voice of the Council & using the VotC option
 			return true;
 		} else {
@@ -298,7 +298,7 @@ public class CardManager : TIOMonoBehaviour {
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
 			ShuffleDeck<Objective>(scenarioObjs);
 		} else {
-			if (gameManager.Active (Option.PreliminaryObjectives)) {
+			if (gameManager.IsActive (Option.PreliminaryObjectives)) {
 				ShuffleDeck<Objective>(prelimObjs);
 			}
 			ShuffleDeck<Objective>(secretObjs);
@@ -389,7 +389,7 @@ public class CardManager : TIOMonoBehaviour {
 			} else {
 				return DrawCard<Objective> (scenarioObjs);
 			}
-		} else if (gameManager.Active (Option.PreliminaryObjectives)) {
+		} else if (gameManager.IsActive (Option.PreliminaryObjectives)) {
 			return DrawCard<Objective> (prelimObjs);
 		} else {
 			return DrawCard<Objective> (secretObjs);

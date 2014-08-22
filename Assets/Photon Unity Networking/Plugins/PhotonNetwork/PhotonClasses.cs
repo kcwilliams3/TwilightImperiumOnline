@@ -3,10 +3,24 @@
 //   PhotonNetwork Framework for Unity - Copyright (C) 2011 Exit Games GmbH
 // </copyright>
 // <summary>
-//   
+//
 // </summary>
 // <author>developer@exitgames.com</author>
 // ----------------------------------------------------------------------------
+
+#pragma warning disable 1587
+/// \file
+/// <summary>Wraps up smaller classes that don't need their own file. </summary>
+/// 
+/// 
+/// \defgroup publicApi Public API
+/// \brief Groups the most important classes that you need to understand early on.
+/// 
+/// \defgroup optionalGui Optional Gui Elements
+/// \brief Useful GUI elements for PUN.
+#pragma warning restore 1587
+
+
 using System;
 using System.Collections.Generic;
 using ExitGames.Client.Photon;
@@ -17,7 +31,7 @@ using UnityEngine;
 /// <summary>Class for constants. Defines photon-event-codes for PUN usage.</summary>
 internal class PunEvent
 {
-    public const byte RPC = 200; 
+    public const byte RPC = 200;
     public const byte SendSerialize = 201;
     public const byte Instantiation = 202;
     public const byte CloseConnection = 203;
@@ -29,18 +43,6 @@ internal class PunEvent
     public const byte OwnershipRequest = 209;
     public const byte OwnershipTransfer = 210;
     public const byte VacantViewIds = 211;
-}
-
-
-/// <summary>
-/// Options of lobby types available. Lobby types might be implemented in certain Photon versions and won't be available on older servers.
-/// </summary>
-public enum LobbyType :byte
-{
-    /// <summary>This lobby is used unless another is defined by game or JoinRandom. Room-lists will be sent and JoinRandomRoom can filter by matching properties.</summary>
-    Default = 1,
-    /// <summary>This lobby type lists rooms like Default but JoinRandom has a parameter for SQL-like "where" clauses for filtering. This allows bigger, less, or and and combinations.</summary>
-    SqlLobby = 2
 }
 
 
@@ -67,7 +69,7 @@ public class TypedLobby
 
     public override string ToString()
     {
-        return string.Format("lobby '{0}'[{1}]", this.Name, this.Type);
+        return string.Format("Lobby '{0}'[{1}]", this.Name, this.Type);
     }
 }
 
@@ -107,51 +109,62 @@ public class RaiseEventOptions
 /// <remarks>This directly maps to what the fields in the Room class.</remarks>
 public class RoomOptions
 {
+    /// <summary>Defines if this room is listed in the lobby. If not, it also is not joined randomly.</summary>
+    /// <remarks>
+    /// A room that is not visible will be excluded from the room lists that are sent to the clients in lobbies.
+    /// An invisible room can be joined by name but is excluded from random matchmaking.
+    ///
+    /// Use this to "hide" a room and simulate "private rooms". Players can exchange a roomname and create it
+    /// invisble to avoid anyone else joining it.
+    /// </remarks>
     public bool isVisible = true;
+
+    /// <summary>Defines if this room can be joined at all.</summary>
+    /// <remarks>
+    /// If a room is closed, no player can join this. As example this makes sense when 3 of 4 possible players
+    /// start their gameplay early and don't want anyone to join during the game.
+    /// The room can still be listed in the lobby (set isVisible to control lobby-visibility).
+    /// </remarks>
     public bool isOpen = true;
+
+    /// <summary>Max number of players that can be in the room at any time. 0 means "no limit".</summary>
     public int maxPlayers;
-    
+
+    /// <summary>Removes a user's events and properties from the room when a user leaves.</summary>
+    /// <remarks>
+    /// This makes sense when in rooms where players can't place items in the room and just vanish entirely.
+    /// When you disable this, the event history can become too long to load if the room stays in use indefinitely.
+    /// Default: true. Cleans up the cache and props of leaving users.
+    /// </remarks>
     public bool cleanupCacheOnLeave = PhotonNetwork.autoCleanUpPlayerObjects;
-    
+
+    /// <summary>The room's custom properties to set. Use string keys!</summary>
+    /// <remarks>
+    /// Custom room properties are any key-values you need to define the game's setup.
+    /// The shorter your keys are, the better.
+    /// Example: Map, Mode (could be "m" when used with "Map"), TileSet (could be "t").
+    /// </remarks>
     public Hashtable customRoomProperties;
+
+    /// <summary>Defines the custom room properties that get listed in the lobby.</summary>
+    /// <remarks>
+    /// Name the custom room properties that should be available to clients that are in a lobby.
+    /// Use with care. Unless a custom property is essential for matchmaking or user info, it should
+    /// not be sent to the lobby, which causes traffic and delays for clients in the lobby.
+    ///
+    /// Default: No custom properties are sent to the lobby.
+    /// </remarks>
     public string[] customRoomPropertiesForLobby = new string[0];
+
+
+    /// <summary>Time To Live (TTL) for an 'actor' in a room. If a client disconnects, this actor is inactive first and removed after this timeout. In milliseconds.</summary>
+    //public int PlayerTtl;
 }
-
-/// <summary>Enum of "target" options for RPCs. These define which remote clients get your RPC call. </summary>
-/// \ingroup publicApi
-public enum PhotonTargets
-{
-    /// <summary>Sends the RPC to everyone else and executes it immediately on this client. Player who join later will not execute this RPC.</summary>
-    All,
-    /// <summary>Sends the RPC to everyone else. This client does not execute the RPC. Player who join later will not execute this RPC.</summary>
-    Others,
-    /// <summary>Sends the RPC to MasterClient only. Careful: The MasterClient might disconnect before it executes the RPC and that might cause dropped RPCs.</summary>
-    MasterClient,
-    /// <summary>Sends the RPC to everyone else and executes it immediately on this client. New players get the RPC when they join as it's buffered (until this client leaves).</summary>
-    AllBuffered,
-    /// <summary>Sends the RPC to everyone. This client does not execute the RPC. New players get the RPC when they join as it's buffered (until this client leaves).</summary>
-    OthersBuffered,
-    /// <summary>Sends the RPC to everyone (including this client) through the server.</summary>
-    /// <remarks>
-    /// This client executes the RPC like any other when it received it from the server.
-    /// Benefit: The server's order of sending the RPCs is the same on all clients.
-    /// </remarks>
-    AllViaServer,
-    /// <summary>Sends the RPC to everyone (including this client) through the server and buffers it for players joining later.</summary>
-    /// <remarks>
-    /// This client executes the RPC like any other when it received it from the server.
-    /// Benefit: The server's order of sending the RPCs is the same on all clients.
-    /// </remarks>
-    AllBufferedViaServer
-}
-
-/// <summary>Used to define the level of logging output created by the PUN classes. Either log errors, info (some more) or full.</summary>
-/// \ingroup publicApi
-public enum PhotonLogLevel { ErrorsOnly, Informational, Full }
-
 
 namespace Photon
 {
+    using Hashtable = ExitGames.Client.Photon.Hashtable;
+
     /// <summary>
     /// This class adds the property photonView, while logging a warning when your game still uses the networkView.
     /// </summary>
@@ -187,7 +200,7 @@ public class PhotonMessageInfo
     public PhotonView photonView;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="PhotonMessageInfo"/> class. 
+    /// Initializes a new instance of the <see cref="PhotonMessageInfo"/> class.
     /// To create an empty messageinfo only!
     /// </summary>
     public PhotonMessageInfo()
@@ -314,10 +327,10 @@ public class PBitStream
 /// The isWriting property will be true if this client is the "owner" of the PhotonView (and thus the GameObject).
 /// Add data to the stream and it's sent via the server to the other players in a room.
 /// On the receiving side, isWriting is false and the data should be read.
-/// 
+///
 /// Send as few data as possible to keep connection quality up. An empty PhotonStream will not be sent.
-/// 
-/// Use either Serialize() for reading and writing or SendNext() and ReceiveNext(). The latter two are just explicit read and 
+///
+/// Use either Serialize() for reading and writing or SendNext() and ReceiveNext(). The latter two are just explicit read and
 /// write methods but do about the same work as Serialize(). It's a matter of preference which methods you use.
 /// </remarks>
 /// <seealso cref="PhotonNetworkingMessage"/>
@@ -343,7 +356,7 @@ public class PhotonStream
             this.data = new List<object>(incomingData);
         }
     }
-    
+
     /// <summary>If true, this client should add data to the stream to send it.</summary>
     public bool isWriting
     {
@@ -585,5 +598,41 @@ public class PhotonStream
                 currentItem++;
             }
         }
+    }
+}
+
+
+/// <summary>Provides easy access to most common WebRpc-Response values.</summary>
+/// <remarks>
+/// See method PhotonNetwork.WebRpc.
+/// Instantiate as new WebRpcResponse(operationResponse) for operationResponse.OperationCode == OperationCode.WebRpc.
+/// </remarks>
+public class WebRpcResponse
+{
+    public string Name { get; private set; }
+    /// <summary>-1 tells you: Got not ReturnCode from WebRpc service.</summary>
+    public int ReturnCode { get; private set; }
+    public string DebugMessage { get; private set; }
+    public Dictionary<string, object> Parameters { get; private set; }
+
+    public WebRpcResponse(OperationResponse response)
+    {
+        object value;
+        response.Parameters.TryGetValue(ParameterCode.UriPath, out value);
+        this.Name = value as string;
+
+        response.Parameters.TryGetValue(ParameterCode.WebRpcReturnCode, out value);
+        this.ReturnCode = (value != null) ? (byte)value : -1;
+
+        response.Parameters.TryGetValue(ParameterCode.WebRpcParameters, out value);
+        this.Parameters = value as Dictionary<string, object>;
+
+        response.Parameters.TryGetValue(ParameterCode.WebRpcReturnMessage, out value);
+        this.DebugMessage = value as string;
+    }
+
+    public string ToStringFull()
+    {
+        return string.Format("{0}={2}: {1} \"{3}\"", Name, SupportClass.DictionaryToString(Parameters), ReturnCode, DebugMessage);
     }
 }

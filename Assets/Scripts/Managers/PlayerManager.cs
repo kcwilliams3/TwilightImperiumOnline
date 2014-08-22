@@ -16,24 +16,17 @@ public class PlayerManager : TIOMonoBehaviour {
 	private Player[] players;
 	private int playerCount = 0;
 
-	private bool first = true;
-	
 	private FileManager fileManager;
-	private GameManager gameManager;
+	public GameManager gameManager;
 	private CardManager cardManager;
 
 	// Use this for initialization
 	void Start () {
-		fileManager = GetComponent<FileManager>();
-		gameManager = GetComponent<GameManager>();
-		cardManager = GetComponent<CardManager>();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (first) {
-			first = false;
-		}
 	}
 
 	public Race GetRace(string id) {
@@ -52,6 +45,9 @@ public class PlayerManager : TIOMonoBehaviour {
 	}
 
 	public void InitializePlayers() {
+		gameManager = GetComponent<GameManager>();
+		fileManager = GetComponent<FileManager>();
+		cardManager = GetComponent<CardManager>();
 		players = new Player[gameManager.PlayerCount];
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
 			string raceID = "";
@@ -106,11 +102,14 @@ public class PlayerManager : TIOMonoBehaviour {
 	}
 
 	public void InitializePlayerComponents() {
+		if (cardManager == null) {
+			cardManager = GetComponent<CardManager>();
+		}
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
 			//Read Treaties data
 			readTreatyCards ();
 		}
-		if (gameManager.Active (Option.PoliticalIntrigue)) {
+		if (gameManager.IsActive (Option.PoliticalIntrigue)) {
 			//Read Promissory Notes data
 			readPromNotes();
 		}
@@ -119,7 +118,7 @@ public class PlayerManager : TIOMonoBehaviour {
 				//Distribute Treaties
 				player.Treaties = getTreatyHand(player);
 			}
-			if (gameManager.Active (Option.PoliticalIntrigue)) {
+			if (gameManager.IsActive (Option.PoliticalIntrigue)) {
 				player.Notes = getNotesHand(player);
 			}
 			player.HiddenObjectives.Add (cardManager.GetStartingObjective(player));

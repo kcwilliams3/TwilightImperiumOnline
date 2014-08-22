@@ -15,15 +15,15 @@ public class UnitManager : TIOMonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		setBaseStats ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (updateCount == 2) {
-			setBasePrereqs();
-		}
-		updateCount++;
+	}
+
+	public void Initialize() {
+		setBaseStats ();
+		setBasePrereqs();
 	}
 
 	private void setBaseStats(){

@@ -215,7 +215,7 @@ For: Each time a player receives Trade Goods from his active trade agreements, h
 Against: All players must discard two Trade Goods from their Trade Goods areas, if able.
 
 Fund Research Complex (LAW)
-Shards of the Empire
+Shards of the Throne
 "We should consider building better facilities to further our knowledge.
 Elect Planet
 The player controlling this planet has his cost to purchase Technologies reduced by 2. Place this card on the planet's Planet Card to remember this.

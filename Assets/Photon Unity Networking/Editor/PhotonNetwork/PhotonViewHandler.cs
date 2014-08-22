@@ -77,7 +77,7 @@ public class PhotonViewHandler : EditorWindow
             }
             view.ownerId = 0;   // simply make sure no owner is set (cause room always uses 0)
             view.prefix = -1;   // TODO: prefix could be settable via inspector per scene?!
-            
+
             if (view.subId != 0)
             {
                 if (view.subId < 0 || usedInstanceViewNumbers.Contains(view.subId))
@@ -114,7 +114,7 @@ public class PhotonViewHandler : EditorWindow
             //Debug.LogWarning("Some subId was adjusted."); // this log is only interesting for Exit Games
         }
     }
-    
+
     // TODO fail if no ID was available anymore
     // TODO look up lower numbers if offset hits max?!
     public static int GetID(int idOffset, HashSet<int> usedInstanceViewNumbers)

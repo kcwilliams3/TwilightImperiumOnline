@@ -77,7 +77,7 @@ public class PhotonViewInspector : Editor
 
 
 
-        // Observed Item    
+        // Observed Item
         EditorGUILayout.BeginHorizontal();
 
         // Using a lower version then 3.4? Remove the TRUE in the next line to fix an compile error
@@ -110,7 +110,7 @@ public class PhotonViewInspector : Editor
         EditorGUILayout.EndHorizontal();
 
 
-        
+
         // ViewSynchronization (reliability)
         if (mp.synchronization == ViewSynchronization.Off)
         {

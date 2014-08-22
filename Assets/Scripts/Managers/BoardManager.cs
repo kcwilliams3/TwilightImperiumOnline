@@ -36,17 +36,21 @@ public class BoardManager : TIOMonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameManager = GetComponent<GameManager> ();
-		fileManager = GetComponent<FileManager> ();
-		playerManager = GetComponent<PlayerManager> ();
-		languageManager = GetComponent<LanguageManager> ();
-		hexSize = HexPrefab.renderer.bounds.size.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		systemsDebug = new PlanetSystem[systems.Values.Count];
 		systems.Values.CopyTo (systemsDebug,0);
+	}
+
+	public void Initialize() {
+		fileManager = GetComponent<FileManager> ();
+		gameManager = GetComponent<GameManager> ();
+		playerManager = GetComponent<PlayerManager> ();
+		languageManager = GetComponent<LanguageManager> ();
+		HexPrefab = gameManager.HexPrefab;
+		hexSize = HexPrefab.renderer.bounds.size.x;
 	}
 
 	public PlanetSystem GetSystem(string systemName) {
@@ -233,7 +237,7 @@ public class BoardManager : TIOMonoBehaviour {
 			for (int i=0; i < systemCounts[sys]; i++) {
 				if (sys.isFixed() && sys.Id == "Mecatol Rex") {
 					center = sys;
-				} else if (sys.isUnattached() && gameManager.Active (Option.WormholeNexus) && sys.Id == "Wormhole Nexus"){
+				} else if (sys.isUnattached() && gameManager.IsActive (Option.WormholeNexus) && sys.Id == "Wormhole Nexus"){
 					nexus = sys;
 				} else if (sys.isSpecial()) {
 					specialSystems.Add (sys);

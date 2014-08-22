@@ -1,12 +1,86 @@
 * release_history.txt
 * Release history for the DotNet Photon Client Library (DotNet / Unity3D / Windows 8 RT / Windows Phone 8 / PlayStation Mobile)
-  (C) 2013 Exit Games GmbH, http://www.exitgames.com
+(C) 2014 Exit Games GmbH, http://www.exitgames.com
 
 Questions? Visit:
-    http://cloud.exitgames.com
-    http://doc.exitgames.com/photon-cloud
-    http://forum.exitgames.com
+https://www.exitgames.com
+http://doc.exitgames.com
+http://forum.exitgames.com
 
+
+*** Version 4.0.0.2 (28. July 2014 - rev2700)
+    Added: PhotonPing class and subclasses per platform. Allows clients to use regular UDP messages to ping our servers and find the best region.
+    Added: Native and Win8 support for PhotonPing.
+    Known Issue: Native ping has to be done "one by one" and without any other connection in Unity. It's not yet thread safe (but that is ok as we don't want to ping most of the time but only rarely and out of game).
+    Added: PhotonPing class/file to Win8 platforms.
+    Changed: The extern static methods for the native libs are now internal (instead of private). Pings are using them, too.
+    Changed: WebRpcResponse.ReturnCode comment to include fail code.
+    Changed: OpWebRpc doc is now much more complete and helpful.
+    Updated: Unity SDK Particle Demo (more) and LoadBalancing Demo (just a bit).
+
+
+*** Version 4.0.0.1 (17. June 2014 - rev2663)
+    Fixed: DotNet assembly no longer contains classes that try to include our Unity native socket libs. This was causing issues in some cases.
+    Added: PhotonPeer.CommandInfoCurrentDispatch. This property gives you the debug string of the currently dispatched command (events or responses). Only useful for UDP.
+LoadBalancing:
+    Added: LoadBalancingClient.OpRaiseEvent(). Now that LoadBalancingClient USES a loadBalancingPeer (and doesn't extend it), things are much easier by offering this method, too!
+    Added: LoadBalancingClient.IsConnected and .IsConnectedAndReady to LB API. Going to be part of the API from now on.
+    Removed: Unused fields clientId and clientCount.
+    Changed: Field for internal use "lastJoinActorNumber" is now private as intended.
+    Changed: LoadBalancingClient.Disconnect is now setting it's own state to Disconnected if the connection got closed (as expected).
+Chat:
+    Changed: How the server responds to Subscribe and Unsubscribe. Events will now contain success/failure of those. This allows us to send the answer after calling a WebHook if needed and we can even send it to multiple clients (which authenticated with the same userID).
+    Changed: Handling of subscription responsed. This is done to allow web services to subscribe a client remotely and to be able to prevent joining some channel that a user should not join (the channel of some guild or another team, e.g.).
+    Changed: Debug loggging. In Unity we can't use Debug.Assert, etc. So we have to log more cleanly. This works in Editor and several platforms (but not all).
+    Changed: Folder for Chat API. It now begins with "Photon" which provides some context no matter where you copy the files. Easier to find in Unity projects.
+    Changed: Operation FriendList and method SendFriendList renamed to AddFriends
+    Added: Operation RemoveFriends and corresponding method in ChatClient.cs
+    Added: Console Demo has new command 'fr' to remove friends
+
+*** Version 4.0.0.0 (23. May 2014 - rev2614)
+	Changed: This version contains a few features that are not compatible with the Photon Server SDK v3.x. Notable features that are not in the Server SDK are: NameServer, WebHooks and Turnbased API features.
+	Changed: This SDK is the first that contains all current APIs for Realtime, Turnbased and Chat.
+    Fixed: Release build of the Unity assembly now also excludes native-socket using code, fixing a Unity Free export issue. We only use the debug assembly in our demos though and suggest you do the same.
+LoadBalancing:
+    Changed: LoadBalancingClient.FriendList creation/update is delayed until the server's response is available. This avoids cases where the friends are offline for the moment between requesting the update and getting it. Initially, it is null as before.
+	Added: some methods to Player to find next player, etc. Useful for turnbased games to find an opponent.
+	Added: LoadBalancingClient.UserId, which is the ID of a user(account). This is used in FindFriends and when you fetch account-related data (like save-games for Turnbased games). Set it before Connect*(). As fallback when empty during connect, the PlayerName is used instead.
+    Removed: LoadBalancingPeer.OpSetCustomPropertiesOfActor and OpSetPropertyOfRoom which were too special to be so low level. Could be implemented to LBClient.
+Turnbased:
+	Fixed: OpJoinRandomRoom and OpCreateRoom which didn't reset the ActorNr to claim when entering the room. Depending on previous actions, some calls of those methods did fail when the actorNumber wasn't available.
+	Changed: OperationCode.Rpc is now called OperationCode.WebRpc. It's simply much cleaner (considering PUN has RPCs as well but in a different context).
+    Changed: WebRpcResponse reading to be able to handle additional data.
+    Added: Parameter webForward to: OpSetCustomPropertiesOfRoom and OpSetPropertiesOfRoom. The "old" overloads of these methods are still there, too. If webForward is true, the properties are sent to the WebHooks.
+Chat:
+	Added: SendPrivateMessage() overload that has option to encrypt private messages. Public messages don't need encryption.
+    Removed: lastId and LastMessageIndex from channels. Those were impractical and should be removed from the API.
+	Changed: UserStatus class to ChatUserStatus.
+    Changed: Most classes are defined in their own file now.
+    Removed: Folders "Shared" and their subfolders. This gives a much better overview.
+    Added: Handling for event SubscribeResponse. This is not actually a response but gives you info about channels that got subscribed (e.g. when you re-login quickly or when a user is logged in in multiple clients).
+    Added: HandleSubscriptionResults() method to handle the event and proper responses.
+
+*** Version 3.2.2.6 (13. May - rev2575)
+	Fixed: Windows Store and Windows Phone libraries now only send the bytes they should send. This means we have to copy the payload from the "complete package buffer" in order to send it.
+    Fixed: SocketTcp now handles all exceptions during reading. Still, abort-by-server is treated as ServerDisconnect. Everything else as client side disconnect. This fix is especially for iOS exports from Unity. The iOS Power-button will immediately cut any connection. The Home-button allows us to keep the connection if we return the app to focus within a few seconds.
+    Fixed: TPeer.StopConnection() now clears the incoming queue when it disconnects. This avoids getting any more (already received) commands.
+    Changed: TPeer.Disconnect() now uses StopConnection instead of implementing the same code again.
+
+*** Version 3.2.2.5 (30. April - rev2566)
+LoadBalancing:
+    Added: TypedLobby class to replace lobby name/type pair.
+    Added: LoadbalancingClient.CurrentLobby property. CurrentLobbyName and CurrentLobbyType are obsolete.
+    Added: New overloads in LoadbalancingClient with TypedLobby parameter instead of separate lobby name and type: OpJoinLobby, OpJoinRandomRoom. Old methods marked obsolete.
+    Added: New overloads in LoadbalancingClient for OpJoinOrCreateRoom, OpCreateRoom, CreateRoom with parameters packed in RoomOptions class. Old methods marked obsolete.
+    Breaking: LoadbalancingClient.CreateRoom parameters changed to (string roomName, RoomOptions opt).
+    Internal: Removed obsolete LoadBalancingPeer overloads of OpCreateRoom and OpJoinRoom
+    Internal: Added 'onGameServer' parameter to LoadBalancingPeer OpCreateRoom, OpJoinRoom; used to avoid sending extra data to master (player- and room-props)
+	Internal: Loadbalancing Room constructor(string roomName, RoomOptions opt).
+	Internal: Added use of the "JoinMode" parameter which is used in context of Turnbased games.
+	Fixed: Bug in OpLeaveLobby which joined the default lobby instead of leaving any lobby.
+General:
+    Fixed: Server ports were read as short, which was wrong. We now use the correct unsigned short to convert from the address string).
+    Fixed: A minor issue in the SupportClass ToString conversion which used a Hashtable's key type instead of the value's type in one place.
 
 *** Version 3.2.2.4 (21. March 2014 - rev2519)
     Internal: For Unity, the classes that handle native sockets can now be compiled in a variant that does not actually reference the native-socket-libs. The dll for PUN+ uses native sockets and need the native libs. Any regular dll will have the (not used and empty) classes for build-compatibility reasons.
@@ -18,7 +92,6 @@ LoadBalancing:
 	Added: Event Cache Slicing. Cached events can now be organized into "slices" which allows you to handle them in chunks. You can purge events in specific slices (e.g. get rid of the previous game-rounds events).
 Turnbased:
 	Added: RaiseEventOptions.ForwardToWebhook which allows you to forward an event to a webhook (to be defined in Dashboard). Use this rarely, as it has an impact on (server) performance!
-
 
 *** Version 3.2.2.3 (18. February 2013 - rev2493)
 	Added: const PhotonPeer.NoSocket, so programs using our assemblies can detect if they must provide an external SocketImplementation. Some builds avoid using the Socket class (cause Unity Free doesn't support it on all platforms).

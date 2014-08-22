@@ -15,6 +15,8 @@ public class CameraManager : MonoBehaviour {
 	public int zoomMax;
 	public int scrollSpeed;
 	public int scrollThreshold;
+
+	public GameObject BackgroundPrefab;
 	
 	// Use this for initialization
 	void Start () {
@@ -65,5 +67,10 @@ public class CameraManager : MonoBehaviour {
 		// Move camera
 		camera.transform.position += translation;
 		
+	}
+
+	public void SetInGameBackground() {
+		GameObject backObject = (GameObject)GameObject.Instantiate(BackgroundPrefab, new Vector3(0.0f, -15.0f, 0.0f), Quaternion.identity);
+		backObject.transform.parent = this.transform;
 	}
 }

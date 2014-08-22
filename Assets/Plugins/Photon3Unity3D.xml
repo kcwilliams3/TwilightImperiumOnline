@@ -90,6 +90,12 @@
         <member name="F:ExitGames.Client.Photon.PeerBase.mtu">
             <summary> Maximum Transfer Unit to be used for UDP+TCP</summary>
         </member>
+        <member name="F:ExitGames.Client.Photon.PeerBase.rhttpMinConnections">
+            <summary> (default=2)) Rhttp: minimum number of open connections </summary>
+        </member>
+        <member name="F:ExitGames.Client.Photon.PeerBase.rhttpMaxConnections">
+            <summary> (default=6) Rhttp: maximum number of open connections, should be > rhttpMinConnections </summary>
+        </member>
         <member name="M:ExitGames.Client.Photon.PeerBase.ExchangeKeysForEncryption">
             <summary>
             Internally uses an operation to exchange encryption keys with the server.
@@ -383,6 +389,11 @@
             place in the same thread as a <see cref="M:ExitGames.Client.Photon.PhotonPeer.DispatchIncomingCommands"/> call.
             </remarks>
             <param name="eventData">The event currently being dispatched.</param>
+        </member>
+        <member name="M:ExitGames.Client.Photon.IPhotonSocket.TryParseAddress(System.String,System.String@,System.UInt16@)">
+            <summary>
+            Ports of IPv4 Addresses are of type ushort. They are used as int usually though.
+            </summary>
         </member>
         <member name="T:ExitGames.Client.Photon.Lite.LiteEventCode">
             <summary>
@@ -972,6 +983,10 @@
                //...
              </remarks>
         </member>
+        <member name="P:ExitGames.Client.Photon.PhotonPeer.CommandInfoCurrentDispatch">
+            <summary>Returns the debug string of the event or operation-response currently being dispatched or string. Empty if none.</summary>
+            <remarks>In a release build of the lib, this will always be empty.</remarks>
+        </member>
         <member name="P:ExitGames.Client.Photon.PhotonPeer.ByteCountLastOperation">
             <summary>
             Gets the size of the last serialized operation call in bytes.
@@ -1045,6 +1060,12 @@
              There are additional buffers for &quot;sent commands&quot; and &quot;ACKs&quot;.
              TCP: Only two buffers exist: incoming and outgoing commands.
              </remarks>
+        </member>
+        <member name="P:ExitGames.Client.Photon.PhotonPeer.RhttpMinConnections">
+            <summary> (default=2) minimum number of open connections </summary>
+        </member>
+        <member name="P:ExitGames.Client.Photon.PhotonPeer.RhttpMaxConnections">
+            <summary> (default=6) maximum number of open connections, should be > RhttpMinConnections </summary>
         </member>
         <member name="P:ExitGames.Client.Photon.PhotonPeer.LimitOfUnreliableCommands">
             <summary>
@@ -1225,7 +1246,6 @@
             The ServerAddress can only be changed for HTTP connections (to replace one that goes through a Loadbalancer with a direct URL).
             </remarks>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:ExitGames.Client.Photon.PhotonPeer.HttpUrlParameters" -->
         <member name="P:ExitGames.Client.Photon.PhotonPeer.UsedProtocol">
             <summary>The protocol this Peer uses to connect to Photon.</summary>
         </member>
@@ -1799,9 +1819,6 @@
         <member name="F:ExitGames.Client.Photon.ConnectionProtocol.Tcp">
             <summary>Use TCP to connect to Photon.</summary>
         </member>
-        <member name="F:ExitGames.Client.Photon.ConnectionProtocol.RHttp">
-            <summary>Use Realtime HTTP connections to connect a Photon Master (not available in regular Photon SDK).</summary>
-        </member>
         <member name="T:ExitGames.Client.Photon.DebugLevel">
             <summary>
             Level / amount of DebugReturn callbacks. Each debug level includes output for lower ones: OFF, ERROR, WARNING, INFO, ALL.
@@ -1821,6 +1838,10 @@
         </member>
         <member name="F:ExitGames.Client.Photon.DebugLevel.ALL">
             <summary>Most complete workflow description (but lots of debug output), info, warnings and errors.</summary>
+        </member>
+        <member name="T:ExitGames.Client.Photon.PingMono">
+            <summary>Uses C# Socket class from System.Net.Sockets (as Unity usually does).</summary>
+            <remarks>Incompatible with Windows 8 Store/Phone API.</remarks>
         </member>
         <member name="T:ExitGames.Client.Photon.SerializeMethod">
             <summary>
@@ -2384,42 +2405,6 @@
         </member>
         <member name="P:ExitGames.Client.Photon.TrafficStats.TimestampOfLastReliableCommand">
             <summary>Timestamp of last incoming reliable command (every second we expect a PING).</summary>
-        </member>
-        <member name="T:ExitGames.Client.Photon.HttpBase3">
-             <summary>
-             Class to handle Http based connections to a Photon server.
-             Requests are done asynchronous and not queued at all.
-            
-             All responses are put into the game's thread-context and 
-             all results and state changes are done within calls of
-             Service() or DispatchIncomingCommands().
-             </summary>
-        </member>
-        <member name="F:ExitGames.Client.Photon.HttpBase3._rnd">
-            TODO: ask how to setup this parameters
-        </member>
-        <member name="M:ExitGames.Client.Photon.HttpBase3.Request(System.Byte[],System.String)">
-            <summary>
-            The initial request uses "?init" as UrlParameters and the binary data is the app-id (binary in up to 32 bytes).
-            Init returns a GUID for use in following requests as UrlParameters "?pid=GUID".
-            </summary>
-            <param name="data"></param>
-            <param name="urlParamter">The url paramters to append to the server adress uri.</param>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:ExitGames.Client.Photon.HttpBase3.Request(System.Byte[],System.String,ExitGames.Client.Photon.HttpBase3.MessageType)" -->
-        <member name="M:ExitGames.Client.Photon.HttpBase3.EnqueueErrorDisconnect(ExitGames.Client.Photon.StatusCode)">
-            <summary>
-            Called internally when some error (or timeout) causes a disconnect. this takes care state is set and callbacks are done (once)
-            </summary>
-        </member>
-        <member name="P:ExitGames.Client.Photon.HttpBase3.PeerID">
-            <summary>
-            The *pid* for this peer, which is assigned by the server on connect (init).
-            Initially this is Guid.Empty.
-            </summary>
-        </member>
-        <member name="F:ExitGames.Client.Photon.HttpBase3.AsyncRequestState.restarting">
-            how many times we have rererequested this request already
         </member>
     </members>
 </doc>

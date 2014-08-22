@@ -8,6 +8,12 @@
 // <author>developer@exitgames.com</author>
 // ----------------------------------------------------------------------------
 
+#pragma warning disable 1587
+/// \file
+/// <summary>Sets up support for Unity-specific types. Can be a blueprint how to register your own Custom Types for sending.</summary>
+#pragma warning restore 1587
+
+
 using ExitGames.Client.Photon;
 using System;
 using UnityEngine;

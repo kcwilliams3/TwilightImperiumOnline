@@ -61,24 +61,24 @@ public class ComponentManager : TIOMonoBehaviour {
 		controlMarkers = maxControlMarkers;
 		bonusCounters = maxBonusCounters;
 		tradeGoods = maxTradeGoods;
-		if (gameManager.Active (Option.Facilities)) {
+		if (gameManager.IsActive (Option.Facilities)) {
 			colonies = maxColonies;
 			refineries = maxRefineries;
 		}
-		if (gameManager.Active (Option.ShockTroops)) {
+		if (gameManager.IsActive (Option.ShockTroops)) {
 			shockTroops = maxShockTroops;
 		}
-		if (gameManager.Active (Option.SpaceMines)) {
+		if (gameManager.IsActive (Option.SpaceMines)) {
 			spaceMines = maxSpaceMines;
 		}
-		if (gameManager.Active (Option.DistantSuns) || gameManager.Active (Option.TheFinalFrontier)) {
+		if (gameManager.IsActive (Option.DistantSuns) || gameManager.IsActive (Option.TheFinalFrontier)) {
 			readDomains ();
 		}
 	}
 
 	public void readDomains() {
 		foreach (DomainCounter domain in fileManager.ReadDomainFile ()) {
-			if (gameManager.Active (domain.Option)) {
+			if (gameManager.IsActive (domain.Option)) {
 				maxDomainCounters[domain] = domain.Quantity;
 			}
 		};

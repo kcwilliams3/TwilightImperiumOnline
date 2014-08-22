@@ -14,7 +14,7 @@ public class IELdemo : MonoBehaviour
         if (!PhotonNetwork.connected)
         {
             PhotonNetwork.autoJoinLobby = false;
-            PhotonNetwork.ConnectUsingSettings("1");
+            PhotonNetwork.ConnectUsingSettings("0.9");
         }
     }
 

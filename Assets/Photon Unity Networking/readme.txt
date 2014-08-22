@@ -16,10 +16,10 @@ Android and iOS Exports
 
 
 Help and Documentation
-	Please read the included pdf.
+	Please read the included chm (or pdf).
 	Unity Forum Thread (up to date info): http://forum.unity3d.com/threads/101734-Submitting-Photon-Unity-Networking
 	Exit Games Forum: http://forum.exitgames.com/viewforum.php?f=17
-	Online documentation: http://doc.exitgames.com/photon-cloud
+	Online documentation: http://doc.exitgames.com/en/pun
 
 
 Integration
@@ -51,21 +51,17 @@ Server
 
 
 PUN+ and Networking Guide Subscriptions
-	Follow these steps when you bought PUN+ or the "Networking Guide" package with a Photon Cloud Subscription:
-
-	•	Register a Photon Cloud Account: https://cloud.exitgames.com/Account/SignUp
-	•	Get your AppID from the Dashboard
-	•	Send a Mail to: developer@exitgames.com
-		With:
-		o	Your Name and Company (if applicable)
-		o	Invoice/Purchase ID from the Asset Store
-		o	Photon Cloud AppID
+    Follow these steps when you bought an asset that includes an upgrade for a Photon Cloud subscription:
+        • Use an existing Photon Cloud Account or register here: https://cloud.exitgames.com/Account/SignUp 
+        • Sign in and open the Dashboard. 
+        • Select the Subscription you want to upgrade and click the button "Apply Unity Purchase".
+        • Enter your Unity Invoice Number and click "Redeem".
 
 
 Important Files
 
 	Documentation
-		PhotonNetwork-Documentation.pdf
+		PhotonNetwork-Documentation.chm (a pdf is also included)
 		changelog.txt
 
 	Extensions & Source

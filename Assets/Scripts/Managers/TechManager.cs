@@ -11,15 +11,15 @@ public class TechManager : TIOMonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		fileManager = GetComponent<FileManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (updateCount == 1) {
-			readTechs ();
-		}
-		updateCount++;
+	}
+
+	public void Initialize() {
+		fileManager = GetComponent<FileManager>();
+		readTechs ();
 	}
 
 	public Tech GetTech(string techName) {

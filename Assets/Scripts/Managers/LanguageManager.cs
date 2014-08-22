@@ -39,7 +39,8 @@ public class LanguageManager : TIOMonoBehaviour {
 	private Dictionary<string,EType> toEType = new Dictionary<string,EType>();
 	private Dictionary<string,RType> toRType = new Dictionary<string,RType>();
 	private Dictionary<string,Option> toOption = new Dictionary<string,Option>();
-	private Dictionary<string,LType> toLType = new Dictionary<string,LType> ();
+	private Dictionary<string,LType> toLType = new Dictionary<string,LType>();
+	private Dictionary<string,Scenario> toScenario = new Dictionary<string,Scenario>();
 	
 	//______ to string dicts
 	private Dictionary<int,string> numberTo = new Dictionary<int,string>();
@@ -58,6 +59,7 @@ public class LanguageManager : TIOMonoBehaviour {
 	private Dictionary<RType,string> rTypeTo = new Dictionary<RType,string>();
 	private Dictionary<Option,string> optionTo = new Dictionary<Option,string>();
 	private Dictionary<LType,string> lTypeTo = new Dictionary<LType,string>();
+	private Dictionary<Scenario,string> scenarioTo = new Dictionary<Scenario,string>();
 
 	int updateCount = 0;
 
@@ -69,12 +71,12 @@ public class LanguageManager : TIOMonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (updateCount == 0) {
-			GetComponent<FileManager> ().ReadLanguageFile ();
-		}
-		updateCount++;
+
 	}
 
+	public void Initialize() {
+		GetComponent<FileManager> ().ReadLanguageFile ();
+	}
 
 	//StringTo_____ functions
 	public int StringToNumber(string numberString) { return toNumber [numberString.ToLower ()]; }
@@ -100,6 +102,7 @@ public class LanguageManager : TIOMonoBehaviour {
 			return StrategySet.None;
 		}
 	}
+	public Scenario StringToScenario(string scenarioString) { return toScenario [scenarioString.ToLower ()]; }
 
 	//______ToString functions
 	public string NumberToString(int number) { return numberTo [number]; }
@@ -118,6 +121,7 @@ public class LanguageManager : TIOMonoBehaviour {
 	public string OptionToString(Option opt) { return optionTo [opt]; }
 	public string LTypeToString(LType leaderType) { return lTypeTo [leaderType]; }
 	public string StrategySetToString(StrategySet strategySet) { return strategySetTo [strategySet]; }
+	public string ScenarioToString(Scenario scenario) { return scenarioTo[scenario]; }
 
 
 	//Dictionary-filling functions
@@ -132,7 +136,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		numberTo [value] = languageString.ToLower ();
+		numberTo [value] = languageString;
 		toNumber [languageString.ToLower ()] = value;
 	}
 
@@ -148,7 +152,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		booleanTo [value] = languageString.ToLower ();
+		booleanTo [value] = languageString;
 		toBoolean [languageString.ToLower ()] = value;
 	}
 
@@ -164,7 +168,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		tPrereqModeTo [value] = languageString.ToLower ();
+		tPrereqModeTo [value] = languageString;
 		toTPrereqMode [languageString.ToLower ()] = value;
 	}
 
@@ -189,7 +193,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		expansionTo [value] = languageString.ToLower ();
+		expansionTo [value] = languageString;
 		toExpansion [languageString.ToLower ()] = value;
 	}
 
@@ -223,7 +227,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		uTypeTo [value] = languageString.ToLower ();
+		uTypeTo [value] = languageString;
 		toUType [languageString.ToLower ()] = value;
 	}
 
@@ -245,7 +249,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		uAbilityTo [value] = languageString.ToLower ();
+		uAbilityTo [value] = languageString;
 		toUAbility [languageString.ToLower ()] = value;
 	}
 
@@ -267,7 +271,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		tTypeTo [value] = languageString.ToLower ();
+		tTypeTo [value] = languageString;
 		toTType [languageString.ToLower ()] = value;
 	}
 
@@ -295,7 +299,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		sTypeTo [value] = languageString.ToLower ();
+		sTypeTo [value] = languageString;
 		toSType [languageString.ToLower ()] = value;
 	}
 
@@ -321,7 +325,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		oTypeTo [value] = languageString.ToLower ();
+		oTypeTo [value] = languageString;
 		toOType [languageString.ToLower ()] = value;
 	}
 
@@ -341,7 +345,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		oRewardTo [value] = languageString.ToLower ();
+		oRewardTo [value] = languageString;
 		toOReward [languageString.ToLower ()] = value;
 	}
 
@@ -359,7 +363,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		strategySetTo [value] = languageString.ToLower ();
+		strategySetTo [value] = languageString;
 		toStrategySet [languageString.ToLower ()] = value;
 	}
 
@@ -372,9 +376,9 @@ public class LanguageManager : TIOMonoBehaviour {
 			value = EType.ASpecialSystem;
 		} else if (englishString.ToLower () == "current law") {
 			value = EType.CurrentLaw;
-		} else if (englishString.ToLower () == "planet") {
+		} else if (englishString.ToLower () == "planet" || englishString.ToLower () == "planets") {
 			value = EType.Planet;
-		} else if (englishString.ToLower () == "player") {
+		} else if (englishString.ToLower () == "player" || englishString.ToLower () == "players") {
 			value = EType.Player;
 		} else if (englishString.ToLower () == "public objective") {
 			value = EType.PublicObjective;
@@ -383,7 +387,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		eTypeTo [value] = languageString.ToLower ();
+		eTypeTo [value] = languageString;
 		toEType [languageString.ToLower ()] = value;
 	}
 
@@ -401,7 +405,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		rTypeTo [value] = languageString.ToLower ();
+		rTypeTo [value] = languageString;
 		toRType [languageString.ToLower ()] = value;
 	}
 
@@ -414,10 +418,54 @@ public class LanguageManager : TIOMonoBehaviour {
 			value = Option.DistantSuns;
 		} else  if (englishString.ToLower () == "the final frontier") {
 			value = Option.TheFinalFrontier;
+		} else if (englishString.ToLower () == "the long war") {
+			value = Option.TheLongWar;
+		} else if (englishString.ToLower () == "age of empire") {
+			value = Option.AgeOfEmpire;
+		} else if (englishString.ToLower () == "leaders") {
+			value = Option.Leaders;
+		} else if (englishString.ToLower () == "sabotage runs") {
+			value = Option.SabotageRuns;
+		} else if (englishString.ToLower () == "shattered empire objectives") {
+			value = Option.SEObjectives;
+		} else if (englishString.ToLower () == "all objectives") {
+			value = Option.AllObjectives;
+		} else if (englishString.ToLower () == "race-specific technologies") {
+			value = Option.RaceSpecificTechnologies;
+		} else if (englishString.ToLower () == "artifacts") {
+			value = Option.Artifacts;
+		} else if (englishString.ToLower () == "shock troops") {
+			value = Option.ShockTroops;
+		} else if (englishString.ToLower () == "space mines") {
+			value = Option.SpaceMines;
+		} else if (englishString.ToLower () == "wormhole nexus") {
+			value = Option.WormholeNexus;
+		} else if (englishString.ToLower () == "facilities") {
+			value = Option.Facilities;
+		} else if (englishString.ToLower () == "tactical retreats") {
+			value = Option.TacticalRetreats;
+		} else if (englishString.ToLower () == "territorial distant suns") {
+			value = Option.TerritorialDistantSuns;
+		} else if (englishString.ToLower () == "custodians of mecatol rex") {
+			value = Option.CustodiansOfMecatolRex;
+		} else if (englishString.ToLower () == "voice of the council") {
+			value = Option.VoiceOfTheCouncil;
+		} else if (englishString.ToLower () == "simulated early turns") {
+			value = Option.SimulatedEarlyTurns;
+		} else if (englishString.ToLower () == "preliminary objectives") {
+			value = Option.PreliminaryObjectives;
+		} else if (englishString.ToLower () == "flagships") {
+			value = Option.Flagships;
+		} else if (englishString.ToLower () == "mechanized units") {
+			value = Option.MechanizedUnits;
+		} else if (englishString.ToLower () == "mercenaries") {
+			value = Option.Mercenaries;
+		} else if (englishString.ToLower () == "political intrigue") {
+			value = Option.PoliticalIntrigue;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		optionTo [value] = languageString.ToLower ();
+		optionTo [value] = languageString;
 		toOption [languageString.ToLower ()] = value;
 	}
 
@@ -439,10 +487,25 @@ public class LanguageManager : TIOMonoBehaviour {
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
-		lTypeTo [value] = languageString.ToLower ();
+		lTypeTo [value] = languageString;
 		toLType [languageString.ToLower ()] = value;
 	}
 
+	public void AddScenario(string languageString) {
+		AddScenario (languageString, languageString);
+	}
+	public void AddScenario(string languageString, string englishString) {
+		Scenario value;
+		if (englishString.ToLower () == "standard game") {
+			value = Scenario.StandardGame;
+		} else if (englishString.ToLower () == "fall of the empire") {
+			value = Scenario.FallOfTheEmpire;
+		} else {
+			throw new LocalizationException(languageString, englishString);
+		}
+		scenarioTo[value] = languageString;
+		toScenario [languageString.ToLower ()] = value;
+	}
 	
 	// More complex dictionary fetching functions
 	
