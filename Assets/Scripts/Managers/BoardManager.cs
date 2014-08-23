@@ -81,7 +81,7 @@ public class BoardManager : TIOMonoBehaviour {
 	}
 
 	private void prepareSystemsDirectory() {
-		foreach(PlanetSystem sys in GetComponent<FileManager>().ReadSystemFile()) {
+		foreach(PlanetSystem sys in fileManager.ReadSystemFile()) {
 			systems[sys.Name] = sys;
 		}
 	}
@@ -249,7 +249,6 @@ public class BoardManager : TIOMonoBehaviour {
 			}
 		}
 
-		//TODO: A: Maybe use language-independent identifiers
 		availableSystems["Special"] = specialSystems;
 		availableSystems["Empty"] = emptySystems;
 		availableSystems["Regular"] = regularSystems;

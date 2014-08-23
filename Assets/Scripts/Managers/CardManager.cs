@@ -58,7 +58,6 @@ public class CardManager : TIOMonoBehaviour {
 
 	private FileManager fileManager;
 	private GameManager gameManager;
-	private PlayerManager playerManager;
 
 	// Use this for initialization
 	void Start () {
@@ -82,7 +81,6 @@ public class CardManager : TIOMonoBehaviour {
 
 	public void InitializeCards() {
 		gameManager = GetComponent<GameManager>();
-		playerManager = GetComponent<PlayerManager>();
 		fileManager = GetComponent<FileManager>();
 		//Initialize Action Cards
 		readActionCards ();
