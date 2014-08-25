@@ -55,12 +55,12 @@ public class CardManager : TIOMonoBehaviour {
 
 	private bool isReady;
 	public bool IsReady { get { return isReady; } }
-
-	private FileManager fileManager;
+	
 	private GameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
+		gameManager = GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
@@ -79,31 +79,25 @@ public class CardManager : TIOMonoBehaviour {
 		scenarioObjsDebug = (Objective[])scenarioObjs.ToArray (typeof(Objective));
 	}
 
-	public void InitializeCards() {
-		gameManager = GetComponent<GameManager>();
-		fileManager = GetComponent<FileManager>();
+	public void Initialize() {
 		//Initialize Action Cards
 		readActionCards ();
-		prepActionDeck ();
 
 		if (gameManager.IsActive(Option.Mercenaries)) {
 			//Initialize Mercenaries
 			readMercCards ();
-			prepMercDeck ();
 		}
 
 		//Initialize Political Cards/Agendas
 		readPoliticalCards ();
-		prepPoliticalDeck ();
 
 		//Initialize Objectives
 		readObjCards ();
-		prepObjectives ();
 	}
 
 	private void readActionCards() {
 		int deckSize = 0;
-		foreach (ActionCard actionCard in fileManager.ReadActionFile ()) {
+		foreach (ActionCard actionCard in gameManager.FileMgr.ReadActionFile ()) {
 			actionCards[actionCard.Name] = actionCard;
 			deckSize += actionCard.Quantity;
 		}
@@ -112,7 +106,7 @@ public class CardManager : TIOMonoBehaviour {
 
 	private void readMercCards() {
 		int deckSize = 0;
-		foreach (Merc merc in fileManager.ReadMercFile()){
+		foreach (Merc merc in gameManager.FileMgr.ReadMercFile()){
 			mercs[merc.Name] = merc;
 			deckSize += 1;
 		}
@@ -120,7 +114,7 @@ public class CardManager : TIOMonoBehaviour {
 	}
 
 	private void readObjCards(){
-		foreach (Objective obj in fileManager.ReadObjectiveFile()){
+		foreach (Objective obj in gameManager.FileMgr.ReadObjectiveFile()){
 			objs[obj.Name] = obj;
 		}
 	}
@@ -129,9 +123,9 @@ public class CardManager : TIOMonoBehaviour {
 		int deckSize = 0;
 		PoliticalCard[] cards = new PoliticalCard[1];
 		if (gameManager.Scenario == Scenario.StandardGame) {
-			cards = fileManager.ReadPoliticalFile();
+			cards = gameManager.FileMgr.ReadPoliticalFile();
 		} else if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
-			cards = fileManager.ReadAgendaFile();
+			cards = gameManager.FileMgr.ReadAgendaFile();
 		}
 		foreach (PoliticalCard politicalCard in cards){
 			if (politicalCards.ContainsKey(politicalCard.Name)) {

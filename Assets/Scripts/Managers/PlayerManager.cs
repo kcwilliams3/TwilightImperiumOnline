@@ -15,14 +15,12 @@ public class PlayerManager : TIOMonoBehaviour {
 	[SerializeField]
 	private Player[] players;
 	private int playerCount = 0;
-
-	private FileManager fileManager;
-	public GameManager gameManager;
-	private CardManager cardManager;
+	
+	private GameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
-
+		gameManager = GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
@@ -45,9 +43,6 @@ public class PlayerManager : TIOMonoBehaviour {
 	}
 
 	public void InitializePlayers() {
-		gameManager = GetComponent<GameManager>();
-		fileManager = GetComponent<FileManager>();
-		cardManager = GetComponent<CardManager>();
 		players = new Player[gameManager.PlayerCount];
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
 			string raceID = "";
@@ -82,7 +77,7 @@ public class PlayerManager : TIOMonoBehaviour {
 
 	private Player addPlayer(string raceString) {
 		//Read race data from file and add to races directory
-		Race race = fileManager.ReadRaceFile (raceString);
+		Race race = gameManager.FileMgr.ReadRaceFile (raceString);
 		races [race.Id] = race;
 
 		//Create a player instance with the newly added race
@@ -102,9 +97,6 @@ public class PlayerManager : TIOMonoBehaviour {
 	}
 
 	public void InitializePlayerComponents() {
-		if (cardManager == null) {
-			cardManager = GetComponent<CardManager>();
-		}
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
 			//Read Treaties data
 			readTreatyCards ();
@@ -121,12 +113,12 @@ public class PlayerManager : TIOMonoBehaviour {
 			if (gameManager.IsActive (Option.PoliticalIntrigue)) {
 				player.Notes = getNotesHand(player);
 			}
-			player.HiddenObjectives.Add (cardManager.GetStartingObjective(player));
+			player.HiddenObjectives.Add (gameManager.CardMgr.GetStartingObjective(player));
 		}
 	}
 
 	private void readTreatyCards() {
-		foreach (Treaty treaty in fileManager.ReadTreatyFile()){
+		foreach (Treaty treaty in gameManager.FileMgr.ReadTreatyFile()){
 			treaties[treaty.Name] = treaty;
 		}
 	}

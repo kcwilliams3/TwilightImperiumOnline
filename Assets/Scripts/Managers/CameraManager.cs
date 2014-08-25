@@ -17,9 +17,14 @@ public class CameraManager : MonoBehaviour {
 	public int scrollThreshold;
 
 	public GameObject BackgroundPrefab;
+
+	private GameManager gameManager;
+	private Camera gameCamera;
 	
 	// Use this for initialization
 	void Start () {
+		gameManager = GetComponent<GameManager> ();
+		gameCamera = GameObject.Find ("Main Camera").camera;
 	}
 	
 	// Update is called once per frame
@@ -31,7 +36,7 @@ public class CameraManager : MonoBehaviour {
 		
 		// Zoom in or out
 		float zoomDelta = Input.GetAxis("Mouse ScrollWheel") * zoomSpeed * Time.deltaTime;
-		Vector3 zoomTranslation = camera.transform.forward * zoomSpeed * zoomDelta;
+		Vector3 zoomTranslation = gameCamera.transform.forward * zoomSpeed * zoomDelta;
 		translation += zoomTranslation;
 		
 		Vector3 EWTranslation = Vector3.zero;
@@ -52,7 +57,7 @@ public class CameraManager : MonoBehaviour {
 		
 		// Keep camera within boundaries
 		//TODO: Update bounds check to account for zoom
-		Vector3 desiredPosition = camera.transform.position + translation;
+		Vector3 desiredPosition = gameCamera.transform.position + translation;
 		if (desiredPosition.x < -wBoundary || desiredPosition.x > eBoundary) {
 			translation.x = 0;
 		}
@@ -65,7 +70,7 @@ public class CameraManager : MonoBehaviour {
 		
 		
 		// Move camera
-		camera.transform.position += translation;
+		gameCamera.transform.position += translation;
 		
 	}
 

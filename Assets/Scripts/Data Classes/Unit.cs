@@ -50,10 +50,7 @@ public class Unit {
 	protected int maxQuantity;
 	public int MaxQuantity { get { return maxQuantity; } } 
 
-	protected UnitManager unitManager;
-	
-	public Unit(UType pUnitType, UnitManager pUnitManager) {
-		unitManager = pUnitManager;
+	public Unit(UType pUnitType, TechManager techManager) {
 
 		unitType = pUnitType;
 		switch (unitType) {
@@ -152,6 +149,7 @@ public class Unit {
 				ship = true;
 				carries = UCarry.Anything;
 				maxQuantity = 2;
+				prereqs = new Tech[]{techManager.GetTech ("War Sun")};
 				break;
 			case UType.MechanizedUnit:
 				cost = 2;
@@ -174,13 +172,6 @@ public class Unit {
 			battle = adjustment;
 		}
 		return battle;
-	}
-
-	public void setPrereqs() {
-		if (unitType == UType.WarSun) {
-			prereqs = new Tech[1];
-			prereqs[0] = unitManager.GetComponent<TechManager>().GetTech ("War Sun");
-		}
 	}
 }
 

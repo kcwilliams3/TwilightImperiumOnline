@@ -20,6 +20,7 @@ public class LocalizationException : System.Exception, ISerializable
 
 public class LanguageManager : TIOMonoBehaviour {
 
+	private GameManager gameManager;
 	public string Language;
 
 	//String to _____ dicts
@@ -61,12 +62,9 @@ public class LanguageManager : TIOMonoBehaviour {
 	private Dictionary<LType,string> lTypeTo = new Dictionary<LType,string>();
 	private Dictionary<Scenario,string> scenarioTo = new Dictionary<Scenario,string>();
 
-	int updateCount = 0;
-
-
 	// Use this for initialization
 	void Start () {
-
+		gameManager = GetComponent<GameManager> ();
 	}
 	
 	// Update is called once per frame
@@ -75,7 +73,7 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 
 	public void Initialize() {
-		GetComponent<FileManager> ().ReadLanguageFile ();
+		gameManager.FileMgr.ReadLanguageFile ();
 	}
 
 	//StringTo_____ functions

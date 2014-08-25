@@ -40,20 +40,24 @@ public class ComponentManager : TIOMonoBehaviour {
 	[SerializeField]
 	private int spaceMines;
 	public int SpaceMines { get { return spaceMines; } }
-
-	private FileManager fileManager;
+	
 	private GameManager gameManager;
 
 
 	// Use this for initialization
 	void Start () {
 		gameManager = GetComponent<GameManager> ();
-		fileManager = GetComponent<FileManager> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+	}
+
+	public void Initialize() {
+		if (gameManager.IsActive (Option.DistantSuns) || gameManager.IsActive (Option.TheFinalFrontier)) {
+			readDomains ();
+		}
 	}
 	
 	private void setInitialCounts(){
@@ -77,7 +81,7 @@ public class ComponentManager : TIOMonoBehaviour {
 	}
 
 	public void readDomains() {
-		foreach (DomainCounter domain in fileManager.ReadDomainFile ()) {
+		foreach (DomainCounter domain in gameManager.FileMgr.ReadDomainFile ()) {
 			if (gameManager.IsActive (domain.Option)) {
 				maxDomainCounters[domain] = domain.Quantity;
 			}

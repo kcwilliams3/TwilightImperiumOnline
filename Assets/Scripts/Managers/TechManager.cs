@@ -5,12 +5,12 @@ using System.Collections.Generic;
 public class TechManager : TIOMonoBehaviour {
 
 	private Dictionary<string, Tech> techs = new Dictionary<string, Tech>();
-	private FileManager fileManager;
 
-	int updateCount = 0;
+	private GameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
+		gameManager = GetComponent<GameManager> ();
 	}
 	
 	// Update is called once per frame
@@ -18,7 +18,6 @@ public class TechManager : TIOMonoBehaviour {
 	}
 
 	public void Initialize() {
-		fileManager = GetComponent<FileManager>();
 		readTechs ();
 	}
 
@@ -27,7 +26,7 @@ public class TechManager : TIOMonoBehaviour {
 	}
 
 	private void readTechs() {
-		foreach (Tech tech in fileManager.ReadTechFile ()) {
+		foreach (Tech tech in gameManager.FileMgr.ReadTechFile ()) {
 			techs[tech.Name] = tech;
 		};
 	}

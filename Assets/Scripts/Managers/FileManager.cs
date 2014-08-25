@@ -20,11 +20,6 @@ public class FileManager : TIOMonoBehaviour {
 
 	// Managers
 	private GameManager gameManager;
-	private UnitManager unitManager;
-	private TechManager techManager;
-	private PlayerManager playerManager;
-	private BoardManager boardManager;
-	private LanguageManager languageManager;
 
 	// Need to check directories before Tech Manager starts
 	void Awake() {
@@ -34,7 +29,6 @@ public class FileManager : TIOMonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gameManager = GetComponent<GameManager>();
-		languageManager = GetComponent<LanguageManager>();
 	}
 	
 	// Update is called once per frame
@@ -55,9 +49,8 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	public Race ReadRaceFile(string raceID) {
-		unitManager = GetComponent<UnitManager>();
 		//RaceID should be the language-independent identifier. (Equivalent to english short name, currently.)
-		string fullPath = procTextDir + languageManager.Language;
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language;
 		if (raceID == "Lazax") {
 			fullPath += "/Fall Of The Empire/";
 		} else {
@@ -69,32 +62,31 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	public Tech[] ReadTechFile() {
-		techManager = GetComponent<TechManager>();
-		string fullPath = procTextDir + languageManager.Language + "/technologies.titechs";
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language + "/technologies.titechs";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readTechFile (fullPath);
 	}
 
 	public ActionCard[] ReadActionFile() {
-		string fullPath = procTextDir + languageManager.Language + "/actions.tiacts";
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language + "/actions.tiacts";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readActionFile (fullPath);
 	}
 
 	public DomainCounter[] ReadDomainFile() {
-		string fullPath = procTextDir + languageManager.Language + "/domainCounters.tidomain";
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language + "/domainCounters.tidomain";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readDomainFile (fullPath);
 	}
 
 	public Merc[] ReadMercFile() {
-		string fullPath = procTextDir + languageManager.Language + "/mercenaries.timercs";
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language + "/mercenaries.timercs";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readMercFile (fullPath);
 	}
 
 	public Objective[] ReadObjectiveFile() {
-		string fullPath = procTextDir + languageManager.Language;
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language;
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
 			fullPath += "/Fall of the Empire/scenario.tiobjs";
 		} else {
@@ -105,43 +97,42 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	public PlanetSystem[] ReadSystemFile() {
-		string fullPath = procTextDir + languageManager.Language + "/systems.tisysts";
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language + "/systems.tisysts";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readSystemFile (fullPath);
 	}
 
 	public PoliticalCard[] ReadPoliticalFile() {
-		string fullPath = procTextDir + languageManager.Language + "/politicalCards.tipols";
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language + "/politicalCards.tipols";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readPoliticalFile (fullPath);
 	}
 
 	public PromissoryNote[] ReadPromissoryFile() {
-		string fullPath = procTextDir + languageManager.Language + "/promissoryNotes.tiproms";
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language + "/promissoryNotes.tiproms";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readPromissoryFile (fullPath);
 	}
 
 	public StrategyCard[] ReadStrategyFile() {
-		string fullPath = procTextDir + languageManager.Language + "/strategyCards.tistrats";
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language + "/strategyCards.tistrats";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readStrategyFile (fullPath);
 	}
 
 	public PoliticalCard[] ReadAgendaFile() {
-		string fullPath = procTextDir + languageManager.Language + "/Fall of the Empire/agendas.tipols";
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language + "/Fall of the Empire/agendas.tipols";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readPoliticalFile (fullPath);
 	}
 
 	public Treaty[] ReadTreatyFile() {
-		string fullPath = procTextDir + languageManager.Language + "/Fall of the Empire/treaties.titrts";
+		string fullPath = procTextDir + gameManager.LanguageMgr.Language + "/Fall of the Empire/treaties.titrts";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readTreatyFile (fullPath);
 	}
 
 	public Board ReadMapFile(string mapName){
-		boardManager = GetComponent<BoardManager>();
 		string fullPath = mapDir + mapName + ".timap";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		return readMapFile (fullPath);
@@ -175,7 +166,7 @@ public class FileManager : TIOMonoBehaviour {
 		}
 
 		//Now try to load the texture
-		string directory = "Systems/" + languageManager.Language;
+		string directory = "Systems/" + gameManager.LanguageMgr.Language;
 		Texture systemTexture;
 		systemTexture = (Texture)Resources.Load (directory + "/" + sysName, typeof(Texture));
 
@@ -203,7 +194,7 @@ public class FileManager : TIOMonoBehaviour {
 
 	public void ReadLanguageFile() {
 		string fullPath = procTextDir + "Localization/";
-		fullPath += languageManager.Language + ".tilang";
+		fullPath += gameManager.LanguageMgr.Language + ".tilang";
 		Debug.Log(string.Format("Reading {0}... ", fullPath));
 		readLanguageFile(fullPath);
 	}
@@ -403,9 +394,6 @@ public class FileManager : TIOMonoBehaviour {
 	}
 
 	private Treaty[] readTreatyFile(string fileName) {
-		if (playerManager == null) {
-			playerManager = GetComponent<PlayerManager>();
-		}
 		try {
 			StreamReader reader = new StreamReader(fileName, Encoding.Default);
 			
@@ -481,7 +469,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string dataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string dataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string dataText = lineParts[1].Trim ();
 
 				if (dataType == "Full Name") {
@@ -491,7 +479,7 @@ public class FileManager : TIOMonoBehaviour {
 				} else if (dataType == "Species Name") {
 					race.SpeciesName = readTextLine(dataType, dataText, fileName);
 				} else if (dataType == "Expansion") {
-					race.Expansion = languageManager.StringToExpansion(readTextLine(dataType, dataText, fileName));
+					race.Expansion = gameManager.LanguageMgr.StringToExpansion(readTextLine(dataType, dataText, fileName));
 				} else if (dataType == "History") {
 					race.History = readTextBlock (dataType, dataText, fileName, reader);
 				} else if (dataType == "Special Abilities") {
@@ -565,7 +553,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0] = lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0] = lineParts[0].Trim ());
 				string newDataText = lineParts[1] = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -576,14 +564,14 @@ public class FileManager : TIOMonoBehaviour {
 						system.HasRealName = false;
 					}
 				} else if (newDataType == "Expansion") {
-					system.Expansion = languageManager.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
+					system.Expansion = gameManager.LanguageMgr.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Type") {
 					string typeString = readTextLine (newDataType, newDataText, fileName);
-					if (typeString != languageManager.StringToSTag("Standard") && typeString != languageManager.StringToSTag("Empty")) {
+					if (typeString != gameManager.LanguageMgr.StringToSTag("Standard") && typeString != gameManager.LanguageMgr.StringToSTag("Empty")) {
 						if (isHomeSystem) {
-							system.SysTypes = new SType[2]{languageManager.StringToSType(typeString), SType.Home};
+							system.SysTypes = new SType[2]{gameManager.LanguageMgr.StringToSType(typeString), SType.Home};
 						} else {
-							system.SysTypes = new SType[1]{languageManager.StringToSType (typeString)};
+							system.SysTypes = new SType[1]{gameManager.LanguageMgr.StringToSType (typeString)};
 						}
 					} else if (isHomeSystem) {
 						system.SysTypes = new SType[1]{SType.Home};
@@ -594,7 +582,7 @@ public class FileManager : TIOMonoBehaviour {
 					ArrayList wormholesForSystem = new ArrayList();
 					foreach(Planet planet in planets){
 						string[] parts = planet.Name.Split(' ');
-						if (parts.Length == 2 && parts[1] == languageManager.StringToSTag ("Wormhole")) {
+						if (parts.Length == 2 && parts[1] == gameManager.LanguageMgr.StringToSTag ("Wormhole")) {
 							Wormhole wormhole = new Wormhole();
 							wormhole.Name = planet.Name;
 							wormholesForSystem.Add (wormhole);
@@ -625,7 +613,7 @@ public class FileManager : TIOMonoBehaviour {
 					name += wormhole.Name;
 				}
 				if (name == "") {
-					name = languageManager.STagToString ("Empty") + " " + languageManager.STagToString("System");
+					name = gameManager.LanguageMgr.STagToString ("Empty") + " " + gameManager.LanguageMgr.STagToString("System");
 				}
 				system.Name = name;
 			} else if (system.Planets.Length == 1 && system.SysTypes.Length == 1 && system.SysTypes[0] == SType.Special){
@@ -672,7 +660,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0] = lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0] = lineParts[0].Trim ());
 				string newDataText = lineParts[1] = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -711,7 +699,7 @@ public class FileManager : TIOMonoBehaviour {
 			
 			string line = reader.ReadLine().Trim ();
 			while (line != "<}>") {
-				techSpecs.Add (languageManager.StringToTType(readTextLine("", line, fileName)));
+				techSpecs.Add (gameManager.LanguageMgr.StringToTType(readTextLine("", line, fileName)));
 				
 				line = reader.ReadLine ().Trim ();
 				
@@ -745,7 +733,7 @@ public class FileManager : TIOMonoBehaviour {
 	private UnitQuantity readUnit(string dataText, string fileName, StreamReader reader) {
 		if (dataText == "<{>") {
 			// Start of block
-			Unit unit = new Unit(UType.SpaceDock, unitManager); //Need a temporary unit here for compiler
+			Unit unit = new Unit(UType.SpaceDock, gameManager.TechMgr); //Need a temporary unit here for compiler
 			int quantity = 0; //Need a temporary quantity here for compiler
 
 			string line = reader.ReadLine().Trim ();
@@ -755,11 +743,11 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Unit") {
-					unit = unitManager.GetUnit(languageManager.StringToUType(readTextLine (newDataType, newDataText, fileName)));
+					unit = gameManager.UnitMgr.GetUnit(gameManager.LanguageMgr.StringToUType(readTextLine (newDataType, newDataText, fileName)));
 				} else if (newDataType == "Quantity") {
 					quantity = readIntLine (newDataType, newDataText, fileName);
 				} 
@@ -780,7 +768,7 @@ public class FileManager : TIOMonoBehaviour {
 			// Start of inner block
 			string line = reader.ReadLine().Trim ();
 			while (line != "<}>") {
-				Tech tech = techManager.GetTech(readTextLine ("", line, fileName));
+				Tech tech = gameManager.TechMgr.GetTech(readTextLine ("", line, fileName));
 				techs.Add (tech);
 				
 				line = reader.ReadLine().Trim ();
@@ -822,13 +810,13 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
 					leader.Name = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Type") {
-					leader.LeaderType = languageManager.StringToLType(readTextLine (newDataType, newDataText, fileName));
+					leader.LeaderType = gameManager.LanguageMgr.StringToLType(readTextLine (newDataType, newDataText, fileName));
 				} else if (newDataType == "ID") {
 					leader.Id = readTextLine (newDataType, newDataText, fileName);
 				} 
@@ -865,15 +853,15 @@ public class FileManager : TIOMonoBehaviour {
 					lineParts = line.Split(":".ToCharArray(), 2);
 					
 					//Remove any extra whitespace from parts & set descriptive variables
-					string dataType = languageManager.StringToDataType(lineParts[0].Trim ());
+					string dataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 					string dataText = lineParts[1].Trim ();
 
 					if (dataType == "Name") {
 						tech.Name = readTextLine(dataType, dataText, fileName);
 					} else if (dataType == "Color") {
-						tech.TechType = languageManager.StringToTType(readTextLine(dataType, dataText, fileName));
+						tech.TechType = gameManager.LanguageMgr.StringToTType(readTextLine(dataType, dataText, fileName));
 					} else if (dataType == "Expansion") {
-						tech.Expansion = languageManager.StringToExpansion(readTextLine(dataType, dataText, fileName));
+						tech.Expansion = gameManager.LanguageMgr.StringToExpansion(readTextLine(dataType, dataText, fileName));
 					} else if (dataType == "Requires") {
 						// The prereq techs may not actually exist yet, so just save the name for now
 						prereqs[tech] = readTextBlock (dataType, dataText, fileName, reader);
@@ -908,8 +896,8 @@ public class FileManager : TIOMonoBehaviour {
 
 			if (prereqs.Keys.Count > 0) {
 				foreach (string techName in prereqs[tech]) {
-					if (languageManager.HasTPrereqMode(techName)) {
-						tech.PrereqMode = languageManager.StringToTPrereqMode(techName);
+					if (gameManager.LanguageMgr.HasTPrereqMode(techName)) {
+						tech.PrereqMode = gameManager.LanguageMgr.StringToTPrereqMode(techName);
 					} else if (techs.ContainsKey(techName)) {
 						prereqObjects.Add(techs[techName]);
 					}
@@ -947,7 +935,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -983,7 +971,7 @@ public class FileManager : TIOMonoBehaviour {
 				id = name;
 			}
 
-			return new Flagship(name, id, abilities, text, cost, battle, multiplier, move, capacity, unitManager);
+			return new Flagship(name, id, abilities, text, cost, battle, multiplier, move, capacity, gameManager.TechMgr);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}
@@ -1019,7 +1007,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -1055,7 +1043,7 @@ public class FileManager : TIOMonoBehaviour {
 			
 			string line = reader.ReadLine().Trim ();
 			do {
-				repTypes.Add (languageManager.StringToRType(readTextLine("", line, fileName)));
+				repTypes.Add (gameManager.LanguageMgr.StringToRType(readTextLine("", line, fileName)));
 
 				line = reader.ReadLine ().Trim ();
 				
@@ -1076,7 +1064,7 @@ public class FileManager : TIOMonoBehaviour {
 			string line = reader.ReadLine().Trim ();
 
 			do {
-				uAbilities.Add (languageManager.StringToUAbility(readTextLine("", line, fileName)));
+				uAbilities.Add (gameManager.LanguageMgr.StringToUAbility(readTextLine("", line, fileName)));
 				line = reader.ReadLine().Trim ();
 			} while (line != "<}>");
 			// End of block
@@ -1118,7 +1106,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -1126,7 +1114,7 @@ public class FileManager : TIOMonoBehaviour {
 				} else if (newDataType == "Quantity") {
 					action.Quantity = readIntLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Expansion") {
-					action.Expansion = languageManager.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
+					action.Expansion = gameManager.LanguageMgr.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Flavor Text") {
 					action.FlavorText = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Rule Text A") {
@@ -1185,20 +1173,20 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
 					politicalCard.Name = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Law") {
-					politicalCard.IsLaw = languageManager.StringToBoolean(readTextLine(newDataType, newDataText, fileName));
+					politicalCard.IsLaw = gameManager.LanguageMgr.StringToBoolean(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Event") {
-					bool isEvent = languageManager.StringToBoolean (readTextLine (newDataType, newDataText, fileName));
+					bool isEvent = gameManager.LanguageMgr.StringToBoolean (readTextLine (newDataType, newDataText, fileName));
 					if (isEvent) {
 						voteType = VType.Event;
 					}
 				} else if (newDataType == "Expansion") {
-					politicalCard.Expansion = languageManager.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
+					politicalCard.Expansion = gameManager.LanguageMgr.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Flavor Text") {
 					politicalCard.FlavorText = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "For") {
@@ -1239,7 +1227,7 @@ public class FileManager : TIOMonoBehaviour {
 		string[] parts = line.Split (" ".ToCharArray());
 
 		//Determine election type
-		politicalCard.ElectType = languageManager.ExtractEType(parts);
+		politicalCard.ElectType = gameManager.LanguageMgr.ExtractEType(parts);
 
 		//Determine election quantity
 		int quantity = 1;
@@ -1284,7 +1272,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -1292,11 +1280,11 @@ public class FileManager : TIOMonoBehaviour {
 				} else if (newDataType == "Quantity") {
 					domain.Quantity = readIntLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "Expansion") {
-					domain.Expansion = languageManager.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
+					domain.Expansion = gameManager.LanguageMgr.StringToExpansion(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Qualifier") {
 					domain.Qualifier = readTextLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Option") {
-					domain.Option = languageManager.StringToOption(readTextLine(newDataType, newDataText, fileName));
+					domain.Option = gameManager.LanguageMgr.StringToOption(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Text") {
 					domain.Text = readTextLine(newDataType, newDataText, fileName);
 				} else if (newDataType == "ID") {
@@ -1353,7 +1341,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -1445,7 +1433,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -1455,7 +1443,7 @@ public class FileManager : TIOMonoBehaviour {
 						obj.HasRealName = true;
 					}
 				} else if (newDataType == "Type") {
-					obj.Type = languageManager.StringToOType(readTextLine (newDataType, newDataText, fileName));;
+					obj.Type = gameManager.LanguageMgr.StringToOType(readTextLine (newDataType, newDataText, fileName));;
 				} else if (newDataType == "Expansions") {
 					obj.Expansions = readExpansionsBlock(newDataType, newDataText, fileName, reader);
 				} else if (newDataType == "Text") {
@@ -1505,7 +1493,7 @@ public class FileManager : TIOMonoBehaviour {
 
 			do {
 				// Start of an outermost block
-				expansions.Add(languageManager.StringToExpansion(readTextLine("", line, fileName)));
+				expansions.Add(gameManager.LanguageMgr.StringToExpansion(readTextLine("", line, fileName)));
 
 				line = reader.ReadLine ().Trim ();
 			} while (line != "<}>");
@@ -1547,7 +1535,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -1606,7 +1594,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -1614,7 +1602,7 @@ public class FileManager : TIOMonoBehaviour {
 				} else if (newDataType == "Initiative") {
 					strategyCard.Initiative = readIntLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Set") {
-					strategyCard.Set = languageManager.StringToStrategySet(readTextLine(newDataType, newDataText, fileName));
+					strategyCard.Set = gameManager.LanguageMgr.StringToStrategySet(readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "Primary Ability") {
 					strategyCard.PrimaryAbility = readStrategyAbility(newDataType, newDataText, fileName, reader);
 				} else if (newDataType == "Secondary Ability") {
@@ -1649,7 +1637,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -1704,7 +1692,7 @@ public class FileManager : TIOMonoBehaviour {
 				lineParts = line.Split(":".ToCharArray(), 2);
 				
 				//Remove any extra whitespace from parts & set descriptive variables
-				string newDataType = languageManager.StringToDataType(lineParts[0].Trim ());
+				string newDataType = gameManager.LanguageMgr.StringToDataType(lineParts[0].Trim ());
 				string newDataText = lineParts[1].Trim ();
 
 				if (newDataType == "Name") {
@@ -1718,7 +1706,7 @@ public class FileManager : TIOMonoBehaviour {
 				} else if (newDataType == "Rank") {
 					treaty.Rank = readIntLine (newDataType, newDataText, fileName);
 				} else if (newDataType == "Race") {
-					treaty.Race = playerManager.GetRace (readTextLine(newDataType, newDataText, fileName));
+					treaty.Race = gameManager.PlayerMgr.GetRace (readTextLine(newDataType, newDataText, fileName));
 				} else if (newDataType == "ID") {
 					treaty.Id = readTextLine (newDataType, newDataText, fileName);
 				}
@@ -1776,7 +1764,7 @@ public class FileManager : TIOMonoBehaviour {
 				string[] systemNames = readTextLine ("", line, fileName).Split (",".ToCharArray());
 				ArrayList systems = new ArrayList();
 				foreach(string name in systemNames) {
-					systems.Add(boardManager.GetSystem(name));
+					systems.Add(gameManager.BoardMgr.GetSystem(name));
 				}
 				mapGrid.Add ((PlanetSystem[])systems.ToArray (typeof(PlanetSystem)));
 				line = reader.ReadLine().Trim ();	
@@ -1788,7 +1776,7 @@ public class FileManager : TIOMonoBehaviour {
 				section[i] = (PlanetSystem[])mapGrid[i];
 			}
 
-			return boardManager.CreateSection(section, columnArray);
+			return gameManager.BoardMgr.CreateSection(section, columnArray);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}
@@ -1812,58 +1800,58 @@ public class FileManager : TIOMonoBehaviour {
 					}
 					switch(sectionIndex) {
 						case 0:
-							languageManager.AddNumber(languageString, englishString);
+							gameManager.LanguageMgr.AddNumber(languageString, englishString);
 							break;
 						case 1:
-							languageManager.AddBoolean(languageString, englishString);
+							gameManager.LanguageMgr.AddBoolean(languageString, englishString);
 							break;
 						case 2:
-							languageManager.AddTPrereqMode(languageString, englishString);
+							gameManager.LanguageMgr.AddTPrereqMode(languageString, englishString);
 							break;
 						case 3:
-							languageManager.AddDataType(languageString, englishString);
+							gameManager.LanguageMgr.AddDataType(languageString, englishString);
 							break;
 						case 4:
-							languageManager.AddExpansion(languageString, englishString);
+							gameManager.LanguageMgr.AddExpansion(languageString, englishString);
 							break;
 						case 5:
-							languageManager.AddScenario(languageString, englishString);
+							gameManager.LanguageMgr.AddScenario(languageString, englishString);
 							break;
 						case 6:
-							languageManager.AddUType(languageString, englishString);
+							gameManager.LanguageMgr.AddUType(languageString, englishString);
 							break;
 						case 7:
-							languageManager.AddUAbility(languageString, englishString);
+							gameManager.LanguageMgr.AddUAbility(languageString, englishString);
 							break;
 						case 8:
-							languageManager.AddTType(languageString, englishString);
+							gameManager.LanguageMgr.AddTType(languageString, englishString);
 							break;
 						case 9:
-							languageManager.AddSTag(languageString, englishString);
+							gameManager.LanguageMgr.AddSTag(languageString, englishString);
 							break;
 						case 10:
-							languageManager.AddSType(languageString, englishString);
+							gameManager.LanguageMgr.AddSType(languageString, englishString);
 							break;
 						case 11:
-							languageManager.AddOType(languageString, englishString);
+							gameManager.LanguageMgr.AddOType(languageString, englishString);
 							break;
 						case 12:
-							languageManager.AddOReward(languageString, englishString);
+							gameManager.LanguageMgr.AddOReward(languageString, englishString);
 							break;
 						case 13:
-							languageManager.AddStrategySet(languageString, englishString);
+							gameManager.LanguageMgr.AddStrategySet(languageString, englishString);
 							break;
 						case 14:
-							languageManager.AddEType(languageString, englishString);
+							gameManager.LanguageMgr.AddEType(languageString, englishString);
 							break;
 						case 15:
-							languageManager.AddRType(languageString, englishString);
+							gameManager.LanguageMgr.AddRType(languageString, englishString);
 							break;
 						case 16:
-							languageManager.AddOption(languageString, englishString);
+							gameManager.LanguageMgr.AddOption(languageString, englishString);
 							break;
 						case 17:
-							languageManager.AddLType(languageString, englishString);
+							gameManager.LanguageMgr.AddLType(languageString, englishString);
 							break;
 					}
 					line = reader.ReadLine ().Trim ();

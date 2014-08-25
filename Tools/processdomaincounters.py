@@ -145,7 +145,11 @@ def writeQuantity(domain,file):
 	file.write(getStringAtCol(domain.getQuantity()+lineEnd, firstValueCol, "Quantity: ", domain, file))
 
 def writeExpansion(domain,file):
-	file.write(getStringAtCol(domain.getExpansion()+lineEnd, firstValueCol, "Expansion: ", domain, file))
+	if domain.getExpansion() == "":
+		expoString = "Vanilla";
+	else:
+		expoString = domain.getExpansion();
+	file.write(getStringAtCol(expoString+lineEnd, firstValueCol, "Expansion: ", domain, file))
 	
 def writeOption(domain,file):
 	file.write(getStringAtCol(domain.getOption()+lineEnd, firstValueCol, "Option: ", domain, file))

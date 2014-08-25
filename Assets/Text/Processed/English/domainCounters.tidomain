@@ -18,7 +18,7 @@ Text: 				An ancient alien artifact found floating in space. After careful resea
 Name: 				Alpha Wormhole Discovery <;>
 Qualifier: 			<;>
 Quantity: 			1<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				A new wormhole has been discovered in the system near this planet. Place this counter in the middle of the system to indicate the presence of the wormhole. This wormhole will connect to other Alpha wormholes following the normal rules for wormholes.<;>
 <}>
@@ -42,7 +42,7 @@ Text: 				Roll 2 dice. For each 6+ lose 1 ship in this system and one landing Gr
 Name: 				Beta Wormhole Discovery <;>
 Qualifier: 			<;>
 Quantity: 			1<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				A new wormhole has been discovered in the system near this planet. Place this counter in the middle of the system to indicate the presence of the wormhole. This wormhole will connect to other Beta wormholes following the normal rules for wormholes.<;>
 <}>
@@ -58,7 +58,7 @@ Text: 				An undocumented Wormhole found in the most unlikely of systems. When t
 Name: 				Biohazard <;>
 Qualifier: 			<;>
 Quantity: 			4<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				The hostile environment of this planet requires terraforming. The first Ground Force unit to land here is always eliminated while this token remains. Discard this counter after a player successfully invades this planet.<;>
 <}>
@@ -138,7 +138,7 @@ Text: 				Your landing party is taken hostage by the local inhabitants. Pay Trad
 Name: 				Hostile Locals <;>
 Qualifier: 			1<;>
 Quantity: 			5<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				The local population will not be subdued. The indicated number of local Ground Forces will fight any invader (allow another player to roll their combat dice). If an invasion attempt fails, the locals return to their full indicated strength. May not be bombarded. Discard after a successful invasion.<;>
 <}>
@@ -146,7 +146,7 @@ Text: 				The local population will not be subdued. The indicated number of loca
 Name: 				Hostile Locals <;>
 Qualifier: 			2<;>
 Quantity: 			2<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				The local population will not be subdued. The indicated number of local Ground Forces will fight any invader (allow another player to roll their combat dice). If an invasion attempt fails, the locals return to their full indicated strength. May not be bombarded. Discard after a successful invasion.<;>
 <}>
@@ -154,7 +154,7 @@ Text: 				The local population will not be subdued. The indicated number of loca
 Name: 				Hostile Locals <;>
 Qualifier: 			3<;>
 Quantity: 			1<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				The local population will not be subdued. The indicated number of local Ground Forces will fight any invader (allow another player to roll their combat dice). If an invasion attempt fails, the locals return to their full indicated strength. May not be bombarded. Discard after a successful invasion.<;>
 <}>
@@ -162,7 +162,7 @@ Text: 				The local population will not be subdued. The indicated number of loca
 Name: 				Industrial Society <;>
 Qualifier: 			<;>
 Quantity: 			2<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				An industrious and friendly populace welcomes you. You may immediately place a free Space Dock here. The Planet card for this planet is not exhausted when you receive it. Discard this counter.<;>
 <}>
@@ -170,7 +170,7 @@ Text: 				An industrious and friendly populace welcomes you. You may immediately
 Name: 				Lazax Survivors <;>
 Qualifier: 			<;>
 Quantity: 			2<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				A discovery of ancient prophecy. You may take this counter to receive 3 additional votes towards all future political agendas.<;>
 <}>
@@ -186,7 +186,7 @@ Text: 				The native race here offers their espionage services. Secretly look at
 Name: 				Natural Wealth <;>
 Qualifier: 			2<;>
 Quantity: 			5<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				This planet has resources available for immediate exploitation. Receive the number of Trade Goods indicated, if able. Then discard this counter.<;>
 <}>
@@ -194,7 +194,7 @@ Text: 				This planet has resources available for immediate exploitation. Receiv
 Name: 				Natural Wealth <;>
 Qualifier: 			4<;>
 Quantity: 			4<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				This planet has resources available for immediate exploitation. Receive the number of Trade Goods indicated, if able. Then discard this counter.<;>
 <}>
@@ -202,7 +202,7 @@ Text: 				This planet has resources available for immediate exploitation. Receiv
 Name: 				Peaceful Annexation <;>
 Qualifier: 			<;>
 Quantity: 			12<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				The landing proceeds without incident. Discard this counter.<;>
 <}>
@@ -218,7 +218,7 @@ Text: 				A long-forgotten space station offering strategic advantages. After th
 Name: 				Radiation <;>
 Qualifier: 			<;>
 Quantity: 			4<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				The planet contains unexpected high levels of radiation. Kill all the Ground Forces of the initial landing (the planet remains uncontrolled), then remove the counter.<;>
 <}>
@@ -226,7 +226,7 @@ Text: 				The planet contains unexpected high levels of radiation. Kill all the 
 Name: 				Settlers <;>
 Qualifier: 			<;>
 Quantity: 			2<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				Return all of your Ground Forces to their Carrier/War Sun. Roll a die. On a result of 6+, place two free Ground Forces on the planet from your reinforcements. On a roll of 1-5, determine a random opponent. That opponent places two free Ground Forces from his reinforcements on the planet. Then discard this counter.<;>
 <}>
@@ -250,7 +250,7 @@ Text: 				A star explodes right before your eyes! When this counter is revealed,
 Name: 				Technological Society <;>
 Qualifier: 			<;>
 Quantity: 			2<;>
-Expansion: 			<;>
+Expansion: 			Vanilla<;>
 Option: 			Distant Suns<;>
 Text: 				The player to your left must search through your Technology deck and give you a free technology advance for which you have the necessary prerequisites. Then discard this counter.<;>
 <}>

@@ -29,13 +29,12 @@ public class BoardManager : TIOMonoBehaviour {
 	public bool IsReady { get { return isReady; } }
 
 	private GameManager gameManager;
-	private FileManager fileManager;
-	private PlayerManager playerManager;
-	private LanguageManager languageManager;
 
 
 	// Use this for initialization
 	void Start () {
+		gameManager = GetComponent<GameManager> ();
+		hexSize = HexPrefab.renderer.bounds.size.x;
 	}
 	
 	// Update is called once per frame
@@ -45,24 +44,19 @@ public class BoardManager : TIOMonoBehaviour {
 	}
 
 	public void Initialize() {
-		fileManager = GetComponent<FileManager> ();
-		gameManager = GetComponent<GameManager> ();
-		playerManager = GetComponent<PlayerManager> ();
-		languageManager = GetComponent<LanguageManager> ();
-		HexPrefab = gameManager.HexPrefab;
-		hexSize = HexPrefab.renderer.bounds.size.x;
+		prepareSystemsDirectory ();
 	}
 
 	public PlanetSystem GetSystem(string systemName) {
-		if (systemName.Contains(languageManager.StringToSTag ("Home") + " " + languageManager.StringToSTag("System"))) {
-			return playerManager.GetHomeSystem (systemName);
+		if (systemName.Contains(gameManager.LanguageMgr.StringToSTag ("Home") + " " + gameManager.LanguageMgr.StringToSTag("System"))) {
+			return gameManager.PlayerMgr.GetHomeSystem (systemName);
 		}
 		return systems [systemName];
 	}
 
 	public void LoadMap(string mapName) {
 		prepareSystemsDirectory ();
-		gameBoard = fileManager.ReadMapFile (mapName);
+		gameBoard = gameManager.FileMgr.ReadMapFile (mapName);
 		//gameBoard.DisplayForDebug ();
 	}
 
@@ -81,7 +75,7 @@ public class BoardManager : TIOMonoBehaviour {
 	}
 
 	private void prepareSystemsDirectory() {
-		foreach(PlanetSystem sys in fileManager.ReadSystemFile()) {
+		foreach(PlanetSystem sys in gameManager.FileMgr.ReadSystemFile()) {
 			systems[sys.Name] = sys;
 		}
 	}
@@ -110,15 +104,13 @@ public class BoardManager : TIOMonoBehaviour {
 
 	public PlanetSystem[][] DealSystems(int numberOfPlayers, bool largerGalaxy) {
 		//Prepare all systems
-		prepareSystemsDirectory ();
 		prepareMaxSystemCounts ();
 		Dictionary<string, ArrayList> availableSystems = accumulateSystems ();
 
 		//Shuffle the system groups
-		CardManager cardManager = GetComponent<CardManager>();
-		cardManager.ShuffleDeck<PlanetSystem> (availableSystems ["Special"]);
-		cardManager.ShuffleDeck<PlanetSystem> (availableSystems ["Empty"]);
-		cardManager.ShuffleDeck<PlanetSystem> (availableSystems ["Regular"]);
+		gameManager.CardMgr.ShuffleDeck<PlanetSystem> (availableSystems ["Special"]);
+		gameManager.CardMgr.ShuffleDeck<PlanetSystem> (availableSystems ["Empty"]);
+		gameManager.CardMgr.ShuffleDeck<PlanetSystem> (availableSystems ["Regular"]);
 
 		//Determine the correct number of systems
 		int special = 0;
@@ -178,15 +170,15 @@ public class BoardManager : TIOMonoBehaviour {
 		//Draw the correct number of systems
 		ArrayList drawnSpecialSystems = new ArrayList ();
 		while (drawnSpecialSystems.Count < special) {
-			drawnSpecialSystems.Add (cardManager.DrawCard<PlanetSystem>(availableSystems ["Special"]));
+			drawnSpecialSystems.Add (gameManager.CardMgr.DrawCard<PlanetSystem>(availableSystems ["Special"]));
 		}
 		ArrayList drawnEmptySystems = new ArrayList();
 		while (drawnEmptySystems.Count < empty) {
-			drawnEmptySystems.Add (cardManager.DrawCard<PlanetSystem>(availableSystems ["Empty"]));
+			drawnEmptySystems.Add (gameManager.CardMgr.DrawCard<PlanetSystem>(availableSystems ["Empty"]));
 		}
 		ArrayList drawnRegularSystems = new ArrayList();
 		while (drawnRegularSystems.Count < regular) {
-			drawnRegularSystems.Add (cardManager.DrawCard<PlanetSystem>(availableSystems ["Regular"]));
+			drawnRegularSystems.Add (gameManager.CardMgr.DrawCard<PlanetSystem>(availableSystems ["Regular"]));
 		}
 
 		//Merge all drawn systems into one pile, shuffle it, and remove some as needed
@@ -194,9 +186,9 @@ public class BoardManager : TIOMonoBehaviour {
 		drawnSystems.AddRange (drawnSpecialSystems);
 		drawnSystems.AddRange (drawnEmptySystems);
 		drawnSystems.AddRange (drawnRegularSystems);
-		cardManager.ShuffleDeck<PlanetSystem> (drawnSystems);
+		gameManager.CardMgr.ShuffleDeck<PlanetSystem> (drawnSystems);
 		while (remove > 0) {
-			cardManager.DrawCard<PlanetSystem> (drawnSystems);
+			gameManager.CardMgr.DrawCard<PlanetSystem> (drawnSystems);
 			remove--;
 		}
 
@@ -215,7 +207,7 @@ public class BoardManager : TIOMonoBehaviour {
 		int pileIndex = 0;
 		int systemIndex = 0;
 		while (drawnSystems.Count > 0) {
-			piles[pileIndex%numberOfPlayers][systemIndex] = cardManager.DrawCard<PlanetSystem>(drawnSystems); 
+			piles[pileIndex%numberOfPlayers][systemIndex] = gameManager.CardMgr.DrawCard<PlanetSystem>(drawnSystems); 
 			pileIndex++;
 			if (pileIndex != 0 && pileIndex % numberOfPlayers == 0) {
 				//Looping back around to first pile, so go to next systemIndex

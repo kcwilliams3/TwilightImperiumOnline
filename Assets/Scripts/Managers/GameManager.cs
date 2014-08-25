@@ -28,39 +28,36 @@ public class GameManager : TIOMonoBehaviour {
 	public GameObject HexPrefab;
 
 	private int updateCounter = 0;
-
-	private PlayerManager playerManager;
-	private CardManager cardManager;
-	private BoardManager boardManager;
+	
+	public BoardManager BoardMgr;
+	public CameraManager CameraMgr;
+	public CardManager CardMgr;
+	public ComponentManager ComponentMgr;
+	public FileManager FileMgr;
+	public LanguageManager LanguageMgr;
+	public NetworkManager NetworkMgr;
+	public PlayerManager PlayerMgr;
+	public TechManager TechMgr;
+	public UnitManager UnitMgr;
 
 	// Use this for initialization
 	void Start () {
-//		Activate (Option.AllObjectives);
-//		Activate (Option.PreliminaryObjectives);
-//		Activate (Option.Artifacts);
-//		Activate (Option.WormholeNexus);
-//		Activate (Option.PoliticalIntrigue);
-//		scenario = Scenario.FallOfTheEmpire;
-//		playerCount = 7;
-//		playerManager = GetComponent<PlayerManager> ();
-//		cardManager = GetComponent<CardManager> ();
-//		boardManager = GetComponent<BoardManager> ();
+		BoardMgr = GetComponent<BoardManager> ();
+		CameraMgr = GetComponent<CameraManager> ();
+		CardMgr = GetComponent<CardManager> ();
+		ComponentMgr = GetComponent<ComponentManager> ();
+		FileMgr = GetComponent<FileManager> ();
+		LanguageMgr = GetComponent<LanguageManager> ();
+		NetworkMgr = GetComponent<NetworkManager> ();
+		PlayerMgr = GetComponent<PlayerManager> ();
+		TechMgr = GetComponent<TechManager> ();
+		UnitMgr = GetComponent<UnitManager> ();
 
 		initializeOptions ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-//		if (updateCounter == 2) {
-//			readStrategyCards ();
-//			StrategyCard[] replacements = new StrategyCard[2]{strats["Technology II"],strats["Trade III"]};
-//			prepStrategyCards (StrategySet.FallOfTheEmpire, replacements);
-//
-//			InitializeGame();
-//		}
-//		updateCounter++;
-
-		//ActiveOptions.Keys.CopyTo (activeOptionsDebugKeys,0);
 		ActiveOptions.Values.CopyTo (activeOptionsDebugValues,0);
 		strategyCards.Values.CopyTo(strategyCardsDebug,0);
 	}
@@ -117,14 +114,36 @@ public class GameManager : TIOMonoBehaviour {
 		return strategyCards [initiative];
 	}
 
-	public void InitializeGame() {
-		playerManager.InitializePlayers();
-		cardManager.InitializeCards();
-		playerManager.InitializePlayerComponents ();
-		if (Scenario == Scenario.FallOfTheEmpire) {
-			string mapName = "fall" + playerCount.ToString() + "p";
-			boardManager.LoadMap (mapName);
-		}
+	private void initializeManagers () {
+		LanguageMgr.Initialize ();
+		TechMgr.Initialize (); //Dependency: Language file
+		BoardMgr.Initialize (); //Dependency: Language file
+		CardMgr.Initialize (); //Dependency: Language file
+		readStrategyCards (); //Dependency: Language file
+		ComponentMgr.Initialize (); //Dependency: Language file
+		UnitMgr.Initialize (); //Dependency: Tech file
+	}
+
+	private void gameSetup() {
+		//1: Race selection
+		//2: Color selection
+		//3: Set up "common play area" (Action Cards, Political Cards, and Supplement Counters.)
+		//4: Players take their Home System planets.
+		//5: Set up "Trade Supply"
+		//6: Place Strategy Cards in the "common play area"
+		//7: Prepare the Objective Cards
+		//8: Set up Victory Point Track
+		//9: Set up the galaxy
+		//10: Place setup units and receive starting techs
+		//11: Place starting command counters
+
+//		PlayerMgr.InitializePlayers();
+//		CardMgr.InitializeCards();
+//		PlayerMgr.InitializePlayerComponents ();
+//		if (Scenario == Scenario.FallOfTheEmpire) {
+//			string mapName = "fall" + playerCount.ToString() + "p";
+//			BoardMgr.LoadMap (mapName);
+//		}
 	}
 
 	// RPC functions
@@ -151,14 +170,7 @@ public class GameManager : TIOMonoBehaviour {
 
 	[RPC]
 	private void RPC_StartGame() {
-		((TechManager)this.gameObject.AddComponent ("TechManager")).Initialize();
-		((UnitManager)this.gameObject.AddComponent ("UnitManager")).Initialize();
-		cardManager = (CardManager)this.gameObject.AddComponent ("CardManager");
-		playerManager = (PlayerManager)this.gameObject.AddComponent ("PlayerManager");
-		boardManager = (BoardManager)this.gameObject.AddComponent ("BoardManager");
-		boardManager.Initialize ();
-		this.gameObject.AddComponent ("ComponentManager");
-		((CameraManager)GameObject.Find("Main Camera").GetComponent<CameraManager>()).SetInGameBackground ();
-		InitializeGame ();
+		initializeManagers ();
+		gameSetup ();
 	}
 }
