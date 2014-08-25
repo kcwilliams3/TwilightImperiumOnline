@@ -74,9 +74,11 @@ public class NetworkManager : TIOMonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Set scene to automatically update on all clients
-		PhotonNetwork.automaticallySyncScene = true; 
+		PhotonNetwork.automaticallySyncScene = true;
 
 		gameManager = (GameManager)GetComponent("GameManager");
+		DontDestroyOnLoad (transform.gameObject);
+		DontDestroyOnLoad (GameObject.Find ("Main Camera"));
 	}
 	
 	// Update is called once per frame
