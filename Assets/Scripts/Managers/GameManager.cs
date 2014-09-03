@@ -43,7 +43,6 @@ public class GameManager : TIOMonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		BoardMgr = GetComponent<BoardManager> ();
-		CameraMgr = GetComponent<CameraManager> ();
 		CardMgr = GetComponent<CardManager> ();
 		ComponentMgr = GetComponent<ComponentManager> ();
 		FileMgr = GetComponent<FileManager> ();

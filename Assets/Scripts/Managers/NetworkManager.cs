@@ -50,11 +50,11 @@ public class NetworkManager : TIOMonoBehaviour {
 	public string appID { 
 		get { return PhotonNetwork.PhotonServerSettings.AppID;}
 	}
-	public string playerName { 
+	public string PlayerName { 
 		get { return PhotonNetwork.playerName;}
 		set { PhotonNetwork.playerName = value;}
 	} 
-	public string lobbyName { get; set; }
+	public string LobbyName { get; set; }
 
 	private void Awake()
 	{
@@ -78,7 +78,6 @@ public class NetworkManager : TIOMonoBehaviour {
 
 		gameManager = (GameManager)GetComponent("GameManager");
 		DontDestroyOnLoad (transform.gameObject);
-		DontDestroyOnLoad (GameObject.Find ("Main Camera"));
 	}
 	
 	// Update is called once per frame
