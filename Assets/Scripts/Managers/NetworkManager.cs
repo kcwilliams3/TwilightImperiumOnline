@@ -82,6 +82,7 @@ public class NetworkManager : TIOMonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Debug.Log (PhotonNetwork.connectionStateDetailed);
 	}
 
 	public void startNetworkedGame() {
@@ -156,7 +157,4 @@ public class NetworkManager : TIOMonoBehaviour {
 		Debug.Log("OnFailedToConnectToPhoton. StatusCode: " + parameters);
 	}
 
-	void OnJoinedRoom() {
-
-	}
 }

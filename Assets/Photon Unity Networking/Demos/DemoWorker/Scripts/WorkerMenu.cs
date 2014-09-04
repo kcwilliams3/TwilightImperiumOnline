@@ -128,6 +128,7 @@ public class WorkerMenu : MonoBehaviour
         //this.roomName = GUILayout.TextField(this.roomName);
         if (GUILayout.Button("Join Room", GUILayout.Width(100)))
         {
+			Debug.Log ("EXAMPLE FILE A");
             PhotonNetwork.JoinRoom(this.roomName);
         }
 
@@ -178,6 +179,7 @@ public class WorkerMenu : MonoBehaviour
                 GUILayout.Label(roomInfo.name + " " + roomInfo.playerCount + "/" + roomInfo.maxPlayers);
                 if (GUILayout.Button("Join"))
                 {
+					Debug.Log ("EXAMPLE FILE B");
                     PhotonNetwork.JoinRoom(roomInfo.name);
                 }
 

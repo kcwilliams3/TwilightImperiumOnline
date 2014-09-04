@@ -9,14 +9,12 @@ public class SetLobbyNameLabel : TIOMonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		networkManager = Manager.GetComponent<NetworkManager>();
 		label = GetComponent<UILabel>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (networkManager == null) {
-			networkManager = Manager.GetComponent<NetworkManager>();
-		}
 		label.text = networkManager.LobbyName;
 	}
 }

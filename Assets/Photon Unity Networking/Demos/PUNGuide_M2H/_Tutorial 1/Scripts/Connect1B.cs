@@ -98,6 +98,7 @@ public class Connect1B : MonoBehaviour
         this.roomName = GUILayout.TextField(this.roomName);
         if (GUILayout.Button("GO"))
         {
+			Debug.Log ("EXAMPLE FILE C");
             PhotonNetwork.JoinRoom(this.roomName);
         }
         GUILayout.EndHorizontal();
@@ -148,6 +149,7 @@ public class Connect1B : MonoBehaviour
                 GUILayout.Label(game.name + " " + game.playerCount + "/" + game.maxPlayers);
                 if (GUILayout.Button("JOIN"))
                 {
+					Debug.Log ("EXAMPLE FILE D");
                     PhotonNetwork.JoinRoom(game.name);
                 }
 

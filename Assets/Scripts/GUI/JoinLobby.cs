@@ -9,12 +9,10 @@ public class JoinLobby : TIOMonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		networkManager = Manager.GetComponent<NetworkManager>();
 	}
 
 	void OnClick () {
-		if (networkManager == null) {
-			networkManager = Manager.GetComponent<NetworkManager>();
-		}
 		networkManager.LobbyName = Lobby.name;
 		networkManager.JoinRoom (Lobby.name);
 	}

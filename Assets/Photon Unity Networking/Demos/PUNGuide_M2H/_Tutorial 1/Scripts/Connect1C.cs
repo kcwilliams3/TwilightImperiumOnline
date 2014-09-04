@@ -103,6 +103,7 @@ public class Connect1C : Photon.MonoBehaviour
         {
             if (room.name == wantedRoomName)
             {
+				Debug.Log ("EXAMPLE FILE E");
                 PhotonNetwork.JoinRoom(room.name);
                 break;
             }
