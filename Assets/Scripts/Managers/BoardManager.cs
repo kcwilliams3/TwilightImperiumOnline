@@ -55,7 +55,7 @@ public class BoardManager : TIOMonoBehaviour {
 	}
 
 	public void LoadMap(string mapName) {
-		prepareSystemsDirectory ();
+		//prepareSystemsDirectory ();
 		gameBoard = gameManager.FileMgr.ReadMapFile (mapName);
 		//gameBoard.DisplayForDebug ();
 	}

@@ -24,8 +24,9 @@ public class GameManager : TIOMonoBehaviour {
 	public Scenario Scenario;
 	private int playerCount;
 	public int PlayerCount { get { return playerCount; } }
-
-	public GameObject HexPrefab;
+	
+	bool levelLoaded = false;
+	bool gameStarted = false;
 
 	private int updateCounter = 0;
 	
@@ -44,6 +45,7 @@ public class GameManager : TIOMonoBehaviour {
 	void Start () {
 		BoardMgr = GetComponent<BoardManager> ();
 		CardMgr = GetComponent<CardManager> ();
+		CameraMgr = GetComponent<CameraManager> ();
 		ComponentMgr = GetComponent<ComponentManager> ();
 		FileMgr = GetComponent<FileManager> ();
 		LanguageMgr = GetComponent<LanguageManager> ();
@@ -57,8 +59,14 @@ public class GameManager : TIOMonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		ActiveOptions.Values.CopyTo (activeOptionsDebugValues,0);
+		ActiveOptions.Values.CopyTo(activeOptionsDebugValues,0);
 		strategyCards.Values.CopyTo(strategyCardsDebug,0);
+
+		if (levelLoaded && !gameStarted) {
+			gameStarted = true;
+			initializeManagers ();
+			gameSetup ();
+		}
 	}
 
 	private void initializeOptions() {
@@ -113,8 +121,13 @@ public class GameManager : TIOMonoBehaviour {
 		return strategyCards [initiative];
 	}
 
+	public void LevelLoaded() {
+		levelLoaded = true;
+	}
+
 	private void initializeManagers () {
 		LanguageMgr.Initialize ();
+		CameraMgr.Initialize ();
 		TechMgr.Initialize (); //Dependency: Language file
 		BoardMgr.Initialize (); //Dependency: Language file
 		CardMgr.Initialize (); //Dependency: Language file
@@ -136,13 +149,15 @@ public class GameManager : TIOMonoBehaviour {
 		//10: Place setup units and receive starting techs
 		//11: Place starting command counters
 
-//		PlayerMgr.InitializePlayers();
-//		CardMgr.InitializeCards();
-//		PlayerMgr.InitializePlayerComponents ();
+		PlayerMgr.InitializePlayers();
+		CardMgr.PrepareObjectives ();
+		PlayerMgr.InitializePlayerComponents ();
 //		if (Scenario == Scenario.FallOfTheEmpire) {
 //			string mapName = "fall" + playerCount.ToString() + "p";
 //			BoardMgr.LoadMap (mapName);
 //		}
+		BoardMgr.LoadMap ("fall4p");
+
 	}
 
 	// RPC functions
@@ -165,11 +180,5 @@ public class GameManager : TIOMonoBehaviour {
 	[RPC]
 	private void RPC_SetOption(int option, bool boolean) { //can't pass Option via RPC, so it's been cast to an int
 		ActiveOptions [(Option)option] = boolean;
-	}
-
-	[RPC]
-	private void RPC_StartGame() {
-		initializeManagers ();
-		gameSetup ();
 	}
 }

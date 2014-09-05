@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 //Mode constants
 public enum NetMode { initial, quick, full };
@@ -17,16 +17,28 @@ public class MetaPlayer {
 }
 
 public class Lobby {
-	//currently just a wrapper for PUN's RoomInfo
 
 	public string name { get; set; }
 	public int playerCount { get; set; }
 	public int maxPlayers { get; set; }
+	public List<Option> LobbyOptions { get; set; }
+	public Scenario LobbyScenario { get; set; }
+	public Expansion LobbyExpansion { get; set; }
 
 	public Lobby(string pName, int pPlayerCount, int pMaxPlayers) {
 		this.name = pName;
 		this.playerCount = pPlayerCount;
 		this.maxPlayers = pMaxPlayers;
+		this.LobbyOptions = new List<Option>();
+	}
+
+	public Lobby(string pName) {
+		this.name = pName;
+		this.LobbyOptions = new List<Option>();
+	}
+
+	public void AddOption(Option option) {
+		LobbyOptions.Add (option);
 	}
 }
 
@@ -54,7 +66,7 @@ public class NetworkManager : TIOMonoBehaviour {
 		get { return PhotonNetwork.playerName;}
 		set { PhotonNetwork.playerName = value;}
 	} 
-	public string LobbyName { get; set; }
+	public Lobby Lobby { get; set; }
 
 	private void Awake()
 	{
@@ -69,6 +81,7 @@ public class NetworkManager : TIOMonoBehaviour {
 		
 		//Load our name from PlayerPrefs
 		PhotonNetwork.playerName = "Guest" + Random.Range(1, 9999);
+		Lobby = new Lobby ("Default");
 	}
 	
 	// Use this for initialization
@@ -85,20 +98,21 @@ public class NetworkManager : TIOMonoBehaviour {
 		//Debug.Log (PhotonNetwork.connectionStateDetailed);
 	}
 
-	public void startNetworkedGame() {
+	public void startNetworkedGame(Lobby lobby) {
 		//Update gui state and number of players for everyone
-		photonView.RPC("RPC_setGUIStage", PhotonTargets.All, (int)GuiStage.inGame);
+		//photonView.RPC("RPC_setGUIStage", PhotonTargets.All, (int)GuiStage.inGame);
 		photonView.RPC ("RPC_SetPlayerCount", PhotonTargets.All, PhotonNetwork.room.playerCount);
 
-		//Update  game info for everyone else
-		foreach(Option option in gameManager.ActiveOptions.Keys) {
-			photonView.RPC("RPC_SetOption", PhotonTargets.Others, (int)option, gameManager.ActiveOptions[option]);
+		//Update  game info for everyone
+		foreach(Option option in lobby.LobbyOptions) {
+			photonView.RPC("RPC_SetOption", PhotonTargets.All, (int)option, true);
 		}
-		photonView.RPC ("RPC_SetExpansion", PhotonTargets.Others, (int)gameManager.Expansion);
-		photonView.RPC ("RPC_SetScenario", PhotonTargets.Others, (int)gameManager.Scenario);
+		photonView.RPC ("RPC_SetExpansion", PhotonTargets.All, (int)lobby.LobbyExpansion);
+		photonView.RPC ("RPC_SetScenario", PhotonTargets.All, (int)lobby.LobbyScenario);
 
 		//Start game for everyone
-		photonView.RPC ("RPC_StartGame", PhotonTargets.All);
+		PhotonNetwork.LoadLevel ("Game");
+		//photonView.RPC ("RPC_StartGame", PhotonTargets.All);
 	}
 
 
@@ -120,6 +134,7 @@ public class NetworkManager : TIOMonoBehaviour {
 	
 	public void CreateLobby(string room, RoomOptions options){
 		PhotonNetwork.CreateRoom(room, options, null);
+		this.Lobby = new Lobby(room);
 	}
 
 	public Lobby[] GetLobbies() {
@@ -137,6 +152,7 @@ public class NetworkManager : TIOMonoBehaviour {
 
 	public void JoinRoom(string name) {
 		PhotonNetwork.JoinRoom(name);
+		this.Lobby = new Lobby(name);
 	}
 
 	public MetaPlayer[] GetMetaPlayers() {

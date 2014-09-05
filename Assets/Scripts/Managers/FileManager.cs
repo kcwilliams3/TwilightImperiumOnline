@@ -1765,6 +1765,7 @@ public class FileManager : TIOMonoBehaviour {
 				ArrayList systems = new ArrayList();
 				foreach(string name in systemNames) {
 					systems.Add(gameManager.BoardMgr.GetSystem(name));
+					//Debug.Log ("Added " + name + ": " + ((PlanetSystem)systems[systems.Count-1]).Name + " , " + ((PlanetSystem)systems[systems.Count-1]).Id);
 				}
 				mapGrid.Add ((PlanetSystem[])systems.ToArray (typeof(PlanetSystem)));
 				line = reader.ReadLine().Trim ();	

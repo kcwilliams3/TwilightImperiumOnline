@@ -15,6 +15,6 @@ public class SetLobbyNameLabel : TIOMonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		label.text = networkManager.LobbyName;
+		label.text = networkManager.Lobby.name;
 	}
 }

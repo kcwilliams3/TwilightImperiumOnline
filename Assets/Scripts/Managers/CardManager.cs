@@ -95,6 +95,10 @@ public class CardManager : TIOMonoBehaviour {
 		readObjCards ();
 	}
 
+	public void PrepareObjectives() {
+		prepObjectives ();
+	}
+
 	private void readActionCards() {
 		int deckSize = 0;
 		foreach (ActionCard actionCard in gameManager.FileMgr.ReadActionFile ()) {
@@ -379,6 +383,7 @@ public class CardManager : TIOMonoBehaviour {
 			if (player.Race.Id == "Lazax") {
 				return lazaxObj;
 			} else {
+				Debug.Log ("SCENARIOOBJS: " + scenarioObjs.Count);
 				return DrawCard<Objective> (scenarioObjs);
 			}
 		} else if (gameManager.IsActive (Option.PreliminaryObjectives)) {
