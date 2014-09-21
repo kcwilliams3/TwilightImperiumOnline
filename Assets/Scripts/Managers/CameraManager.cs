@@ -28,11 +28,12 @@ public class CameraManager : MonoBehaviour {
 
 	public void Initialize() {
 		gameCamera = GameObject.Find ("Main Camera").camera;
+		transform.position -= new Vector3(0.0f, 10.0f, 0.0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (gameCamera) {
+		if ((gameCamera) && (gameManager.GetStage() == GameStage.Playing)) {
 			// Initialize Camera translation for this frame
 			Vector3 translation = Vector3.zero;
 			

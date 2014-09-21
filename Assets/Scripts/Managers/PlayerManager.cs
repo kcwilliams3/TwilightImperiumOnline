@@ -13,10 +13,11 @@ public class PlayerManager : TIOMonoBehaviour {
 	[SerializeField]
 	private PromissoryNote[] promNotesDebug;
 	[SerializeField]
-	private Player[] players;
-	private int playerCount = 0;
+	private Dictionary<string, Player> players = new Dictionary<string, Player>();
+	public int PlayerCount { get { return players.Count; } }
 	
 	private GameManager gameManager;
+	public bool ReadyToPlay;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,16 @@ public class PlayerManager : TIOMonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	}
+
+	public Player GetPlayer(string id) {
+		return players [id];
+	}
+
+	public Player[] GetPlayers() {
+		Player[] tmpPlayers = new Player[players.Count];
+		players.Values.CopyTo(tmpPlayers, 0);
+		return tmpPlayers;
 	}
 
 	public Race GetRace(string id) {
@@ -43,58 +54,95 @@ public class PlayerManager : TIOMonoBehaviour {
 	}
 
 	public void InitializePlayers() {
-		players = new Player[gameManager.PlayerCount];
-		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
-			string raceID = "";
-			for (int i=0; i < gameManager.PlayerCount; i++) {
-				switch (i) {
-				case 0:
-					raceID = "Lazax";
-					break;
-				case 1:
-					raceID = "Sol";
-					break;
-				case 2:
-					raceID = "Letnev";
-					break;
-				case 3:
-					raceID = "Hacan";
-					break;
-				case 4:
-					raceID = "Jol Nar";
-					break;
-				case 5:
-					raceID = "Xxcha";
-					break;
-				case 6:
-					raceID = "N'orr";
-					break;
-				}
-				addPlayer (raceID);
+		if (gameManager.Scenario == Scenario.StandardGame) {
+			//Standard Game: Give a number of random race choices to each player. Only the MasterClient should do this.
+			//	Set race options (by id) and number of choices each player will get
+			ArrayList options = new ArrayList (new string[] {"Arborec", "Gashlai", "Ghosts", "Hacan", "Jol Nar", "L1z1x", "Letnev", "Mentak", "Naalu", "Nekro", "N'orr", "Saar", "Sol", "Winnu", "Xxcha", "Yin", "Yssaril"});
+			int choicesPerPlayer = options.Count / gameManager.PlayerCount;
+			if (choicesPerPlayer > 4) {
+				choicesPerPlayer = 4;
 			}
+
+			// 	Choose races for each player
+			string[] raceChoices = new string[choicesPerPlayer];
+			for (int playerIndex=0; playerIndex < gameManager.PlayerCount; playerIndex ++) {
+				for (int choiceIndex=0; choiceIndex < choicesPerPlayer; choiceIndex++) {
+					raceChoices[choiceIndex] = (string)options[Random.Range(0, options.Count)];
+					options.Remove(raceChoices[choiceIndex]);
+				}
+				if (playerIndex == gameManager.PlayerCount - 1) {
+					// Choices for this player: set on local client
+					RPC_ReceiveRaceChoices(raceChoices);
+				} else {
+					// Different player: send to the appropriate player
+					gameManager.NetworkMgr.RPCForPlayer("RPC_ReceiveRaceChoices", networkView, playerIndex, raceChoices);
+				}
+			} 
 		}
+		//TODO: Fall of the Empire branch will need tweaking to allow for race selection
+//		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
+//			string raceID = "";
+//			for (int i=0; i < gameManager.PlayerCount; i++) {
+//				switch (i) {
+//				case 0:
+//					raceID = "Lazax";
+//					break;
+//				case 1:
+//					raceID = "Sol";
+//					break;
+//				case 2:
+//					raceID = "Letnev";
+//					break;
+//				case 3:
+//					raceID = "Hacan";
+//					break;
+//				case 4:
+//					raceID = "Jol Nar";
+//					break;
+//				case 5:
+//					raceID = "Xxcha";
+//					break;
+//				case 6:
+//					raceID = "N'orr";
+//					break;
+//				}
+//				addPlayer (raceID);
+//			}
+//		}
 	}
 
-	private Player addPlayer(string raceString) {
+	public Race AddRace(string raceString) {
 		//Read race data from file and add to races directory
 		Race race = gameManager.FileMgr.ReadRaceFile (raceString);
 		races [race.Id] = race;
+		return race;
+	}
+
+	[RPC]
+	public Player RPC_AddPlayer(string playerString, string raceString, float colorR, float colorG, float colorB) {
+		Race race;
+		if (!races.ContainsKey(raceString)) {
+			race = AddRace (raceString);
+		} else {
+			race = races[raceString];
+		}
 
 		//Create a player instance with the newly added race
-		Player player = new Player (race);
-		players [playerCount] = player;
-		playerCount += 1;
-
-		return player;
-	}
-
-
-	//TODO: Might not need this now. Decide.
-	public System.Collections.Generic.IEnumerable<Player> Players() {
-		foreach(Player player in players){
-			yield return player;
+		players[playerString] = new Player (playerString, race, new Color(colorR, colorG, colorB));
+		if (gameManager.PlayerMgr.PlayerCount == gameManager.PlayerCount && gameManager.NetworkMgr.IsMasterClient()) {
+			gameManager.networkView.RPC ("RPC_CloseRaceSelection", PhotonTargets.All);
 		}
+
+		return players[playerString];
 	}
+
+
+//	//TODO: Might not need this now. Decide.
+//	public System.Collections.Generic.IEnumerable<Player> Players() {
+//		foreach(Player player in players){
+//			yield return player;
+//		}
+//	}
 
 	public void InitializePlayerComponents() {
 		if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
@@ -105,12 +153,13 @@ public class PlayerManager : TIOMonoBehaviour {
 			//Read Promissory Notes data
 			readPromNotes();
 		}
-		foreach (Player player in players) {
+		foreach (Player player in players.Values) {
 			if (gameManager.Scenario == Scenario.FallOfTheEmpire) {
 				//Distribute Treaties
 				player.Treaties = getTreatyHand(player);
 			}
 			if (gameManager.IsActive (Option.PoliticalIntrigue)) {
+				getNotesHand(player);
 				player.Notes = getNotesHand(player);
 			}
 			player.HiddenObjectives.Add (gameManager.CardMgr.GetStartingObjective(player));
@@ -150,5 +199,11 @@ public class PlayerManager : TIOMonoBehaviour {
 			hand.Add (note.DuplicateFor (player));
 		}
 		return (PromissoryNote[])hand.ToArray (typeof(PromissoryNote));
+	}
+
+	[RPC]
+	public void RPC_ReceiveRaceChoices(string[] raceChoices) {
+		gameManager.UIMgr.SetRaceChoices (raceChoices);
+		ReadyToPlay = true;
 	}
 }

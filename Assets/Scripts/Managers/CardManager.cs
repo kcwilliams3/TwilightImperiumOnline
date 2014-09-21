@@ -58,6 +58,8 @@ public class CardManager : TIOMonoBehaviour {
 	
 	private GameManager gameManager;
 
+	public bool ReadyToPlay;
+
 	// Use this for initialization
 	void Start () {
 		gameManager = GetComponent<GameManager>();
@@ -93,6 +95,16 @@ public class CardManager : TIOMonoBehaviour {
 
 		//Initialize Objectives
 		readObjCards ();
+
+		ReadyToPlay = true;
+	}
+
+	public void PrepareDecks() {
+		prepActionDeck();
+		prepPoliticalDeck();
+		if (gameManager.IsActive(Option.Mercenaries)) {
+			prepMercDeck();
+		}
 	}
 
 	public void PrepareObjectives() {

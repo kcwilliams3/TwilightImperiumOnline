@@ -80,7 +80,15 @@ public class LanguageManager : TIOMonoBehaviour {
 	public int StringToNumber(string numberString) { return toNumber [numberString.ToLower ()]; }
 	public bool StringToBoolean(string boolString) { return toBoolean [boolString.ToLower ()]; }
 	public TPrereqMode StringToTPrereqMode(string prereqString) { return toTPrereqMode [prereqString.ToLower ()]; }
-	public string StringToDataType(string dataTypeString) { return toDataType [dataTypeString.ToLower ()]; }
+	public string StringToDataType(string dataTypeString) { 
+		if (!toDataType.ContainsKey (dataTypeString.ToLower())) {
+			Debug.Log ("DTS:" + dataTypeString);
+			foreach(string key in toDataType.Keys) {
+				Debug.Log ("DTS key:" + dataTypeString);
+			}
+		} 
+		return toDataType [dataTypeString.ToLower ()]; 
+	}
 	public Expansion StringToExpansion(string expansionString) { return toExpansion [expansionString.ToLower ()]; }
 	public UType StringToUType(string uTypeString) { return toUType [uTypeString.ToLower ()]; }
 	public UAbility StringToUAbility(string uAbilityString) { return toUAbility [uAbilityString.ToLower ()]; }
@@ -129,13 +137,13 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddNumber (string languageString, string englishString) {
 		int value;
-		if (englishString.ToLower() == "two") {
+		if (englishString.ToLower().Trim() == "two") {
 			value = 2;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		numberTo [value] = languageString;
-		toNumber [languageString.ToLower ()] = value;
+		toNumber [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddBoolean(string languageString) {
@@ -143,15 +151,15 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddBoolean(string languageString, string englishString) {
 		bool value;
-		if (englishString.ToLower () == "true") {
+		if (englishString.ToLower ().Trim() == "true") {
 			value = true;
-		} else  if (englishString.ToLower () == "false") {
+		} else  if (englishString.ToLower ().Trim() == "false") {
 			value = false;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		booleanTo [value] = languageString;
-		toBoolean [languageString.ToLower ()] = value;
+		toBoolean [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddTPrereqMode(string languageString) {
@@ -159,22 +167,22 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddTPrereqMode(string languageString, string englishString) {
 		TPrereqMode value;
-		if (englishString.ToLower () == "and") {
+		if (englishString.ToLower ().Trim() == "and") {
 			value = TPrereqMode.AND;
-		} else  if (englishString.ToLower () == "or") {
+		} else  if (englishString.ToLower ().Trim() == "or") {
 			value = TPrereqMode.OR;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		tPrereqModeTo [value] = languageString;
-		toTPrereqMode [languageString.ToLower ()] = value;
+		toTPrereqMode [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddDataType(string languageString) {
 		AddDataType (languageString, languageString);
 	}
 	public void AddDataType(string languageString, string englishString) {
-		toDataType [languageString.ToLower ()] = englishString;
+		toDataType [languageString.ToLower ().Trim()] = englishString;
 	}
 
 	public void AddExpansion(string languageString) {
@@ -182,17 +190,17 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddExpansion(string languageString, string englishString) {
 		Expansion value;
-		if (englishString.ToLower () == "vanilla") {
+		if (englishString.ToLower().Trim() == "vanilla") {
 			value = Expansion.Vanilla;
-		} else  if (englishString.ToLower () == "shattered empire") {
+		} else  if (englishString.ToLower ().Trim() == "shattered empire") {
 			value = Expansion.ShatteredEmpire;
-		} else if (englishString.ToLower () == "shards of the throne") {
+		} else if (englishString.ToLower ().Trim() == "shards of the throne") {
 			value = Expansion.ShardsOfTheThrone;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		expansionTo [value] = languageString;
-		toExpansion [languageString.ToLower ()] = value;
+		toExpansion [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddUType(string languageString) {
@@ -200,33 +208,33 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddUType(string languageString, string englishString) {
 		UType value;
-		if (englishString.ToLower () == "carrier" || englishString.ToLower () == "carriers") {
+		if (englishString.ToLower ().Trim() == "carrier" || englishString.ToLower ().Trim() == "carriers") {
 			value = UType.Carrier;
-		} else  if (englishString.ToLower () == "cruiser" || englishString.ToLower () == "cruisers") {
+		} else  if (englishString.ToLower ().Trim() == "cruiser" || englishString.ToLower ().Trim() == "cruisers") {
 			value = UType.Cruiser;
-		} else if (englishString.ToLower () == "destroyer" || englishString.ToLower () == "destroyers") {
+		} else if (englishString.ToLower ().Trim() == "destroyer" || englishString.ToLower ().Trim() == "destroyers") {
 			value = UType.Destroyer;
-		} else if (englishString.ToLower () == "dreadnought" || englishString.ToLower () == "dreadnoughts") {
+		} else if (englishString.ToLower ().Trim() == "dreadnought" || englishString.ToLower ().Trim() == "dreadnoughts") {
 			value = UType.Dreadnought;
-		} else if (englishString.ToLower () == "fighter" || englishString.ToLower () == "fighters") {
+		} else if (englishString.ToLower ().Trim() == "fighter" || englishString.ToLower().Trim() == "fighters") {
 			value = UType.Fighter;
-		} else if (englishString.ToLower () == "flagship" || englishString.ToLower () == "flagships") {
+		} else if (englishString.ToLower ().Trim() == "flagship" || englishString.ToLower ().Trim() == "flagships") {
 			value = UType.Flagship;
-		} else if (englishString.ToLower() == "ground force" || englishString.ToLower() == "ground forces") {
+		} else if (englishString.ToLower().Trim() == "ground force" || englishString.ToLower().Trim() == "ground forces") {
 			value = UType.GroundForce;
-		} else if (englishString.ToLower () == "mechanized unit" || englishString.ToLower () == "mechanized units") {
+		} else if (englishString.ToLower ().Trim() == "mechanized unit" || englishString.ToLower ().Trim() == "mechanized units") {
 			value = UType.MechanizedUnit;
-		} else if (englishString.ToLower () == "pds" || englishString.ToLower () == "pdss") {
+		} else if (englishString.ToLower ().Trim() == "pds" || englishString.ToLower ().Trim() == "pdss") {
 			value = UType.PDS;
-		} else if (englishString.ToLower () == "space dock" || englishString.ToLower () == "space docks") {
+		} else if (englishString.ToLower ().Trim() == "space dock" || englishString.ToLower ().Trim() == "space docks") {
 			value = UType.SpaceDock;
-		} else if (englishString.ToLower () == "war sun" || englishString.ToLower () == "war suns") {
+		} else if (englishString.ToLower ().Trim() == "war sun" || englishString.ToLower ().Trim() == "war suns") {
 			value = UType.WarSun;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		uTypeTo [value] = languageString;
-		toUType [languageString.ToLower ()] = value;
+		toUType [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddUAbility(string languageString) {
@@ -234,21 +242,23 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddUAbility(string languageString, string englishString) {
 		UAbility value;
-		if (englishString.ToLower () == "anti-fighter barrage") {
+		if (englishString.ToLower ().Trim() == "anti-fighter barrage") {
 			value = UAbility.AntiFighterBarrage;
-		} else  if (englishString.ToLower () == "bombard") {
+		} else  if (englishString.ToLower ().Trim() == "bombard") {
 			value = UAbility.Bombardment;
-		} else if (englishString.ToLower () == "planetary shield") {
+		} else if (englishString.ToLower ().Trim() == "planetary shield") {
 			value = UAbility.PlanetaryShield;
-		} else if (englishString.ToLower () == "production") {
+		} else if (englishString.ToLower ().Trim() == "production") {
 			value = UAbility.Production;
-		} else if (englishString.ToLower () == "sustain damage") {
+		} else if (englishString.ToLower ().Trim() == "sustain damage") {
 			value = UAbility.SustainDamage;
+		} else if (englishString.ToLower ().Trim() == "build capacity 5") {
+			value = UAbility.BuildCapacity5;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		uAbilityTo [value] = languageString;
-		toUAbility [languageString.ToLower ()] = value;
+		toUAbility [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddTType(string languageString) {
@@ -256,29 +266,29 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddTType(string languageString, string englishString) {
 		TType value;
-		if (englishString.ToLower () == "blue") {
+		if (englishString.ToLower ().Trim() == "blue") {
 			value = TType.Blue;
-		} else  if (englishString.ToLower () == "green") {
+		} else  if (englishString.ToLower ().Trim() == "green") {
 			value = TType.Green;
-		} else if (englishString.ToLower () == "racial") {
+		} else if (englishString.ToLower ().Trim() == "racial") {
 			value = TType.Racial;
 		} else if (englishString.ToLower () == "red") {
 			value = TType.Red;
-		} else if (englishString.ToLower () == "yellow") {
+		} else if (englishString.ToLower ().Trim() == "yellow") {
 			value = TType.Yellow;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		tTypeTo [value] = languageString;
-		toTType [languageString.ToLower ()] = value;
+		toTType [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddSTag(string languageString) {
 		AddSTag (languageString, languageString);
 	}
 	public void AddSTag(string languageString, string englishString) {
-		sTagTo [englishString.ToLower ()] = languageString;
-		toSTag [languageString.ToLower ()] = englishString;
+		sTagTo [englishString.ToLower ().Trim()] = languageString;
+		toSTag [languageString.ToLower ().Trim()] = englishString;
 	}
 
 	public void AddSType(string languageString) {
@@ -286,19 +296,19 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddSType(string languageString, string englishString) {
 		SType value;
-		if (englishString.ToLower () == "special") {
+		if (englishString.ToLower ().Trim() == "special") {
 			value = SType.Special;
-		} else  if (englishString.ToLower () == "home") {
+		} else  if (englishString.ToLower ().Trim() == "home") {
 			value = SType.Home;
-		} else if (englishString.ToLower () == "unattached") {
+		} else if (englishString.ToLower ().Trim() == "unattached") {
 			value = SType.Unattached;
-		} else if (englishString.ToLower () == "fixed") {
+		} else if (englishString.ToLower ().Trim() == "fixed") {
 			value = SType.Fixed;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		sTypeTo [value] = languageString;
-		toSType [languageString.ToLower ()] = value;
+		toSType [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddOType(string languageString) {
@@ -306,25 +316,25 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddOType(string languageString, string englishString) {
 		OType value;
-		if (englishString.ToLower () == "public stage i") {
+		if (englishString.ToLower ().Trim() == "public stage i") {
 			value = OType.PublicStageI;
-		} else  if (englishString.ToLower () == "public stage ii") {
+		} else  if (englishString.ToLower ().Trim() == "public stage ii") {
 			value = OType.PublicStageII;
-		} else if (englishString.ToLower () == "preliminary") {
+		} else if (englishString.ToLower ().Trim() == "preliminary") {
 			value = OType.Preliminary;
-		} else if (englishString.ToLower () == "secret") {
+		} else if (englishString.ToLower ().Trim() == "secret") {
 			value = OType.Secret;
-		} else if (englishString.ToLower () == "special") {
+		} else if (englishString.ToLower ().Trim() == "special") {
 			value = OType.Special;
-		} else if (englishString.ToLower () == "lazax") {
+		} else if (englishString.ToLower ().Trim() == "lazax") {
 			value = OType.Lazax;
-		} else if (englishString.ToLower () == "scenario") {
+		} else if (englishString.ToLower ().Trim() == "scenario") {
 			value = OType.Scenario;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		oTypeTo [value] = languageString;
-		toOType [languageString.ToLower ()] = value;
+		toOType [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddOReward(string languageString) {
@@ -332,19 +342,19 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddOReward(string languageString, string englishString) {
 		OReward value;
-		if (englishString.ToLower () == "i win the game") {
+		if (englishString.ToLower ().Trim() == "i win the game") {
 			value = OReward.WIN;
-		} else  if (englishString.ToLower () == "immediate victory") {
+		} else  if (englishString.ToLower ().Trim() == "immediate victory") {
 			value = OReward.INSTANTWIN;
-		} else if (englishString.ToLower () == "game over") {
+		} else if (englishString.ToLower ().Trim() == "game over") {
 			value = OReward.GAMEOVER;
-		} else if (englishString.ToLower () == "vp") {
+		} else if (englishString.ToLower ().Trim() == "vp") {
 			value = OReward.VP;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		oRewardTo [value] = languageString;
-		toOReward [languageString.ToLower ()] = value;
+		toOReward [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddStrategySet(string languageString) {
@@ -352,17 +362,17 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddStrategySet(string languageString, string englishString) {
 		StrategySet value;
-		if (englishString.ToLower () == "vanilla set") {
+		if (englishString.ToLower ().Trim() == "vanilla set") {
 			value = StrategySet.Vanilla;
-		} else  if (englishString.ToLower () == "shattered empire set") {
+		} else  if (englishString.ToLower ().Trim() == "shattered empire set") {
 			value = StrategySet.ShatteredEmpire;
-		} else if (englishString.ToLower () == "fall of the empire variants") {
+		} else if (englishString.ToLower ().Trim() == "fall of the empire variants") {
 			value = StrategySet.FallOfTheEmpire;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		strategySetTo [value] = languageString;
-		toStrategySet [languageString.ToLower ()] = value;
+		toStrategySet [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddEType(string languageString) {
@@ -370,23 +380,23 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddEType(string languageString, string englishString) {
 		EType value;
-		if (englishString.ToLower () == "a special system") {
+		if (englishString.ToLower ().Trim() == "a special system") {
 			value = EType.ASpecialSystem;
-		} else if (englishString.ToLower () == "current law") {
+		} else if (englishString.ToLower ().Trim() == "current law") {
 			value = EType.CurrentLaw;
-		} else if (englishString.ToLower () == "planet" || englishString.ToLower () == "planets") {
+		} else if (englishString.ToLower ().Trim() == "planet" || englishString.ToLower () == "planets") {
 			value = EType.Planet;
-		} else if (englishString.ToLower () == "player" || englishString.ToLower () == "players") {
+		} else if (englishString.ToLower ().Trim() == "player" || englishString.ToLower () == "players") {
 			value = EType.Player;
-		} else if (englishString.ToLower () == "public objective") {
+		} else if (englishString.ToLower ().Trim() == "public objective") {
 			value = EType.PublicObjective;
-		} else if (englishString.ToLower () == "technology color") {
+		} else if (englishString.ToLower ().Trim() == "technology color") {
 			value = EType.TechColor;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		eTypeTo [value] = languageString;
-		toEType [languageString.ToLower ()] = value;
+		toEType [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddRType(string languageString) {
@@ -394,17 +404,17 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddRType(string languageString, string englishString) {
 		RType value;
-		if (englishString.ToLower () == "bodyguard") {
+		if (englishString.ToLower ().Trim() == "bodyguard") {
 			value = RType.Bodyguard;
-		} else  if (englishString.ToLower () == "councilor") {
+		} else  if (englishString.ToLower ().Trim() == "councilor") {
 			value = RType.Councilor;
-		} else if (englishString.ToLower () == "spy") {
+		} else if (englishString.ToLower ().Trim() == "spy") {
 			value = RType.Spy;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		rTypeTo [value] = languageString;
-		toRType [languageString.ToLower ()] = value;
+		toRType [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddOption(string languageString) {
@@ -412,59 +422,59 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddOption(string languageString, string englishString) {
 		Option value;
-		if (englishString.ToLower () == "distant suns") {
+		if (englishString.ToLower ().Trim() == "distant suns") {
 			value = Option.DistantSuns;
-		} else  if (englishString.ToLower () == "the final frontier") {
+		} else  if (englishString.ToLower ().Trim() == "the final frontier") {
 			value = Option.TheFinalFrontier;
-		} else if (englishString.ToLower () == "the long war") {
+		} else if (englishString.ToLower ().Trim() == "the long war") {
 			value = Option.TheLongWar;
-		} else if (englishString.ToLower () == "age of empire") {
+		} else if (englishString.ToLower ().Trim() == "age of empire") {
 			value = Option.AgeOfEmpire;
-		} else if (englishString.ToLower () == "leaders") {
+		} else if (englishString.ToLower ().Trim() == "leaders") {
 			value = Option.Leaders;
-		} else if (englishString.ToLower () == "sabotage runs") {
+		} else if (englishString.ToLower ().Trim() == "sabotage runs") {
 			value = Option.SabotageRuns;
-		} else if (englishString.ToLower () == "shattered empire objectives") {
+		} else if (englishString.ToLower ().Trim() == "shattered empire objectives") {
 			value = Option.SEObjectives;
-		} else if (englishString.ToLower () == "all objectives") {
+		} else if (englishString.ToLower ().Trim() == "all objectives") {
 			value = Option.AllObjectives;
-		} else if (englishString.ToLower () == "race-specific technologies") {
+		} else if (englishString.ToLower ().Trim() == "race-specific technologies") {
 			value = Option.RaceSpecificTechnologies;
-		} else if (englishString.ToLower () == "artifacts") {
+		} else if (englishString.ToLower ().Trim() == "artifacts") {
 			value = Option.Artifacts;
-		} else if (englishString.ToLower () == "shock troops") {
+		} else if (englishString.ToLower ().Trim() == "shock troops") {
 			value = Option.ShockTroops;
-		} else if (englishString.ToLower () == "space mines") {
+		} else if (englishString.ToLower ().Trim() == "space mines") {
 			value = Option.SpaceMines;
-		} else if (englishString.ToLower () == "wormhole nexus") {
+		} else if (englishString.ToLower ().Trim() == "wormhole nexus") {
 			value = Option.WormholeNexus;
-		} else if (englishString.ToLower () == "facilities") {
+		} else if (englishString.ToLower ().Trim() == "facilities") {
 			value = Option.Facilities;
-		} else if (englishString.ToLower () == "tactical retreats") {
+		} else if (englishString.ToLower ().Trim() == "tactical retreats") {
 			value = Option.TacticalRetreats;
-		} else if (englishString.ToLower () == "territorial distant suns") {
+		} else if (englishString.ToLower ().Trim() == "territorial distant suns") {
 			value = Option.TerritorialDistantSuns;
-		} else if (englishString.ToLower () == "custodians of mecatol rex") {
+		} else if (englishString.ToLower ().Trim() == "custodians of mecatol rex") {
 			value = Option.CustodiansOfMecatolRex;
-		} else if (englishString.ToLower () == "voice of the council") {
+		} else if (englishString.ToLower ().Trim() == "voice of the council") {
 			value = Option.VoiceOfTheCouncil;
-		} else if (englishString.ToLower () == "simulated early turns") {
+		} else if (englishString.ToLower ().Trim() == "simulated early turns") {
 			value = Option.SimulatedEarlyTurns;
-		} else if (englishString.ToLower () == "preliminary objectives") {
+		} else if (englishString.ToLower ().Trim() == "preliminary objectives") {
 			value = Option.PreliminaryObjectives;
-		} else if (englishString.ToLower () == "flagships") {
+		} else if (englishString.ToLower ().Trim() == "flagships") {
 			value = Option.Flagships;
-		} else if (englishString.ToLower () == "mechanized units") {
+		} else if (englishString.ToLower ().Trim() == "mechanized units") {
 			value = Option.MechanizedUnits;
-		} else if (englishString.ToLower () == "mercenaries") {
+		} else if (englishString.ToLower ().Trim() == "mercenaries") {
 			value = Option.Mercenaries;
-		} else if (englishString.ToLower () == "political intrigue") {
+		} else if (englishString.ToLower ().Trim() == "political intrigue") {
 			value = Option.PoliticalIntrigue;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		optionTo [value] = languageString;
-		toOption [languageString.ToLower ()] = value;
+		toOption [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddLType(string languageString) {
@@ -472,21 +482,21 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddLType(string languageString, string englishString) {
 		LType value;
-		if (englishString.ToLower () == "admiral") {
+		if (englishString.ToLower ().Trim() == "admiral") {
 			value = LType.Admiral;
-		} else  if (englishString.ToLower () == "agent") {
+		} else  if (englishString.ToLower ().Trim() == "agent") {
 			value = LType.Agent;
-		} else if (englishString.ToLower () == "diplomat") {
+		} else if (englishString.ToLower ().Trim() == "diplomat") {
 			value = LType.Diplomat;
-		} else if (englishString.ToLower () == "general") {
+		} else if (englishString.ToLower ().Trim() == "general") {
 			value = LType.General;
-		} else if (englishString.ToLower () == "scientist") {
+		} else if (englishString.ToLower ().Trim() == "scientist") {
 			value = LType.Scientist;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		lTypeTo [value] = languageString;
-		toLType [languageString.ToLower ()] = value;
+		toLType [languageString.ToLower ().Trim()] = value;
 	}
 
 	public void AddScenario(string languageString) {
@@ -494,15 +504,15 @@ public class LanguageManager : TIOMonoBehaviour {
 	}
 	public void AddScenario(string languageString, string englishString) {
 		Scenario value;
-		if (englishString.ToLower () == "standard game") {
+		if (englishString.ToLower ().Trim() == "standard game") {
 			value = Scenario.StandardGame;
-		} else if (englishString.ToLower () == "fall of the empire") {
+		} else if (englishString.ToLower ().Trim() == "fall of the empire") {
 			value = Scenario.FallOfTheEmpire;
 		} else {
 			throw new LocalizationException(languageString, englishString);
 		}
 		scenarioTo[value] = languageString;
-		toScenario [languageString.ToLower ()] = value;
+		toScenario [languageString.ToLower ().Trim()] = value;
 	}
 	
 	// More complex dictionary fetching functions
@@ -511,7 +521,7 @@ public class LanguageManager : TIOMonoBehaviour {
 		string accumulatedString = "";
 		foreach(string languageString in languageStrings) {
 			if (toEType.ContainsKey(languageString.ToLower ())) {
-				return toEType[languageString.ToLower ()];
+				return toEType[languageString.ToLower ().Trim()];
 			}
 			if (accumulatedString != "") {
 				accumulatedString += " ";
@@ -519,7 +529,7 @@ public class LanguageManager : TIOMonoBehaviour {
 			accumulatedString += languageString;
 		}
 		if (toEType.ContainsKey(accumulatedString.ToLower())) {
-			return toEType[accumulatedString.ToLower ()];
+			return toEType[accumulatedString.ToLower ().Trim()];
 		}
 		throw new LocalizationException (accumulatedString, accumulatedString);
 	}

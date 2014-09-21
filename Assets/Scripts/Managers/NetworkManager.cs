@@ -173,4 +173,14 @@ public class NetworkManager : TIOMonoBehaviour {
 		Debug.Log("OnFailedToConnectToPhoton. StatusCode: " + parameters);
 	}
 
+	public bool IsMasterClient() {
+		return PhotonNetwork.isMasterClient;
+	}
+
+	public void RPCForPlayer(string rpcFunction, PhotonView netView, int playerIndex, object[] rpcParams) {
+		// Send RPC to a particular (other) player
+		netView.RPC (rpcFunction, PhotonNetwork.otherPlayers [playerIndex], rpcParams);
+	}
+
+
 }

@@ -11,11 +11,12 @@ public class BoardManager : TIOMonoBehaviour {
 	private Dictionary<PlanetSystem, int> systemCounts = new Dictionary<PlanetSystem, int>();
 
 	//Board
-	//TODO: Probably get rid of center and nexus
-	public PlanetSystem center;
+	//TODO: Probably get rid of nexus
+	//public PlanetSystem center;
 	public PlanetSystem nexus;
 	[SerializeField]
 	private Board gameBoard;
+	private int[] center;
 
 	//Attributes for hex and section creation
 	public GameObject HexPrefab;
@@ -58,6 +59,168 @@ public class BoardManager : TIOMonoBehaviour {
 		//prepareSystemsDirectory ();
 		gameBoard = gameManager.FileMgr.ReadMapFile (mapName);
 		//gameBoard.DisplayForDebug ();
+	}
+	
+	public void PrepareGalaxySetup() {
+		int[] center = determineCenter();
+
+		BoardSection[] boardSections = new BoardSection[1];
+		int ringCount;
+		BoardType boardType;
+		if (gameManager.PlayerCount <= 3) {
+			//1 & 2 aren't valid player numbers, so we assume 3 in those cases (for quicker solo testing)
+			boardType = BoardType.ThreePlayer;
+		} else {
+			boardType = BoardType.Hexagon;
+		}
+		if (gameManager.PlayerCount < 7) {
+			ringCount = 3;
+		} else {
+			ringCount = 4;
+		}
+
+		float rotation = determineBoardRotation();
+		boardSections[0] = new BoardSection(ringCount, boardType, calculateNextOrigin (), center, HexPrefab, hexSize, rotation);
+
+		gameBoard = new Board(boardSections);
+		setHomeSystems();
+		gameBoard.SetSystem(GetSystem("Mecatol Rex"), 0, center[0], center[1]);
+
+		repositionBoard(rotation);
+	}
+
+	private void setHomeSystems() {
+		int[][] positions = determineHomePositions();
+
+		Player[] players = gameManager.PlayerMgr.GetPlayers();
+		for (int i=0; i < players.Length; i++) {
+			gameBoard.SetSystem(players[i].Race.HomeSystems[0], 0, positions[i][0], positions[i][1]);
+		}
+	}
+
+	private int[][] determineHomePositions() {
+		// TODO: Will need to extend this for Warp Zone options at some point
+		int playerCount = gameManager.PlayerCount;
+		int[][] positions = new int[playerCount][];
+		if (playerCount == 3) {
+			positions[0] = new int[2] { 0, 0 };
+			positions[1] = new int[2] { 3, 5 };
+			positions[2] = new int[2] { 6, 0 };
+		} else if (playerCount == 4) {
+			positions[0] = new int[2] { 0, 2 };
+			positions[1] = new int[2] { 4, 5 };
+			positions[2] = new int[2] { 6, 1 };
+			positions[3] = new int[2] { 2, 0 };
+		} else if (playerCount == 5) {
+			positions[0] = new int[2] { 0, 2 };
+			positions[1] = new int[2] { 3, 6 };
+			positions[2] = new int[2] { 6, 3 };
+			positions[3] = new int[2] { 6, 0 };
+			positions[4] = new int[2] { 2, 0 };
+		} else if (playerCount == 6) {
+			positions[0] = new int[2] { 0, 0 };
+			positions[1] = new int[2] { 0, 3 };
+			positions[2] = new int[2] { 3, 6 };
+			positions[3] = new int[2] { 6, 3 };
+			positions[4] = new int[2] { 6, 1 };
+			positions[5] = new int[2] { 3, 0 };
+		} else if (playerCount == 7) {
+			positions[0] = new int[2] { 0, 0 };
+			positions[1] = new int[2] { 0, 3 };
+			positions[2] = new int[2] { 3, 7 };
+			positions[3] = new int[2] { 6, 6 };
+			positions[4] = new int[2] { 8, 3 };
+			positions[5] = new int[2] { 7, 0 };
+			positions[6] = new int[2] { 4, 0 };
+		} else if (playerCount == 8) {
+			positions[0] = new int[2] { 0, 1 };
+			positions[1] = new int[2] { 0, 4 };
+			positions[2] = new int[2] { 3, 7 };
+			positions[3] = new int[2] { 6, 6 };
+			positions[4] = new int[2] { 8, 3 };
+			positions[5] = new int[2] { 8, 0 };
+			positions[6] = new int[2] { 5, 0 };
+			positions[7] = new int[2] { 2, 0 };
+		}
+
+		return positions;
+	}
+
+	private float determineBoardRotation() {
+		// TODO: Will need to extend this for Warp Zone options at some point
+		int playerCount = gameManager.PlayerCount;
+		float[] rotations = new float[playerCount];
+		if (playerCount == 3) {
+			rotations[0] = 180.0f;
+			rotations[1] = 60.0f;
+			rotations[2] = -60.0f;
+		} else if (playerCount == 4) {
+			rotations[0] = 120.0f;
+			rotations[1] = 60.0f;
+			rotations[2] = -60.0f;
+			rotations[3] = -120.0f;
+		} else if (playerCount == 5) {
+			rotations[0] = 120.0f;
+			rotations[1] = 60.0f;
+			rotations[2] = 0.0f;
+			rotations[3] = -60.0f;
+			rotations[4] = -120.0f;
+		} else if (playerCount == 6) {
+			rotations[0] = 180.0f;
+			rotations[1] = 120.0f;
+			rotations[2] = 60.0f;
+			rotations[3] = 0.0f;
+			rotations[4] = -60.0f;
+			rotations[5] = -120.0f;
+		} else if (playerCount == 7) {
+			rotations[0] = 180.0f;
+			rotations[1] = 120.0f;
+			rotations[2] = 60.0f;
+			rotations[3] = 60.0f;
+			rotations[4] = 0.0f;
+			rotations[5] = -60.0f;
+			rotations[6] = -120.0f;
+		} else if (playerCount == 8) {
+			rotations[0] = 180.0f;
+			rotations[1] = 120.0f;
+			rotations[2] = 60.0f;
+			rotations[3] = 60.0f;
+			rotations[4] = 0.0f;
+			rotations[5] = -60.0f;
+			rotations[6] = -120.0f;
+			rotations[7] = -120.0f;
+		}
+
+		float chosenRotation = 0.0f;
+		Player[] players = gameManager.PlayerMgr.GetPlayers();
+		for (int i=0; i < players.Length; i++) {
+			if (players[i].Id == gameManager.NetworkMgr.PlayerName) {
+				chosenRotation = rotations[i];
+			}
+		}
+
+		return chosenRotation;
+	}
+
+	private int[] determineCenter() {
+		// TODO: Will need to extend this for Warp Zone options at some point
+		int[] center = new int[2];
+		if (gameManager.PlayerCount == 3) {
+			center[0] = 3;
+			center[1] = 2;
+		} else if (gameManager.PlayerCount >= 7) {
+			center[0] = 4;
+			center[1] = 4;
+		} else {
+			center[0] = 3;
+			center[1] = 3;
+		}
+		return center;
+	}
+
+	private void repositionBoard(float rotation) {
+		GameObject boardObject = GameObject.Find("Board");
+		boardObject.transform.RotateAround(boardObject.transform.position, boardObject.transform.up, rotation);
 	}
 
 	public BoardSection CreateSection(PlanetSystem[][] sectionArrays, int[] columnArray) {
@@ -228,7 +391,7 @@ public class BoardManager : TIOMonoBehaviour {
 		foreach(PlanetSystem sys in systems.Values) {
 			for (int i=0; i < systemCounts[sys]; i++) {
 				if (sys.isFixed() && sys.Id == "Mecatol Rex") {
-					center = sys;
+					//center = sys;
 				} else if (sys.isUnattached() && gameManager.IsActive (Option.WormholeNexus) && sys.Id == "Wormhole Nexus"){
 					nexus = sys;
 				} else if (sys.isSpecial()) {

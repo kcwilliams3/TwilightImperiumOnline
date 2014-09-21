@@ -4,7 +4,7 @@ using System;
 public enum UType {GroundForce, SpaceDock, Carrier, PDS, Fighter, Cruiser, Destroyer, Dreadnought, WarSun, MechanizedUnit, Flagship};
 public enum UFSupply {Never, Always, WhenExcess};
 public enum UCarry {Nothing, Anything, GroundForces, Fighters, Leaders};
-public enum UAbility {Production,PlanetaryShield,AntiFighterBarrage,Bombardment,SustainDamage};
+public enum UAbility {Production,PlanetaryShield,AntiFighterBarrage,Bombardment,SustainDamage,BuildCapacity5};
 
 [System.Serializable]
 public class Unit {

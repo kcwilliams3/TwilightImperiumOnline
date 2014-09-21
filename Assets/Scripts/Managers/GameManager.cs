@@ -6,6 +6,8 @@ public enum Expansion {Vanilla, ShatteredEmpire, ShardsOfTheThrone};
 public enum Option {DistantSuns, TheFinalFrontier, TheLongWar, AgeOfEmpire, Leaders, SabotageRuns, SEObjectives, AllObjectives, RaceSpecificTechnologies, Artifacts, ShockTroops, SpaceMines, WormholeNexus, Facilities, TacticalRetreats, TerritorialDistantSuns, CustodiansOfMecatolRex, VoiceOfTheCouncil, SimulatedEarlyTurns, PreliminaryObjectives, Flagships, MechanizedUnits, Mercenaries, PoliticalIntrigue};
 public enum Scenario {StandardGame, FallOfTheEmpire};
 
+public enum GameStage {LoadingLevel, LevelLoaded, InitializingManagers, ManagersInitialized, InitializingOther, Playing, Menus}; 
+
 public class GameManager : TIOMonoBehaviour {
 
 	//TODO: May not need these dictionaries. Decide.
@@ -25,8 +27,9 @@ public class GameManager : TIOMonoBehaviour {
 	private int playerCount;
 	public int PlayerCount { get { return playerCount; } }
 	
-	bool levelLoaded = false;
-	bool gameStarted = false;
+	GameStage stage = GameStage.LoadingLevel;
+
+	//public int readyCount = 0;
 
 	private int updateCounter = 0;
 	
@@ -40,6 +43,7 @@ public class GameManager : TIOMonoBehaviour {
 	public PlayerManager PlayerMgr;
 	public TechManager TechMgr;
 	public UnitManager UnitMgr;
+	public UIManager UIMgr;
 
 	// Use this for initialization
 	void Start () {
@@ -53,6 +57,7 @@ public class GameManager : TIOMonoBehaviour {
 		PlayerMgr = GetComponent<PlayerManager> ();
 		TechMgr = GetComponent<TechManager> ();
 		UnitMgr = GetComponent<UnitManager> ();
+		UIMgr = GetComponent<UIManager> ();
 
 		initializeOptions ();
 	}
@@ -61,12 +66,34 @@ public class GameManager : TIOMonoBehaviour {
 	void Update () {
 		ActiveOptions.Values.CopyTo(activeOptionsDebugValues,0);
 		strategyCards.Values.CopyTo(strategyCardsDebug,0);
-
-		if (levelLoaded && !gameStarted) {
-			gameStarted = true;
-			initializeManagers ();
-			gameSetup ();
+		//Debug.Log (stage);
+		// Game setup, early initializations
+		if (stage == GameStage.LevelLoaded) {
+			stage = GameStage.InitializingManagers;
+			initializeManagers();
+		} else if (stage == GameStage.ManagersInitialized) {
+			stage = GameStage.InitializingOther;
+			if (NetworkMgr.IsMasterClient()) {
+				PlayerMgr.InitializePlayers();
+				CardMgr.PrepareDecks();
+				ComponentMgr.PrepareComponents();
+			} else {
+				CardMgr.ReadyToPlay = true;
+				ComponentMgr.ReadyToPlay = true;
+			}
 		}
+
+		if (PlayerMgr.ReadyToPlay && CardMgr.ReadyToPlay && ComponentMgr.ReadyToPlay && stage == GameStage.InitializingOther) {
+			stage = GameStage.Menus;
+		}
+	}
+
+	public void SetStage(GameStage pStage) {
+		stage = pStage;
+	}
+
+	public GameStage GetStage() {
+		return stage;
 	}
 
 	private void initializeOptions() {
@@ -121,10 +148,6 @@ public class GameManager : TIOMonoBehaviour {
 		return strategyCards [initiative];
 	}
 
-	public void LevelLoaded() {
-		levelLoaded = true;
-	}
-
 	private void initializeManagers () {
 		LanguageMgr.Initialize ();
 		CameraMgr.Initialize ();
@@ -134,14 +157,15 @@ public class GameManager : TIOMonoBehaviour {
 		readStrategyCards (); //Dependency: Language file
 		ComponentMgr.Initialize (); //Dependency: Language file
 		UnitMgr.Initialize (); //Dependency: Tech file
+		stage = GameStage.ManagersInitialized;
 	}
 
 	private void gameSetup() {
-		//1: Race selection
-		//2: Color selection
-		//3: Set up "common play area" (Action Cards, Political Cards, and Supplement Counters.)
+		//1: Race selection --
+		//2: Color selection --
+		//3: Set up "common play area" (Action Cards, Political Cards, and Supplement Counters.) --
 		//4: Players take their Home System planets.
-		//5: Set up "Trade Supply"
+		//5: Set up "Trade Supply" --
 		//6: Place Strategy Cards in the "common play area"
 		//7: Prepare the Objective Cards
 		//8: Set up Victory Point Track
@@ -149,14 +173,14 @@ public class GameManager : TIOMonoBehaviour {
 		//10: Place setup units and receive starting techs
 		//11: Place starting command counters
 
-		PlayerMgr.InitializePlayers();
-		CardMgr.PrepareObjectives ();
-		PlayerMgr.InitializePlayerComponents ();
+//		CardMgr.PrepareObjectives ();
+//		PlayerMgr.InitializePlayerComponents ();
 //		if (Scenario == Scenario.FallOfTheEmpire) {
 //			string mapName = "fall" + playerCount.ToString() + "p";
 //			BoardMgr.LoadMap (mapName);
+//		} else {
+//
 //		}
-		BoardMgr.LoadMap ("fall4p");
 
 	}
 
@@ -181,4 +205,14 @@ public class GameManager : TIOMonoBehaviour {
 	private void RPC_SetOption(int option, bool boolean) { //can't pass Option via RPC, so it's been cast to an int
 		ActiveOptions [(Option)option] = boolean;
 	}
+
+//	[RPC]
+//	private void RPC_RacesReady() {
+//		readyCount += 1;
+//		Debug.Log (readyCount);
+//		if ((readyCount == playerCount) && NetworkMgr.IsMasterClient()) {
+//			Debug.Log ("GOGOGOGO");
+//			UIMgr.networkView.RPC ("RPC_CloseRaceSelection", PhotonTargets.All);
+//		}
+//	}
 }

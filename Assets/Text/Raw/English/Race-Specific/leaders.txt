@@ -1,5 +1,5 @@
 The L1z1x Mindnet
-2RAM, Diplomat 
+2RAM, Diplomat
 A6, Agent
 I48S, Scientist
 

@@ -43,6 +43,8 @@ public class ComponentManager : TIOMonoBehaviour {
 	
 	private GameManager gameManager;
 
+	public bool ReadyToPlay;
+
 
 	// Use this for initialization
 	void Start () {
@@ -59,7 +61,12 @@ public class ComponentManager : TIOMonoBehaviour {
 			readDomains ();
 		}
 	}
-	
+
+	public void PrepareComponents() {
+		setInitialCounts();
+		ReadyToPlay = true;
+	}
+
 	private void setInitialCounts(){
 		commandCounters = maxCommandCounters;
 		controlMarkers = maxControlMarkers;
@@ -75,12 +82,9 @@ public class ComponentManager : TIOMonoBehaviour {
 		if (gameManager.IsActive (Option.SpaceMines)) {
 			spaceMines = maxSpaceMines;
 		}
-		if (gameManager.IsActive (Option.DistantSuns) || gameManager.IsActive (Option.TheFinalFrontier)) {
-			readDomains ();
-		}
 	}
 
-	public void readDomains() {
+	private void readDomains() {
 		foreach (DomainCounter domain in gameManager.FileMgr.ReadDomainFile ()) {
 			if (gameManager.IsActive (domain.Option)) {
 				maxDomainCounters[domain] = domain.Quantity;

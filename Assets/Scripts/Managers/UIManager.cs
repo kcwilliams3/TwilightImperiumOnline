@@ -63,6 +63,35 @@ public class UIManager : TIOMonoBehaviour {
 		GUILayout.Label("Ping to server: " + PhotonNetwork.GetPing());
 		GUILayout.EndArea ();
 	}
+
+	public void SetRaceChoices(string[] raceChoices) {
+		GameObject raceChoicesWindow = GameObject.Find ("Main Camera").transform.Find ("UI Root (3D)").transform.Find ("Race Menu").transform.Find("Race Choices").gameObject;
+
+		//Enable the correct UI object according to number of choices
+		GameObject raceChoicesObject = raceChoicesWindow.transform.Find(raceChoices.Length.ToString() + " Choices").gameObject;
+		for (int choiceIndex = 0; choiceIndex < raceChoices.Length; choiceIndex++) {
+			GameObject indChoiceObject = raceChoicesObject.transform.FindChild("Choice " + (choiceIndex + 1).ToString()).gameObject;
+			//Set Material/Texture
+			UITexture indChoiceTexture = indChoiceObject.transform.GetChild (0).transform.GetChild(0).GetComponent<UITexture>();
+			Material mat = new Material(indChoiceTexture.material);
+			mat.mainTexture = Resources.Load("Images/Races/Banners/" + raceChoices[choiceIndex].ToString()) as Texture;
+			indChoiceTexture.material = mat;
+			//Set Name
+			Race race = gameManager.PlayerMgr.AddRace(raceChoices[choiceIndex].ToString());
+			UILabel indChoiceLabel = indChoiceObject.transform.GetChild (0).transform.GetChild(1).GetComponent<UILabel>();
+			indChoiceLabel.text = race.FullName;
+			indChoiceObject.GetComponent<ChooseRace>().RaceID = race.Id;
+		}
+		raceChoicesObject.SetActive(true);
+	}
+
+	[RPC]
+	public void RPC_CloseRaceSelection() {
+		gameManager.BoardMgr.PrepareGalaxySetup();
+		GameObject raceMenu = GameObject.Find ("Main Camera").transform.FindChild ("UI Root (3D)").FindChild ("Race Menu").gameObject;
+		raceMenu.SetActive(false);
+		gameManager.SetStage (GameStage.Playing);
+	}
 	
 //	private void gui_MainMenu () {
 //		int buttonWidth = 250;

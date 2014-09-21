@@ -176,7 +176,7 @@ public class FileManager : TIOMonoBehaviour {
 			return systemTexture;
 		} else {
 			//Otherwise, try an english asset
-			directory = "Systems/english/";
+			directory = "Images/Systems/english/";
 			systemTexture = (Texture)Resources.Load (directory + sysID, typeof(Texture));
 			if (systemTexture != null) {
 				//If the english texture exists, we're done
@@ -184,9 +184,9 @@ public class FileManager : TIOMonoBehaviour {
 			} else {
 				//Otherwise, load the relevant system backside
 				if (sysID.Contains("Home System") || sysID.Contains ("Creuss")) {
-					return (Texture)Resources.Load (directory + "/Home System (Back)",typeof(Texture));
+					return (Texture)Resources.Load (directory + "Home System (Back)",typeof(Texture));
 				} else {
-					return (Texture)Resources.Load (directory + "/Regular System (Back)",typeof(Texture));
+					return (Texture)Resources.Load (directory + "Regular System (Back)",typeof(Texture));
 				}
 			}
 		} 

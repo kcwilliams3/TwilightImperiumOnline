@@ -182,7 +182,7 @@ namespace Photon
         {
             get
             {
-                Debug.LogWarning("Why are you still using networkView? should be PhotonView?");
+                //Debug.LogWarning("Why are you still using networkView? should be PhotonView?");
                 return PhotonView.Get(this);
             }
         }
