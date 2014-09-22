@@ -87,6 +87,10 @@ public class BoardManager : TIOMonoBehaviour {
 		gameBoard.SetSystem(GetSystem("Mecatol Rex"), 0, center[0], center[1]);
 
 		repositionBoard(rotation);
+
+		if (gameManager.NetworkMgr.IsMasterClient()) {
+			DealSystems(gameManager.PlayerCount);
+		}
 	}
 
 	private void setHomeSystems() {
@@ -261,11 +265,11 @@ public class BoardManager : TIOMonoBehaviour {
 		}
 	}
 
-	public PlanetSystem[][] DealSystems(int numberOfPlayers) {
-		return DealSystems (numberOfPlayers, false);
+	public void DealSystems(int numberOfPlayers) {
+		DealSystems (numberOfPlayers, false);
 	}
 
-	public PlanetSystem[][] DealSystems(int numberOfPlayers, bool largerGalaxy) {
+	public void DealSystems(int numberOfPlayers, bool largerGalaxy) {
 		//Prepare all systems
 		prepareMaxSystemCounts ();
 		Dictionary<string, ArrayList> availableSystems = accumulateSystems ();
@@ -356,21 +360,21 @@ public class BoardManager : TIOMonoBehaviour {
 		}
 
 		//Deal into separate piles
-		PlanetSystem[][] piles = new PlanetSystem[numberOfPlayers][];
+		string[][] piles = new string[numberOfPlayers][];
 		int systemsPerPile = drawnSystems.Count / numberOfPlayers;
 		int remainder = drawnSystems.Count - (systemsPerPile * numberOfPlayers);
 		for(int pIndex=0; pIndex < piles.Length; pIndex++) {
 			if (remainder > 0) {
-				piles[pIndex] = new PlanetSystem[systemsPerPile + 1];
+				piles[pIndex] = new string[systemsPerPile + 1];
 				remainder--;
 			} else {
-				piles[pIndex] = new PlanetSystem[systemsPerPile];
+				piles[pIndex] = new string[systemsPerPile];
 			}
 		}
 		int pileIndex = 0;
 		int systemIndex = 0;
 		while (drawnSystems.Count > 0) {
-			piles[pileIndex%numberOfPlayers][systemIndex] = gameManager.CardMgr.DrawCard<PlanetSystem>(drawnSystems); 
+			piles[pileIndex%numberOfPlayers][systemIndex] = gameManager.CardMgr.DrawCard<PlanetSystem>(drawnSystems).Name; 
 			pileIndex++;
 			if (pileIndex != 0 && pileIndex % numberOfPlayers == 0) {
 				//Looping back around to first pile, so go to next systemIndex
@@ -378,7 +382,15 @@ public class BoardManager : TIOMonoBehaviour {
 			}
 		}
 
-		return piles;
+		for (int playerIndex=0; playerIndex < gameManager.PlayerCount; playerIndex ++) {
+			if (playerIndex == gameManager.PlayerCount - 1) {
+				// Choices for this player: set on local client
+				RPC_ReceiveSystemChoices(piles[playerIndex]);
+			} else {
+				// Different player: send to the appropriate player
+				gameManager.NetworkMgr.RPCForPlayer("RPC_ReceiveSystemChoices", networkView, playerIndex, piles[playerIndex]);
+			}
+		} 
 	}
 
 	private Dictionary<string, ArrayList> accumulateSystems() {
@@ -409,5 +421,11 @@ public class BoardManager : TIOMonoBehaviour {
 		availableSystems["Regular"] = regularSystems;
 
 		return availableSystems;
+	}
+
+	
+	[RPC]
+	public void RPC_ReceiveSystemChoices(string[] systemChoices) {
+		gameManager.UIMgr.SetSystemChoices (systemChoices);
 	}
 }

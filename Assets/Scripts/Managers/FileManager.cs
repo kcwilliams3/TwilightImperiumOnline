@@ -138,6 +138,10 @@ public class FileManager : TIOMonoBehaviour {
 		return readMapFile (fullPath);
 	}
 
+	public Texture ReadSystemTexture(string sysName, string sysID) {
+		return ReadSystemTexture (sysName, sysID, null);
+	}
+
 	public Texture ReadSystemTexture(string sysName, string sysID, GameObject hexObject) {
 		//RaceID should be the language-independent identifier. (Equivalent to english short name, currently.)
 		//If it's a regular empty system, randomly choose a variant and orientation
@@ -145,7 +149,9 @@ public class FileManager : TIOMonoBehaviour {
 			int variant = ((int)Random.Range (1,3)); //Currently two variants. Not likely to change, so no need to make it a variable.
 			sysID += " " + variant;
 			sysName += " " + variant;
-			hexObject.transform.Rotate(hexObject.transform.up, 60 * (int)Random.Range(0,6));
+			if (hexObject) {
+				hexObject.transform.Rotate(hexObject.transform.up, 60 * (int)Random.Range(0,6));
+			}
 		}
 		else {
 			//Otherwise, change the name & ID into a valid file name
@@ -168,6 +174,7 @@ public class FileManager : TIOMonoBehaviour {
 		//Now try to load the texture
 		string directory = "Systems/" + gameManager.LanguageMgr.Language;
 		Texture systemTexture;
+		Debug.Log(string.Format("Reading {0}... ", directory + "/" + sysName));
 		systemTexture = (Texture)Resources.Load (directory + "/" + sysName, typeof(Texture));
 
 

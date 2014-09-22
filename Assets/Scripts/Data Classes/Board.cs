@@ -117,12 +117,14 @@ public class BoardSection {
 		SystemHex sysHex = hexObject.AddComponent<SystemHex>();
 		hexObject.transform.parent = GameObject.Find("Board").transform;
 		hexObject.transform.Rotate(0.0f, -rotation, 0.0f);
+		hexObject.transform.FindChild("Top").gameObject.SetActive(false);
 		fileManager = GameObject.Find("Manager").GetComponent<FileManager>();
-		Material topMaterial = hexObject.transform.FindChild ("Top").renderer.material;
-		topMaterial.mainTexture = fileManager.ReadSystemTexture("Regular System (Back)", "Regular System (Back)", hexObject);
-		topMaterial.color = new Color(topMaterial.color.r, topMaterial.color.g, topMaterial.color.b, .3f);
+//		Material topMaterial = hexObject.transform.FindChild ("Top").renderer.material;
+//		topMaterial.mainTexture = fileManager.ReadSystemTexture("Regular System (Back)", "Regular System (Back)", hexObject);
+//		topMaterial.color = new Color(topMaterial.color.r, topMaterial.color.g, topMaterial.color.b, .3f);
 		Material sideMaterial = hexObject.renderer.material;
-		sideMaterial.color = new Color(topMaterial.color.r, topMaterial.color.g, topMaterial.color.b, .3f);
+		sideMaterial.mainTexture = fileManager.ReadSystemTexture("System Placeholder", "System Placeholder", hexObject);
+		sideMaterial.color = new Color(1.0f, 0.0f, 0.0f, .3f);
 		hexObject.name = "<Empty System Slot>";
 		return sysHex;
 	}
@@ -158,7 +160,10 @@ public class BoardSection {
 		topMaterial.mainTexture = fileManager.ReadSystemTexture(sys.Name, sys.Id, hex.gameObject);
 		topMaterial.color = new Color(topMaterial.color.r, topMaterial.color.g, topMaterial.color.b, 1.0f);
 		Material sideMaterial = hex.gameObject.renderer.material;
-		sideMaterial.color = new Color(topMaterial.color.r, topMaterial.color.g, topMaterial.color.b, 1.0f);
+		sideMaterial.mainTexture = fileManager.ReadSystemTexture("Empty System 1", "Empty System 1", hex.gameObject);
+		sideMaterial.color = new Color(0.035f, 0.075f, 0.212f, 1.0f);
+		hex.gameObject.transform.FindChild("Top").gameObject.SetActive(true);
+		hex.gameObject.name = hex.System.Name;
 	}
 
 	public SystemHex GetSystem(int row, int col) {
