@@ -83,6 +83,7 @@ public class UIManager : TIOMonoBehaviour {
 			indChoiceObject.GetComponent<ChooseRace>().RaceID = race.Id;
 		}
 		raceChoicesObject.SetActive(true);
+		raceChoicesWindow.transform.parent.gameObject.SetActive(true);
 	}
 
 	[RPC]
