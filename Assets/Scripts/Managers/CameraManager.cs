@@ -82,4 +82,10 @@ public class CameraManager : MonoBehaviour {
 		GameObject backObject = (GameObject)GameObject.Instantiate(BackgroundPrefab, new Vector3(0.0f, -15.0f, 0.0f), Quaternion.identity);
 		backObject.transform.parent = this.transform;
 	}
+
+	public void OnLevelWasLoaded (int level) {
+		if (level == 1) {
+			Initialize ();
+		}
+	}
 }

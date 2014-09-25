@@ -21,6 +21,8 @@ public class FileManager : TIOMonoBehaviour {
 	// Managers
 	private GameManager gameManager;
 
+	Dictionary<string, Texture> textures = new Dictionary<string, Texture>();
+
 	// Need to check directories before Tech Manager starts
 	void Awake() {
 		checkDirectories ("Tools/folders.txt");
@@ -172,10 +174,9 @@ public class FileManager : TIOMonoBehaviour {
 		}
 
 		//Now try to load the texture
-		string directory = "Systems/" + gameManager.LanguageMgr.Language;
+		string directory = "Images/Systems/" + gameManager.LanguageMgr.Language + "/";
 		Texture systemTexture;
-		Debug.Log(string.Format("Reading {0}... ", directory + "/" + sysName));
-		systemTexture = (Texture)Resources.Load (directory + "/" + sysName, typeof(Texture));
+		systemTexture = ReadTexture(directory + sysName);
 
 
 		if (systemTexture != null) {
@@ -184,19 +185,31 @@ public class FileManager : TIOMonoBehaviour {
 		} else {
 			//Otherwise, try an english asset
 			directory = "Images/Systems/english/";
-			systemTexture = (Texture)Resources.Load (directory + sysID, typeof(Texture));
+			systemTexture = ReadTexture(directory + sysID);
 			if (systemTexture != null) {
 				//If the english texture exists, we're done
 				return systemTexture;
 			} else {
 				//Otherwise, load the relevant system backside
 				if (sysID.Contains("Home System") || sysID.Contains ("Creuss")) {
-					return (Texture)Resources.Load (directory + "Home System (Back)",typeof(Texture));
+					return ReadTexture(directory + "Home System (Back)");
 				} else {
-					return (Texture)Resources.Load (directory + "Regular System (Back)",typeof(Texture));
+					return ReadTexture(directory + "Regular System (Back)");
 				}
 			}
 		} 
+	}
+
+	public Texture ReadTexture(string fullPath) {
+		//Check if the file was already read
+		if (textures.ContainsKey(fullPath)) {
+			return textures[fullPath];
+		} else {
+			Debug.Log(string.Format("Reading {0}... ", fullPath));
+			Texture texture = (Texture)Resources.Load(fullPath,typeof(Texture));
+			textures[fullPath] = texture;
+			return texture;
+		}
 	}
 
 	public void ReadLanguageFile() {
@@ -1736,14 +1749,16 @@ public class FileManager : TIOMonoBehaviour {
 		ArrayList sections = new ArrayList ();
 		
 		string line = reader.ReadLine().Trim ();
+		int sectionNumber = 0;
 
 		do {
 			if (line == "<{>") {
 				// Start of an outermost block
-				sections.Add(readMapSection("", line, fileName, reader));
+				sections.Add(readMapSection(sectionNumber, "", line, fileName, reader));
 				
 				if (!reader.EndOfStream) {
 					line = reader.ReadLine().Trim ();
+					sectionNumber += 1;
 				} 
 			}
 		} while (line == "<{>" && !reader.EndOfStream);
@@ -1751,7 +1766,7 @@ public class FileManager : TIOMonoBehaviour {
 		return new Board((BoardSection[])sections.ToArray(typeof(BoardSection)));
 	}
 
-	private BoardSection readMapSection(string dataType, string dataText, string fileName, StreamReader reader) {
+	private BoardSection readMapSection(int sectionNumber, string dataType, string dataText, string fileName, StreamReader reader) {
 		if (dataText == "<{>") {
 			string line = reader.ReadLine().Trim ();
 
@@ -1784,7 +1799,7 @@ public class FileManager : TIOMonoBehaviour {
 				section[i] = (PlanetSystem[])mapGrid[i];
 			}
 
-			return gameManager.BoardMgr.CreateSection(section, columnArray);
+			return gameManager.BoardMgr.CreateSection(sectionNumber, section, columnArray);
 		} else {
 			throw new System.Exception(string.Format("Error reading file {0}:: got \"{1}\" should be <{>", fileName, dataText));
 		}

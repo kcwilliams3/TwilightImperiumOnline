@@ -6,7 +6,7 @@ public enum Expansion {Vanilla, ShatteredEmpire, ShardsOfTheThrone};
 public enum Option {DistantSuns, TheFinalFrontier, TheLongWar, AgeOfEmpire, Leaders, SabotageRuns, SEObjectives, AllObjectives, RaceSpecificTechnologies, Artifacts, ShockTroops, SpaceMines, WormholeNexus, Facilities, TacticalRetreats, TerritorialDistantSuns, CustodiansOfMecatolRex, VoiceOfTheCouncil, SimulatedEarlyTurns, PreliminaryObjectives, Flagships, MechanizedUnits, Mercenaries, PoliticalIntrigue};
 public enum Scenario {StandardGame, FallOfTheEmpire};
 
-public enum GameStage {LoadingLevel, LevelLoaded, InitializingManagers, ManagersInitialized, InitializingOther, Playing, Menus}; 
+public enum GameStage {MainMenus, InitializingManagers, ManagersInitialized, InitializingOther, Playing, Menus}; 
 
 public class GameManager : TIOMonoBehaviour {
 
@@ -27,7 +27,7 @@ public class GameManager : TIOMonoBehaviour {
 	private int playerCount;
 	public int PlayerCount { get { return playerCount; } }
 	
-	GameStage stage = GameStage.LoadingLevel;
+	GameStage stage = GameStage.MainMenus;
 
 	//public int readyCount = 0;
 
@@ -66,12 +66,12 @@ public class GameManager : TIOMonoBehaviour {
 	void Update () {
 		ActiveOptions.Values.CopyTo(activeOptionsDebugValues,0);
 		strategyCards.Values.CopyTo(strategyCardsDebug,0);
-		//Debug.Log (stage);
+
 		// Game setup, early initializations
-		if (stage == GameStage.LevelLoaded) {
+		if (stage == GameStage.MainMenus) {
 			stage = GameStage.InitializingManagers;
-			initializeManagers();
-		} else if (stage == GameStage.ManagersInitialized) {
+			InitializeManagers();
+		} else if (stage == GameStage.ManagersInitialized && Application.loadedLevel == 1) {
 			stage = GameStage.InitializingOther;
 			if (NetworkMgr.IsMasterClient()) {
 				PlayerMgr.InitializePlayers();
@@ -148,9 +148,8 @@ public class GameManager : TIOMonoBehaviour {
 		return strategyCards [initiative];
 	}
 
-	private void initializeManagers () {
+	public void InitializeManagers () {
 		LanguageMgr.Initialize ();
-		CameraMgr.Initialize ();
 		TechMgr.Initialize (); //Dependency: Language file
 		BoardMgr.Initialize (); //Dependency: Language file
 		CardMgr.Initialize (); //Dependency: Language file

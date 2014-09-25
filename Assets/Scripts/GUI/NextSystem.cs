@@ -3,15 +3,15 @@ using System.Collections;
 
 public class NextSystem : MonoBehaviour {
 
-	private UIManager uiManager;
+	public GameObject BotPanelObject;
+	private MapSetup mapSetupUI;
 
 	// Use this for initialization
 	void Start () {
-		GameObject manager = GameObject.Find("Manager");
-		uiManager = manager.GetComponent<UIManager>();
+		mapSetupUI = BotPanelObject.GetComponent<MapSetup>();
 	}
 	
 	void OnClick() {
-		uiManager.NextSystem();
+		mapSetupUI.NextSystem();
 	}
 }

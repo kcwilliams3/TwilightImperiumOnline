@@ -15,7 +15,7 @@ public class BoardManager : TIOMonoBehaviour {
 	//public PlanetSystem center;
 	public PlanetSystem nexus;
 	[SerializeField]
-	private Board gameBoard;
+	public Board GameBoard;
 	private int[] center;
 
 	//Attributes for hex and section creation
@@ -57,7 +57,7 @@ public class BoardManager : TIOMonoBehaviour {
 
 	public void LoadMap(string mapName) {
 		//prepareSystemsDirectory ();
-		gameBoard = gameManager.FileMgr.ReadMapFile (mapName);
+		GameBoard = gameManager.FileMgr.ReadMapFile (mapName);
 		//gameBoard.DisplayForDebug ();
 	}
 	
@@ -80,11 +80,12 @@ public class BoardManager : TIOMonoBehaviour {
 		}
 
 		float rotation = determineBoardRotation();
-		boardSections[0] = new BoardSection(ringCount, boardType, calculateNextOrigin (), center, HexPrefab, hexSize, rotation);
+		Color emptyColor = gameManager.UIMgr.MapSetupUI.Empty;
+		boardSections[0] = new BoardSection(0, ringCount, boardType, calculateNextOrigin (), center, HexPrefab, hexSize, rotation, emptyColor);
 
-		gameBoard = new Board(boardSections);
+		GameBoard = new Board(boardSections);
 		setHomeSystems();
-		gameBoard.SetSystem(GetSystem("Mecatol Rex"), 0, center[0], center[1]);
+		GameBoard.SetSystem(GetSystem("Mecatol Rex"), 0, center[0], center[1]);
 
 		repositionBoard(rotation);
 
@@ -98,7 +99,7 @@ public class BoardManager : TIOMonoBehaviour {
 
 		Player[] players = gameManager.PlayerMgr.GetPlayers();
 		for (int i=0; i < players.Length; i++) {
-			gameBoard.SetSystem(players[i].Race.HomeSystems[0], 0, positions[i][0], positions[i][1]);
+			GameBoard.SetSystem(players[i].Race.HomeSystems[0], 0, positions[i][0], positions[i][1]);
 		}
 	}
 
@@ -107,8 +108,8 @@ public class BoardManager : TIOMonoBehaviour {
 		int playerCount = gameManager.PlayerCount;
 		int[][] positions = new int[playerCount][];
 		if (playerCount == 3) {
-			positions[0] = new int[2] { 0, 0 };
-			positions[1] = new int[2] { 3, 5 };
+			positions[0] = new int[2] { 0, 3 };
+			positions[1] = new int[2] { 3, 6 };
 			positions[2] = new int[2] { 6, 0 };
 		} else if (playerCount == 4) {
 			positions[0] = new int[2] { 0, 2 };
@@ -209,10 +210,7 @@ public class BoardManager : TIOMonoBehaviour {
 	private int[] determineCenter() {
 		// TODO: Will need to extend this for Warp Zone options at some point
 		int[] center = new int[2];
-		if (gameManager.PlayerCount == 3) {
-			center[0] = 3;
-			center[1] = 2;
-		} else if (gameManager.PlayerCount >= 7) {
+		if (gameManager.PlayerCount >= 7) {
 			center[0] = 4;
 			center[1] = 4;
 		} else {
@@ -227,8 +225,8 @@ public class BoardManager : TIOMonoBehaviour {
 		boardObject.transform.RotateAround(boardObject.transform.position, boardObject.transform.up, rotation);
 	}
 
-	public BoardSection CreateSection(PlanetSystem[][] sectionArrays, int[] columnArray) {
-		BoardSection section = new BoardSection (sectionArrays, columnArray, calculateNextOrigin (), HexPrefab, hexSize);
+	public BoardSection CreateSection(int sectionNum, PlanetSystem[][] sectionArrays, int[] columnArray) {
+		BoardSection section = new BoardSection (sectionNum, sectionArrays, columnArray, calculateNextOrigin (), HexPrefab, hexSize);
 		return section;
 	}
 
@@ -244,6 +242,12 @@ public class BoardManager : TIOMonoBehaviour {
 	private void prepareSystemsDirectory() {
 		foreach(PlanetSystem sys in gameManager.FileMgr.ReadSystemFile()) {
 			systems[sys.Name] = sys;
+//			if (sys.Id == "Empty System") {
+//				gameManager.FileMgr.ReadSystemTexture(sys.Name += " 1", "Empty System 1");
+//				gameManager.FileMgr.ReadSystemTexture(sys.Name += " 2", "Empty System 2");
+//			} else {
+//				gameManager.FileMgr.ReadSystemTexture(sys.Name, sys.Id);
+//			}
 		}
 	}
 
@@ -426,6 +430,12 @@ public class BoardManager : TIOMonoBehaviour {
 	
 	[RPC]
 	public void RPC_ReceiveSystemChoices(string[] systemChoices) {
-		gameManager.UIMgr.SetSystemChoices (systemChoices);
+		gameManager.UIMgr.MapSetupUI.SetSystemChoices(systemChoices);
+	}
+
+	[RPC]
+	public void RPC_SetSystem(string sysID, int row, int col) {
+		GameBoard.SetSystem(systems[sysID], 0, row, col);
+		gameManager.UIMgr.MapSetupUI.UpdateMapSetupMenu();
 	}
 }

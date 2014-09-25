@@ -182,5 +182,7 @@ public class NetworkManager : TIOMonoBehaviour {
 		netView.RPC (rpcFunction, PhotonNetwork.otherPlayers [playerIndex], rpcParams);
 	}
 
-
+	public int GetPing() {
+		return PhotonNetwork.GetPing();
+	}
 }

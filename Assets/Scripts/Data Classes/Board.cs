@@ -1,7 +1,9 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public enum BoardType {Hexagon, ThreePlayer, WarpZone};
+public enum HexDirection {North, South, Northeast, Southeast, Northwest, Southwest};
 
 [System.Serializable]
 public class Board {
@@ -19,6 +21,10 @@ public class Board {
 
 	public SystemHex GetSystem(int boardSection, int row, int col) {
 		return hexMap[boardSection].GetSystem(row, col);
+	}
+
+	public BoardSection GetSection(int i) {
+		return hexMap[i];
 	}
 	
 //	public void Recenter(int centerRow, int centerCol) {
@@ -54,25 +60,27 @@ public class BoardSection {
 
 	private float hexSize;
 	private int maxRowSize;
+	private int sectionNumber;
 
-	public BoardSection(int ringCount, BoardType boardType, Vector3 sectionOrigin, int[] pCenter, GameObject pHexPrefab, float pHexSize, float rotation) {
+	public BoardSection(int section, int ringCount, BoardType boardType, Vector3 sectionOrigin, int[] pCenter, GameObject pHexPrefab, float pHexSize, float rotation, Color emptyColor) {
+		sectionNumber = section;
 		origin = sectionOrigin;
 		hexSize = pHexSize;
 		center = pCenter;
 
 		// Determine what column each row starts in, and how large the middle/max length row is
 		if (boardType == BoardType.ThreePlayer) {
-			firstColumns = new int[7] {0, -1, -1, -2, -2, -3, -3};
+			firstColumns = new int[7] {3, 2, 2, 1, 1, 0, 0};
 			maxRowSize = firstColumns.Length-1;
 		} else if (boardType == BoardType.Hexagon) {
 			//Note: This assumes a maximum ring count of 4.
 			firstColumns = new int[1 + (2 * ringCount)];
-			for (int i=0; i < ringCount; i++) {
-				firstColumns[i] = -i;
+			for (int i=ringCount; i >= 0; i--) {
+				firstColumns[ringCount - i] = i;
 			}
 			//All remaining rows start all the way to the left
 			for (int i=ringCount; i < firstColumns.Length; i++) {
-				firstColumns[i] = -ringCount;
+				firstColumns[i] = 0;
 			}
 			maxRowSize = firstColumns.Length;
 		}
@@ -99,9 +107,15 @@ public class BoardSection {
 			}
 			for (int j=0; j < rowLength; j++) {
 				//Create hex object and add systemHex script
-				hexRow1[j] = setEmptyHexSlot(pHexPrefab, GetHexLocation (j,i), rotation);
+				hexRow1[j] = setEmptyHexSlot(pHexPrefab, GetHexLocation (j,i), rotation, emptyColor);
+				hexRow1[j].SetSection(sectionNumber);
+				//Debug.Log("<><><><>: " + i + "    ,     " + j);
+				hexRow1[j].SetPosition(arrayCoordsToAxial(j, i));
 				if (i != hexMap.Length / 2) {
-					hexRow2[j] = setEmptyHexSlot(pHexPrefab, GetHexLocation(j,hexMap.Length - i - 1), rotation);
+					hexRow2[j] = setEmptyHexSlot(pHexPrefab, GetHexLocation(j,hexMap.Length - i - 1), rotation, emptyColor);
+					hexRow2[j].SetSection(sectionNumber);
+					//Debug.Log("<><><><>: " + (hexMap.Length - i - 1) + "    ,     " + j);
+					hexRow2[j].SetPosition(arrayCoordsToAxial(j, hexMap.Length - i - 1));
 				}
 			}
 
@@ -112,7 +126,7 @@ public class BoardSection {
 		}
 	}
 
-	private SystemHex setEmptyHexSlot(GameObject hexPrefab, Vector3 hexLocation, float rotation) {
+	private SystemHex setEmptyHexSlot(GameObject hexPrefab, Vector3 hexLocation, float rotation, Color emptyColor) {
 		GameObject hexObject = (GameObject)GameObject.Instantiate(hexPrefab, hexLocation, Quaternion.identity);
 		SystemHex sysHex = hexObject.AddComponent<SystemHex>();
 		hexObject.transform.parent = GameObject.Find("Board").transform;
@@ -124,12 +138,15 @@ public class BoardSection {
 //		topMaterial.color = new Color(topMaterial.color.r, topMaterial.color.g, topMaterial.color.b, .3f);
 		Material sideMaterial = hexObject.renderer.material;
 		sideMaterial.mainTexture = fileManager.ReadSystemTexture("System Placeholder", "System Placeholder", hexObject);
-		sideMaterial.color = new Color(1.0f, 0.0f, 0.0f, .3f);
+		emptyColor.a = 0.3f;
+		sideMaterial.color = emptyColor;
 		hexObject.name = "<Empty System Slot>";
+		sysHex.IsValidPlacement = false;
 		return sysHex;
 	}
 
-	public BoardSection(PlanetSystem[][] inMap, int[] inFirstColumns, Vector3 sectionOrigin, GameObject pHexPrefab, float pHexSize) {
+	public BoardSection(int section, PlanetSystem[][] inMap, int[] inFirstColumns, Vector3 sectionOrigin, GameObject pHexPrefab, float pHexSize) {
+		sectionNumber = section;
 		origin = sectionOrigin;
 		maxRowSize = inMap [inMap.Length / 2].Length/2;
 		hexSize = pHexSize;
@@ -142,6 +159,8 @@ public class BoardSection {
 				GameObject hexObject = (GameObject)GameObject.Instantiate(pHexPrefab, GetHexLocation (j,i), Quaternion.identity);
 				SystemHex sysHex = hexObject.AddComponent<SystemHex>();
 				sysHex.System = inMap[i][j];
+				sysHex.SetSection(sectionNumber);
+				sysHex.SetPosition(arrayCoordsToAxial(i, j));
 				hexObject.transform.parent = GameObject.Find("Board").transform;
 				fileManager = GameObject.Find("Manager").GetComponent<FileManager>();
 				hexObject.transform.FindChild("Top").renderer.material.mainTexture = fileManager.ReadSystemTexture(inMap[i][j].Name, inMap[i][j].Id, hexObject);
@@ -153,8 +172,13 @@ public class BoardSection {
 	}
 
 	public void SetSystem(PlanetSystem sys, int row, int col) {
-		SystemHex hex = hexMap[row][col];
+		//Debug.Log (row + "   ,   " + col + " :::::: " + hexMap.Length + " ::::::::::: " + hexMap[row].Length);
+		Vector2 arrayCoords = axialToArrayCoords(col, row);
+		//Debug.Log (arrayCoords.x + "   ,   " + arrayCoords.y);
+		SystemHex hex = hexMap[(int)arrayCoords.x][(int)arrayCoords.y];
 		hex.System = sys;
+		hex.SetSection(sectionNumber);
+		hex.SetPosition(new Vector2(row, col));
 		fileManager = GameObject.Find("Manager").GetComponent<FileManager>();
 		Material topMaterial = hex.gameObject.transform.FindChild ("Top").renderer.material;
 		topMaterial.mainTexture = fileManager.ReadSystemTexture(sys.Name, sys.Id, hex.gameObject);
@@ -164,6 +188,13 @@ public class BoardSection {
 		sideMaterial.color = new Color(0.035f, 0.075f, 0.212f, 1.0f);
 		hex.gameObject.transform.FindChild("Top").gameObject.SetActive(true);
 		hex.gameObject.name = hex.System.Name;
+
+		if (sys.isSpecial()) {
+			foreach (SystemHex iterHex in HexesInRadius(hex.GetPosition(), 1)) {
+				iterHex.NextToSpecial = true;
+			}
+		}
+		hex.IsValidPlacement = false;
 	}
 
 	public SystemHex GetSystem(int row, int col) {
@@ -187,7 +218,7 @@ public class BoardSection {
 	public Vector3 GetHexLocation(int q, int r) {
 		//Convert array coords to axial coords
 		Vector2 axial = arrayCoordsToAxial(q, r);
-		Vector2 centerAxial = arrayCoordsToAxial(center[1], center[0]);
+		Vector2 centerAxial = arrayCoordsToAxial(center[0], center[1]);
 		//Calculate locations local to the board section
 		float boardLocalX = (3f / 2) * (hexSize / 2) * axial.x;
 		float boardLocalY = (float)Math.Sqrt (3.0f) * (hexSize / 2) * (axial.y + (axial.x / 2));
@@ -220,10 +251,184 @@ public class BoardSection {
 	}
 
 	private Vector2 axialToArrayCoords(int q, int r) {
-		return new Vector2 (q - firstColumns [r], r);
+		Debug.Log (r);
+		return new Vector2 (r, q - firstColumns [r]);
 	}
 
 	private Vector2 arrayCoordsToAxial(int q, int r) {
-		return new Vector2 (q + firstColumns [r], r - maxRowSize);
+//		foreach(int col in firstColumns) {
+//			Debug.Log (col);
+//		}
+		//return new Vector2 (r - maxRowSize, q + firstColumns [r]);
+		//Debug.Log (firstColumns [r] + " ::: " + maxRowSize + " ::: ");
+		//Debug.Log (r + " ::: " + q + firstColumns [r] + " ::: ");
+		return new Vector2 (r, q + firstColumns [r]);
 	}
+
+	public IEnumerable<SystemHex> Ring(int radius) {
+		foreach(SystemHex hex in HexesInRadius(new Vector2(center[0], center[1]), radius)) {
+			yield return hex;
+		}
+	}
+
+	public IEnumerable<SystemHex> HexesInRadius(Vector2 coords, int radius) {
+//		List<SystemHex> hexes = new List<SystemHex>();
+
+		//Start by getting the hex cardinal directions. These form the "corners" of the radius
+		Vector2 north = GetCoordsAtDistance(coords, radius, HexDirection.North);
+		Vector2 south = GetCoordsAtDistance(coords, radius, HexDirection.South);
+		Vector2 northeast = GetCoordsAtDistance(coords, radius, HexDirection.Northeast);
+		Vector2 northwest = GetCoordsAtDistance(coords, radius, HexDirection.Northwest);
+		Vector2 southeast = GetCoordsAtDistance(coords, radius, HexDirection.Southeast);
+		Vector2 southwest = GetCoordsAtDistance(coords, radius, HexDirection.Southwest);
+
+//		Vector2[] corners = new Vector2[6] {north, south, northeast, northwest, southeast, southwest};
+//
+////		foreach(Vector2 corner in corners) {
+////			if ((
+////		}
+
+		//Now traverse the "ring", corner to corner, adding each hex as we go
+		//	South to Southeast
+		Vector2 check = new Vector2(south.x, south.y);
+		Vector2 next;
+		while(!((check.x == southeast.x) && (check.y == southeast.y))) {
+			if (IsInBounds(check)) {
+				Vector2 arrayCoords = axialToArrayCoords((int)check.y, (int)check.x);
+				//Debug.Log (arrayCoords.x + " , " + arrayCoords.y);
+				yield return hexMap[(int)arrayCoords.x][(int)arrayCoords.y];
+			}
+			next = GetNeighbor(check, HexDirection.Northeast);
+			check.x = next.x;
+			check.y = next.y;
+		}
+		//	Southeast to Northeast
+		while(!((check.x == northeast.x) && (check.y == northeast.y))) {
+			//Debug.Log (check.y + " ,,, " + check.x);
+			if (IsInBounds(check)) {
+				Vector2 arrayCoords = axialToArrayCoords((int)check.y, (int)check.x);
+				//Debug.Log (arrayCoords.x + " , " + arrayCoords.y);
+				yield return hexMap[(int)arrayCoords.x][(int)arrayCoords.y];
+			}
+			next = GetNeighbor(check, HexDirection.North);
+			check.x = next.x;
+			check.y = next.y;
+		}
+		//	Northeast to North
+		while(!((check.x == north.x) && (check.y == north.y))) {
+			if (IsInBounds(check)) {
+				Vector2 arrayCoords = axialToArrayCoords((int)check.y, (int)check.x);
+				//Debug.Log (arrayCoords.x + " , " + arrayCoords.y);
+				yield return hexMap[(int)arrayCoords.x][(int)arrayCoords.y];
+			}
+			next = GetNeighbor(check, HexDirection.Northwest);
+			check.x = next.x;
+			check.y = next.y;
+		}
+		//	North to Southwest
+		while(!((check.x == northwest.x) && (check.y == northwest.y))) {
+			if (IsInBounds(check)) {
+				Vector2 arrayCoords = axialToArrayCoords((int)check.y, (int)check.x);
+				//Debug.Log (arrayCoords.x + " , " + arrayCoords.y);
+				yield return hexMap[(int)arrayCoords.x][(int)arrayCoords.y];
+			}
+			next = GetNeighbor(check, HexDirection.Southwest);
+			check.x = next.x;
+			check.y = next.y;
+		}
+		//	Southwest to Southeast
+		while(!((check.x == southwest.x) && (check.y == southwest.y))) {
+			if (IsInBounds(check)) {
+				Vector2 arrayCoords = axialToArrayCoords((int)check.y, (int)check.x);
+				//Debug.Log (arrayCoords.x + " , " + arrayCoords.y);
+				yield return hexMap[(int)arrayCoords.x][(int)arrayCoords.y];
+			}
+			next = GetNeighbor(check, HexDirection.South);
+			check.x = next.x;
+			check.y = next.y;
+		}
+		//	Southwest to South
+		while(!((check.x == south.x) && (check.y == south.y))) {
+			if (IsInBounds(check)) {
+				Vector2 arrayCoords = axialToArrayCoords((int)check.y, (int)check.x);
+				//Debug.Log (arrayCoords.x + " , " + arrayCoords.y);
+				yield return hexMap[(int)arrayCoords.x][(int)arrayCoords.y];
+			}
+			next = GetNeighbor(check, HexDirection.Southeast);
+			check.x = next.x;
+			check.y = next.y;
+		}
+
+//		SystemHex[] hexArray = new SystemHex[hexes.Count];
+//		hexes.CopyTo(hexArray, 0);
+//		return hexArray;
+	}
+
+//	private void addHexIfExists(Vector2 axialCoords, List<SystemHex> hexes) {
+//		Vector2 arrayCoords = axialToArrayCoords((int)axialCoords.y, (int)axialCoords.x);
+//		if (IsInBounds(axialCoords)) {
+//			hexes.Add(hexMap[(int)arrayCoords.x][(int)arrayCoords.y]);
+//		}
+//	}
+
+	public bool IsInBounds(Vector2 axialCoords) {
+		Vector2 arrayCoords = axialToArrayCoords((int)axialCoords.y, (int)axialCoords.x);
+		return ((0 <= arrayCoords.x) && (arrayCoords.x < hexMap.Length) && (0 <= arrayCoords.y) && (arrayCoords.y < hexMap [(int)arrayCoords.x].Length));
+	}
+
+	public static Vector2 GetNeighbor(Vector2 coords, HexDirection dir) {
+		return GetCoordsAtDistance(coords, 1, dir);
+	}
+
+	public static Vector2 GetCoordsAtDistance(Vector2 coords, int distance, HexDirection dir) {
+		switch(dir) {
+			case HexDirection.North:
+				return getNorth(coords, distance);
+			case HexDirection.South:
+				return getSouth(coords, distance);
+			case HexDirection.Northeast:
+				return getNortheast(coords, distance);
+			case HexDirection.Northwest:
+				return getNorthwest(coords, distance);
+			case HexDirection.Southwest:
+				return getSouthwest(coords, distance);
+			case HexDirection.Southeast:
+				return getSoutheast(coords, distance);
+			default:
+				return new Vector2();
+		}
+	}
+
+	private static Vector2 getNorth(Vector2 coords, int distance) {
+		return new Vector2(coords.x - distance, coords.y);
+	}
+
+	private static Vector2 getSouth(Vector2 coords, int distance) {
+		return new Vector2(coords.x + distance, coords.y);
+	}
+
+	private static Vector2 getNorthwest(Vector2 coords, int distance) {
+		return new Vector2(coords.x, coords.y - distance);
+	}
+
+	private static Vector2 getSoutheast(Vector2 coords, int distance) {
+		return new Vector2(coords.x, coords.y + distance);
+	}
+
+	private static Vector2 getNortheast(Vector2 coords, int distance) {
+		return new Vector2(coords.x - distance, coords.y + distance);
+	}
+
+	private static Vector2 getSouthwest(Vector2 coords, int distance) {
+		return new Vector2(coords.x + distance, coords.y - distance);
+	}
+
+//	public bool IsNeighbor(SystemHex origin, SystemHex neighborCheck) {
+//		SystemHex[] neighbors = GetHexesInRadius(origin.GetPosition(), 1);
+//		foreach(SystemHex hex in neighbors){
+//			if (hex == neighborCheck) {
+//
+//			}
+//		}
+//	}
 }

@@ -23,7 +23,7 @@ public class ChooseRace : TIOMonoBehaviour {
 	
 	void OnClick () {
 		if (availability.color == colorScript.available) {
-			gameManager.PlayerMgr.networkView.RPC("RPC_AddPlayer", PhotonTargets.All, gameManager.NetworkMgr.PlayerName, RaceID, colorSwatch.color.r, colorSwatch.color.g, colorSwatch.color.b);
+			gameManager.PlayerMgr.networkView.RPC("RPC_AddPlayer", PhotonTargets.AllViaServer, gameManager.NetworkMgr.PlayerName, RaceID, colorSwatch.color.r, colorSwatch.color.g, colorSwatch.color.b);
 		}
 	}
 }

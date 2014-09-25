@@ -130,7 +130,7 @@ public class PlayerManager : TIOMonoBehaviour {
 		//Create a player instance with the newly added race
 		players[playerString] = new Player (playerString, race, new Color(colorR, colorG, colorB));
 		if (gameManager.PlayerMgr.PlayerCount == gameManager.PlayerCount && gameManager.NetworkMgr.IsMasterClient()) {
-			gameManager.networkView.RPC ("RPC_CloseRaceSelection", PhotonTargets.All);
+			gameManager.networkView.RPC ("RPC_CloseRaceSelection", PhotonTargets.AllViaServer);
 		}
 
 		return players[playerString];

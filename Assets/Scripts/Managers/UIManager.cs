@@ -27,10 +27,8 @@ public class UIManager : TIOMonoBehaviour {
 
 	Vector2 scrollPosition = Vector2.zero;
 
-	[SerializeField]
-	private PlanetSystem[] systemChoices;
-	private int currentSysChoice;
-	
+	public MapSetup MapSetupUI;
+
 	// Use this for initialization
 	void Start () {
 		GameObject manager = GameObject.Find ("Manager");
@@ -90,78 +88,15 @@ public class UIManager : TIOMonoBehaviour {
 		raceChoicesWindow.transform.parent.gameObject.SetActive(true);
 	}
 
-	public void SetSystemChoices(string[] systemNames) {
-		systemChoices = new PlanetSystem[systemNames.Length];
-		for (int i = 0; i < systemNames.Length; i++) {
-			systemChoices[i] = gameManager.BoardMgr.GetSystem(systemNames[i]);
-		}
-		currentSysChoice = 0;
-
-		GameObject mapSetupMenu = GameObject.Find ("Main Camera").transform.Find ("UI Root (3D)").transform.Find ("Bottom Panel").transform.Find("Map Setup Menu").gameObject;
-
-		UpdateMapSetupMenu();
-
-		mapSetupMenu.SetActive(true);
-	}
-
-	public void NextSystem() {
-		if (currentSysChoice < systemChoices.Length-1) {
-			currentSysChoice += 1;
-			UpdateMapSetupMenu();
-		}
-	}
-
-	public void PrevSystem() {
-		if (currentSysChoice > 0) {
-			currentSysChoice -= 1;
-			UpdateMapSetupMenu();
-		}
-	}
-
-	public void UpdateMapSetupMenu() {
-		GameObject mapSetupMenu = GameObject.Find ("Main Camera").transform.Find ("UI Root (3D)").transform.Find ("Bottom Panel").transform.Find("Map Setup Menu").gameObject;
-		UITexture previousTex = mapSetupMenu.transform.FindChild("Previous").GetChild(0).GetChild(0).GetComponent<UITexture>();
-		UITexture nextTex = mapSetupMenu.transform.FindChild("Next").GetChild(0).GetChild(0).GetComponent<UITexture>();
-		UITexture selectedTex = mapSetupMenu.transform.FindChild("Selected System").GetChild(0).GetComponent<UITexture>();
-
-		string systemName;
-		if (currentSysChoice == 0) {
-			systemName = "System Placeholder"; 
-		} else {
-			systemName = systemChoices[currentSysChoice - 1].Name;
-		}
-		Material mat = new Material(previousTex.material);
-		mat.mainTexture = gameManager.FileMgr.ReadSystemTexture(systemName, systemName);
-		previousTex.material = mat;
-		if (currentSysChoice == systemChoices.Length-1) {
-			systemName = "System Placeholder"; 
-		} else {
-			systemName = systemChoices[currentSysChoice + 1].Name;
-		}
-		mat = new Material(nextTex.material);
-		mat.mainTexture = gameManager.FileMgr.ReadSystemTexture(systemName, systemName);
-		nextTex.material = mat;
-		mat = new Material(selectedTex.material);
-		mat.mainTexture = gameManager.FileMgr.ReadSystemTexture(systemName, systemChoices[currentSysChoice].Name);
-		selectedTex.material = mat;
-//
-//		previousTex.MarkAsChanged();
-//		nextTex.MarkAsChanged();
-//		selectedTex.MarkAsChanged();
-
-		mapSetupMenu.transform.parent.gameObject.GetComponent<UIPanel>().alpha = 0.9f;
-		mapSetupMenu.transform.parent.gameObject.GetComponent<UIPanel>().alpha = 1.0f;
-	}
-
 	[RPC]
 	public void RPC_CloseRaceSelection() {
 		gameManager.BoardMgr.PrepareGalaxySetup();
 
 		GameObject raceMenu = GameObject.Find ("Main Camera").transform.FindChild ("UI Root (3D)").FindChild ("Race Menu").gameObject;
-		GameObject bottomMenu = GameObject.Find ("Main Camera").transform.FindChild ("UI Root (3D)").FindChild ("Bottom Panel").gameObject;
+		GameObject bottomBackground = GameObject.Find ("Main Camera").transform.FindChild ("UI Root (3D)").FindChild ("Bottom Panel").FindChild("Background").gameObject;
 
 		raceMenu.SetActive(false);
-		bottomMenu.SetActive(true);
+		bottomBackground.SetActive(true);
 		gameManager.SetStage (GameStage.Playing);
 	}
 }
